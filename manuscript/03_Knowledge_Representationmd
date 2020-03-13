@@ -1,0 +1,605 @@
+
+
+# Knowledge Representation
+
+AI applications are based on knowledge. Therefore, a central question to all AI applications is how to represent the knowledge relevant for the application domain. 
+
+Inspired by one of my own projects, the [digital collection](https://sammlung.staedelmuseum.de) of one of the leading arts museums in Germany, I will use arts as the sample application domain for this chapter and the remainder of the book.
+
+See Fig. 3.1.
+
+![Fig. 3.1: Michelangelo (1475 – 1564): Creation of Adam, Sistine Chapel, Rome, Italy](images/Michelangelo-Creation_of_Adam.jpg)
+
+%% (Image source: Wikimedia)
+
+Relevant questions for knowledge representation are:
+
+- How to *represent knowledge*, e.g., "Michelangelo is a Renaissance artist"
+- How to *reason over knowledge*, e.g., "Someone who has created paintings is an artist"
+- How to *answer questions*, e.g., "Which Renaissance artists lived in Italy?"
+
+
+
+
+
+## Ontology
+
+In this book, I use the term "ontology" for represented knowledge with the following definition.
+
+An *ontology* is the representation of knowledge of a particular application domain, i.e., a *representation of the relevant concepts and their relationships*.  
+
+The term "ontology" was originally coined in philosophy and is now also used in Computer Science. See, e.g., (Busse et al., 2015).
+Let us look at some specific examples of knowledge about arts (Fig. 3.2).
+
+
+![Fig. 3.2: Examples of arts facts](images/Arts_Fact_Examples.png)
+
+Those pieces of knowledge are represented informally as English sentences. Parts of those sentences are marked with different colors. The terms "artist", "painting", "sculpture", and "artistic movement" are marked red (solid lines). They represent concept types a.k.a *classes*. The terms with dashed red lines are concept instances a.k.a. *individuals*: "Michelangelo" is an artist, "Creation of Adam" is a painting, "David" is a sculpture, and "Renaissance" is an artistic movement. Marked in blue are *relationships*: Michelangelo "created" David as well as Creation of Adam and he "belonged to" the High Renaissance movement. Finally, marked in green are general *rules*: Every individual who has created a painting is a painter; every individual belonging to the class painter also belongs to the class artist. 
+
+See Fig. 3.3.
+
+![Fig. 3.3: Ontology facts and ontology schema](images/Ontology_Meta_Concepts.png)
+
+An ontology consists of *facts* and an ontology *schema*. Facts are based on the schema. Facts are individuals (concept instances, e.g., Michelangelo) and concrete relationships between those individuals (e.g., Michelangelo created David; dashed lines in the figure). The schema specifies the type level (solid lines in the figure). Classes are the concept types for individuals (e.g., artist for Michelangelo). Relationship types, e.g., "created" define the kinds of relationships that can be specified between individuals. Finally, *rules* are part of an ontology schema. 
+
+An ontology of some form is in the center of many AI applications.
+Extending the ontology, i.e., adding new concepts, means extending the AI application. 
+
+%% TODO: Explain vocabulary / taxonomy / ontology - what's the difference?
+
+
+
+### Ontology reasoning
+
+An ontology is more powerful than a traditional relational database. In addition to the knowledge that is stated explicitly, knowledge may be derived via *reasoning*.
+
+Consider the following explicitly stated facts and rules:
+
+-	Michelangelo is a person.
+-	Michelangelo has created the painting „Creation of Adam“.
+-	Every person that has created a painting is a painter.
+
+From this explicitly stated knowledge, the following fact may be derived via reasoning:
+
+-	Michelangelo is a painter.
+
+
+
+X> I leave it to the reader to find an explanation why the reasoning result is, in fact, correct. Take a while to think about it. What is the intuitive, common sense, explanation? Can you also formulate the explanation more formally? How would a computer program (a reasoning engine) have to be constructed in order to derive the new fact automatically?
+
+Implementing a reasoning engine is beyond the scope of this book.  This book focuses on engineering AI applications using off-the-shelf components like a reasoning engine (Much like a book on engineering JavaEE applications will not explain how the Java compiler is implemented). For further reading refer, e.g., to (Russell and Norvig, 2013).
+
+
+
+### Ontology Querying
+
+Knowledge representation is no end in itself but a means to an end: answering relevant questions of the application domain. Therefore, ontology engines include a query interface that allow to formulate queries and retrieve results.
+
+Consider the following questions and answers regarding the facts specified above:
+
+- Q1: Who has painted "Creation of Adam"? A1: Michelangelo
+- Q2: Has Michelangelo painted "Creation of Adam"? A2: Yes
+- Q3: Is Michelangelo a painter? A3: Yes
+- Q4: Which painters exist? A4: Michelangelo (and more painters, according to the facts specified)
+
+The four questions are of different nature.
+
+Q1 (Who has painted "Creation of Adam"?) can be answered by matching an explicitly stated fact (Michelangelo painted „Creation of Adam“) and returning the matching individual ("Michelangelo").
+
+Q2 (Has Michelangelo painted "Creation of Adam"?) is similar but expects a Boolean answer (here: Yes).
+
+Q3 (Is Michelangelo a painter?) also expects a Boolean answer but cannot be answered by simply matching explicitly stated facts. Instead, ontology reasoning is required to derive the answer: Michelangelo is a person and painted „Creation of Adam“; every person who has created a painting is a painter => Michelangelo is a painter. Hence, the answer is yes.
+
+Q4 (Which painters exist?) also involves reasoning but expects a set of individuals as an answer. In case the ontology only contained the facts mentioned above then the result would, indeed, be just {Michelangelo}. If, however, paintings by Raphael, Leonardo da Vinci, etc. were listed then the set would contain those artists as well.
+
+
+
+
+
+### Open versus Closed World Assumption
+
+Q4 (Which painters exist?) leads to an interesting question: How to ensure that the ontology is complete, i.e., actually contains all painters?
+
+In an ontology for our solar system it is relatively easy to list all planets (even though the definition of what is a planet may change over time: Pluto is, today, considered a dwarf planet only). In contrast, for the arts ontology it is next to impossible to list all painters that ever lived. Many of them are not known anymore. And who should decide who was a "real" painter and who just scribbled a few sketches?
+
+Other critical questions are counting questions (How many painters exist?) and negated questions (Which painters have not created a sculpture?).  The answers to those questions may be wrong if the ontology is incomplete -- even if all facts in the ontology are, indeed, correct.
+
+Therefore, the correct interpretation of ontology query results depends on assumptions that we make on the completeness of the ontology[^fn-uncertainty]. 
+
+[^fn-uncertainty]: The situation is, of course, further complicated if we even cannot assume that the specified facts are correct.  There are various approaches for dealing with uncertainty (see (Russell and Norvig, 2013)). In practice, it is advisable to try to avoid this situation by quality assurance measures if at all possible.
+
+In the *Closed World Assumption (CWA)* it is assumed that the ontology is complete. This is a comfortable situation and makes the interpretation of query results easy. Assume e.g., that  the arts ontology is restricted to one particular museum and is complete (closed world assumption). In this case, the answer to Q4 (Which painters exist?) may be "There are exactly the painters X,Y,Z for which we currently have paintings in our museum"; the counting query (How many painters are there?) may be answered "There are exactly n painters currently exhibiting in our museum"; the answer to the negated query (Which painters have not created a sculpture?) can be answered as "For painters X,Y,Z we have currently no sculpture in our exhibition".
+
+In the *Open World Assumption (OWA)* it is assumed that the ontology is not complete and new  findings may be added as facts at any time. This does not mean that questions about enumerations, counting, and negations cannot be asked at all. However, the results must be interpreted differently than in the CWA. For example, the result to Q4 (Which painters exist?) can be interpreted as "painters that we know of ..." instead of "all painters ..."; The result of the counting question (How many painters are there?) can be interpreted as "there are at least n painters that we know of"; the answer to the negated question (Which painters have not created a sculpture?) may be interpreted as "for painters X,Y,Z there is currently no sculpture known". 
+
+The distinction between OWA and CWA is not technical - it is a matter of business application logic! It is about interpreting the results of an ontology query adequately. When developing an AI application it is essential to figure out under which assumption the ontology has been constructed in order to interpret results adequately.   
+
+
+## Knowledge Representation Approaches
+
+In the last sections, I introduced ontologies, ontology reasoning and querying informally. In order to use knowledge in an AI application one needs concrete formalisms and implementations of such formalisms. In this section, I briefly mention important knowledge representation formalisms. They have been developed over the years in AI research and they are, today, more or less used in practice. For more details see (Russell and Norvig, 2013). 
+
+### Predicate Logic
+
+*Predicate logic* is a mathematical formalism which is the foundation of many knowledge representation formalisms. 
+Facts and rules are specified in form of predicates, quantifiers and Boolean operations. In the following example, `painted(p, x)` and `painter(p)` are predicates; The universal quantifier ("for all", denoted as an inverted letter "A") and the existential quantifier ("there exists", denoted as a rotated letter "E") are used; As a Boolean operation, the implication ("if ... then", denoted as an arrow) is used.
+
+See Fig. 3.4.
+
+![Fig. 3.4: Predicate logic](images/Predicate_Logic.png)
+
+Interpretation: Michelangelo painted "Creation of Adam"; Every person who painted something is a painter.
+
+
+### Frames
+
+*Frames* is a knowledge representation mechanism which influenced early object-orientation and, hence, is familiar to most software engineers today. 
+
+See Fig. 3.5 for an example.
+
+![Fig. 3.5: Frame example](images/Frames.png)
+
+Interpretation: Michelangelo is a Person, born 1475 in Italy. "Creation of Adam" is a painting by Michelangelo.
+In frame systems, rules and reasoning can be implemented algorithmically in form of if-needed / if-added actions.
+
+
+### Semantic Nets
+
+*Semantic nets* have been popular because of their intuitive graphical representation.
+In Fig. 3.6, individuals are represented as oval shapes, and relationships as arrows. 
+
+
+![Fig. 3.6: Semantic net example](images/Semantic_Nets.png)
+
+Interpretation: Michelangelo was born in Italy and created the painting "Creation of Adam".
+
+
+
+### Rules
+
+In rule-based languages, knowledge is expressed in form of facts and rules.
+In the following example (Fig. 3.7), `instance-of` and `painted` are predicates, `?p` and `?x` are variables, `person` and `painter` are classes, and `-->` denotes an implication.
+The two conditions on the left side of the implication are implicitly conjunctive, i.e.,  connected by the Boolean AND operator.
+
+
+![Fig. 3.7: Rules](images/Rules.png)
+
+Interpretation: If ?p is a person who painted something then ?p is a painter.
+
+
+### General-Purpose Data Stores
+
+Rarely described in AI literature but commonly used in AI applications in practice are general-purpose data stores. Examples are relational databases and NoSQL databases including object databases, graph databases, key-value stores, search indexes and document stores. 
+
+I have co-edited a book on Corporate Semantic Web (Ege et al., 2015) in which 18 AI applications are presented which are in corporate use. More than half of the applications use general-purpose data stores for representing application knowledge. 
+The architects of those applications made this decision due to performance reasons, ease of use, and for better integration into the corporate IT application landscape.
+
+
+
+## Semantic Web Standards
+
+In the following sections I introduce RDF and SPARQL as sample languages and technologies for knowledge representation. Those languages have been standardized by the World Wide Web Consortium (W3C) as part of the [Semantic Web initiative](http://www.w3.org/2001/sw/) and have gained some use in practice. I use those languages for examples in this book. However, neither the W3C standards nor other knowledge representation mechanisms and technologies can be considered as *the* de facto standard in today's AI applications. 
+
+
+### Resource Description Framework (RDF)
+
+
+[RDF](http://www.w3.org/RDF/) stands for Resource Description Framework. RDF as well as the languages [RDFS](https://www.w3.org/2001/sw/wiki/RDFS) and [OWL](https://www.w3.org/2001/sw/wiki/OWL) built on top of RDF are based on predicate logic and semantic nets. 
+
+I will explain RDF briefly. For a good, practice-oriented introduction see (Allemang and Hendler, 2011).
+
+
+
+#### Resources and URIs
+
+An *RDF resource* represents anything which is relevant in an application domain, e.g., the individual "Michelangelo", the class "Painter", the relationship type "created", etc.
+
+In RDF, every resource is identified by a *Uniform Resource Identifier* ([URI](http://www.w3.org/TR/webarch/#identification)).
+
+Example:
+
+    <http://dbpedia.org/resource/Michelangelo>
+
+#### RDF Namespaces
+
+*Qualified names* introduce namespaces to URIs in order to reduce typing effort, to increase readability, and to avoid name clashes.
+
+Example of the URI above with qualified names:
+
+    @prefix dbpedia: <http://dbpedia.org/resource/> .
+    dbpedia:Michelangelo
+
+
+%% ![](images/RDF_Namespaces.png)
+
+
+#### RDF Triples
+
+The main construct for specifying facts in RDF is a *triple* consisting of *subject, predicate*, and *object*. Subject and predicate must be RDF resources. The object may be an RDF resource but may also be a literal value in form of an [XML data type](http://www.w3.org/TR/webarch/#formats). 
+
+Examples:
+
+    dbpedia:Michelangelo rdfs:label "Michelangelo"@en .
+    dbpedia:Michelangelo dbpedia-owl:birthDate "1475-03-06+02:00"^^xsd:date .
+    dbpedia:Michelangelo dbpedia-owl:movement dbpedia:Renaissance .
+
+In the first example triple, the subject is `dbpedia:Michelangelo`, the predicate `rdfs:label` and the object `"Michelangelo"@en`. Every triple must be terminated by a period.
+
+Fig. 3.8 shows the example triples displayed as a semantic net.
+
+![Fig. 3.8: RDF triples displayed as a semantic net](images/RDF_Triples.png)
+
+The triples may be read as: Michelangelo was born on 1475/03/06 and belongs to the artistic movement of Renaissance. In English applications, he is labeled "Michelangelo" (in other languages, other spellings may be preferred). 
+
+To avoid repeating the subject `dbpedia:Michelangelo` three times, an abbreviated notation may be used. The subject is stated only once and the triples with the same subject are combined via semicolons. A period terminates the group of triples.
+
+The following example is semantically identical to the three triples above.   
+
+
+    dbpedia:Michelangelo rdfs:label "Michelangelo"@en ;
+      dbpedia-owl:birthDate "1475-03-06+02:00"^^xsd:date ;
+      dbpedia-owl:movement dbpedia:Renaissance .
+
+
+#### Classes
+
+Classes represent concept types and are defined by RDF triples with  `rdf:type` as predicate and `rdfs:Class` as object.
+
+Example:
+
+    dbpedia-owl:Person rdf:type rdfs:Class .
+
+Meaning: Person is a class.
+
+Individuals, i.e. concept instances, are specified by RDF triples with `rdf:type` as predicate and the class as object.
+
+Example:
+
+    dbpedia:Michelangelo rdf:type dbpedia-owl:Person .
+
+Meaning: Michelangelo is a person.
+
+
+#### Properties
+
+A relationship type is defined as an RDF property.
+
+Example:
+
+    dbpedia-owl:birthDate rdf:type rdf:Property .
+
+Meaning: `birthDate` is a property (relationship type).
+
+An RDF property can be used as a predicate in an RDF triple.
+
+    dbpedia:Michelangelo dbpedia-owl:birthDate "1475-03-06+02:00"^^xsd:date .
+
+Meaning: Michelangelo's birth date is 1475/03/06.
+
+
+
+
+#### RDF and Object-Orientation
+
+Classes and properties of RDF (and RDFS / OWL built on top of RDF) have some of similarities to classes and associations in object-oriented modeling and programming languages. However, there are also fundamental differences. For details see, e.g. (Allemang and Hendler, 2011).
+
+
+#### Other Serialization Syntaxes
+
+The RDF syntax introduced above is called [Turtle](http://www.w3.org/TR/2014/REC-turtle-20140225/). It shall be noted that other RDF serialization syntaxes exist: [N-Triples](http://www.w3.org/TR/2014/REC-n-triples-20140225/) and [RDF/XML](http://www.w3.org/TR/2014/REC-rdf-syntax-grammar-20140225/). 
+
+
+
+
+
+### Linked Data
+
+[Linked Data](http://linkeddata.org/) is an initiative to create, interlink, and share ontologies for a wide range of application areas. Linked data is based on the W3C Semantic Web technologies introduced above. A large number of most comprehensive ontologies has been created and are publicly available -- see the Linked Open Data Cloud in Fig. 3.9.
+
+![Fig. 3.9: Linked Open Data (LOD) Cloud](images/LOD_Cloud.png)
+
+Prominent linked data ontologies are [DBpedia](http://wiki.dbpedia.org/), and [YAGO](http://www.mpi-inf.mpg.de/departments/databases-and-information-systems/research/yago-naga/yago//). Projects like  [WikiData](https://www.wikidata.org/wiki/Wikidata:Main_Page), [OpenStreetMap](https://www.openstreetmap.org/) and [GeoNames](http://www.geonames.org/) use different technology but follow the same idea. 
+
+Linked data is important: Due to the community editing and network effect, the coverage of topics is enormous. However, not every large linked data set is a suitable ontology for a concrete AI application. In section "Tips and Tricks" I give hints on ontology selection and creation.  
+
+
+
+
+### Example: Arts Ontology
+
+In this book, I use an  Arts Ontology in RDF as example. The Arts Ontology is a custom subset of DBpedia.
+DBpedia itself is a crowd-sourced community effort to extract structured information from Wikipedia and make this information freely available as an ontology. 
+The Arts Ontology consists of 
+ca. 1,000 paintings, 
+200 sculptures, 
+400 artists, 
+200 museums, 
+80 artistic movements, and
+800 locations.
+The whole ontology contains about 4 MB of RDF code and was extracted from an [DBpedia endpoint](http://dbpedia.org/sparql). The extraction scripts can be found in the appendix. 
+
+
+
+#### Ontology Architecture
+
+A good ontology, like a good IT application, has an explicit architecture. See  Fig. 3.10 for a [UML](http://www.uml.org/) class diagram illustrating the Arts Ontology schema.  
+
+![Fig. 3.10: Arts ontology schema](images/Art_Ontology_Schema.png)
+
+The Arts Ontology consists of three components: `Art`, `Person`, and `Location` (depicted as UML packages). The `Art` component contains artworks, in particular paintings and sculptures. The `Person` component contains artist and their artistic movements. The `Location` component contains museums and their locations. 
+
+The ontology classes are depicted as UML classes, e.g., `dbpedia-owl:Person` or `yago:Art102743547`. The namespaces and class names are extracted from DBpedia and YAGO and reflect the naming conventions of those ontologies. 
+
+RDF properties with literal values as objects are depicted as attributes of the UML classes, e.g., `rdfs:label`, `dbpedia-owl:birthDate`, and `foaf:depiction`.
+
+RDF properties that link individuals are depicted as UML associations, e.g., `dbpprop:artist`, `dbpedi-owl:birthPlace`, and `dbpedia-owl:location`. 
+
+
+#### Ontology Editor
+
+[Protégé](http://protege.stanford.edu/) is an open source ontology editor.  Fig. 3.11 shows as an example, the entry of `dbpedia:Michelangelo` of the Arts Ontology in Protégé. 
+
+![Fig. 3.11: Protégé](images/Protege-Art_Ontology.png)
+
+
+
+
+
+### SPARQL
+
+[SPARQL](http://www.w3.org/TR/sparql11-query/) is the query language for RDF and is also standardized by the W3C. 
+
+
+
+#### SPARQL Namespaces
+
+SPARQL also supports namespaces but with slightly different a syntax than RDF.
+See, e.g., some relevant namespaces. The keyword `PREFIX` is used to define a namespace prefix which is separated by a colon from the full namespace. 
+
+    PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX owl: <http://www.w3.org/2002/07/owl#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+    PREFIX dbpedia: <http://dbpedia.org/resource/>
+    PREFIX dbpedia-owl: <http://dbpedia.org/ontology/>
+    PREFIX dbpprop: <http://dbpedia.org/property/>
+    PREFIX yago: <http://dbpedia.org/class/yago/>
+    PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
+
+#### Simple SPARQL Queries
+
+SPARQL uses the keywords `SELECT` and `WHERE` similar to [SQL](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=53681). The query conditions are expressed as RDF triples in which variables can be used. Variables start with a question mark.
+
+See e.g. the following SPARQL query resembling the question "What is Raphael's nationality?"
+
+    SELECT ?n
+    WHERE { 
+       dbpedia:Raphael dbpedia-owl:nationality ?n .
+    }
+
+In this query, the variable for holding the nationality is `?n`.  The query result is the set of all objects `?n` for which RDF triples `dbpedia:Raphael dbpedia-owl:nationality ?n` exist in the ontology. The result is one such object, namely the resource `dbpedia:Italy`.  
+
+Fig. 3.12 shows the query and its result in Protégé after loading the Arts Ontology. 
+
+![Fig. 3.12: A simple SPARQL query in Protégé](images/Protege-SPARQL_Query.png)
+
+X> Since the Arts Ontology is a subset of DBpedia, you can execute the query at the [DBpedia SPARQL endpoint](http://dbpedia.org/sparql) (See Fig. 3.13). Try it yourself! 
+
+
+
+![Fig. 3.13: A simple SPARQL query at the DBpedia SPARQL endpoint](images/SPARQL_Simple_Query.png)
+
+
+Assume we are interested in Italian artists.
+This question contains two conditions: being Italian and being an artist.
+The respective SPARQL query, hence, contains two triples as a condition.
+
+
+    SELECT ?p
+    WHERE { 
+       ?p rdf:type dbpedia-owl:Person ;
+          dbpedia-owl:nationality dbpedia:Italy .
+    }
+
+Implicitly, all triples in the `WHERE` clause of a SPARQL query are conjunctive, i.e., `AND` connected. The result of this query is the set of resources with this condition. It includes, e.g., `dbpedia:Michelangelo` and `dbpedia:Raphael`.
+
+As you can see in this example, the abbreviated RDF Notation linking several triples with the same subject via a semicolon can be used in SPARQL, too.
+
+
+#### Multiple Query Result Variables
+
+When you are interested in multi-value query results, then multiple result variables may be specified in the `SELECT` clause of a SPARQL query. 
+
+The following query, e.g., lists artist with their corresponding nationality.
+
+
+    SELECT ?p ?n
+    WHERE { 
+       ?p rdf:type dbpedia-owl:Person ;
+          dbpedia-owl:nationality ?n  .
+    }
+
+The query result is a set of pairs `?p`, `?n`. See Fig. 3.14.
+
+![Fig. 3.14: Multi-variable query in Protégé](images/Protege-SPARQL_Query2.png)
+
+
+If all used variables shall be returned then `SELECT *` 
+may be used as in SQL. 
+
+
+#### Distinct Query Results
+
+As in SQL, `SELECT DISTINCT` avoids duplicates in the result set. 
+
+The following query lists the nationalities of all artists in the Arts Ontology.
+
+
+    SELECT DISTINCT ?n
+    WHERE { 
+       ?p rdf:type dbpedia-owl:Person ;
+          dbpedia-owl:nationality ?n  .
+    }
+
+You may try executing the query yourself. 
+
+
+#### Advanced Features 
+
+There are numerous advanced SPARQL features which are important for practical use but which I will not go into details in this book:
+
+- Path expressions: an abbreviated notation for predicate / object chains
+- Transitive closures (`*`): for querying arbitrary-length chains of the same predicate
+- `ASK` queries: for checking  a condition (Boolean result)
+- `CONSTRUCT` queries: for generating new RDF statements (like production rules)
+- `FILTER`: for expressing additional conditions, e.g., on datatypes
+- `OPTIONAL`: for specifying optional values
+- `EXISTS` / `NOT EXISTS`: for defining negation queries
+- `GROUP BY`, `HAVING`: for aggregations
+- `ORDER BY`: for sorting query results
+- Subqueries: for nesting queries
+
+For those and other features refer to the [SPARQL specification](http://www.w3.org/TR/sparql11-query/).
+
+
+
+
+
+### Knowledge Representation Services Map
+
+Fig. 3.16 shows the knowledge representation services map.
+
+![Fig. 3.16: Knowledge representation services map](images/Knowledge_Representation_SM.png)
+
+- A *knowledge base* allows the storage and retrieval of ontologies, i.e. knowledge structures of all kinds. It is usually the core of an AI application.
+- *Query engine* and *reasoning engine (a.k.a. reasoner)* usually come with a knowledge base product. But since they can often be plugged in and replaced, I have added them as separate services.
+- Since AI applications are often implemented in a general-purpose programming language like Java, an Application Programmers' Interface (*API*) is needed to access to the knowledge base and its reasoners. 
+- A *Knowledge Editor* allows editing of ontologies. Ontologies may be imported / exported between knowledge editor (development time) and knowledge base (run-time). Standard formats like RDF may be used for importing / exporting.
+- *Knowledge resources* include off-the-shelf ontologies like, e.g., DBpedia, that may be used in an AI application.
+- *Data Integration / Semantic Enrichment* are services that allow integrating various knowledge resources or subsets thereof. For example, the Arts Ontology described above is a custom subset of DBpedia.
+- *Integrated environments* are tool suites that bundle various development-time and run-time knowledge representation services.
+
+
+
+
+### Knowledge Representation Product Map
+
+Fig. 3.17 shows the knowledge representation product map.
+
+
+![Fig. 3.17: Knowledge representation product map](images/Knowledge_Representation_PM.png)
+
+Virtuoso, Owlim and JENA are bundles that include knowledge editor, reaonsing / query engines and  Java APIs. Pellet, FaCT++, and HermiT are reasoning engines that may be plugged into other products. Protégé and Topbraid Composer are knowledge editors; Topbraid Suite and OntoStudio are integrated environments that include knowledge editors and runtime-components. Examples for knowledge resources are DBpedia, YAGO, WikiData, etc.  
+
+More products and details can be found in the appendix.
+
+
+## Tips and Tricks
+
+### Ontology - Make or Buy?
+
+Make or buy? This is common a question in the technology selection phase of an IT project. It also often applies to the ontology in an AI application project.
+
+As outlined in the section on Linked Data, there are hundreds and thousands of ontologies available, many with a public license, with thousands or even hundreds of thousands of facts each. An area with particularly well-established public ontologies are life sciences; See, e.g., [The OBO Foundry](http://www.obofoundry.org/) with ontologies for symptoms, diseases, medications, clinical procedures, genes / proteins, etc. etc. 
+There are even *ontology search engines*, e.g., [Swoogle](http://swoogle.umbc.edu/) or [Watson](http://watson.kmi.open.ac.uk/WatsonWUI/).
+
+Surprisingly however, when being confronted with concrete requirements for an AI application, it turns out that rarely an off-the-shelf ontology is sufficient. In none of my previous projects in various areas (tourism, libraries, arts, software engineering and medicine) I could simply take and use an off-the-shelf ontology without adaptation. Other practitioners have made similar experiences (Ege et al., 2015).
+
+I think Bowker and Star (1999) give a good explanation for this dilemma. They write: "Classifications that appear natural, eloquent, and homogeneous within a given human context appear forced and heterogeneous outside of that context". Different use cases require different structuring of the same knowledge.
+
+Also, the quality of some public ontologies is mediocre. Consider, e.g., DBpedia and the following SPARQL query for finding all Renaissance artists.
+ 
+    select ?p where {?p rdf:type yago:RenaissanceArtists}
+
+This  query executed at the [DBpedia SPARQL endpoint](http://dbpedia.org/sparql) (on 2016-01-10) results in only 16 (!) resources. `dbpedia:Michelangelo` is among them but, e.g, `dbpedia:Raphael` is missing. Instead, senseless results like `dbpedia:Leonardo_da_Vinci's_personal_life` are included. 
+
+Interestingly enough, the query 
+
+    select ?p where {?p rdf:type yago:RenaissancePainters}
+
+results in 550 resources. Aren't painters artists?! 
+
+When implementing the scripts for extracting the Arts Ontology (see above) from DBpedia, I put quite some effort in data cleansing measures, e.g., eliminating birth and death dates that are not valid, birth and death places that are no locations, artist's movements that are no artistic movements etc.
+
+DBpedia is still a suitable source for the Arts Ontology example in this book. However, in a project for one of the leading German Arts museums ([digital collection](https://digitalesammlung.staedelmuseum.de/index.html)), the use of DBpedia was out of question due to its quality deficiencies. 
+
+
+
+Of course, it is generally advisable to favor an off-the-shelf ontology over a custom-made one. 
+Advantages are:
+
+-  Less costs of creating and maintaining the ontology
+-  Potentially higher quality due to contribution and use by many communities (as mentioned above, this is not always the case)
+
+However, developing a custom ontology for a specific use case, e.g., within a corporation is not as expensive as one might think. Experience from practice shows that an experienced team can model about 1,000 concepts within 5 man-days (Hoppe, 2015).
+
+ 
+
+%% TODO Tipps & Trick  for the development of new ontologies
+
+### Pre-Processing Off-the-Shelf Ontologies
+
+When analyzing off-the-shelf ontologies for a concrete application use case, the ontologies' scope, structure and quality should be taken into account. Sometimes one or several ontologies can be identified that are quite suitable but do not fit perfectly. In this case a pre-processing step, much like the ETL (Extraction, Transformation, Loading) step in Data Warehouses, is recommendable. Ontology pre-processing may include the following activities:
+
+- Transforming technical data formats, e.g., from tabular format CSV to RDF
+- Transforming ontology schemas, e.g., from `yago:Art102743547` to `:Artwork`
+- Quality enhancement, e.g., omitting birth dates that are not  valid
+- Integrating multiple ontologies, e.g., removing duplicates
+
+This pre-processing step may be supported by services of type "Data Integration / Semantic Enrichment" in the Services Map. From my point of view, this important step is not discussed enough in the AI literature. See also the chapter on AI Application Architecture.
+
+One final remark regarding selecting off-the-shelf ontologies: do not worry too much about technical formats. Converters between XML, CSV, XLS, RDF, database dumps, etc. are available open source or can easily be developed.  
+
+
+
+
+### Deciding on Technology
+
+
+There are numerous mature products for knowledge representation available -- commercial and open source. So, when it comes to selecting knowledge representation technologies and products, there is no make versus buy decision to be taken -- just like you do not implement your own database management system for a business information system.
+
+In the section on Services Maps and Product Maps I recommend a general method for selecting suitable product.
+
+Here I give some tips and tricks regarding selecting knowledge representation products:
+
+Check carefully what is *really* needed in your application use case. In many practical use case scenarios, much less is required than what traditional AI frameworks offer. In AI literature, there is much discussion about the expressive power of the OWL full  standard compared to OWL light and other standards. In most of my projects, none of the OWL reasoning facilities were required at all. For many application use case scenarios, reasoning over hierarchies  is enough (e.g., an artist who lived in Florence also lived in Italy since Florence is in Italy). 
+
+On the other hand, *high performance* requirements are common in real-world applications. However, traditional AI knowledge representation products exhibit poor performance due to their sophisticated reasoning facilities. Therefore, high-performance solutions like RDBMS and NOSQL data stores including search index solutions are recommended. Requirements like, e.g., reasoning over hierarchies can often easily be implemented using clever indexing strategies. Those solutions also deliver additional services like, e.g., full-text search which are not provided by classic AI knowledge representation products.
+
+So, my recommendation is to not unnecessarily narrow the product candidates to traditional AI and Semantic Web technology when implementing AI applications. 
+
+
+
+
+%% ## Further Reading : (Allemang and Hendler, 2011)
+
+
+
+
+## Quick Check
+
+X> Answer the following questions.
+
+1. What is the purpose of knowledge representation?
+1. Give examples for classes, individuals, relationships, and rules.
+1. What is an ontology?
+1. Name different knowledge representation approaches.
+1. What does reasoning mean? Give an example. How does it work?
+1. Explain the open world assumption and closed world assumption. What are the differences? What are implications of the assumption made?
+1. What is a resource in RDF? How are namespaces used? What is an RDF triple?
+1. How are classes declared in RDF? How are individuals (instances) assigned to classes?
+1. How are properties declared in RDF? How are properties used?
+1. Which serialization syntaxes exist for RDF?
+1. What is linked data? Give examples of off-the-shelf ontologies.
+1. How are simple queries structured in SPARQL?
+1. How is the result set of SPARQL queries structured?
+1. What advanced features does SPARQL offer?
+1. What are services maps and product maps? How can they be used?
+1. Name knowledge representation services.
+1. Name a few products that implement those services.
+1. How to select ontologies for a concrete application use cases?
+1. How to integrate various off-the-shelf ontologies?
+1. How to  select knowledge representation products for a concrete AI application project?
+
+

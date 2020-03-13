@@ -1,0 +1,5 @@
+Why yet another book on Artificial Intelligence? 
+
+It is true that hundreds of publications on Artificial Intelligence (AI) have been published within the last decades - scientific papers and text books. Most of them focus on the theory behind AI solutions: logic, reasoning, statistical foundations, etc. However, little can be found on engineering AI applications.
+
+Modern, complex IT applications are not built from scratch but by integrating off-the-shelf components: libraries, frameworks, and services. The same applies, of course, for AI applications. Over the last decades, numerous  off-the-shelf components for AI base functionality such as logic, reasoning, and statistics have been implemented - commercial and open source. Integrating such components into user friendly, high-performance, and maintainable AI applications requires specific engineering skills. "Applied Artificial Intelligence - An Engingeering Approach" focuses on those skills.
