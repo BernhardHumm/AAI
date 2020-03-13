@@ -1,0 +1,1 @@
+Modern AI applications are not built from scratch but by integrating off-the-shelf components: libraries, frameworks, and services. "Applied Artificial Intelligence - An Engingeering Approach" focuses on engineering user friendly, high-performance, and maintainable AI applications.
