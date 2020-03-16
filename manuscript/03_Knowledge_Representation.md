@@ -100,7 +100,7 @@ Q4 (Which painters exist?) also involves reasoning but expects a set of individu
 
 Q4 (Which painters exist?) leads to an interesting question: How to ensure that the ontology is complete, i.e., actually contains all painters?
 
-In an ontology for our solar system it is relatively easy to list all planets (even though the definition of what is a planet may change over time: Pluto is, today, considered a dwarf planet only). In contrast, for the arts ontology it is next to impossible to list all painters that ever lived. Many of them are not known anymore. And who should decide who was a "real" painter and who just scribbled a few sketches?
+In an ontology for our solar system it is relatively easy to list all planets (even though the definition of what is a planet may change over time: Pluto is, today, considered a dwarf planet only). In contrast, for the Art Ontology it is next to impossible to list all painters that ever lived. Many of them are not known anymore. And who should decide who was a "real" painter and who just scribbled a few sketches?
 
 Other critical questions are counting questions (How many painters exist?) and negated questions (Which painters have not created a sculpture?).  The answers to those questions may be wrong if the ontology is incomplete -- even if all facts in the ontology are, indeed, correct.
 
@@ -108,7 +108,7 @@ Therefore, the correct interpretation of ontology query results depends on assum
 
 [^fn-uncertainty]: The situation is, of course, further complicated if we even cannot assume that the specified facts are correct.  There are various approaches for dealing with uncertainty (see (Russell and Norvig, 2013)). In practice, it is advisable to try to avoid this situation by quality assurance measures if at all possible.
 
-In the *Closed World Assumption (CWA)* it is assumed that the ontology is complete. This is a comfortable situation and makes the interpretation of query results easy. Assume e.g., that  the arts ontology is restricted to one particular museum and is complete (closed world assumption). In this case, the answer to Q4 (Which painters exist?) may be "There are exactly the painters X,Y,Z for which we currently have paintings in our museum"; the counting query (How many painters are there?) may be answered "There are exactly n painters currently exhibiting in our museum"; the answer to the negated query (Which painters have not created a sculpture?) can be answered as "For painters X,Y,Z we have currently no sculpture in our exhibition".
+In the *Closed World Assumption (CWA)* it is assumed that the ontology is complete. This is a comfortable situation and makes the interpretation of query results easy. Assume e.g., that  the Art Ontology is restricted to one particular museum and is complete (closed world assumption). In this case, the answer to Q4 (Which painters exist?) may be "There are exactly the painters X,Y,Z for which we currently have paintings in our museum"; the counting query (How many painters are there?) may be answered "There are exactly n painters currently exhibiting in our museum"; the answer to the negated query (Which painters have not created a sculpture?) can be answered as "For painters X,Y,Z we have currently no sculpture in our exhibition".
 
 In the *Open World Assumption (OWA)* it is assumed that the ontology is not complete and new  findings may be added as facts at any time. This does not mean that questions about enumerations, counting, and negations cannot be asked at all. However, the results must be interpreted differently than in the CWA. For example, the result to Q4 (Which painters exist?) can be interpreted as "painters that we know of ..." instead of "all painters ..."; The result of the counting question (How many painters are there?) can be interpreted as "there are at least n painters that we know of"; the answer to the negated question (Which painters have not created a sculpture?) may be interpreted as "for painters X,Y,Z there is currently no sculpture known". 
 
@@ -158,11 +158,15 @@ Interpretation: Michelangelo was born in Italy and created the painting "Creatio
 ### Rules
 
 In rule-based languages, knowledge is expressed in form of facts and rules.
-In the following example (Fig. 3.7), `instance-of` and `painted` are predicates, `?p` and `?x` are variables, `person` and `painter` are classes, and `-->` denotes an implication.
+In the following example (Fig. 3.7), `is_a` and `painted` are predicates, `?p` and `?x` are variables, `person` and `painter` are classes, and `->` denotes an implication.
 The two conditions on the left side of the implication are implicitly conjunctive, i.e.,  connected by the Boolean AND operator.
 
+	(?p is_a person)
+	(?p painted ?x)
+	->
+	(?p is_a painter)
 
-![Fig. 3.7: Rules](images/Rules.png)
+![Fig. 3.7: Rules]
 
 Interpretation: If ?p is a person who painted something then ?p is a painter.
 
@@ -348,7 +352,7 @@ In this book, I use an Art Ontology in RDF as example. The Art Ontology is a cus
 
 Wikidata provides a crawling API for extracting custom ontologies for AI applications. The art ontology crawler has been developed in one of my research projects (Humm 2020). The crawler code is open source under [GitHub](https://github.com/hochschule-darmstadt/openartbrowser/blob/master/scripts/data_extraction/art_ontology_crawler.py). 
   
-The Arts Ontology consists of ca. 1.9 million RDF triples, representing
+The Art Ontology consists of ca. 1.9 million RDF triples, representing
 
 -	ca. 180,000 artworks (paintings, drawings and sculptures), e.g., Mona Lisa
 -	27,000 motifs, e.g., mountains
@@ -362,24 +366,38 @@ The Arts Ontology consists of ca. 1.9 million RDF triples, representing
 
 
 
-#### Ontology Architecture
+#### Ontology Schema
 
-A good ontology, like a good IT application, has an explicit architecture. See  Fig. 3.10 for a [UML](http://www.uml.org/) class diagram illustrating the Arts Ontology schema.  
+Fig. 3.10 shows the Art Ontology schema as [UML](http://www.uml.org/) class diagram. Please note that RDF does not provide means for specifying required attributes of classes and their datatypes as well as associations between classes. However, the Art Ontology crawler ensures that this schema is met and AI applications using the Art Ontology can rely on it.
 
-![Fig. 3.10: Arts ontology schema](images/Art_Ontology_Schema.png)
+{width=75%}
+![Fig. 3.10: Art Ontology schema](images/Art_Ontology_Schema.png)
 
-The Arts Ontology consists of three components: `Art`, `Person`, and `Location` (depicted as UML packages). The `Art` component contains artworks, in particular paintings and sculptures. The `Person` component contains artist and their artistic movements. The `Location` component contains museums and their locations. 
 
-The ontology classes are depicted as UML classes, e.g., `dbpedia-owl:Person` or `yago:Art102743547`. The namespaces and class names are extracted from DBpedia and YAGO and reflect the naming conventions of those ontologies. 
+The Art Ontology schema consists of 7 classes. Artwork is the central class with associations to the other classes: person, movement, material, genre, location, and motif, connecting artworks with their creators, the depicted motifs, the location where the artwork is exhibited, the material, the artistic movement and the genre of the artwork. All classes share common attributes which are denoted in the superclass abstract_entity: id, label descritpion, abstract, image, and wikipedidaURL. Some classes have additional attributes, e.g., gender, date_of_birth, date_of_death, place_of_birth, place_of_death and citizenship for class person.
 
-RDF properties with literal values as objects are depicted as attributes of the UML classes, e.g., `rdfs:label`, `dbpedia-owl:birthDate`, and `foaf:depiction`.
 
-RDF properties that link individuals are depicted as UML associations, e.g., `dbpprop:artist`, `dbpedi-owl:birthPlace`, and `dbpedia-owl:location`. 
+This is a subset of the entries for Mona Lisa (Q12418)
+
+	wd:Q12418 rdf:type :artwork;
+	    rdfs:label "Mona Lisa" ;
+	    :description "oil painting by Leonardo da Vinci" ;
+	    :image <https://upload.wikimedia.org/wikipedia/commons/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg> ;
+	    :artist wd:Q762 ;
+	    :location wd:Q19675 ;
+	    :genre wd:Q134307 ;
+	    :movement wd:Q1474884 ;
+	    :inception 1503 ;
+	    :country "France" ;
+	    :height 77 ;
+	    :width 53 .
+
+The label of the painting is "Mona Lisa", the artist is Leonardo da Vinci (Q762), the location is the Louvre Museum in Paris (Q19675), the genre is portrait (Q134307), the artistic movement is High Renaissance (Q1474884), the year of inception is 1503, and the size of the painting is 77x53 cm. 
 
 
 #### Ontology Editor
 
-[Protégé](http://protege.stanford.edu/) is an open source ontology editor.  Fig. 3.11 shows as an example, the entry of `dbpedia:Michelangelo` of the Arts Ontology in Protégé. 
+[Protégé](http://protege.stanford.edu/) is an open source ontology editor.  Fig. 3.11 shows as an example, the entry of Mona Lisa in the Art Ontology in Protégé. 
 
 ![Fig. 3.11: Protégé](images/Protege-Art_Ontology.png)
 
@@ -387,7 +405,7 @@ RDF properties that link individuals are depicted as UML associations, e.g., `db
 
 
 
-### SPARQL
+### Querying Ontologies: SPARQL
 
 [SPARQL](http://www.w3.org/TR/sparql11-query/) is the query language for RDF and is also standardized by the W3C. 
 
@@ -413,58 +431,61 @@ See, e.g., some relevant namespaces. The keyword `PREFIX` is used to define a na
 
 SPARQL uses the keywords `SELECT` and `WHERE` similar to [SQL](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=53681). The query conditions are expressed as RDF triples in which variables can be used. Variables start with a question mark.
 
-See e.g. the following SPARQL query resembling the question "What is Raphael's nationality?"
+See e.g. the following SPARQL query resembling the question "When was Leonardo da Vinci born?"
 
-    SELECT ?n
-    WHERE { 
-       dbpedia:Raphael dbpedia-owl:nationality ?n .
-    }
+	SELECT ?d
+	WHERE { 
+	   ?p rdfs:label "Leonardo da Vinci";
+	      :date_of_birth ?d .
+	}
 
-In this query, the variable for holding the nationality is `?n`.  The query result is the set of all objects `?n` for which RDF triples `dbpedia:Raphael dbpedia-owl:nationality ?n` exist in the ontology. The result is one such object, namely the resource `dbpedia:Italy`.  
-
-Fig. 3.12 shows the query and its result in Protégé after loading the Arts Ontology. 
-
-![Fig. 3.12: A simple SPARQL query in Protégé](images/Protege-SPARQL_Query.png)
-
-X> Since the Arts Ontology is a subset of DBpedia, you can execute the query at the [DBpedia SPARQL endpoint](http://dbpedia.org/sparql) (See Fig. 3.13). Try it yourself! 
+In this query, the variable for holding the date of birth is `?d`.  
+The query consists of two triples -- as you can see, the abbreviated RDF Notation linking several triples with the same subject via a semicolon can be used in SPARQL, too.
+Each triple poses a restriction on the query -- implicitly AND connected. We query for some entry (?p) with label "Leonardo da Vinci" and some date_of_bith entry (?d). If such a combination can be found in the ontology the it is returned as the query result.
 
 
+Fig. 3.12 shows this query and its result executed in the SPARQL server [Apache Jena Fuseki](https://jena.apache.org/documentation/fuseki2/) after loading the Art Ontology. 
 
-![Fig. 3.13: A simple SPARQL query at the DBpedia SPARQL endpoint](images/SPARQL_Simple_Query.png)
-
-
-Assume we are interested in Italian artists.
-This question contains two conditions: being Italian and being an artist.
-The respective SPARQL query, hence, contains two triples as a condition.
+![Fig. 3.12: A simple SPARQL query in Fuseki](images/SPARQL_Simple_Query.png)
 
 
-    SELECT ?p
-    WHERE { 
-       ?p rdf:type dbpedia-owl:Person ;
-          dbpedia-owl:nationality dbpedia:Italy .
-    }
+X> Since the Art Ontology is an extract of Wikidata, you can execute a similar query at the [Wikidata query service](https://query.wikidata.org)  (See Fig. 3.13). Since Wikidata uses cryptic IDs for all properties (e.g., wdt:P569 for date_of_birth, there is a query helper suggesting parts of the query to be completed.  Try it yourself! 
 
-Implicitly, all triples in the `WHERE` clause of a SPARQL query are conjunctive, i.e., `AND` connected. The result of this query is the set of resources with this condition. It includes, e.g., `dbpedia:Michelangelo` and `dbpedia:Raphael`.
 
-As you can see in this example, the abbreviated RDF Notation linking several triples with the same subject via a semicolon can be used in SPARQL, too.
+![Fig. 3.13: A simple SPARQL query at the Wikidata query service](images/Wikidata_Query_Service.png)
+
+
+
+
+Assume we are interested in artists who were born in Paris.
+
+	SELECT  ?l
+	WHERE { 
+	   ?p rdf:type :person ;
+       :place_of_birth "Paris" ;
+	   rdfs:label ?l .
+
+This query consists of 3 triples. We query for instances of class person with place_of_birth Paris and return their labels. 
+Executed on the Art Ontology, this query will result in 690 artists, including Édouard Manet, Claude Monet, and Jacques Rousseau. 
+
 
 
 #### Multiple Query Result Variables
 
 When you are interested in multi-value query results, then multiple result variables may be specified in the `SELECT` clause of a SPARQL query. 
 
-The following query, e.g., lists artist with their corresponding nationality.
+The following query, e.g., lists artist with their corresponding place of birth.
 
+	SELECT  ?l ?b
+	WHERE { 
+	   ?p rdf:type :person ;
+	      rdfs:label ?l ;
+	      :place_of_birth ?b .
+	} 
 
-    SELECT ?p ?n
-    WHERE { 
-       ?p rdf:type dbpedia-owl:Person ;
-          dbpedia-owl:nationality ?n  .
-    }
+The query result is a set of pairs `?l`, `?p`. See Fig. 3.14.
 
-The query result is a set of pairs `?p`, `?n`. See Fig. 3.14.
-
-![Fig. 3.14: Multi-variable query in Protégé](images/Protege-SPARQL_Query2.png)
+![Fig. 3.14: Multi-variable query](images/SPARQL_Tuple_Query.png)
 
 
 If all used variables shall be returned then `SELECT *` 
@@ -475,16 +496,60 @@ may be used as in SQL.
 
 As in SQL, `SELECT DISTINCT` avoids duplicates in the result set. 
 
-The following query lists the nationalities of all artists in the Arts Ontology.
+The following query lists countries of artworks in the Art Ontology.
 
 
-    SELECT DISTINCT ?n
-    WHERE { 
-       ?p rdf:type dbpedia-owl:Person ;
-          dbpedia-owl:nationality ?n  .
-    }
+	SELECT DISTINCT  ?c
+	WHERE { 
+	   ?p rdf:type :artwork ;
+	      :country ?c .
+	} 
 
-You may try executing the query yourself. 
+
+
+#### Path Expressions
+
+Path expressions are a convenient abbreviation for expressing traversal in RDF graphs. Consider the following query for artworks by Paris-born artists.
+
+	SELECT  ?n ?l
+	WHERE { 
+	   ?a rdf:type :artwork ;
+	      rdfs:label ?l ;
+	      :creator/:place_of_birth "Paris" ;
+	      :creator/rdfs:label ?n .
+	}
+
+The two conditions that the artwork ?a has a creator and this creator has as place_of_birth Paris can be conveniently expressed as 
+
+	?a :creator/:place_of_birth "Paris" .
+
+Note that path expressions a just convenience. The same condition could have been expressed by 2 triples:
+
+	?a :creator ?p .
+	?p :place_of_birth "Paris" .
+
+
+
+#### Transitive Closures
+
+SPARQL provides a powerful construct to query transitive closures. 
+Consider the question to find artists that have been influenced by the Flemish painter Pieter Bruegel the Elder, directly or indirectly. 
+
+first consider the following SPARQL query.
+
+	SELECT *
+	WHERE { 
+	  ?p :influenced_by/rdfs:label "Pieter Bruegel the Elder" ;
+	}
+
+It will return all artists which, according to the facts in the Art Ontology, have directly been influenced by Pieter Bruegel the Elder: Pieter Breughel the Younger and Peter Paul Rubens.
+
+If we are additionally interested in artists who were influenced by those two, including the ones influenced by them and so forth (1..n times the influenced_by relationship), then the query condition has to be modified as follows.
+
+	?p :influenced_by+/rdfs:label "Pieter Bruegel the Elder"
+
+The plus sign (influenced_by+) denotes a transitive closure (1..n). If you want to additionally include Pieter Bruegel the Elder in the result set (0..n: reflexive and transitive), then you have to use a star sign  (influenced_by*). 
+
 
 
 #### Advanced Features 
@@ -507,19 +572,105 @@ For those and other features refer to the [SPARQL specification](http://www.w3.o
 
 
 
+### Rule-based Reasoning
+
+
+#### Overview
+
+*Reasoning* is a major AI technique to derive new knowledge from existing facts in an ontology.
+An intuitive and, hence, popular way of specifying reasoning behavior is via *rules*. Rules are of the form "IF condition(s) THEN conclusion(s)". 
+Rule-based reasoning has a long history in AI. In particular, the [Prolog](https://en.wikipedia.org/wiki/Prolog) programming language (PROgramming in LOgic) was, apart from Lisp, the most popular AI programming language in the 1980. 
+
+Two approaches to rule-based reasoning can be distinguished: forward chaining and backward chaining. In *forward chaining*, the reasoning engine starts with the facts and applies all specified rules in order to find all possible conclusions. Queries on this extended ontology will include the logic specified in the rules.
+*Backward chaining* operates inversely. Starting from a particular query, those rules are applied which are necessary for answering the query. 
+Backward chaining is sometimes called *goal-directed* whereas forward chaining is called *data-driven* reasoning. 
+
+Which approach is better? This, of course, depends on the application use case, in particular the the types of queries asked  and the branching rate of rules. Some technologies provide one strategy only (e.g., Prolog provides backward chaining), others combine forward and backward chaining (e.g., [Drools Expert](https://www.drools.org)).
+
+For the Semantic Web, there are various approaches for rule-based reasoning, more or less adopted in practice. 
+[SWRL (Semantic Web Rule Language)](https://www.w3.org/Submission/SWRL) is a W3C Member Submission since 2004 but not a W2C standard and not widely adopted in practice. 
+[OWL](https://www.w3.org/TR/2012/REC-owl2-overview-20121211) reasoning is based on set theory. In contrast to rule-based approaches, semantics are specified using set operations like restrictions, intersections, complements, and unions. 
+Some RDF triple store implementations like Apache Jena provide their own rule language like [Jena rules](https://jena.apache.org/documentation/inference). Jena rules provide forward and backward chaining. [GraphDB](http://graphdb.ontotext.com/documentation/standard/reasoning.html) provides proprietary rules with forward chaining. 
+
+[SPARQL Update](https://www.w3.org/TR/sparql11-update) provides means for updating ontologies based on existing facts. This mechanism may be used for forward chaining rule-based reasoning. Since SPARQL update statements are an intuitive extension of SPARQL queries and standardized by the W3C, I will present them in the following section. 
+
+
+
+
+#### SPARQL Update
+
+
+Assume you want to query the Art Ontology for artists who are painters as well as sculptors. However, in the Art Ontology schema there is no direct representation of the concepts painter and sculptor. 
+But you may infer this information from the Art Ontology with the following rules:
+
+1. A person who created a painting is considered a painter.
+1. A person who created a drawing is considered a painter.
+1. A person who created a sculpture is considered a sculptor.
+
+Those rules can easily been expressed using  SPARQL INSERT statements. 
+
+	INSERT {?c rdf:type :painter}
+	WHERE { 	  
+	  ?a rdf:type/rdfs:label "painting" ;
+	     :artist ?c .
+	} 
+	
+	
+	INSERT {?c rdf:type :painter}
+	WHERE { 	  
+	  ?a rdf:type/rdfs:label "drawing" ;
+	     :artist ?c .
+	} 
+	
+	
+	INSERT {?c rdf:type :sculptor}
+	WHERE {   
+	  ?a rdf:type/rdfs:label "sculpture" ;
+	     :artist ?c .
+	} 
+
+
+SPARQL INSERT statements allow providing RDF triples after the INSERT keyword, containing SPARQL variables that are matched according to the conditions specified in the WHERE part. The WHERE part can contain everything that can be specified in SPARQL queries. In the example above, it is assumed that the Art Ontology contains the Wikidata type information, e.g., wd:Q3305213 (painting), wd:Q93184 (drawing) or wd:Q860861 (sculpture) for artworks. The WHERE conditions are straight forward, using  path expressions.
+
+When experimenting with SPARQL INSERT statements in the Fuseki Web app,  make sure that the SPARQL endpoint is set to update. See Fig. 3.16.
+
+
+![Fig. 3.16: SPARQL INSERT statement](images/SPARQL_UPDATE.png)
+
+After successful execution of the update a success message is returned.
+
+After executing the 3 INSERT statements specified above, the query for artists who are both, painters and sculptors can be easily and intuitively be specified and executed as shown in Fig. 3.17. 
+
+
+![Fig. 3.17: Querying inferred facts: painters and sculptors](images/SPARQL_Query_painter_sculptor.png)
+
+In this SPARQL query, both RDF abbreviation notations are used: using a semicolon for chaining several predicates for the same subject and using a comma for chaining several objects for the same predicate. 
+
+
+When you wish to inspect the RDF triples generated, you may use a SPARQL CONSTRUCT query instead of an INSERT statement. See Fig. 3.18.
+
+
+![Fig. 3.18: Querying inferred facts: painters and sculptors](images/SPARQL_CONSTRUCT.png)
+
+Please note that the SPARQL endpoint is set to query, as for other SPARQL queries.
+
+
+
+## Knowledge Representation Services and Product Maps, Tips and Tricks
+
 
 ### Knowledge Representation Services Map
 
-Fig. 3.16 shows the knowledge representation services map.
+Fig. 3.16 shows the services map for knowledge representation.
 
 ![Fig. 3.16: Knowledge representation services map](images/Knowledge_Representation_SM.png)
 
 - A *knowledge base* allows the storage and retrieval of ontologies, i.e. knowledge structures of all kinds. It is usually the core of an AI application.
 - *Query engine* and *reasoning engine (a.k.a. reasoner)* usually come with a knowledge base product. But since they can often be plugged in and replaced, I have added them as separate services.
-- Since AI applications are often implemented in a general-purpose programming language like Java, an Application Programmers' Interface (*API*) is needed to access to the knowledge base and its reasoners. 
+- Since AI applications are often implemented in a general-purpose programming language like Python, an Application Programmers' Interface (*API*) is needed to access to the knowledge base and its reasoners. 
 - A *Knowledge Editor* allows editing of ontologies. Ontologies may be imported / exported between knowledge editor (development time) and knowledge base (run-time). Standard formats like RDF may be used for importing / exporting.
-- *Knowledge resources* include off-the-shelf ontologies like, e.g., DBpedia, that may be used in an AI application.
-- *Data Integration / Semantic Enrichment* are services that allow integrating various knowledge resources or subsets thereof. For example, the Arts Ontology described above is a custom subset of DBpedia.
+- *Knowledge resources* include off-the-shelf ontologies like, e.g., Wikidata, that may be used in an AI application.
+- *Data Integration / Semantic Enrichment* are services that allow integrating various knowledge resources or subsets thereof. For example, the Art Ontology described above is a custom subset of Wikidata.
 - *Integrated environments* are tool suites that bundle various development-time and run-time knowledge representation services.
 
 
@@ -532,39 +683,28 @@ Fig. 3.17 shows the knowledge representation product map.
 
 ![Fig. 3.17: Knowledge representation product map](images/Knowledge_Representation_PM.png)
 
-Virtuoso, Owlim and JENA are bundles that include knowledge editor, reaonsing / query engines and  Java APIs. Pellet, FaCT++, and HermiT are reasoning engines that may be plugged into other products. Protégé and Topbraid Composer are knowledge editors; Topbraid Suite and OntoStudio are integrated environments that include knowledge editors and runtime-components. Examples for knowledge resources are DBpedia, YAGO, WikiData, etc.  
+Virtuoso, GraphDB, rdf4J, Apache Jena are bundles that include knowledge base, reasoning / query engines and  Java APIs. Pellet, FaCT++, and HermiT are reasoning engines that may be plugged into other products. Protégé and Topbraid Composer are knowledge editors; Topbraid Suite PoolParty and Semafora are integrated environments that include knowledge editors and runtime-components. Examples for knowledge resources are WikiData, DBpedia, YAGO, CYC and GND.  
 
 More products and details can be found in the appendix.
 
 
-## Tips and Tricks
 
 ### Ontology - Make or Buy?
 
 Make or buy? This is common a question in the technology selection phase of an IT project. It also often applies to the ontology in an AI application project.
 
-As outlined in the section on Linked Data, there are hundreds and thousands of ontologies available, many with a public license, with thousands or even hundreds of thousands of facts each. An area with particularly well-established public ontologies are life sciences; See, e.g., [The OBO Foundry](http://www.obofoundry.org/) with ontologies for symptoms, diseases, medications, clinical procedures, genes / proteins, etc. etc. 
-There are even *ontology search engines*, e.g., [Swoogle](http://swoogle.umbc.edu/) or [Watson](http://watson.kmi.open.ac.uk/WatsonWUI/).
+As outlined in the section on Linked Data, there are thousands of ontologies available, many with a public license, with thousands or even hundreds of thousands of facts each. An area with particularly well-established public ontologies are life sciences; See, e.g., [The OBO Foundry](http://www.obofoundry.org/) with ontologies for symptoms, diseases, medications, clinical procedures, genes / proteins, etc. etc. 
+There are even *ontology search engines*, e.g., [BARTOC](http://bartoc.org) .
 
 Surprisingly however, when being confronted with concrete requirements for an AI application, it turns out that rarely an off-the-shelf ontology is sufficient. In none of my previous projects in various areas (tourism, libraries, arts, software engineering and medicine) I could simply take and use an off-the-shelf ontology without adaptation. Other practitioners have made similar experiences (Ege et al., 2015).
 
 I think Bowker and Star (1999) give a good explanation for this dilemma. They write: "Classifications that appear natural, eloquent, and homogeneous within a given human context appear forced and heterogeneous outside of that context". Different use cases require different structuring of the same knowledge.
 
-Also, the quality of some public ontologies is mediocre. Consider, e.g., DBpedia and the following SPARQL query for finding all Renaissance artists.
- 
-    select ?p where {?p rdf:type yago:RenaissanceArtists}
+Also, the quality of some public ontologies is mediocre. For example, in Wikidata the class wife is in a transitive rdfs:subClassOf relationship with class animal (accessed 2019-04-03). Why is this the case? This is because in Wikidata, the following relationship chain is modeled: wife is subclass of woman, is subclass of female, is subclass of Homo sapiens, is subclass of omnivore, is subclass of animal.  
 
-This  query executed at the [DBpedia SPARQL endpoint](http://dbpedia.org/sparql) (on 2016-01-10) results in only 16 (!) resources. `dbpedia:Michelangelo` is among them but, e.g, `dbpedia:Raphael` is missing. Instead, senseless results like `dbpedia:Leonardo_da_Vinci's_personal_life` are included. 
+When implementing the scripts for extracting the Art Ontology from Wikidata, we put quite some effort in data cleansing measures, e.g., eliminating birth and death dates that are not valid, birth and death places that are no locations, artist's movements that are no artistic movements etc.
 
-Interestingly enough, the query 
-
-    select ?p where {?p rdf:type yago:RenaissancePainters}
-
-results in 550 resources. Aren't painters artists?! 
-
-When implementing the scripts for extracting the Arts Ontology (see above) from DBpedia, I put quite some effort in data cleansing measures, e.g., eliminating birth and death dates that are not valid, birth and death places that are no locations, artist's movements that are no artistic movements etc.
-
-DBpedia is still a suitable source for the Arts Ontology example in this book. However, in a project for one of the leading German Arts museums ([digital collection](https://digitalesammlung.staedelmuseum.de/index.html)), the use of DBpedia was out of question due to its quality deficiencies. 
+Wikidata is still a suitable source for the Art Ontology example in this book and for Web apps like [openArtBrowser](https://openartbrowser.org). However, in a project for one of the leading German Arts museums ([digital collection](https://sammlung.staedelmuseum.de)), the use of Wikidata was out of question due to its quality deficiencies. 
 
 
 
@@ -574,7 +714,7 @@ Advantages are:
 -  Less costs of creating and maintaining the ontology
 -  Potentially higher quality due to contribution and use by many communities (as mentioned above, this is not always the case)
 
-However, developing a custom ontology for a specific use case, e.g., within a corporation is not as expensive as one might think. Experience from practice shows that an experienced team can model about 1,000 concepts within 5 man-days (Hoppe, 2015).
+However, developing a custom ontology for a specific use case, e.g., within a corporation is not as expensive as one might think. Experience from practice shows that an experienced team can model about 1,000 concepts within a week (Hoppe, 2015).
 
  
 
@@ -582,11 +722,11 @@ However, developing a custom ontology for a specific use case, e.g., within a co
 
 ### Pre-Processing Off-the-Shelf Ontologies
 
-When analyzing off-the-shelf ontologies for a concrete application use case, the ontologies' scope, structure and quality should be taken into account. Sometimes one or several ontologies can be identified that are quite suitable but do not fit perfectly. In this case a pre-processing step, much like the ETL (Extraction, Transformation, Loading) step in Data Warehouses, is recommendable. Ontology pre-processing may include the following activities:
+When analyzing off-the-shelf ontologies for a concrete application use case, the ontologies' scope, structure and quality should be taken into account. Sometimes one or several ontologies can be identified that are quite suitable but do not fit perfectly. In this case a pre-processing step, much like the *ETL (Extraction, Transformation, Loading)* step in Data Warehouses, is recommendable. Ontology pre-processing may include the following activities:
 
 - Transforming technical data formats, e.g., from tabular format CSV to RDF
-- Transforming ontology schemas, e.g., from `yago:Art102743547` to `:Artwork`
-- Quality enhancement, e.g., omitting birth dates that are not  valid
+- Transforming ontology schemas, e.g., from `wd:Q3305213` to `:artwork`
+- Quality enhancement, e.g., omitting birth dates that are not valid
 - Integrating multiple ontologies, e.g., removing duplicates
 
 This pre-processing step may be supported by services of type "Data Integration / Semantic Enrichment" in the Services Map. From my point of view, this important step is not discussed enough in the AI literature. See also the chapter on AI Application Architecture.
@@ -599,10 +739,9 @@ One final remark regarding selecting off-the-shelf ontologies: do not worry too 
 ### Deciding on Technology
 
 
-There are numerous mature products for knowledge representation available -- commercial and open source. So, when it comes to selecting knowledge representation technologies and products, there is no make versus buy decision to be taken -- just like you do not implement your own database management system for a business information system.
+There are numerous mature products for knowledge representation available -- commercial and open source. So, when it comes to selecting knowledge representation technologies and products, there is no make versus buy decision to be taken -- just like you would not implement your own database management system for a business information system.
 
-In the section on Services Maps and Product Maps I recommend a general method for selecting suitable product.
-
+In the section on Services Maps and Product Maps I recommend a general method for selecting suitable products.
 Here I give some tips and tricks regarding selecting knowledge representation products:
 
 Check carefully what is *really* needed in your application use case. In many practical use case scenarios, much less is required than what traditional AI frameworks offer. In AI literature, there is much discussion about the expressive power of the OWL full  standard compared to OWL light and other standards. In most of my projects, none of the OWL reasoning facilities were required at all. For many application use case scenarios, reasoning over hierarchies  is enough (e.g., an artist who lived in Florence also lived in Italy since Florence is in Italy). 
@@ -637,9 +776,9 @@ X> Answer the following questions.
 1. How are simple queries structured in SPARQL?
 1. How is the result set of SPARQL queries structured?
 1. What advanced features does SPARQL offer?
-1. What are services maps and product maps? How can they be used?
-1. Name knowledge representation services.
-1. Name a few products that implement those services.
+2. How can rules be implemented with SPARQL?
+1. Name knowledge representation services (services map).
+1. Name a few products that implement those services (product map).
 1. How to select ontologies for a concrete application use cases?
 1. How to integrate various off-the-shelf ontologies?
 1. How to  select knowledge representation products for a concrete AI application project?
