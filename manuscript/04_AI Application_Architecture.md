@@ -100,7 +100,6 @@ Semantic ETL consists of the following steps.
 
 
 
-%% slight repetition to chapter KR
 
 
 
@@ -127,8 +126,6 @@ In its complex form (story telling) the answer surely is "yes".
 
 In my opinion, however, this question is not too relevant.  Much more relevant is the question whether the agent metaphor is beneficial for designing the virtual museum guide application. And this question may well be answered with "yes". 
 Thinking of the virtual museum guide as an agent may lead to an architecture where perceptions are separated from actions and where the agent establishes a model of all past perceptions that is used for planning the next actions. And the separation of those concerns may well be a good architectural decision. 
-
-
 
 
 
@@ -193,7 +190,7 @@ For making a sound programming language decision in an AI application developmen
 - Are there enough developers familiar with the technology?
 - Where is the best support (User groups etc.)
 
-To conclude: for architecting AI 
+To conclude: for developing AI applications, all software engineering principles for the development of large-scale, complex IT systems apply. 
 
 
 

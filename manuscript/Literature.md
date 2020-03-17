@@ -30,6 +30,8 @@ Bettina Harriehausen-Mühlbauer: "Natural Language Processing". Lecture Script, 
 (Hoppe, 2015)
 Thomas Hoppe: "Modellierung des Sprachraums von Unternehmen" (in German). In: Börteçin Ege, Bernhard Humm, Anatol Reibold (Editors): "Corporate Semantic Web – Wie semantische Anwendungen in Unternehmen Nutzen stiften" . Springer-Verlag, 2015. 
 
+(Hoppe et al. 2018) Thomas Hoppe, Bernhard G. Humm, Anatol Reibold (Eds.): Semantic Applications - Methodology, Technology, Corporate Use.  Springer Verlag, Berlin, 2018. ISBN 978-3-662-55432-6. 
+
 (Humm 2020) Bernhard G. Humm: Fascinating with Open Data: openArtBrowser. In Adrian Paschke, Clemens Neudecker, Georg Rehm, Jamal Al Qundus, Lydia Pintscher (Eds.): Proceedings of the Conference on Digital Curation Technologies (Qurator 2020). CEUR Workshop Proceedings Vol-2535, urn:nbn:de:0074-2535-7. Berlin, Germany, 2020.
 
 (More et al., 2004)
