@@ -29,7 +29,7 @@ In this book, I use the term "ontology" for represented knowledge with the follo
 An *ontology* is the representation of knowledge of a particular application domain, i.e., a *representation of the relevant concepts and their relationships*.  
 
 The term "ontology" was originally coined in philosophy and is now also used in Computer Science. See, e.g., (Busse et al., 2015).
-Let us look at some specific examples of knowledge about arts (Fig. 3.2).
+Let us look at some specific examples of knowledge about creative arts (Fig. 3.2).
 
 
 ![Fig. 3.2: Examples of arts facts](images/Arts_Fact_Examples.png)
@@ -166,7 +166,7 @@ The two conditions on the left side of the implication are implicitly conjunctiv
 	->
 	(?p is_a painter)
 
-![Fig. 3.7: Rules]
+Fig. 3.7: Rules
 
 Interpretation: If ?p is a person who painted something then ?p is a painter.
 
@@ -268,7 +268,7 @@ The following example is semantically identical to the three triples above.
     wd:Q5592 rdfs:label "Michelangelo" ;
     	rdf:type :person ;
 		:date_of_birth 1475 ;
-		:movement wd:Q1474884.
+		:movement wd:Q1474884 .
 
 
 
@@ -282,13 +282,20 @@ Example:
 
 Meaning: Person is a class.
 
+You can also use `a` as an abbreviation for `rdf:type`. So, the triple above can be written as
+
+    :person a rdfs:Class .
+	
 Individuals, i.e. concept instances, are specified by RDF triples with `rdf:type` as predicate and the class as object.
 
 Example:
 
-    wd:Q5592 rdf:type :person .
+    wd:Q5592 a :person .
 
 Meaning: Michelangelo is a person.
+
+
+
 
 
 #### Properties
@@ -297,7 +304,7 @@ A relationship type is defined as an RDF property.
 
 Example:
 
-    :date_of_birth rdf:type rdf:Property .
+    :date_of_birth a rdf:Property .
 
 Meaning: `date_of_birth` is a property (relationship type).
 
@@ -312,7 +319,7 @@ Meaning: Michelangelo's  date of birth is in 1475.
 
 #### RDF and Object-Orientation
 
-Classes and properties of RDF (and RDFS / OWL built on top of RDF) have some of similarities to classes and associations in object-oriented design and programming. However, there are also fundamental differences. In object-orientation, every instance belongs to exactly one class. In RDF, there is no need for specifying a class and an rdf:type relationship. Zero, one, but also several rdf:type relationships may be specified.
+Classes and properties of RDF (and RDFS / OWL built on top of RDF) have some of similarities to classes and associations in object-oriented design and programming. However, there are also fundamental differences. In object-orientation, every instance belongs to exactly one class. In RDF, there is no need for specifying a class and an `rdf:type` relationship. Zero, one, but also several `rdf:type` relationships may be specified.
 Furthermore, there is no type checking for subjects, predicates and objects.
 
 For details see, e.g. (Allemang and Hendler, 2011).
@@ -348,7 +355,7 @@ Linked data is important: Due to the community editing and network effect, the c
 
 ### Example: Art Ontology
 
-In this book, I use an Art Ontology in RDF as example. The Art Ontology is a custom subset of Wikidata. Wikidata itself is a crowd-sourced community effort to provide the information for Wikipedia's info boxes and probably the most comprehensive publicly available knowledge graph.
+In this book, I use an Art Ontology in RDF as an example. The Art Ontology is a custom subset of Wikidata. Wikidata itself is a crowd-sourced community effort to provide the information for Wikipedia's info boxes and probably the most comprehensive publicly available knowledge graph.
 
 Wikidata provides a crawling API for extracting custom ontologies for AI applications. The art ontology crawler has been developed in one of my research projects (Humm 2020). The crawler code is open source under [GitHub](https://github.com/hochschule-darmstadt/openartbrowser/blob/master/scripts/data_extraction/art_ontology_crawler.py). 
   
@@ -379,7 +386,7 @@ The Art Ontology schema consists of 7 classes. Artwork is the central class with
 
 This is a subset of the entries for Mona Lisa (Q12418)
 
-	wd:Q12418 rdf:type :artwork;
+	wd:Q12418 a :artwork;
 	    rdfs:label "Mona Lisa" ;
 	    :description "oil painting by Leonardo da Vinci" ;
 	    :image <https://upload.wikimedia.org/wikipedia/commons/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg> ;
@@ -461,7 +468,7 @@ Assume we are interested in artists who were born in Paris.
 
 	SELECT  ?l
 	WHERE { 
-	   ?p rdf:type :person ;
+	   ?p a :person ;
        :place_of_birth "Paris" ;
 	   rdfs:label ?l .
 
@@ -478,7 +485,7 @@ The following query, e.g., lists artist with their corresponding place of birth.
 
 	SELECT  ?l ?b
 	WHERE { 
-	   ?p rdf:type :person ;
+	   ?p a :person ;
 	      rdfs:label ?l ;
 	      :place_of_birth ?b .
 	} 
@@ -501,7 +508,7 @@ The following query lists countries of artworks in the Art Ontology.
 
 	SELECT DISTINCT  ?c
 	WHERE { 
-	   ?p rdf:type :artwork ;
+	   ?p a :artwork ;
 	      :country ?c .
 	} 
 
@@ -513,7 +520,7 @@ Path expressions are a convenient abbreviation for expressing traversal in RDF g
 
 	SELECT  ?n ?l
 	WHERE { 
-	   ?a rdf:type :artwork ;
+	   ?a a :artwork ;
 	      rdfs:label ?l ;
 	      :creator/:place_of_birth "Paris" ;
 	      :creator/rdfs:label ?n .
@@ -609,23 +616,23 @@ But you may infer this information from the Art Ontology with the following rule
 
 Those rules can easily been expressed using  SPARQL INSERT statements. 
 
-	INSERT {?c rdf:type :painter}
+	INSERT {?c a :painter}
 	WHERE { 	  
-	  ?a rdf:type/rdfs:label "painting" ;
+	  ?a a/rdfs:label "painting" ;
 	     :artist ?c .
 	} 
 	
 	
-	INSERT {?c rdf:type :painter}
+	INSERT {?c a :painter}
 	WHERE { 	  
-	  ?a rdf:type/rdfs:label "drawing" ;
+	  ?a a/rdfs:label "drawing" ;
 	     :artist ?c .
 	} 
 	
 	
-	INSERT {?c rdf:type :sculptor}
+	INSERT {?c a :sculptor}
 	WHERE {   
-	  ?a rdf:type/rdfs:label "sculpture" ;
+	  ?a a/rdfs:label "sculpture" ;
 	     :artist ?c .
 	} 
 
@@ -661,9 +668,9 @@ Please note that the SPARQL endpoint is set to query, as for other SPARQL querie
 
 ### Knowledge Representation Services Map
 
-Fig. 3.16 shows the services map for knowledge representation.
+Fig. 3.19 shows the services map for knowledge representation.
 
-![Fig. 3.16: Knowledge representation services map](images/Knowledge_Representation_SM.png)
+![Fig. 3.19: Knowledge representation services map](images/Knowledge_Representation_SM.png)
 
 - A *knowledge base* allows the storage and retrieval of ontologies, i.e. knowledge structures of all kinds. It is usually the core of an AI application.
 - *Query engine* and *reasoning engine (a.k.a. reasoner)* usually come with a knowledge base product. But since they can often be plugged in and replaced, I have added them as separate services.
@@ -678,10 +685,10 @@ Fig. 3.16 shows the services map for knowledge representation.
 
 ### Knowledge Representation Product Map
 
-Fig. 3.17 shows the knowledge representation product map.
+Fig. 3.20 shows the knowledge representation product map.
 
 
-![Fig. 3.17: Knowledge representation product map](images/Knowledge_Representation_PM.png)
+![Fig. 3.20: Knowledge representation product map](images/Knowledge_Representation_PM.png)
 
 Virtuoso, GraphDB, rdf4J, Apache Jena are bundles that include knowledge base, reasoning / query engines and  Java APIs. Pellet, FaCT++, and HermiT are reasoning engines that may be plugged into other products. Protégé and Topbraid Composer are knowledge editors; Topbraid Suite PoolParty and Semafora are integrated environments that include knowledge editors and runtime-components. Examples for knowledge resources are WikiData, DBpedia, YAGO, CYC and GND.  
 
