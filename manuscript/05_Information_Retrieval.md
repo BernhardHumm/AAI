@@ -22,7 +22,7 @@ Because of those reasons, I decided to dedicate a chapter of this book to inform
 
 Fig 4.1 shows the information retrieval services map. 
 
-![Fig. 4.1: Information retrieval services map](images/Information_Retrieval_SM.png)
+![Fig. 5.1: Information retrieval services map](images/Information_Retrieval_SM.png)
 
 
 The basic way of employing information retrieval in an application is to include an indexer and a search engine library. An *indexer* is a library for indexing a collection of documents and for storing those indexes. The indexer is implemented in a programming language like Java and accessible via an API. Indexing is an offline-process, usually implemented as a batch. The *search engine library* can then be used online to access this index. It can be accessed via a query API. 
@@ -31,14 +31,14 @@ If the documents to be indexed are not available initially but have to be retrie
 
 In case, the application is implemented in a different programming language, a *search server platform* may be used. It allows starting a server process on an operating system which can then be accessed by applications via a programming language independent interface, e.g., HTTP / REST. Like the search engine library, documents must be indexed for the search server platform before it can be used for querying. 
 
-Finally, an existing search engine can be included in an application as a web service - denoted as *search service* in Fig. 4.1. All prominent search engines like Google, Yahoo!, and Yandex offer web services.
+Finally, an existing search engine can be included in an application as a web service - denoted as *search service* in Fig. 5.1. All prominent search engines like Google, Yahoo!, and Yandex offer web services.
 
 
 ## Information Retrieval Product Map
 
-Fig. 4.2 shows the information retrieval product map; see the appendix for more details. 
+Fig. 5.2 shows the information retrieval product map; see the appendix for more details. 
 
-![Fig. 4.2: Information retrieval product map](images/Information_Retrieval_PM.png)
+![Fig. 5.2: Information retrieval product map](images/Information_Retrieval_PM.png)
 
 [Apache Lucene](https://lucene.apache.org/) is *the* state-of-the-art open source search engine library and indexer. Lucene is implemented in Java and is used in numerous applications. Ports to other languages exist, e.g., PyLucene for Python.
 
@@ -78,10 +78,10 @@ A semantic AutoSuggest feature is a good example of how information retrieval ma
 The concept of AutoSuggest (a.k.a. autocomplete) is well-known from web search engines like Google. While the user is typing a search text, terms are suggested in a drop-down menu from which the user can choose.
 
 Semantic AutoSuggest extends this feature by utilizing semantic information, e.g.,  term categories. 
-See Fig. 4.3 for an example in an arts application (in German).
+See Fig. 5.3 for an example in an arts application (in German).
 
 
-![Fig. 4.3: Application example: Semantic AutoSuggest](images/Semantic_AutoSuggest.png)
+![Fig. 5.3: Application example: Semantic AutoSuggest](images/Semantic_AutoSuggest.png)
 
 While the user is typing the letters "re" in the search box, several terms are suggested: 
 
