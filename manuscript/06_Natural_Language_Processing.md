@@ -1,10 +1,11 @@
 
 # Natural Language Processing
 
-Natural Language Processing (NLP) is a broad area that covers many aspects of dealing with natural languages like English. Examples are:
+*Natural Language Processing (NLP)* is a broad area that covers many aspects of dealing with natural languages like English. Examples are:
 
 - Spell checking and grammar checking of written texts, e.g., as in word processors
-- Understanding written text, e.g., the sentiment of Twitter tweets
+- Classifying texts, e.g. according to the topic
+- Understanding written text, e.g., the sentiment of Twitter tweets (positive, neutral, negative)
 - Understanding speech, e.g., voice control of a navigation system
 - Translating texts, e.g., between English and German
 - Answering natural language questions, e.g., in a specific domain like medicine
@@ -15,8 +16,9 @@ Natural Language Processing (NLP) is a broad area that covers many aspects of de
 
 Due to the diversity of NLP, different subareas are distinguished. There is no commonly agreed classification but often the following NLP subareas are mentioned:
 
-- *Information Extraction (IE)* deals with the understanding of written and spoken text. This includes the analysis of texts and transformation into a knowledge representation that can be queried. Sentiment analysis is a simple form of information extraction.
 - *Information Retrieval (IR)* supports retrieving documents for a specific information need. As explained in the last chapter, the term "Document Retrieval" would be more suitable. Information Retrieval is usually considered a subarea of NLP.
+- *Information Extraction (IE)* deals with the understanding of written and spoken text. This includes the analysis of texts and transformation into a knowledge representation that can be queried. Sentiment analysis is a simple form of information extraction.
+
 - *Question Answering (QA)* generates natural language answers to natural language questions, in written or spoken form. 
 - *Machine Translation* allows translating texts between different natural languages.
 - *Text Generation* supports the generation of written or spoken texts. Text summaries and story telling are forms of text generation.
@@ -27,17 +29,92 @@ Due to the diversity of NLP, different subareas are distinguished. There is no c
 
 Fig. 6.1 shows the big picture of NLP as seven levels of language understanding according to (Harriehausen, 2015).
 
+{width=75%}
 ![Fig. 6.1: The 7 levels of language understanding according to (Harriehausen, 2015)](images/Levels_of_Language_Understanding.png)
 
 The figure shows information levels and NLP processing steps to raise the level of understanding. 
-On the lowest level there are acoustic signals. *Phonetic analysis* uses features of the voice to extract sounds. *Phonological analysis* uses sound combinations of specific languages in order to extract letters. *Lexical analysis* may use dictionaries to extract individual words. *Syntactic analysis* (parsing) uses grammar rules in order to extract sentences and their structure (parse tree). *Semantic analysis* uses background knowledge to represent the knowledge in a text. Finally, *pragmatic analysis* may draw conclusions and consequences for action.
-
-
-## From Letters to Sentences
+On the lowest level there are acoustic signals. *Phonetic analysis* uses features of the voice to extract sounds. *Phonological analysis* uses sound combinations of specific languages in order to extract letters. *Lexical analysis* may use dictionaries to extract individual words. *Syntactic analysis* (parsing) uses grammar rules in order to extract sentences and their structure (parse tree). *Semantic analysis* uses background knowledge to represent the knowledge in a text. Finally, *pragmatic analysis* may draw conclusions and consequences for actions.
 
 In most AI applications, only some NLP processing steps are relevant. When dealing with written texts, then phonetic and phonological analysis are not necessary. Also, semantic and pragmatic analysis may be simple or even irrelevant, depending on the application use case.
 
-In this section, I explain the individual processing steps for lexical and syntactic analysis (from letters to sentences) that are relevant in many NLP applications.
+In this chapter, I focus on lexical, syntactic and semantic analysis which is used in most NLP applications. I first explain a simple approach, namely the bag-of-words- model. 
+I then explain individual processing steps for lexical and syntactic analysis (from letters to sentences) that may lead to a deeper semantic analysis.
+
+
+## Simple Approach: Bag-of-words Model
+
+The *bag-of-words model* is a simple NLP approach which delivers surprisingly good results in certain application scenarios like text classification and sentiment analysis. 
+In the bag-of-words model, a text is represented as the *bag (multiset)* of its words, disregarding grammar and even word order but only keeping the multiplicity of the words.
+
+Consider the following example text.
+
+	"John likes to watch movies. Mary likes movies too."
+
+The bag of words, represented in JSON, is:
+
+	BoW = {"John":1,"likes":2,"to":1,"watch":1,"movies":2,"Mary":1,"too":1}; 
+
+The word `John` appears once in the text, the word `likes` twice etc. 
+
+
+### Machine Learning with Bags of Words
+
+In the simplest form, vectors resulting of bags of words can be used in supervised ML approaches as described in Chapter 2. Consider the ML task of classification with texts t1, ... tn and classes A, B, C. Then the data set for ML training consists of each distinct word in all texts as features (attributes as classification input) and the classes as labels (classification output). See Fig. 6.2 with the example text above represented as t1.
+
+
+{width=75%}
+![Fig. 6.2: ML classification data from bags of words](images/Bag-of-word-ML.png)
+
+
+Now, any ML approach suitable for classification can be used, e.g. Artificial Neural Networks, Decision Trees, Support Vector Machines, k-nearest Neighbor etc. 
+
+
+
+### tf-idf
+
+As a rule of thumb, a term appearing often in a text is more important than a term appearing rarely. However, there are exceptions to this rule of thumb. Consider e.g. so-called *stop words* like "the", "a", "to" etc. which are most common in English texts but add little to the semantics of the text. In information retrieval, stop words are usually ignored.
+
+How to deal with this in the bag-of-words model which mainly deals with word counts? 
+
+One approach is to remove stop words before computing the bag of words. This approach much depends on the selection of the right stop words.
+
+There is another elegant, general approach which avoids fixed stop word lists: *term frequency – inverse document frequency (tf-idf)*. 
+*Term frequency* is based on the count of a particular word in a concrete text as shown in the example above.
+*Document frequency* considers the count of a particular word in an entire *corpus*, i.e., a large set of texts. 
+
+tf-idf puts the term frequency in relation to the document frequency. So, a word like "to" which appears often in all texts but no more often in the text under consideration will not have a particularly high tf-idf and, therefore, will not be considered important. In contrast, a word like "movies" which occurs twice in the short text above but not particularly often in texts in general will have a high tf-idf and, therefore, will be considered important for this text. This matches the intuition.
+
+There are various formulas for computing tf-idf in practical use, which are more meaningful than a simple quotient of the word counts. See e.g. the [Wikipedia entry on tf-idf](https://en.wikipedia.org/wiki/Tf%E2%80%93idf). NLP libraries conveniently provide implementations of tf-idf.
+
+The ML classification performance can be improved by using the tf-idf values instead of the simple word counts in the training data (Fig. 6.2).
+
+
+
+### N-gram Model
+
+The simple bag-of-words model as explained above treats each individual word independently. The word order gets ignored completely. The *n-gram model* is a simple improvement which takes combinations of up to n successive words into  account. N is usually relatively small, e.g., 2 or 3. 
+
+See Fig. 6.3. with an extension of the example of Fig. 6.2 to a 2-gram model.
+
+
+
+{width=90%}
+![Fig. 6.3: ML classification with n-gram model](images/n-gram-model.png)
+
+
+n-gram models can be combined with tf-idf by simply computing the tf-idf values for the n-grams.
+
+The bag-of-words model is  simple and relatively easy to implement. Despite its simplicity, it delivers good prediction performance for many application use cases, particularly when combined with extensions like tf-idf or n-grams, and particularly with large training data sets. 
+
+Obviously, the number of features (attributes) in the bag-of-words model can get extremely large, particularly when using n-grams. Hundreds of thousands of features are possible.  Particularly with huge training data sets this can cause major performance problems in the ML training and prediction phases. Feature selection mechanisms from unsupervised ML may be used to reduce the number of features and, hence, alleviate those performance problems. 
+
+
+
+
+
+## Deeper Semantic Analysis: From Letters to Sentences
+
+
 
 
 ### Tokenization
@@ -117,7 +194,7 @@ Early NLP parsers were rule-based. They mechanically applied grammar rules to se
 
 Fig. 6.6 shows the NLP services map.
 
-
+{width=75%}
 ![Fig. 6.6: NLP services map](images/NLP_Services_Map.png)
 
 
@@ -133,6 +210,7 @@ Including an NLP service is, of course, the easiest and least effort solution. H
 
 Fig. 6.7 shows the NLP product map; see the appendix for more details.
 
+{width=75%}
 ![Fig. 6.7: NLP product map](images/NLP_Product_Map.png)
 
 

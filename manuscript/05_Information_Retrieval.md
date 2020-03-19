@@ -74,24 +74,24 @@ Also, there are reasons for using a search server platform even when the applica
 
 
 
-## Application Example: Semantic AutoSuggest Feature
+## Application Example: Semantic Autosuggest Feature
 
 A *semantic autosuggest* feature is a good example of how information retrieval may improve the user experience considerably with relatively little implementation effort.
-The concept of *autosuggest* (a.k.a. *autocomplete*) is well-known from web search engines like Google. While the user is typing a search text, terms are suggested in a drop-down menu from which the user can choose.
+The concept of *autosuggest* (a.k.a. *autocomplete*) is well-known from web search engines like Google. While the user is typing a search string, terms are suggested in a drop-down menu from which the user can choose.
 
 Semantic autosuggest extends this feature by utilizing semantic information, e.g.,  term categories. 
-See Fig. 5.3 for an example in the [openArtBrowser](https://openartbrowser.org) (Humm, 2000).
+See Fig. 5.3 for an example in the [openArtBrowser](https://openartbrowser.org) (Humm, 2020).
 
 {width=50%}
 ![Fig. 5.3: Application example: Semantic autosuggest](images/Semantic_AutoSuggest.png)
 
-OpenArtBrowser a web app for educating in visual art, fascinating users for paintings, drawings and sculptures. It provides a search feature with semantic autosuggest. 
-In the example of Fig. 5.3, the user is typing the letters “vi…”. Various artworks, artists, materials, genres and motifs are displayed which contain the letters “vi” (case-insensitive), grouped according to their semantic category. The matching letters “vi” are highlighted (in green). A sophisticated heuristic ranking selects a limited number (here 10) of suggestions from a potentially very large number of matches.  
+OpenArtBrowser is a web app for educating in visual art, fascinating users for paintings, drawings and sculptures. It provides a search feature with semantic autosuggest. 
+In the example shown in Fig. 5.3, the user is typing the letters “vi…”. Various artworks, artists, materials, genres and motifs are displayed which contain the letters “vi” (case-insensitive), grouped according to their semantic category. The matching letters “vi” are highlighted (in green). A sophisticated heuristic ranking selects a limited number (here 10) of suggestions from a potentially very large number of matches, e.g., the artist Vincent van Gogh, the motif Virgin Mary, and the artwork View of a Roman House. 
  
-By selecting one of the suggested terms, the user also selects a semantic category (artist, artwork, motive, association, etc.). The search will then be refined accordingly using the search term *and* the semantic category. 
+By selecting one of the suggested terms, the user also selects a semantic category (artist, artwork, motif, genre, etc.). The search will then be refined accordingly using the search term and the semantic category. 
 
 OpenArtBrowser and its semantic autosuggest feature is based on the Art Ontology described in Chapter 3. 
-The semantic AutoSuggest feature was implemented using ElasticSearch. An ngram index was created from the ArtOntology. An autocomplete widget of  some JavaScript library like [JQuery UI](https://jqueryui.com/autocomplete/)  was used in the HTML client. From the client, the ElasticSearch server was invoked to query the terms.
+The semantic AutoSuggest feature was implemented using ElasticSearch. An ngram index was created from the ArtOntology. An autocomplete widget of  some JavaScript library like [JQuery UI](https://jqueryui.com/autocomplete/)  was used in the HTML client. From the web client, the ElasticSearch server was invoked to query the terms.
 
 The  implementation of the entire semantic autosuggest feature involves less than 100 lines of code. 
 
