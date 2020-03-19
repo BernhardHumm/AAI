@@ -726,9 +726,9 @@ Fig. 2.35 gives an overview of service categories of machine learning products.
 
 *ML Development Environments*  allow experimenting with different machine learning approaches, testing the performance, and configuring solutions. Some of them have visual programming features to configure machine learning processing steps. They usually allow exporting solutions that can then be included in an AI applications as libraries.
 
-*ML Web services* provide similar functionality as ML development environments, but need not be installed locally. Instead, they can be used via the Web. This implies the necessity for uploading the machine learning data sets to some cloud storage.
+*ML web services* provide similar functionality as ML development environments, but need not be installed locally. Instead, they can be used via the Web. This implies the necessity for uploading the machine learning data sets to some cloud storage.
 
-Finally, *ML pre-trained models* can be used in ML libraries, APIs, development environments and Web services to perform transfer learning. 
+Finally, *ML pre-trained models* can be used in ML libraries, APIs, development environments and web services to perform transfer learning. 
 
 
 
@@ -750,7 +750,7 @@ Examples for ML development environments are
 [SPSS Modeler](http://www-01.ibm.com/software/analytics/spss/products/modeler/), 
 [RapidMiner](https://rapidminer.com/), and
 [WEKA](http://www.cs.waikato.ac.nz/ml/weka/). 
-Examples for ML Web services are 
+Examples for ML web services are 
 [Amazon AWS ML](https://aws.amazon.com/de/machine-learning/), 
 [Google Cloud ML](https://cloud.google.com/products/ai/), 
 [IBM Watson ML](https://www.ibm.com/cloud/machine-learning), and
@@ -798,7 +798,7 @@ In the sections above we discussed *algorithmic bias*, e.g. using too simple or 
 Most problematic is *data bias* since ML applications are data-driven. 
 Increasingly, there are examples of data bias in ML applications reported in media (also see O'Neil, 2016, Mueller-Birn, 2019). People with an Afro-American background in the US were systematically disadvantaged by software for predictive police work and legal risk assessment in court. Software for assigning students to schools in the US discriminated against children from low-income families. Research has shown that the use of facial recognition software in public places leads to systematic misjudgments. So, discrimination in the past is perpetuated in the future. 
 
-Closely related to data bias is *activity bias*, particularly if the data for training ML applications is based on crowd-sourced Web data. Only a very small percentage of Web users generate the vast majority of content, including deliberate misinformation a.k.a. "fake news". Data used for training ML applications is often called "ground truth" but it is important to note that this does not necessarily reflect the truth.
+Closely related to data bias is *activity bias*, particularly if the data for training ML applications is based on crowd-sourced web data. Only a very small percentage of web users generate the vast majority of content, including deliberate misinformation a.k.a. "fake news". Data used for training ML applications is often called "ground truth" but it is important to note that this does not necessarily reflect the truth.
 
 Also closely related to data bias is *sampling bias*. Many medical applications, e.g., rely on data from western, educated, industrialized, rich and democratic societies (WEIRD). WEIRD societies represent as much as 80 % of study participants but only 12 % of the world's population, i.e., they are not representative of humans as a species.
 

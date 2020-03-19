@@ -341,7 +341,7 @@ The RDF syntax introduced above is called [Turtle](http://www.w3.org/TR/2014/REC
 
 Prominent linked data ontologies are [WikiData](https://www.wikidata.org), [DBpedia](http://wiki.dbpedia.org/), and [YAGO](http://www.mpi-inf.mpg.de/departments/databases-and-information-systems/research/yago-naga/yago//). 
 
-[Schema.org](https://schema.org) is an open initiative originally initiated by the major search engine providers  Google, Microsoft, Yahoo and Yandex. It is based on RDF and provides a vocabulary for semantically specifying things talked about on Web pages, including persons, organizations, locations, products, events, etc. Providers of websites can enrich their human-readable content by machine-readable semantic markup.
+[Schema.org](https://schema.org) is an open initiative originally initiated by the major search engine providers  Google, Microsoft, Yahoo and Yandex. It is based on RDF and provides a vocabulary for semantically specifying things talked about on web pages, including persons, organizations, locations, products, events, etc. Providers of websites can enrich their human-readable content by machine-readable semantic markup.
 Google introduced the term *knowledge graph* as Google's collection of such data which is used for semantic features of the search engine, e.g., the Google info boxes.
 Meanwhile, the term knowledge graph is also used for other large-scale ontologies with a focus on facts, including the Facebook graph and the Microsoft Office graph. Wikidata, DBpedia and YAGO can also be regarded as knowledge graphs in this sense.
  
@@ -634,7 +634,7 @@ Those rules can easily been expressed using  SPARQL INSERT statements.
 
 SPARQL INSERT statements allow providing RDF triples after the `INSERT` keyword, containing SPARQL variables that are matched according to the conditions specified in the `WHERE` part. The `WHERE` part can contain everything that can be specified in SPARQL queries. In the example above, it is assumed that the Art Ontology contains the Wikidata type information, e.g., `wd:Q3305213` (painting), `wd:Q93184` (drawing) or `wd:Q860861` (sculpture) for artworks. The `WHERE` conditions are straight forward, using  path expressions.
 
-When experimenting with SPARQL INSERT statements in the Fuseki Web app,  make sure that the SPARQL endpoint is set to `update`. See Fig. 3.16.
+When experimenting with SPARQL INSERT statements in the Fuseki web app,  make sure that the SPARQL endpoint is set to `update`. See Fig. 3.16.
 
 
 ![Fig. 3.16: SPARQL INSERT statement](images/SPARQL_UPDATE.png)
@@ -708,7 +708,7 @@ This is because in Wikidata, the following relationship chain is modeled: wife i
 
 When implementing the scripts for extracting the Art Ontology from Wikidata, we put quite some effort in data cleansing measures, e.g., eliminating birth and death dates that are not valid, birth and death places that are no locations, artist's movements that are no artistic movements etc.
 
-Wikidata is still a suitable source for the Art Ontology example in this book and for Web apps like [openArtBrowser](https://openartbrowser.org). However, in a project for one of the leading German Arts museums ([Staedel digital collection](https://sammlung.staedelmuseum.de)), the use of general-purpose knowledge graphs like Wikidata was out of question due to their quality deficiencies. 
+Wikidata is still a suitable source for the Art Ontology example in this book and for web apps like [openArtBrowser](https://openartbrowser.org). However, in a project for one of the leading German Arts museums ([Staedel digital collection](https://sammlung.staedelmuseum.de)), the use of general-purpose knowledge graphs like Wikidata was out of question due to their quality deficiencies. 
 
 
 
@@ -728,10 +728,10 @@ However, developing a custom ontology for a specific use case, e.g., within a co
 
 When analyzing off-the-shelf ontologies for a concrete application use case, the ontologies' scope, structure and quality should be taken into account. Sometimes one or several ontologies can be identified that are quite suitable but do not fit perfectly. In this case a pre-processing step, much like the *ETL (Extraction, Transformation, Loading)* step in Data Warehouses, is recommendable. Ontology pre-processing may include the following activities:
 
-1. - Transforming technical data formats, e.g., from tabular format CSV to RDF
-1. - Transforming ontology schemas, e.g., from `wd:Q3305213` to `:artwork`
-1. - Quality enhancement, e.g., omitting birth dates that are not valid
-1. - Integrating multiple ontologies, e.g., removing duplicates
+1. Transforming technical data formats, e.g., from tabular format CSV to RDF
+1. Transforming ontology schemas, e.g., from `wd:Q3305213` to `:artwork`
+1. Quality enhancement, e.g., omitting birth dates that are not valid
+1. Integrating multiple ontologies, e.g., removing duplicates
 
 Pre-processing may be supported by services of type "Data Integration / Semantic Enrichment" in the Services Map. From my point of view, this important step is not discussed enough in the AI literature. See also the chapter on AI Application Architecture.
 

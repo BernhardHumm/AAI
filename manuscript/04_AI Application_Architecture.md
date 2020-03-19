@@ -26,19 +26,19 @@ A *reference architecture* is a blueprint for concrete application architectures
 
 Fig. 4.1 shows a reference architecture for AI applications. 
 
-{width=75%}
+{width=90%}
 ![Fig. 4.1: AI reference architecture](images/AI_Reference_Architecture.png)
 
 
 The reference architecture is structured as a *layered architecture* similar to the classic three-layer-architecture of business information systems. 
 
-The *presentation layer* implements the (graphical) user interface which, in the case of a Web apps or mobile apps, may be implemented with state-of-the-art UI technology like HTML/CSS and JavaScript. The UI layer communicates with the application logic layer via an application programmer's interface (API), e.g., using REST (representational state transfer).
+The *presentation layer* implements the (graphical) user interface which, in the case of a web apps or mobile apps, may be implemented with state-of-the-art UI technology like HTML/CSS and JavaScript. The UI layer communicates with the application logic layer via an application programmer's interface (API), e.g., using REST (representational state transfer).
 
 The *application logic layer* implements the intelligence of the AI application, e.g., in form of intelligent agents. 
 The AI application logic is usually implemented in a general-purpose programming language. Within the last years, Python is evolving as the primary AI programming language (as Lisp and Prolog were in the 1980s). But object-oriented languages like Java, C# and C++ are also in common use. 
 Often, powerful libraries and frameworks for AI tasks like machine learning, language processing, image processing, etc. are utilized. Examples are Keras, TensorFlow, Scikit-learn and Spark. 
 
-Instead of including AI libraries, 3rd party AI Web services can be used. Major vendors like Google, Amazon, Microsoft, and IBM offer AI suites with Web services for machine learning, language processing, image processing etc.
+Instead of including AI libraries, 3rd party AI web services can be used. Major vendors like Google, Amazon, Microsoft, and IBM offer AI suites with web services for machine learning, language processing, image processing etc.
 
 The underlying data of the AI application is stored in a *knowledge base* which is accessed by the application logic layer via an API. As outlined in the chapter on knowledge representation, technologies with reasoning engines (like, e.g., Apache Jena) may be used. However, also classic storage technologies like RDBMS or NoSQL databases are often used.  
 
