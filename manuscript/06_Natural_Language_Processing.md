@@ -27,10 +27,10 @@ Due to the diversity of NLP, different subareas are distinguished. There is no c
 
 ## The Big Picture
 
-Fig. 6.1 shows the big picture of NLP as seven levels of language understanding according to (Harriehausen, 2015).
+Fig. 6.1 shows the big picture of NLP as seven levels of language understanding, adopted from (Harriehausen, 2015).
 
 {width=75%}
-![Fig. 6.1: The 7 levels of language understanding according to (Harriehausen, 2015)](images/Levels_of_Language_Understanding.png)
+![Fig. 6.1: The 7 levels of language understanding, adopted from (Harriehausen, 2015)](images/Levels_of_Language_Understanding.png)
 
 The figure shows information levels and NLP processing steps to raise the level of understanding. 
 On the lowest level there are acoustic signals. *Phonetic analysis* uses features of the voice to extract sounds. *Phonological analysis* uses sound combinations of specific languages in order to extract letters. *Lexical analysis* may use dictionaries to extract individual words. *Syntactic analysis* (parsing) uses grammar rules in order to extract sentences and their structure (parse tree). *Semantic analysis* uses background knowledge to represent the knowledge in a text. Finally, *pragmatic analysis* may draw conclusions and consequences for actions.
@@ -43,7 +43,7 @@ I then explain individual processing steps for lexical and syntactic analysis (f
 
 ## Simple Approach: Bag-of-words Model
 
-The *bag-of-words model* is a simple NLP approach which delivers surprisingly good results in certain application scenarios like text classification and sentiment analysis. 
+The *bag-of-words (BoW) model*  is a simple NLP approach which delivers surprisingly good results in certain application scenarios like text classification and sentiment analysis. 
 In the bag-of-words model, a text is represented as the *bag (multiset)* of its words, disregarding grammar and even word order but only keeping the multiplicity of the words.
 
 Consider the following example text.
@@ -114,7 +114,9 @@ Obviously, the number of features (attributes) in the bag-of-words model can get
 
 ## Deeper Semantic Analysis: From Letters to Sentences
 
+The bags-of-words model is a simple approach, based on counting words. This is most different from the way humans understand texts. Despite its simplicity it delivers surprisingly good results for simple NLP tasks like text classification. However, it is obvious that complex NLP tasks like question answering require a deeper semantic analysis of texts than simply counting words. 
 
+In this section I will present some approaches: from letters to sentences.
 
 
 ### Tokenization
@@ -137,7 +139,7 @@ Following the primitive tokenization approach, the last word identified would be
 
 "Interest rates raised by 0.2 percent."
 
-Obviously, the period in "0.2" is part of a floating point number and does not terminate the sentence. Other cases to be considered are abbreviations like "e.g.", ellipsis ("..."), etc.
+Obviously, the point in "0.2" is part of a floating point number and does not terminate the sentence. Other cases to be considered are abbreviations like "e.g.", ellipsis ("..."), etc.
 
 
 
@@ -152,14 +154,14 @@ Fig. 6.3 shows the PoS tagging result of the sentence "My dog also likes eating 
 
 In this figure, the [Penn Treebank tag set](http://www.clips.ua.ac.be/pages/mbsp-tags) is used. E.g., Verb, gerund or present participle" is marked as "VBG". The Penn Treebank tag set is a de-facto standard used by many PoS tagging tools.  
 
-
+Note: Tokenization and stemming are often pre-processing steps before applying a bags-of-words model. They may improve prediction performance and, at the same time, reduce the number of features.
 
 
 ### Parsing
 
-Parsing is the step of analyzing the grammar of a sentence. The result is the sentence structure, usually denoted as a tree. Fig. 6.4 shows the parsing result for the sentence "My dog also likes eating sausage.".
+*Parsing* is the step of analyzing the grammar of a sentence. The result is the sentence structure, usually denoted as a tree. Fig. 6.4 shows the parsing result for the sentence "My dog also likes eating sausage."
 
-
+{width=75%}
 ![Fig. 6.4: Parsing](images/Parsing.png)
 
 Again, the the Penn Treebank tag set is used. E.g., "NP" stands for "noun phrase" and "VP" for "verb phrase". 
@@ -198,17 +200,17 @@ Fig. 6.6 shows the NLP services map.
 ![Fig. 6.6: NLP services map](images/NLP_Services_Map.png)
 
 
-When developing an AI application with NLP facilities, you very rarely build basic NLP *building blocks* from scratch. Class libraries with powerful and well-established building blocks for tokenization, sentence splitting, PoS tagging, parsing etc. exist and can  be integrated into your application. Additionally, *language resources* like dictionaries may be used. 
+When developing an AI application with NLP facilities, you very rarely build basic NLP *building blocks* from scratch. Class libraries with powerful and well-established building blocks for BoW model, tf-idf, n-gram, tokenization, sentence splitting, PoS tagging, parsing etc. exist and can  be integrated into your application. Additionally, *language resources* like dictionaries may be used. 
 
-When building complex custom NLP applications, the use of an NLP framework is recommended. They usually follow a pipelining approach allowing to plug in off-the-shelf NLP building blocks. NLP frameworks are powerful and highly customizable. However, they require a certain level of expertise, both on NLP concepts as described above as well as framework-specifics.
+When building complex custom NLP applications, the use of an NLP framework is recommended. They usually follow a pipeline approach allowing to plug in off-the-shelf NLP building blocks. NLP frameworks are powerful and highly customizable. However, they require a certain level of expertise, both on NLP concepts as described above as well as framework-specifics.
 
 For a number of NLP tasks, entire solutions may be integrated into an AI application as a web service. Examples are translation services, voice-to-text transformation services, named entity recognition, sentiment analysis etc.
-Including an NLP service is, of course, the easiest and least effort solution. However, you should check licenses, performance and availability issues involved. 
+Including an NLP web service is, of course, the easiest and least effort solution. However, you should check licenses, performance, privacy and availability issues involved. 
 
 
 ## NLP Product Map
 
-Fig. 6.7 shows the NLP product map; see the appendix for more details.
+Fig. 6.7 shows the NLP product map.
 
 {width=75%}
 ![Fig. 6.7: NLP product map](images/NLP_Product_Map.png)
@@ -217,6 +219,11 @@ Fig. 6.7 shows the NLP product map; see the appendix for more details.
 [Apache UIMA](https://uima.apache.org/) and [GATE](https://gate.ac.uk/) are the most widely used NLP frameworks. While GATE allows experimenting with NLP using a graphical desktop application, UIMA is more suitable for software developers offering plug-ins for IDEs like Eclipse. 
 
 There are numerous NLP building blocks, e.g. from the [Stanford University NLP group](http://nlp.stanford.edu/software/). Many of them can be plugged into UMIA and GATE. However, sometimes wrappers are needed like from [uimaFIT](https://uima.apache.org/uimafit.html) and [DKPro](https://www.ukp.tu-darmstadt.de/research/current-projects/dkpro/).
+ML libraries like 
+[TensorFlow](https://www.tensorflow.org/), 
+[scikit-learn](http://scikit-learn.org/) and 
+[MLlib](http://spark.apache.org/mllib/), 
+offer functionality for the BoW model, tf-idf and n-grams. 
 
 The most prominent NLP language resource for the English language is [WordNet](https://wordnet.princeton.edu/).
 
@@ -225,11 +232,11 @@ There are also numerous NLP services from various providers, e.g., [Google Trans
 
 I will briefly introduce one prominent example for each NLP service category in the next sections, namely  WordNet,  Stanford Parser, UIMA, and NERD.
 
-More products and details can be found in the appendix.
+More NLP products and details can be found in the appendix.
 
 ### NLP Resources: WordNet
 
-[WordNet](https://wordnet.princeton.edu/) is a state-of-the-art lexical database for the English language. It lists over 150,000 English words: nouns, verbs, adjectives and adverbs. For each word, different meanings ("senses") are distinguished. For example, 7 different noun senses and one verb sense of the word "dog" are listed, including the animal as well as minced meat (as in "hot dog"). 
+[WordNet](https://wordnet.princeton.edu) is a state-of-the-art lexical database for the English language. It lists over 150,000 English words: nouns, verbs, adjectives and adverbs. For each word, different meanings ("senses") are distinguished. For example, 7 different noun senses and one verb sense of the word "dog" are listed, including the animal as well as minced meat (as in "hot dog"). 
 
 Fig. 6.8 shows a screenshot of the [WordNet online search](http://wordnetweb.princeton.edu/perl/webwn?s=dog).
 
@@ -259,7 +266,7 @@ Which integration type is recommended? As usual, integrating the online service 
 
 The [Stanford Parser](http://nlp.stanford.edu/software/lex-parser.shtml) is a state-of-the-art statistical NLP parser. It supports different natural languages, namely English, French, Spanish, German, and Chinese. It is implemented in Java and is published open source under the GNU General Public License. 
 
-See Fig. 6.10 for a screenshot of the [online parser](http://nlp.stanford.edu:8080/parser/). 
+See Fig. 6.10 for a screenshot of the [online parser](http://nlp.stanford.edu:8080/parser). 
 
 
 ![Fig. 6.10: Stanford parser example](images/Stanford_Parser.png)
@@ -293,48 +300,34 @@ UIMA is open source under the Apache license. The interfaces are approved as an 
 
 
 
-### NLP Services: NERD
+### NLP Services: Named Entity Recognition with Dandelion API
 
-There are numerous NLP services for completely different NLP tasks. As an example, I pick *Named Entity Recognition (NER)*. NER is a subtask of information extraction, locating and classifying elements in a text as persons, organizations, locations, etc.
+There are numerous NLP services for completely different NLP tasks. As an example, I pick *Named Entity Recognition (NER)*. NER is a sub task of information extraction, locating and classifying elements in a text as persons, organizations, locations, etc.
 
-[NERD (Named Entity Recognition and Disambiguation)](http://nerd.eurecom.fr/)  is a meta-NER tool, unifying more than 10 different NER tools including
-[AlchemyAPI](http://www.alchemyapi.com/),
-[DBpedia Spotlight](http://spotlight.dbpedia.org/),
-[Wikimeta](http://www.programmableweb.com/api/wikimeta), and
-[Yahoo! Content Analysis](http://developer.yahoo.com/search/content/V2/contentAnalysis.html). 
-The input to NERD is a natural language text. The output is a set of annotations for named entities identified. The annotations include a category, the URI of an ontology instance, and a confidence value. 
+[Dandelion API](https://dandelion.eu) is a web service for semantic texts analytics, including NER. See a screenshot of an example in Fig. 6.12. 
 
-See a screenshot of NERD web interface in Fig. 6.12. 
+{width=75%}
+![Fig. 6.12: NERD example](images/NER.png)
 
-![Fig. 6.12: NERD example](images/NERD.png)
+In this example, the following text is analyzed:
 
-In this example, the description of the DBpedia entry for Michelangelo's sculpture [David](http://dbpedia.org/page/David_(Michelangelo)) is used as the input text to NERD.
-The screenshot shows the text; Named entities that were identified are marked in different colors according to their category. 
+"The Mona Lisa is a 16th century oil painting created by Leonardo. It's held at the Louvre in Paris."
 
-NERD returns a JSON result that contains information as follows.
+Dandelion detected the language English and the following named entities:
 
-                 [
-                  {
-                    idEntity: 120,
-                    label: "Michelangelo",
-                    startChar: 126,
-                    endChar: 138,
-                    nerdType: "http://nerd.eurecom.fr/ontology#Person",
-                    uri: "http://dbpedia.org/resource/Michelangelo",
-                    confidence: 0.0582796,
-                    ...
-                    },
-                   ...
-                  ]
-                 
-The word "Michelangelo" was correctly identified as the Italian sculptor, painter, and architect. Using the DBpedia URL  `http://dbpedia.org/resource/Michelangelo`, the AI application can extract additional information about Michelangelo like his birth date, birth place, artistic movements, artworks created, influenced artists etc. 
+1. Work [Mona Lisa](http://dbpedia.org/resource/Mona_Lisa) with respective DBpedia link 
+2. Concept [Oil painting](http://dbpedia.org/resource/Oil_painting)
+3. Person [Leonardo da Vinci](http://dbpedia.org/resource/Leonardo_da_Vinci)
+4. Place [Louvre](http://dbpedia.org/resource/Louvre)
+5. Place [Paris](http://dbpedia.org/resource/Paris)
 
-Of course, an NER tool may classify words incorrectly; just like humans can misunderstand words in texts. For example, the first word of the text, "David", is considered as the common boy's name. However,  a competent reader would have noticed that, instead, the specific sculpture is referred to. Hence, `http://dbpedia.org/resource/David_(Michelangelo)` would have been the correct reference to the named entity. 
+The Dbpedia links allow retrieving additional information about the named entities, e.g., the birth date and death date of Leonardo da Vinci. The Dandelion API provides a JSON file containing all this information including including confidence scores for each detected named entity.
 
-NERD can be accessed as a web service, just like the various individual NER tools involved. The licenses and fees have to be checked individually.
+Dandelion can be configured to provide higher precision or more tags (higher recall). When favoring more tags, then the following additional named entity is identified:
 
+Concept [Tudor period](http://dbpedia.org/resource/Tudor_period)
 
-
+This is a wrong identification. Although Leonardo da Vinci lived during the Tudor period, this period applies to England and not to Italy. This shows that NER, like all AI approaches, may produce erroneous results; just like humans who can misunderstand words in texts.
 
 
 
