@@ -37,18 +37,18 @@ On the lowest level there are acoustic signals. *Phonetic analysis* uses feature
 
 In most AI applications, only some NLP processing steps are relevant. When dealing with written texts, then phonetic and phonological analysis are not necessary. Also, semantic and pragmatic analysis may be simple or even irrelevant, depending on the application use case.
 
-In this chapter, I focus on lexical, syntactic and semantic analysis which is used in most NLP applications. I first explain a simple approach, namely the bag-of-words- model. 
+In this chapter, I focus on lexical, syntactic and semantic analysis which is used in most NLP applications. I first explain a simple approach, namely the bag-of-words model. 
 I then explain individual processing steps for lexical and syntactic analysis (from letters to sentences) that may lead to a deeper semantic analysis.
 
 
 ## Simple Approach: Bag-of-words Model
 
 The *bag-of-words (BoW) model*  is a simple NLP approach which delivers surprisingly good results in certain application scenarios like text classification and sentiment analysis. 
-In the bag-of-words model, a text is represented as the *bag (multiset)* of its words, disregarding grammar and even word order but only keeping the multiplicity of the words.
+In the BoW, a text is represented as the *bag (multiset)* of its words, disregarding grammar and even word order but only keeping the multiplicity of the words.
 
 Consider the following example text.
 
-	"John likes to watch movies. Mary likes movies too."
+	John likes to watch movies. Mary likes movies too.
 
 The bag of words, represented in JSON, is:
 
@@ -59,7 +59,7 @@ The word `John` appears once in the text, the word `likes` twice etc.
 
 ### Machine Learning with Bags of Words
 
-In the simplest form, vectors resulting of bags of words can be used in supervised ML approaches as described in Chapter 2. Consider the ML task of classification with texts t1, ... tn and classes A, B, C. Then the data set for ML training consists of each distinct word in all texts as features (attributes as classification input) and the classes as labels (classification output). See Fig. 6.2 with the example text above represented as t1.
+In the simplest form, vectors resulting of bags of words can be used in supervised ML approaches as described in Chapter 2. Consider the ML task of classification with texts t1, ... tn and classes A, B, C. Then the data set for ML training consists of each distinct word in all texts as features (attributes as classification input) and the classes as labels (classification output). See Fig. 6.2 with the example text above as t1.
 
 
 {width=75%}
@@ -72,41 +72,41 @@ Now, any ML approach suitable for classification can be used, e.g. Artificial Ne
 
 ### tf-idf
 
-As a rule of thumb, a term appearing often in a text is more important than a term appearing rarely. However, there are exceptions to this rule of thumb. Consider e.g. so-called *stop words* like "the", "a", "to" etc. which are most common in English texts but add little to the semantics of the text. In information retrieval, stop words are usually ignored.
+As a rule of thumb, a term appearing often in a text is more important than a term appearing rarely. However, there are exceptions to this rule of thumb. Consider so-called *stop words* like "the", "a", "to" etc. which are most common in English texts but add little to the semantics of the text. In information retrieval, stop words are usually ignored.
 
-How to deal with this in the bag-of-words model which mainly deals with word counts? 
+How to deal with this in the BoW model which mainly deals with word counts? 
 
 One approach is to remove stop words before computing the bag of words. This approach much depends on the selection of the right stop words.
 
-There is another elegant, general approach which avoids fixed stop word lists: *term frequency – inverse document frequency (tf-idf)*. 
+There is another elegant, general approach which avoids fixed stop word lists: *term frequency - inverse document frequency (tf-idf)*. 
 *Term frequency* is based on the count of a particular word in a concrete text as shown in the example above.
 *Document frequency* considers the count of a particular word in an entire *corpus*, i.e., a large set of texts. 
 
-tf-idf puts the term frequency in relation to the document frequency. So, a word like "to" which appears often in all texts but no more often in the text under consideration will not have a particularly high tf-idf and, therefore, will not be considered important. In contrast, a word like "movies" which occurs twice in the short text above but not particularly often in texts in general will have a high tf-idf and, therefore, will be considered important for this text. This matches the intuition.
+tf-idf puts the term frequency in relation to the document frequency. So, a word like "to" which appears often in all texts but not more often in the text under consideration will not have a particularly high tf-idf and, therefore, will not be considered important. In contrast, a word like "movies" which occurs twice in the short text above but not particularly often in texts in general will have a high tf-idf and, therefore, will be considered important for this text. This matches the intuition.
 
 There are various formulas for computing tf-idf in practical use, which are more meaningful than a simple quotient of the word counts. See e.g. the [Wikipedia entry on tf-idf](https://en.wikipedia.org/wiki/Tf%E2%80%93idf). NLP libraries conveniently provide implementations of tf-idf.
 
-The ML classification performance can be improved by using the tf-idf values instead of the simple word counts in the training data (Fig. 6.2).
+The ML classification performance can be improved by using the tf-idf values instead of the simple word counts in the training data.
 
 
 
 ### N-gram Model
 
-The simple bag-of-words model as explained above treats each individual word independently. The word order gets ignored completely. The *n-gram model* is a simple improvement which takes combinations of up to n successive words into  account. N is usually relatively small, e.g., 2 or 3. 
+The simple BoW model as explained above treats each individual word independently. The word order gets ignored completely. The *n-gram model* is a simple improvement which takes combinations of up to n successive words into  account. N is usually relatively small, e.g., 2 or 3. 
 
-See Fig. 6.3. with an extension of the example of Fig. 6.2 to a 2-gram model.
+See Fig. 6.3. with an extension of the example in Fig. 6.2 to a 2-gram model.
 
 
 
 {width=90%}
-![Fig. 6.3: ML classification with n-gram model](images/n-gram-model.png)
+![Fig. 6.3: ML classification with 2-gram model](images/n-gram-model.png)
 
 
 n-gram models can be combined with tf-idf by simply computing the tf-idf values for the n-grams.
 
-The bag-of-words model is  simple and relatively easy to implement. Despite its simplicity, it delivers good prediction performance for many application use cases, particularly when combined with extensions like tf-idf or n-grams, and particularly with large training data sets. 
+The BoW model is  simple and relatively easy to implement. Despite its simplicity, it delivers good prediction performance for many application use cases, particularly when combined with extensions like tf-idf or n-grams, and particularly with large training data sets. 
 
-Obviously, the number of features (attributes) in the bag-of-words model can get extremely large, particularly when using n-grams. Hundreds of thousands of features are possible.  Particularly with huge training data sets this can cause major performance problems in the ML training and prediction phases. Feature selection mechanisms from unsupervised ML may be used to reduce the number of features and, hence, alleviate those performance problems. 
+Obviously, the number of features (attributes) in the BoW model can get extremely large, particularly when using n-grams. Hundreds of thousands of features are possible.  Particularly with huge training data sets this can cause major performance problems in the ML training and prediction phases. Feature selection mechanisms from unsupervised ML may be used to reduce the number of features and, hence, alleviate those performance problems. 
 
 
 
@@ -121,12 +121,12 @@ In this section I will present some approaches: from letters to sentences.
 
 ### Tokenization
 
-*Tokenization* is the step of grouping letters into words. This step seems primitive: looking for blank characters seems enough. However, tokenization is a little more complicated. 
+*Tokenization* is the step of grouping letters into words. This step seems primitive: looking for blank characters seems to be enough. However, tokenization is a little more complicated. 
 Consider the following example sentence: 
 
-"My dog also likes eating sausage." 
+	My dog also likes eating sausage. 
 
-Following the primitive tokenization approach, the last word identified would be "sausage.". However, in fact, the last word is "sausage" and the period "." is a separate token. So, the correct tokenization result is as follows (Fig. 6.2).
+Following the primitive tokenization approach, the last word identified would be `sausage.`. However, in fact, the last word is `sausage` and the period `'.'` is a separate token. So, the correct tokenization result is as follows (Fig. 6.2).
 
 
 ![Fig. 6.2: Tokenization example](images/Tokenization.png)
@@ -137,34 +137,34 @@ Following the primitive tokenization approach, the last word identified would be
 
 *Sentence splitting* identifies whole sentences. Sentences are terminated by periods (full stops). However, simply looking for the next period is not enough. Consider the following sample sentence.
 
-"Interest rates raised by 0.2 percent."
+	Interest rates raised by 0.2 percent.
 
-Obviously, the point in "0.2" is part of a floating point number and does not terminate the sentence. Other cases to be considered are abbreviations like "e.g.", ellipsis ("..."), etc.
+Obviously, the point in `0.2` is part of a floating point number and does not terminate the sentence. Other cases to be considered are abbreviations like `e.g.`, ellipsis (`...`), etc.
 
 
 
 ### Stemming, Part-of-speech (PoS) Tagging
 
-*Stemming* means reducing a word to its root word. E.g., "eat" is the root word of "eating". *Part of speech (PoS)* is the grammatical category of a word. E.g., "eating" is the gerund or the present participle of the verb "to eat". *PoS Tagging* is the step of identifying the PoS of a word. 
+*Stemming* means reducing a word to its root word. E.g., `eat` is the root word of `eating`. *Part of speech (PoS)* is the grammatical category of a word. E.g., `eating` is the gerund or the present participle of the verb `to eat`. *PoS Tagging* is the step of identifying the PoS of a word. 
 
-Fig. 6.3 shows the PoS tagging result of the sentence "My dog also likes eating sausage." 
+Fig. 6.3 shows the PoS tagging result of the sentence `My dog also likes eating sausage.` 
 
 
 ![Fig. 6.3: PoS tagging example](images/POS_Tagging.png)
 
-In this figure, the [Penn Treebank tag set](http://www.clips.ua.ac.be/pages/mbsp-tags) is used. E.g., Verb, gerund or present participle" is marked as "VBG". The Penn Treebank tag set is a de-facto standard used by many PoS tagging tools.  
+In this figure, the [Penn Treebank tag set](http://www.clips.ua.ac.be/pages/mbsp-tags) is used. E.g., Verb, gerund or present participle is marked as `VBG`. The Penn Treebank tag set is a de-facto standard used by many PoS tagging tools.  
 
-Note: Tokenization and stemming are often pre-processing steps before applying a bags-of-words model. They may improve prediction performance and, at the same time, reduce the number of features.
+Note: Tokenization and stemming are often pre-processing steps before applying a BoW model. They may improve prediction performance and, at the same time, reduce the number of features.
 
 
 ### Parsing
 
-*Parsing* is the step of analyzing the grammar of a sentence. The result is the sentence structure, usually denoted as a tree. Fig. 6.4 shows the parsing result for the sentence "My dog also likes eating sausage."
+*Parsing* is the step of analyzing the grammar of a sentence. The result is the sentence structure, usually denoted as a tree. Fig. 6.4 shows the parsing result for the sentence `My dog also likes eating sausage.`
 
 {width=75%}
 ![Fig. 6.4: Parsing](images/Parsing.png)
 
-Again, the the Penn Treebank tag set is used. E.g., "NP" stands for "noun phrase" and "VP" for "verb phrase". 
+Again, the the Penn Treebank tag set is used. E.g., `NP` stands for noun phrase and `VP` for verb phrase. 
 
 Parsing of most natural language sentences is highly ambiguous. As humans, we rarely notice this ambiguity. Our brain combines the syntactic analysis and the semantic analysis and chooses the "obvious" meaning, i.e., the most likely variant. However, we also sometimes stumble on ambiguities in  the language. Many jokes play with misunderstandings based on ambiguities. [For example](http://www.ijokes.eu/index.php/joke/category/misunderstanding?page=2):
 
@@ -174,10 +174,11 @@ Parsing of most natural language sentences is highly ambiguous. As humans, we ra
 
 
 If you technically parse natural language sentences you may be surprised of how many different interpretations of the same sentence are valid. Consider the following example sentence:
-"I saw the man on the hill with a telescope."
+
+	I saw the man on the hill with a telescope.
 
 
-Fig. 6.5 from [allthingslinguistic.com](http://allthingslinguistic.com/post/52411342274/how-many-meanings-can-you-get-for-the-sentence-i) shows five different, valid interpretations of this sentence.
+Fig. 6.5, adopted from [AllThingsLinguistic](http://allthingslinguistic.com/post/52411342274/how-many-meanings-can-you-get-for-the-sentence-i), shows five different, valid interpretations of this sentence.
 
 
 ![Fig. 6.5: Parsing ambiguity](images/Parsing_Ambiguity.png)
@@ -227,10 +228,15 @@ offer functionality for the BoW model, tf-idf and n-grams.
 
 The most prominent NLP language resource for the English language is [WordNet](https://wordnet.princeton.edu/).
 
-There are also numerous NLP services from various providers, e.g., [Google Translate](https://cloud.google.com/translate/docs), and [NERD](http://nerd.eurecom.fr/).
+There are also numerous NLP web services from various providers, e.g., 
+[Amazon Alexa Voice service](https://developer.amazon.com/de/alexa-voice-service),
+[Google Cloud Speech API](https://cloud.google.com/speech),
+[Google Translate API](https://cloud.google.com/translate),
+[IBM Watson NLP](https://cloud.ibm.com/catalog/services/natural-language-understanding), and
+[MS Azure Speech Services](https://azure.microsoft.com/de-de/services/cognitive-services/speech).
 
 
-I will briefly introduce one prominent example for each NLP service category in the next sections, namely  WordNet,  Stanford Parser, UIMA, and NERD.
+I will briefly introduce one prominent example for each NLP service category in the next sections, namely  WordNet (NLP resource),  Stanford Parser (NLP bulding block), UIMA (NLP framework), and Dandelion API (NLP web service).
 
 More NLP products and details can be found in the appendix.
 
@@ -272,7 +278,7 @@ See Fig. 6.10 for a screenshot of the [online parser](http://nlp.stanford.edu:80
 ![Fig. 6.10: Stanford parser example](images/Stanford_Parser.png)
 
 
-The sample sentence "My dog also likes eating sausage." is parsed. 
+The sample sentence `My dog also likes eating sausage.` is parsed. 
 The  PoS tagging and parsing results are displayed. 
 There are two representations of the parsing result: a syntax tree representation and a typed dependency representation. The typed dependencies representation is usually easier to understand by people without linguistic expertise who want to extract textual relations from a text. 
 
@@ -295,7 +301,7 @@ See Fig. 6.11.
 ![Fig. 6.11: NLP frameworks](images/NLP_Frameworks.png)
 
 
-UIMA is open source under the Apache license. The interfaces are approved as an [OASIS](https://www.oasis-open.org/) standard. 
+UIMA is open source under the Apache license. The interfaces are approved as an [OASIS](https://www.oasis-open.org/committees/uima) standard. 
 
 
 
@@ -306,12 +312,12 @@ There are numerous NLP services for completely different NLP tasks. As an exampl
 
 [Dandelion API](https://dandelion.eu) is a web service for semantic texts analytics, including NER. See a screenshot of an example in Fig. 6.12. 
 
-{width=75%}
+{width=65%}
 ![Fig. 6.12: NERD example](images/NER.png)
 
 In this example, the following text is analyzed:
 
-"The Mona Lisa is a 16th century oil painting created by Leonardo. It's held at the Louvre in Paris."
+	The Mona Lisa is a 16th century oil painting created by Leonardo. It's held at the Louvre in Paris.
 
 Dandelion detected the language English and the following named entities:
 
@@ -321,7 +327,7 @@ Dandelion detected the language English and the following named entities:
 4. Place [Louvre](http://dbpedia.org/resource/Louvre)
 5. Place [Paris](http://dbpedia.org/resource/Paris)
 
-The Dbpedia links allow retrieving additional information about the named entities, e.g., the birth date and death date of Leonardo da Vinci. The Dandelion API provides a JSON file containing all this information including including confidence scores for each detected named entity.
+The Dbpedia links allow retrieving additional information about the named entities, e.g., the birth date and death date of Leonardo da Vinci. The Dandelion API provides a JSON file containing all this information including including confidence scores for each named entity detected.
 
 Dandelion can be configured to provide higher precision or more tags (higher recall). When favoring more tags, then the following additional named entity is identified:
 
@@ -339,10 +345,11 @@ X> Answer the following questions.
 
 1. Name and explain different areas of NLP.
 1. Explain the levels of language understanding.
+2. Explain the bag-of-words model, tf-idf and the n-gram model. 
 1. What is tokenization, sentence splitting, PoS tagging, and parsing?	
 1. What do language resources offer to NLP? Give examples.
 1. What do NLP frameworks offer? Give example.
-1. What do NLP services offer? Give examples.
+1. What do NLP web services offer? Give examples.
 
 
 
