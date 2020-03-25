@@ -1,7 +1,12 @@
 
 # Natural Language Processing
 
-*Natural Language Processing (NLP)* is a broad area that covers many aspects of dealing with natural languages like English. Examples are:
+Fig. 6.1 shows the AI area of *Natural Language Processing (NLP)* in the AI application landscape.
+
+
+![Fig. 6.1: NLP in the AI application landscape](images/AI_landscape-NLP.png)
+
+NLP can be assigned to the ability of "communicating". It is a broad area that covers many aspects of dealing with natural languages like English. Examples are:
 
 - Spell checking and grammar checking of written texts, e.g., as in word processors
 - Classifying texts, e.g. according to the topic
@@ -27,10 +32,10 @@ Due to the diversity of NLP, different subareas are distinguished. There is no c
 
 ## The Big Picture
 
-Fig. 6.1 shows the big picture of NLP as seven levels of language understanding, adopted from (Harriehausen, 2015).
+Fig. 6.2 shows the big picture of NLP as seven levels of language understanding, adopted from (Harriehausen, 2015).
 
 {width=75%}
-![Fig. 6.1: The 7 levels of language understanding, adopted from (Harriehausen, 2015)](images/Levels_of_Language_Understanding.png)
+![Fig. 6.2: The 7 levels of language understanding, adopted from (Harriehausen, 2015)](images/Levels_of_Language_Understanding.png)
 
 The figure shows information levels and NLP processing steps to raise the level of understanding. 
 On the lowest level there are acoustic signals. *Phonetic analysis* uses features of the voice to extract sounds. *Phonological analysis* uses sound combinations of specific languages in order to extract letters. *Lexical analysis* may use dictionaries to extract individual words. *Syntactic analysis* (parsing) uses grammar rules in order to extract sentences and their structure (parse tree). *Semantic analysis* uses background knowledge to represent the knowledge in a text. Finally, *pragmatic analysis* may draw conclusions and consequences for actions.
@@ -59,11 +64,11 @@ The word `John` appears once in the text, the word `likes` twice etc.
 
 ### Machine Learning with Bags of Words
 
-In the simplest form, vectors resulting of bags of words can be used in supervised ML approaches as described in Chapter 2. Consider the ML task of classification with texts t1, ... tn and classes A, B, C. Then the data set for ML training consists of each distinct word in all texts as features (attributes as classification input) and the classes as labels (classification output). See Fig. 6.2 with the example text above as t1.
+In the simplest form, vectors resulting of bags of words can be used in supervised ML approaches as described in Chapter 2. Consider the ML task of classification with texts t1, ... tn and classes A, B, C. Then the data set for ML training consists of each distinct word in all texts as features (attributes as classification input) and the classes as labels (classification output). See Fig. 6.3 with the example text above as t1.
 
 
 {width=75%}
-![Fig. 6.2: ML classification data from bags of words](images/Bag-of-word-ML.png)
+![Fig. 6.3: ML classification data from bags of words](images/Bag-of-word-ML.png)
 
 
 Now, any ML approach suitable for classification can be used, e.g. Artificial Neural Networks, Decision Trees, Support Vector Machines, k-nearest Neighbor etc. 
@@ -94,12 +99,12 @@ The ML classification performance can be improved by using the tf-idf values ins
 
 The simple BoW model as explained above treats each individual word independently. The word order gets ignored completely. The *n-gram model* is a simple improvement which takes combinations of up to n successive words into  account. N is usually relatively small, e.g., 2 or 3. 
 
-See Fig. 6.3. with an extension of the example in Fig. 6.2 to a 2-gram model.
+See Fig. 6.4. with an extension of the example in Fig. 6.3 to a 2-gram model.
 
 
 
 {width=90%}
-![Fig. 6.3: ML classification with 2-gram model](images/n-gram-model.png)
+![Fig. 6.4: ML classification with 2-gram model](images/n-gram-model.png)
 
 
 n-gram models can be combined with tf-idf by simply computing the tf-idf values for the n-grams.
@@ -126,10 +131,10 @@ Consider the following example sentence:
 
 	My dog also likes eating sausage. 
 
-Following the primitive tokenization approach, the last word identified would be `sausage.`. However, in fact, the last word is `sausage` and the period `'.'` is a separate token. So, the correct tokenization result is as follows (Fig. 6.2).
+Following the primitive tokenization approach, the last word identified would be `sausage.`. However, in fact, the last word is `sausage` and the period `'.'` is a separate token. So, the correct tokenization result is as follows (Fig. 6.5).
 
 
-![Fig. 6.2: Tokenization example](images/Tokenization.png)
+![Fig. 6.5: Tokenization example](images/Tokenization.png)
 
 
 
@@ -147,10 +152,10 @@ Obviously, the point in `0.2` is part of a floating point number and does not te
 
 *Stemming* means reducing a word to its root word. E.g., `eat` is the root word of `eating`. *Part of speech (PoS)* is the grammatical category of a word. E.g., `eating` is the gerund or the present participle of the verb `to eat`. *PoS Tagging* is the step of identifying the PoS of a word. 
 
-Fig. 6.3 shows the PoS tagging result of the sentence `My dog also likes eating sausage.` 
+Fig. 6.6 shows the PoS tagging result of the sentence `My dog also likes eating sausage.` 
 
 
-![Fig. 6.3: PoS tagging example](images/POS_Tagging.png)
+![Fig. 6.6: PoS tagging example](images/POS_Tagging.png)
 
 In this figure, the [Penn Treebank tag set](http://www.clips.ua.ac.be/pages/mbsp-tags) is used. E.g., Verb, gerund or present participle is marked as `VBG`. The Penn Treebank tag set is a de-facto standard used by many PoS tagging tools.  
 
@@ -159,10 +164,10 @@ Note: Tokenization and stemming are often pre-processing steps before applying a
 
 ### Parsing
 
-*Parsing* is the step of analyzing the grammar of a sentence. The result is the sentence structure, usually denoted as a tree. Fig. 6.4 shows the parsing result for the sentence `My dog also likes eating sausage.`
+*Parsing* is the step of analyzing the grammar of a sentence. The result is the sentence structure, usually denoted as a tree. Fig. 6.7 shows the parsing result for the sentence `My dog also likes eating sausage.`
 
 {width=75%}
-![Fig. 6.4: Parsing](images/Parsing.png)
+![Fig. 6.7: Parsing](images/Parsing.png)
 
 Again, the the Penn Treebank tag set is used. E.g., `NP` stands for noun phrase and `VP` for verb phrase. 
 
@@ -178,10 +183,10 @@ If you technically parse natural language sentences you may be surprised of how 
 	I saw the man on the hill with a telescope.
 
 
-Fig. 6.5, adopted from [AllThingsLinguistic](http://allthingslinguistic.com/post/52411342274/how-many-meanings-can-you-get-for-the-sentence-i), shows five different, valid interpretations of this sentence.
+Fig. 6.8, adopted from [AllThingsLinguistic](http://allthingslinguistic.com/post/52411342274/how-many-meanings-can-you-get-for-the-sentence-i), shows five different, valid interpretations of this sentence.
 
 
-![Fig. 6.5: Parsing ambiguity](images/Parsing_Ambiguity.png)
+![Fig. 6.8: Parsing ambiguity](images/Parsing_Ambiguity.png)
 
 
 X> As an exercise, you may construct a parse tree for each interpretation of the sentence.
@@ -195,10 +200,10 @@ Early NLP parsers were rule-based. They mechanically applied grammar rules to se
 
 ## NLP Services Map
 
-Fig. 6.6 shows the NLP services map.
+Fig. 6.9 shows the NLP services map.
 
 {width=75%}
-![Fig. 6.6: NLP services map](images/NLP_Services_Map.png)
+![Fig. 6.9: NLP services map](images/NLP_Services_Map.png)
 
 
 When developing an AI application with NLP facilities, you very rarely build basic NLP *building blocks* from scratch. Class libraries with powerful and well-established building blocks for BoW model, tf-idf, n-gram, tokenization, sentence splitting, PoS tagging, parsing etc. exist and can  be integrated into your application. Additionally, *language resources* like dictionaries may be used. 
@@ -211,10 +216,10 @@ Including an NLP web service is, of course, the easiest and least effort solutio
 
 ## NLP Product Map
 
-Fig. 6.7 shows the NLP product map.
+Fig. 6.10 shows the NLP product map.
 
 {width=75%}
-![Fig. 6.7: NLP product map](images/NLP_Product_Map.png)
+![Fig. 6.10: NLP product map](images/NLP_Product_Map.png)
 
 
 [Apache UIMA](https://uima.apache.org/) and [GATE](https://gate.ac.uk/) are the most widely used NLP frameworks. While GATE allows experimenting with NLP using a graphical desktop application, UIMA is more suitable for software developers offering plug-ins for IDEs like Eclipse. 
@@ -244,9 +249,9 @@ More NLP products and details can be found in the appendix.
 
 [WordNet](https://wordnet.princeton.edu) is a state-of-the-art lexical database for the English language. It lists over 150,000 English words: nouns, verbs, adjectives and adverbs. For each word, different meanings ("senses") are distinguished. For example, 7 different noun senses and one verb sense of the word "dog" are listed, including the animal as well as minced meat (as in "hot dog"). 
 
-Fig. 6.8 shows a screenshot of the [WordNet online search](http://wordnetweb.princeton.edu/perl/webwn?s=dog).
+Fig. 6.11 shows a screenshot of the [WordNet online search](http://wordnetweb.princeton.edu/perl/webwn?s=dog).
 
-![Fig. 6.8: WordNet example: Senses of the word "dog"](images/WordNet_Senses.png)
+![Fig. 6.11: WordNet example: Senses of the word "dog"](images/WordNet_Senses.png)
 
 For each word sense,  a description and different relationships are specified.
 
@@ -254,9 +259,9 @@ For each word sense,  a description and different relationships are specified.
 - Hypernyms (broader terms), e.g., "mammal" and "animal"
 - Hyponyms (narrower terms), e.g., "Puppy", "Hunting dog", "Poodle", etc.
 
-See Fig. 6.9.
+See Fig. 6.12.
 
-![Fig. 6.9: WordNet example: Relations of the word "dog"](images/WordNet_Relations.png)
+![Fig. 6.12: WordNet example: Relations of the word "dog"](images/WordNet_Relations.png)
 
 
 WordNet is open source under a BSD license. 
@@ -272,10 +277,10 @@ Which integration type is recommended? As usual, integrating the online service 
 
 The [Stanford Parser](http://nlp.stanford.edu/software/lex-parser.shtml) is a state-of-the-art statistical NLP parser. It supports different natural languages, namely English, French, Spanish, German, and Chinese. It is implemented in Java and is published open source under the GNU General Public License. 
 
-See Fig. 6.10 for a screenshot of the [online parser](http://nlp.stanford.edu:8080/parser). 
+See Fig. 6.13 for a screenshot of the [online parser](http://nlp.stanford.edu:8080/parser). 
 
 
-![Fig. 6.10: Stanford parser example](images/Stanford_Parser.png)
+![Fig. 6.13: Stanford parser example](images/Stanford_Parser.png)
 
 
 The sample sentence `My dog also likes eating sausage.` is parsed. 
@@ -295,10 +300,10 @@ Each component  implements interfaces defined by the framework and provides self
 Components are written in Java or C++. The framework is  also available in both programming languages. 
 Third party components like the Stanford parser can be plugged into UIMA as well. For this, wrappers are needed as offered by [uimaFIT](https://uima.apache.org/uimafit.html) and [DKPro](https://www.ukp.tu-darmstadt.de/research/current-projects/dkpro/).
 
-See Fig. 6.11.
+See Fig. 6.14.
 
 
-![Fig. 6.11: NLP frameworks](images/NLP_Frameworks.png)
+![Fig. 6.14: NLP frameworks](images/NLP_Frameworks.png)
 
 
 UIMA is open source under the Apache license. The interfaces are approved as an [OASIS](https://www.oasis-open.org/committees/uima) standard. 
@@ -310,10 +315,10 @@ UIMA is open source under the Apache license. The interfaces are approved as an 
 
 There are numerous NLP services for completely different NLP tasks. As an example, I pick *Named Entity Recognition (NER)*. NER is a sub task of information extraction, locating and classifying elements in a text as persons, organizations, locations, etc.
 
-[Dandelion API](https://dandelion.eu) is a web service for semantic texts analytics, including NER. See a screenshot of an example in Fig. 6.12. 
+[Dandelion API](https://dandelion.eu) is a web service for semantic texts analytics, including NER. See a screenshot of an example in Fig. 6.15. 
 
 {width=65%}
-![Fig. 6.12: NERD example](images/NER.png)
+![Fig. 6.15: NERD example](images/NER.png)
 
 In this example, the following text is analyzed:
 

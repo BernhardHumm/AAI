@@ -4,11 +4,18 @@
 
 AI applications are based on knowledge. Therefore, a central question to all AI applications is how to represent the knowledge relevant for the application domain. 
 
+Fig. 3.1. shows knowledge representation in the AI application landscape. 
+
+![Fig. 3.1: Knowledge representation in the AI application landscape](images/AI_landscape-KR.png)
+
+Knowledge representation is part of symbolic AI and deals with the abilities of knowing and reasoning.
+
+
 Inspired by one of my own projects, the [digital collection](https://sammlung.staedelmuseum.de) of one of the leading arts museums in Germany, I will use arts as the sample application domain for this chapter and the remainder of the book.
 
-See Fig. 3.1.
+See Fig. 3.2.
 
-![Fig. 3.1: Michelangelo (1475 – 1564): Creation of Adam, Sistine Chapel, Rome, Italy](images/Michelangelo-Creation_of_Adam.jpg)
+![Fig. 3.2: Michelangelo (1475 – 1564): Creation of Adam, Sistine Chapel, Rome, Italy](images/Michelangelo-Creation_of_Adam.jpg)
 
 %% (Image source: Wikimedia)
 
@@ -29,16 +36,16 @@ In this book, I use the term "ontology" for represented knowledge with the follo
 An *ontology* is the representation of knowledge of a particular application domain, i.e., a *representation of the relevant concepts and their relationships*.  
 
 The term "ontology" was originally coined in philosophy and is now also used in Computer Science. See, e.g., (Busse et al., 2015).
-Let us look at some specific examples of knowledge about creative arts (Fig. 3.2).
+Let us look at some specific examples of knowledge about creative arts (Fig. 3.3).
 
 
-![Fig. 3.2: Examples of arts facts](images/Arts_Fact_Examples.png)
+![Fig. 3.3: Examples of arts facts](images/Arts_Fact_Examples.png)
 
 Those pieces of knowledge are represented informally as English sentences. Parts of those sentences are marked with different colors. The terms "artist", "painting", "sculpture", and "artistic movement" are marked red (solid lines). They represent concept types a.k.a *classes*. The terms with dashed red lines are concept instances a.k.a. *individuals*: "Michelangelo" is an artist, "Creation of Adam" is a painting, "David" is a sculpture, and "Renaissance" is an artistic movement. Marked in blue are *relationships*: Michelangelo "created" David as well as Creation of Adam and he "belonged to" the High Renaissance movement. Finally, marked in green are general *rules*: Every individual who has created a painting is a painter; every individual belonging to the class painter also belongs to the class artist. 
 
-See Fig. 3.3.
+See Fig. 3.4.
 
-![Fig. 3.3: Ontology facts and ontology schema](images/Ontology_Meta_Concepts.png)
+![Fig. 3.4: Ontology facts and ontology schema](images/Ontology_Meta_Concepts.png)
 
 An ontology consists of *facts* and an ontology *schema*. Facts are based on the schema. Facts are individuals (concept instances, e.g., Michelangelo) and concrete relationships between those individuals (e.g., Michelangelo created David; dashed lines in the figure). The schema specifies the type level (solid lines in the figure). Classes are the concept types for individuals (e.g., artist for Michelangelo). Relationship types, e.g., "created" define the kinds of relationships that can be specified between individuals. Finally, *rules* are part of an ontology schema. 
 
@@ -124,9 +131,9 @@ In the last sections, I introduced ontologies, ontology reasoning and querying i
 *Predicate logic* is a mathematical formalism which is the foundation of many knowledge representation formalisms. 
 Facts and rules are specified in form of predicates, quantifiers and Boolean operations. In the following example, `painted(p, x)` and `painter(p)` are predicates; The universal quantifier ("for all", denoted as an inverted letter "A") and the existential quantifier ("there exists", denoted as a rotated letter "E") are used; As a Boolean operation, the implication ("if ... then", denoted as an arrow) is used.
 
-See Fig. 3.4.
+See Fig. 3.5.
 
-![Fig. 3.4: Predicate logic](images/Predicate_Logic.png)
+![Fig. 3.5: Predicate logic](images/Predicate_Logic.png)
 
 Interpretation: Michelangelo painted "Creation of Adam"; Every person who painted something is a painter.
 
@@ -135,9 +142,9 @@ Interpretation: Michelangelo painted "Creation of Adam"; Every person who painte
 
 *Frames* is a knowledge representation mechanism which influenced early object-orientation and, hence, is familiar to most software engineers today. 
 
-See Fig. 3.5 for an example.
+See Fig. 3.6 for an example.
 
-![Fig. 3.5: Frame example](images/Frames.png)
+![Fig. 3.6: Frame example](images/Frames.png)
 
 Interpretation: Michelangelo is a Person, born 1475 in Italy. "Creation of Adam" is a painting by Michelangelo.
 In frame systems, rules and reasoning can be implemented algorithmically in form of if-needed / if-added actions.
@@ -146,10 +153,10 @@ In frame systems, rules and reasoning can be implemented algorithmically in form
 ### Semantic Nets
 
 *Semantic nets* have been popular because of their intuitive graphical representation.
-In Fig. 3.6, individuals are represented as oval shapes, and relationships as arrows. 
+In Fig. 3.7, individuals are represented as oval shapes, and relationships as arrows. 
 
 
-![Fig. 3.6: Semantic net example](images/Semantic_Nets.png)
+![Fig. 3.7: Semantic net example](images/Semantic_Nets.png)
 
 Interpretation: Michelangelo was born in Italy and created the painting "Creation of Adam".
 
@@ -158,7 +165,7 @@ Interpretation: Michelangelo was born in Italy and created the painting "Creatio
 ### Rules
 
 In rule-based languages, knowledge is expressed in form of facts and rules.
-In the following example (Fig. 3.7), `is_a` and `painted` are predicates, `?p` and `?x` are variables, `person` and `painter` are classes, and `->` denotes an implication.
+In the following example (Fig. 3.8), `is_a` and `painted` are predicates, `?p` and `?x` are variables, `person` and `painter` are classes, and `->` denotes an implication.
 The two conditions on the left side of the implication are implicitly conjunctive, i.e.,  connected by the Boolean AND operator.
 
 	(?p is_a person)
@@ -166,7 +173,7 @@ The two conditions on the left side of the implication are implicitly conjunctiv
 	->
 	(?p is_a painter)
 
-Fig. 3.7: Rules
+Fig. 3.8: Rules
 
 Interpretation: If ?p is a person who painted something then ?p is a painter.
 
@@ -250,11 +257,11 @@ The namespaces for this and the following examples are:
 
 In the first example triple, the subject is `wd:Q5592`, the predicate  is `rdfs:label` and the object is `"Michelangelo"`. Every triple must be terminated by a period.
 
-Fig. 3.8 shows the example triples displayed as a semantic net.
+Fig. 3.9 shows the example triples displayed as a semantic net.
 
 
 {width=75%}
-![Fig. 3.8: RDF triples displayed as a semantic net](images/RDF_Triples.png)
+![Fig. 3.9: RDF triples displayed as a semantic net](images/RDF_Triples.png)
 
 The triples may be read as: Michelangelo is a person who was born 1475 and belongs to the artistic movement of Renaissance (wd:Q1474884). 
 
@@ -335,9 +342,9 @@ The RDF syntax introduced above is called [Turtle](http://www.w3.org/TR/2014/REC
 
 ### Linked Data
 
-[Linked Data](http://linkeddata.org/) is an initiative to create, interlink, and share ontologies for a wide range of application areas. Linked data is based on the W3C Semantic Web technologies introduced above. A large number of most comprehensive ontologies has been created and are publicly available -- see the [Linked Open Data Cloud](https://lod-cloud.net) in Fig. 3.9.
+[Linked Data](http://linkeddata.org/) is an initiative to create, interlink, and share ontologies for a wide range of application areas. Linked data is based on the W3C Semantic Web technologies introduced above. A large number of most comprehensive ontologies has been created and are publicly available -- see the [Linked Open Data Cloud](https://lod-cloud.net) in Fig. 3.10.
 
-![Fig. 3.9: Linked Open Data (LOD) Cloud](images/LOD_Cloud.png)
+![Fig. 3.10: Linked Open Data (LOD) Cloud](images/LOD_Cloud.png)
 
 Prominent linked data ontologies are [WikiData](https://www.wikidata.org), [DBpedia](http://wiki.dbpedia.org/), and [YAGO](http://www.mpi-inf.mpg.de/departments/databases-and-information-systems/research/yago-naga/yago//). 
 
@@ -374,10 +381,10 @@ The Art Ontology consists of ca. 1.9 million RDF triples, representing
 
 #### Ontology Schema
 
-Fig. 3.10 shows the Art Ontology schema as [UML](http://www.uml.org/) class diagram. Please note that RDF does not provide means for specifying required attributes of classes and their datatypes as well as associations between classes. However, the Art Ontology crawler ensures that this schema is met and AI applications using the Art Ontology can rely on it.
+Fig. 3.11 shows the Art Ontology schema as [UML](http://www.uml.org/) class diagram. Please note that RDF does not provide means for specifying required attributes of classes and their datatypes as well as associations between classes. However, the Art Ontology crawler ensures that this schema is met and AI applications using the Art Ontology can rely on it.
 
 {width=75%}
-![Fig. 3.10: Art Ontology schema](images/Art_Ontology_Schema.png)
+![Fig. 3.11: Art Ontology schema](images/Art_Ontology_Schema.png)
 
 
 The Art Ontology schema consists of 7 classes. `artwork` is the central class with associations to the other classes: `person`, `movement`, `material`, `genre`, `location`, and `motif`, connecting artworks with their creators, the depicted motifs, the location where the artwork is exhibited, the material, the artistic movement and the genre of the artwork. All classes share common attributes which are denoted in the superclass `abstract_entity`: `id`, `label`, `description`, `abstract`, `image`, and `wikipedidaURL`. Some classes have additional attributes, e.g., `gender`, `date_of_birth`, `date_of_death`, `place_of_birth`, `place_of_death` and `citizenship` for class `person`.
@@ -403,9 +410,9 @@ The label of the painting is "Mona Lisa", the artist is Leonardo da Vinci (Q762)
 
 #### Ontology Editor
 
-[Protégé](http://protege.stanford.edu/) is an open source ontology editor.  Fig. 3.11 shows as an example, the entry of Mona Lisa in the Art Ontology in Protégé. 
+[Protégé](http://protege.stanford.edu/) is an open source ontology editor.  Fig. 3.12 shows as an example, the entry of Mona Lisa in the Art Ontology in Protégé. 
 
-![Fig. 3.11: Protégé](images/Protege-Art_Ontology.png)
+![Fig. 3.12: Protégé](images/Protege-Art_Ontology.png)
 
 
 
@@ -445,16 +452,16 @@ The query consists of two triples -- as you can see, the abbreviated RDF Notatio
 Each triple poses a restriction on the query -- implicitly AND connected. We query for some entry `?p` with label `"Leonardo da Vinci"` and some `date_of_bith` entry `?d`. If such a combination can be found in the ontology the it is returned as the query result.
 
 
-Fig. 3.12 shows this query and its result executed in the SPARQL server [Apache Jena Fuseki](https://jena.apache.org/documentation/fuseki2/) after loading the Art Ontology. 
+Fig. 3.13 shows this query and its result executed in the SPARQL server [Apache Jena Fuseki](https://jena.apache.org/documentation/fuseki2/) after loading the Art Ontology. 
 
 {width=75%}
-![Fig. 3.12: A simple SPARQL query in Fuseki](images/SPARQL_Simple_Query.png)
+![Fig. 3.13: A simple SPARQL query in Fuseki](images/SPARQL_Simple_Query.png)
 
 
-X> Since the Art Ontology is an extract of Wikidata, you can execute a similar query at the [Wikidata query service](https://query.wikidata.org)  (See Fig. 3.13). Since Wikidata uses cryptic IDs for all properties (e.g., `wdt:P569` for `date_of_birth`, there is a query helper suggesting parts of the query to be completed.  Try it yourself! 
+X> Since the Art Ontology is an extract of Wikidata, you can execute a similar query at the [Wikidata query service](https://query.wikidata.org)  (See Fig. 3.14). Since Wikidata uses cryptic IDs for all properties (e.g., `wdt:P569` for `date_of_birth`, there is a query helper suggesting parts of the query to be completed.  Try it yourself! 
 
 {width=75%}
-![Fig. 3.13: A simple SPARQL query at the Wikidata query service](images/Wikidata_Query_Service.png)
+![Fig. 3.14: A simple SPARQL query at the Wikidata query service](images/Wikidata_Query_Service.png)
 
 
 Assume we are interested in artists who were born in Paris.
@@ -483,10 +490,10 @@ The following query, e.g., lists artist with their corresponding place of birth.
 	      :place_of_birth ?b .
 	} 
 
-The query result is a set of pairs `?l`, `?p`. See Fig. 3.14.
+The query result is a set of pairs `?l`, `?p`. See Fig. 3.15.
 
 {width=75%}
-![Fig. 3.14: Multi-variable query](images/SPARQL_Tuple_Query.png)
+![Fig. 3.15: Multi-variable query](images/SPARQL_Tuple_Query.png)
 
 
 If all used variables shall be returned then `SELECT *` 

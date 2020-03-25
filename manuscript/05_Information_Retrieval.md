@@ -1,7 +1,16 @@
 
 # Information Retrieval
 
-*Information Retrieval* can be described by its input/output behavior as follows.
+
+
+Fig. 5.1 shows the *information retrieval* in the AI application landscape. 
+
+![Fig. 5.1: Information retrieval services map](images/AI_landscape-NLP.png)
+
+Together with natural language processing, it can be assigned to the ability "communicating". 
+
+
+Information Retrieval can be described by its input/output behavior as follows.
 
 - *Input*: an information need, e.g., specified via a search text
 - *Output*: a set of relevant documents from a (potentially very large) collection that satisfy the information need, e.g., text documents, images, audio files, videos, etc.
@@ -10,9 +19,9 @@ The basis for performing information retrieval is indexed metadata of those docu
 
 The most prominent examples of information retrieval systems are *web search engines* like [Google](https://www.google.com), [Yahoo!](https://www.yahoo.com/), and [Yandex](https://www.yandex.com/). 
 
-Information retrieval may be considered a simple form of AI. In fact, the term "information retrieval" is even overstated insofar as simply data (documents) are retrieved -- not information. Therefore, a more suitable term would be "document retrieval". 
+Information retrieval may be considered a simple form of AI. Sometimes it is considered a subarea of natural language processing. In fact, the term "information retrieval" is even overstated insofar as simply data (documents) are retrieved -- not information. Therefore, a more suitable term would be "document retrieval". 
 
-However, information retrieval is of enormous end-user value. Web search engines are the major facilitators of the World Wide Web. Also, in many applications, the integration of an information retrieval component may considerably increase the user experience. Examples are full-text search and semantic AutoSuggest features. Furthermore, there are mature open source libraries for information retrieval that can easily be included in applications. 
+However, information retrieval is of enormous end-user value. Web search engines are the major facilitators of the World Wide Web. Also, in many applications, the integration of an information retrieval component may considerably increase the user experience. Examples are full-text search and semantic autosuggest features. Furthermore, there are mature open source libraries for information retrieval that can easily be included in applications. 
 
 Because of those reasons, I decided to dedicate a chapter of this book to information retrieval. Every AI application developer should be familiar with information retrieval. 
 
@@ -20,10 +29,10 @@ Because of those reasons, I decided to dedicate a chapter of this book to inform
 
 ## Information Retrieval Services Map
 
-Fig. 5.1 shows the information retrieval services map. 
+Fig. 5.2 shows the information retrieval services map. 
 
 {width=75%}
-![Fig. 5.1: Information retrieval services map](images/Information_Retrieval_SM.png)
+![Fig. 5.2: Information retrieval services map](images/Information_Retrieval_SM.png)
 
 
 The basic way of employing information retrieval in an application is to include an indexer and a search engine library. An *indexer* is software for indexing a collection of documents and for storing those indexes. The indexer is implemented in a programming language like Java and accessible via an API. Indexing is an offline-process, usually implemented as a batch. The *search engine library* can then be used online to access this index. It can be accessed via a search query API. 

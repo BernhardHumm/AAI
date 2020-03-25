@@ -12,7 +12,7 @@ Fig 7.1. shows computer vision in the AI application landscape.
 
 ![Fig. 7.1: computer vision in the AI application landscape](images/AI_landscape-CV.png)
 
-
+Computer vision can be assigned to the ability of "perceiving".
 In the following section, I will briefly introduce prominent computer vision applications.
 
 
@@ -166,9 +166,9 @@ As computer vision is a wide field, there are many groups of tasks that may or m
 
 ## Services and Product Maps
 
-Fig. 7.10 shows the services map for the area of computer vision.
+Fig. 7.10 shows the services map for computer vision.
 
-{width=75%}
+{width=85%}
 ![Fig. 7.10: Computer vision services map](images/Computer_Vision_SM.png)
 
 Like for machine learning, there are products available on the library level, the framework level, and the web service level.
@@ -182,12 +182,12 @@ Like for machine learning, there are products available on the library level, th
 
 Fig. 7.11 shows the product map for computer vision. 
 
-{width=85%}
+{width=90%}
 ![Fig. 7.11: Computer vision product map](images/Computer_Vision_PM.png)
 
-[TensorFlow](https://www.tensorflow.org) and [OpenCV](http://opencv.org) are examples for CV / ML libraries. [RapidMiner](https://rapidminer.com) is an example IDE for machine learning. 
-[Keras](https://keras.io) is a Python Deep Learning library, interfacing to TensorFlow, CNTK, or Theano.
-Examples for CV web services are: [Autokeyword](http://autokeyword.me) and [clarifai](http://www.clarifai.com) for entity recognition, [tineye](https://www.tineye.com) and [Google image search](https://www.google.de) for image retrieval.
+[TensorFlow](https://www.tensorflow.org) and [OpenCV](http://opencv.org) are examples for CV / ML libraries. [RapidMiner](https://rapidminer.com) is an IDE for machine learning. 
+[Keras](https://keras.io) is a Python ML library, interfacing to TensorFlow, CNTK, or Theano.
+Examples for CV web services are: [Autokeyword](http://autokeyword.me) and [clarifai](http://www.clarifai.com) for entity recognition, [tineye](https://www.tineye.com) and [Google image search](https://www.google.de) for image retrieval. The major vendors Google, Amazon, IBM and Microsoft offer web services for CV tasks.
 
 More products and details can be found in the appendix.
 
@@ -204,7 +204,7 @@ In this section I present a few CV technologies by example.
 
 [TensorFlow](https://www.tensorflow.org/) is an open source Python library for machine learning. It was developed by members of Google's Machine Intelligence research organization. 
 
-The simple OCR (Object Character Recognition) example is taken from (Yalçın, 2018). 
+The simple OCR (Object Character Recognition) example is taken from the [online tutorial](https://towardsdatascience.com/image-classification-in-10-minutes-with-mnist-dataset-54c35b77a38d) (Yalçın, 2018). 
 The task is to recognize digits from images where each image contains exactly one digit.
 See Fig. 7.12.
 
@@ -219,7 +219,7 @@ Each image is 28 pixels by 28 pixels. Those pixels can be interpreted as an 28x2
 
 The array may be flattened as a vector of 28x28 = 784 numbers which will be used as input for machine learning. 55.000 training images are available, all categorized with the digit (0...9) they represent. 
 See Fig. 7.14.
-The categories are *one-hot encoded*. This means that there are 10 columns in the training data set, one for each digit. If, e.g., the image depicts the digit 5 then in the column for digit 5 there will be a 1 and in all other columns there will be a 0. 
+The categories are *one-hot encoded*. This means that there are 10 columns in the training data set, one for each digit. If, e.g., the image depicts the digit 5 then in the column for digit 5 there will be an entry 1 and in all other columns there will be an entry 0. 
 
 {width=50%}
 ![Fig. 7.14: Representation of MNIST training data (Tensorflow, 2016)](images/MNIST_Array.png)
@@ -230,19 +230,19 @@ The categories are *one-hot encoded*. This means that there are 10 columns in th
 Deep learning has become the de-facto standard for image processing and is used and explained in this tutorial. 
 See Fig. 7.15 for a typical deep learning network topology for image processing.
 
-{width=60%}
+{width=75%}
 ![Fig. 7.15: Deep learning for image processing, adapted from (Ananthram, 2018)](images/Deep_Learning_CV.png)
 
 The input layer of the deep neural network are neurons representing each pixel value of the images to be classified: 784 values in the MNIST example. The output of the network are neurons representing each class, i.e., one neuron for each digit 0...9.
-Between input layer and output layer are several *convolutional layers, pooling layers* and *fully connected layers*. Each output of one layer is input to the next layer.  This type of deep neural network is also called *convolutional neural network (CNN)*.
+Between input layer and output layer there are several *convolutional layers, pooling layers* and *fully connected layers*. Each output of one layer is input to the next layer.  This type of deep neural network is also called *convolutional neural network (CNN)*.
 
-Convolutional layers are used to extract features from the images, e.g., edges. The idea is to use a small pixel filter (3x3 matrix in Fig. 7.16) which is successively compared with the pixels of the image (5x5 matrix in Fig. 7.16). The comparison is performed simply by computing the dot product: the higher the dot product, the better the match. 
-The comparison is performed step by step, eg.,  with a 1 pixel shift at each step. The result is a smaller matrix than the original pixel matrix, a 3x3 matrix in Fig. 7.16. The resulting matrix preserve the relationship between different parts of an image while decreasing the complexity. 
+Convolutional layers are used to extract features from the images, e.g., edges. The idea is to use a small pixel filter (light blue 3x3 matrix in Fig. 7.16) which is successively compared with the pixels of the image (blue 5x5 matrix in Fig. 7.16). The comparison is performed simply by computing the dot product: the higher the dot product, the better the match. 
+The comparison is performed step by step, eg.,  with a one pixel shift at each step. The result is a smaller matrix than the original pixel matrix (yellow 3x3 matrix in Fig. 7.16). The resulting matrix preserves the relationship between different parts of an image while decreasing the complexity. 
 
-{width=75%}
+{width=60%}
 ![Fig. 7.16: Convolutional layer (Yalçın, 2018)](images/Convolutional_Layer.png)
 
-It is common to insert a pooling layer after each convolutional layer. A pooling layer further decreases complexity by considering parts of a matrix (2x2 matrix in Fig. 7.17) and computing a simple aggregation function like maximum of numbers in this part. The resulting matrix is smaller, e.g., 2x2 in Fig. 7.17.
+It is common to insert a pooling layer after each convolutional layer. A pooling layer further decreases complexity by considering parts of a matrix (differently colored 2x2 matrices in Fig. 7.17) and computing a simple aggregation like the maximum of numbers in this part (*max pooling*). The resulting matrix is smaller, e.g., 2x2 in Fig. 7.17.
 
 {width=40%}
 ![Fig. 7.17: Pooling layer (Yalçın, 2018)](images/Pooling_Layer.png)
@@ -258,7 +258,6 @@ After successions of convolutional layers and pooling layers for reducing comple
 #### Keras and TensorFlow
 
 I will now explain parts of the Keras and TensorFlow code from (Yalçın, 2018).
-
 Keras and Tensorflow allow importing and downloading the MNIST dataset directly from their API.
 
 	import tensorflow as tf
@@ -276,23 +275,21 @@ The result is  `(55000, 28, 28)`. `55000` represents the number of images in the
 
 
 To be able to use the dataset in Keras, the data must be normalized  as it is always required in neural networks. This can be achieved by dividing the RGB codes by 255. 
-Furthermore, the data format required by the API must be met; here, the three-dimensional arrays must be converted to four-dimensional arrays. 
+Furthermore, the data format required by the API must be met. Here, the three-dimensional arrays must be converted to four-dimensional arrays. 
 
 	# Reshaping the array to 4-dims so that it can work with the Keras API
 	x_train = x_train.reshape(x_train.shape[0], 28, 28, 1)
 	x_test = x_test.reshape(x_test.shape[0], 28, 28, 1)
-	input_shape = (28, 28, 1)
-	# Making sure that the values are float so that we can get decimal points after division
+	input_shape = (28, 28, 1)	# Making sure that the values are float so that we can get decimal points after division
 	x_train = x_train.astype('float32')
-	x_test = x_test.astype('float32')
-	# Normalizing the RGB codes by dividing it to the max RGB value.
+	x_test = x_test.astype('float32')	# Normalizing the RGB codes by dividing it to the max RGB value.
 	x_train /= 255
 	x_test /= 255
 
 
 
 
-The following code implements the architecture of the simple deep neural network with the following layers:
+The architecture of the simple deep neural network has the following layers:
 
 1. A convolutional layer
 2. A max pooling layer
@@ -300,6 +297,7 @@ The following code implements the architecture of the simple deep neural network
 4. 2 dense layers for classification
 5. A flatten layer to convert 2D arrays to a 1D array.
 
+The following code implements this architecture.
 
 	# Creating a Sequential Model and adding the layers
 	model = Sequential()
@@ -324,42 +322,42 @@ Now the model can be trained. The value `epochs` specifies how often all trainin
 
 
 
-Finally, you may evaluate the trained model with x_test and y_test using one line of code:
+Finally, you may evaluate the trained model as follows.
 
 	model.evaluate(x_test, y_test)
 
 
-The result is an accuracy of 98.5% on the test set. This is quite a good result for such a simple model and only 10 epochs of training. If, however, an error of 0.1% is not tolerable, then the model can be optimized, e.g., by experimenting with  more epochs, different optimizers or loss functions, more layers, different hyperparameters etc. 
+The result is an accuracy of 98.5% on the test dataset. This is quite a good result for such a simple model and only 10 epochs of training. If, however, an error of 0.1% is not tolerable, then the model can be optimized, e.g., by experimenting with  more epochs, different optimizers or loss functions, more layers, different hyperparameters etc. 
 
 
-The trained model can now be used to predict the digit being depicted in an unknown image. 
+The trained model can now be used to predict the digit in an unknown image. 
 
 	image_index = 4444
 	plt.imshow(x_test[image_index].reshape(28, 28),cmap='Greys')
 	pred = model.predict(x_test[image_index].reshape(1, img_rows, img_cols, 1))
 	print(pred.argmax())
 
-In this example, the digit 9 is returned which is, indeed the correct classification of the image with index 4444. See  Fig. 7.19.
+In this example, the digit `9` is returned which is, indeed the correct classification of the image with index `4444`. See  Fig. 7.19.
 
 {width=20%}
 ![Fig. 7.19: Image example (Yalçın, 2018)](images/MNIST_9.png)
 
 
-Using a ML library like TensorFlow requires a considerably deeper understanding of the algorithms at hand than working with a ML IDE / framework like RapidMiner. However, it allows optimizing an application most specifically.
+Using a ML library like TensorFlow requires a considerably deeper understanding of the algorithms at hand than working with a ML IDE like RapidMiner. However, it allows optimizing an application more specifically.
 
 
 ### Example: Transfer Learning with Keras (Ananthram, 2018)
 
 #### Transfer Learning
 
-Though training a deep neural network from scratch is possible for small projects, most applications require the training of very large neural networks and this takes huge amounts of processed data and computational power. Both is expensive.
+Training a deep neural network from scratch is possible for small projects. However, most applications require the training of very large neural networks and this takes huge amounts of processed data and computational power. Both are expensive.
 
-This is where transfer learning comes into play. In transfer learning, the pre-trained weights of an already trained model (e.g., trained on millions of images belonging to thousands of classes, on several high power GPU’s for several days) are used for predicting new classes. The advantages are obvious: 
+This is where *transfer learning* comes into play. In transfer learning, the pre-trained weights of an already trained model (e.g., trained on millions of images belonging to thousands of classes, on several high power GPU’s for several days) are used for predicting new classes. The advantages are obvious: 
 
 1. There is no need of an extremely large training dataset.
 2. Not much computational power is required, as pre-trained weights are used and only  the weights of the last few layers have to be learned.
 
-To understand how transfer learning works so well re-consider the architecture of a convolutional neural network in Fig. 7.15. Feature learning takes place in a (potentially numerous) succession of convolutional layers and pooling layers. 
+To understand how transfer learning works re-consider the architecture of a convolutional neural network in Fig. 7.15. Feature learning takes place in a succession of convolutional layers and pooling layers. 
 E.g., the filters on the first few layers may learn to recognize colors and certain horizontal and vertical lines.
 The next few layers may recognize trivial shapes using the lines and colors learned in the previous layers.
 Then the next layers may recognize textures, then parts of objects like legs, eyes, noses etc.
@@ -371,24 +369,24 @@ All this helps in making the training process much faster, requiring much less t
 #### Keras and MobileNet
 
 
-[MobileNet](https://keras.io/applications/#mobilenet) is a pre-trained model which gives reasonably good image classification accuracy,  occupying relatively little  space (17 MB).
+[MobileNet](https://keras.io/applications/#mobilenet) is a pre-trained model which gives reasonably good image classification accuracy while occupying relatively little  space (17 MB).
 In this example, the ML library [Keras](https://keras.io) is used. Keras supports transfer learning by accessing several pre-trained models via the API.
 
 
-Building model requires the following steps:
+Building the model requires the following steps:
 
 
 1. Importing the pre-trained model and adding the dense layers
 2. Loading training data 
 3. Training the model.
 
-
+I will explain those steps in the next sections.
 
 #### Importing Pre-trained Model and Adding Layers
 
 The following Python code imports MobileNet. 
-Mobilenet's last layer consists of 1000 neurons, one for each class for which it was originally trained for. Since we want to train the network for different classes, e.g., dog breeds, we have to discard the last layer. 
-If the dog breed classifier is to identify 120 different breeds, we need 120 neurons in the final layer. This can be done using the following code.
+Mobilenet's last layer consists of 1000 neurons, one for each class for which it was originally trained. Since we want to train the network for different classes, e.g., dog breeds, we have to discard the last layer. 
+If the dog breed classifier is to identify 120 different breeds, then we need 120 neurons in the final layer. This can be done using the following code.
 
 
 	base_model=MobileNet(weights='imagenet',include_top=False) #imports the mobilenet model and discards the last 1000 neuron layer.
@@ -400,7 +398,7 @@ If the dog breed classifier is to identify 120 different breeds, we need 120 neu
 	preds=Dense(120,activation='softmax')(x) #final layer with softmax activation
 
 
-Next we make a model based on the architecture we have provided.
+Next we make a model based on the architecture provided.
 
 
 	model=Model(inputs=base_model.input,outputs=preds)
@@ -431,10 +429,10 @@ The following code loads the training data, which must be in a particular format
 
 #### Training the Model
 
-The following code performs compiling and training the model on the dataset. 
+The following code performs compiling and training of the model on the dataset. 
 
 
-	model.compile(optimizer='Adam', loss='categorical_crossentropy', metrics=['accuracy'])
+	model.compile(optimizer='Adam',loss='categorical_crossentropy',metrics=['accuracy'])
 	step_size_train=train_generator.n//train_generator.batch_size
 	model.fit_generator(generator=train_generator,
 	                   steps_per_epoch=step_size_train,
