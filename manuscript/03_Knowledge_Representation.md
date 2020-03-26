@@ -4,9 +4,9 @@
 
 AI applications are based on knowledge. Therefore, a central question to all AI applications is how to represent the knowledge relevant for the application domain. 
 
-Fig. 3.1. shows knowledge representation in the AI application landscape. 
+Fig. 3.1. shows *knowledge representation* in the AI landscape. 
 
-![Fig. 3.1: Knowledge representation in the AI application landscape](images/AI_landscape-KR.png)
+![Fig. 3.1: Knowledge representation in the AI landscape](images/AI_landscape-KR.png)
 
 Knowledge representation is part of symbolic AI and deals with the abilities of knowing and reasoning.
 

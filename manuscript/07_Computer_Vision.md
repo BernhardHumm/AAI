@@ -8,9 +8,9 @@
 - What is depicted in an image / which situation takes place in a video, e.g., is there a danger of a vehicle collision?
 - How to generate images / videos from an internal representation, e.g., in a computer game?
 
-Fig 7.1. shows computer vision in the AI application landscape.
+Fig 7.1. shows computer vision in the AI landscape.
 
-![Fig. 7.1: computer vision in the AI application landscape](images/AI_landscape-CV.png)
+![Fig. 7.1: Computer vision in the AI landscape](images/AI_landscape-CV.png)
 
 Computer vision can be assigned to the ability of "perceiving".
 In the following section, I will briefly introduce prominent computer vision applications.
@@ -463,6 +463,7 @@ Using an image tagging web service is easy and simply requires invoking an API. 
 
 ## Quick Check
 
+X> Answer the following questions.
 
 1. Name applications of computer vision
 1. What are the main tasks and approaches in computer vision?

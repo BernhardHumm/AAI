@@ -2,7 +2,6 @@ frontmatter.md
 Preface.md
 Copyright.md
 
-
 mainmatter.md
 01_Introduction.md
 02_Machine_Learning.md
@@ -11,8 +10,8 @@ mainmatter.md
 05_Information_Retrieval.md
 06_Natural_Language_Processing.md
 07_Computer_Vision.md
-08_Conclusions.md
-
+08_Complex_Event_Processing.md
+09_Conclusions.md
 
 backmatter.md
 Literature.md

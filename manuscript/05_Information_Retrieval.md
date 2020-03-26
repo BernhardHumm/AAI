@@ -2,10 +2,10 @@
 # Information Retrieval
 
 
+*Information retrieval (IR)* allows retrieving relevant documents matching an information need. 
+Fig. 5.1 shows IR in the AI  landscape. 
 
-Fig. 5.1 shows the *information retrieval* in the AI application landscape. 
-
-![Fig. 5.1: Information retrieval services map](images/AI_landscape-NLP.png)
+![Fig. 5.1: Information retrieval in the AI landscape](images/AI_landscape-NLP.png)
 
 Together with natural language processing, it can be assigned to the ability "communicating". 
 
@@ -109,7 +109,6 @@ The  implementation of the entire semantic autosuggest feature involves less tha
 
 
 ## Quick Check
-
 
 X> Answer the following questions.
 

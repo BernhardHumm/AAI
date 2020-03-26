@@ -196,8 +196,6 @@ To conclude: for developing AI applications, all software engineering principles
 
 ## Quick Check
 
-
-
 X> Answer the following questions.
 
 1. What characterizes an AI application? 

@@ -11,8 +11,9 @@ Dean Allemang, James Hendler: "Semantic Web for the Working Ontologist: Effecti
 
 (Ananthram, 2018) Aditya Ananthram: "Deep Learning For Beginners Using Transfer Learning In Keras" [Towards Data Science](https://towardsdatascience.com/keras-transfer-learning-for-beginners-6c9b8b7143e), Oct 17, 2018 (accessed 2020/03/24).
 
-
 (Baeza-Yates, 2018) Ricardo Baeza-Yates: "Bias on the Web". Communications of the ACM, June 2018, Vol 61, No. 6, pp 54-61, 10.1145/3209581. 
+
+(Beez et al., 2018) Ulrich Beez, Lukas Kaupp, Tilman Deuschel, Bernhard G. Humm, Fabienne Schumann, Jürgen Bock, Jens Hülsmann: "Context-Aware Documentation in the Smart Factory". In: Thomas Hoppe, Bernhard G. Humm, Anatol Reibold (Eds.): Semantic Applications - Methodology, Technology, Corporate Use. pp. 163-180. Springer Verlag, Berlin, 2018. ISBN 978-3-662-55432-6.
 
 (Bowker and Star, 1999) G. C. Bowker,  S. L. Star: "Sorting Things Out: Classification and its consequences". MIT Press, Cambridge, 1999. 
 
@@ -37,6 +38,8 @@ Thomas Hoppe: "Modellierung des Sprachraums von Unternehmen" (in German). In: B�
 (Hoppe et al., 2018) Thomas Hoppe, Bernhard G. Humm, Anatol Reibold (Eds.): Semantic Applications - Methodology, Technology, Corporate Use.  Springer Verlag, Berlin, 2018. ISBN 978-3-662-55432-6. 
 
 (Humm, 2020) Bernhard G. Humm: Fascinating with Open Data: openArtBrowser. In Adrian Paschke, Clemens Neudecker, Georg Rehm, Jamal Al Qundus, Lydia Pintscher (Eds.): Proceedings of the Conference on Digital Curation Technologies (Qurator 2020). CEUR Workshop Proceedings Vol-2535, urn:nbn:de:0074-2535-7. Berlin, Germany, 2020.
+
+(Kaupp et al., 2017) Lukas Kaupp, Ulrich Beez, Bernhard G. Humm, Jens Hülsmann: "From Raw Data to Smart Documentation: Introducing a Semantic Fusion Process". In: Udo Bleimann, Bernhard Humm, Robert Loew, Stefanie Regier, Ingo Stengel, Paul Walsh (Eds): Proceedings of the Collaborative European Research Conference (CERC 2017), pp 83-94, Karlsruhe, Germany, 22-23 September 2017. ISSN: 2220-4164.
 
 (More et al., 2004)
 Dana Moore, Aaron Helsinger, David Wells: "Deconfliction in ultra-large MAS: Issues and a potential architecture". In Proceedings of the First Open Cougaar Conference, pp. 125-133. 2004.

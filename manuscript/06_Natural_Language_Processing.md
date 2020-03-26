@@ -1,12 +1,13 @@
 
 # Natural Language Processing
 
-Fig. 6.1 shows the AI area of *Natural Language Processing (NLP)* in the AI application landscape.
+*Natural Language Processing (NLP)* is the AI area which deals with processing natural languages like English, German, etc.
+Fig. 6.1 shows NLP in the AI landscape.
 
 
-![Fig. 6.1: NLP in the AI application landscape](images/AI_landscape-NLP.png)
+![Fig. 6.1: NLP in the AI landscape](images/AI_landscape-NLP.png)
 
-NLP can be assigned to the ability of "communicating". It is a broad area that covers many aspects of dealing with natural languages like English. Examples are:
+NLP can be assigned to the ability of "communicating". It is a broad area that covers many aspects. Examples are:
 
 - Spell checking and grammar checking of written texts, e.g., as in word processors
 - Classifying texts, e.g. according to the topic
@@ -344,7 +345,6 @@ This is a wrong identification. Although Leonardo da Vinci lived during the Tudo
 
 
 ## Quick Check
-
 
 X> Answer the following questions.
 

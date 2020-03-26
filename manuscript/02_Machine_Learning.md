@@ -2,13 +2,13 @@
 
 # Machine Learning
 
-Machine learning is currently the most prominent AI area, representing non-symbolic AI. See the AI landscape. 
+*Machine learning (ML)* is currently the most prominent AI area, representing non-symbolic AI. Fig. 2.1. shows ML in the AI landscape. 
 
-![Fig. 2.1: The AI landscape: Machine learning](images/AI_landscape-ML.png)
+![Fig. 2.1: ML in the AI landscape](images/AI_landscape-ML.png)
 
-What does machine learning mean?
+What does ML mean?
 
-*Machine Learning (ML)* allows for making decisions or predictions based on models which have been generated automatically ("learned") from sample data. 
+ML allows for making decisions or predictions based on models which have been generated automatically ("learned") from sample data. 
 
 The models are generated automatically in a *learning phase* (a.k.a. *training phase*). Explicitly programming instructions for decisions or predictions, as in classic programming, is not necessary in a machine learning setting. Rather machine learning algorithms process data to learn patterns within them.
 
