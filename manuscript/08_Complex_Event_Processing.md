@@ -57,7 +57,7 @@ A *CEP engine* allows specifying *CEP rules* in a *CEP rule language* and execut
 Fig. 8.2. illustrates the difference between data access in database management systems (DBMS) and CEP engines.
 
 {width=60%}
-![Fig. 8.1: Data access in (a) DBMS versus (b) CEP engine](images/AI_landscape-CEP.png)
+![Fig. 8.2: Data access in (a) DBMS versus (b) CEP engine](images/AI_landscape-CEP.png)
 
 
 A DBMS stores persistent data. A query, e.g., formulated in SQL, executes instantaneously and returns a query result based on the current state of the persistent data.
@@ -68,18 +68,76 @@ In contrast, the data source for CEP is a flowing stream of events. CEP rules ar
 
 ## Application Example: Fault Detection in the Smart Factory
 
-I will explain CEP with the application example of one of my research projects (Beez et al., 2018): fault detection in the smart factory. 
+I will explain CEP with the application example of one of my research projects: fault detection in the smart factory (Beez et al., 2018).  
+The use case is visual quality inspection in glass production. The glass inspection machine consists of cameras and lights as well as servers with inspection software. 
+An error may occur in every component of the setup, including the interconnections, and on both the software level and the hardware level. Errors in the inspection machine may lead to uninspected glass or glass of unknown quality and thus impact the plant yield.
+Common inspection machine errors are camera failures, network errors, lighting issues, or incorrect configuration of external system parameters. 
+Often, hints for these kinds of problems can be found provided that the distributed log information the system generates at runtime is considered as a whole. 
+
+Hereafter, I describe some typical CEP rules in this application context. We assume log messages from various components of the inspection machine to to be normalized to a common event format and provided by a message broker. We present parts of CEP rules in pseudo code oriented at CEP languages like for Apache Flink. 
+
+
+### Filtering
+
+*Filtering* is a simple form of CEP; see Fig. 8.3. 
+
+{width=65%}
+![Fig. 8.3: CEP filtering (Kaupp et al., 2017)](images/CEP_Filtering.jpg)
+
+
+Assuming that events contain labels like `GlassBreakBegin`, `GlassBreakEnd`, `DefectSpan` etc., then the CEP rule `filter("GlassBreak*")` will filter all events of which label matches the regular expression `"GlassBreak*"`. In the example, events with labels `GlassBreakBegin`, `GlassBreakEnd` are filtered which indicate a break in the glass being manufactured. 
+
+
+### Pattern Matching
+
+*Pattern matching* allows detecting more complex patterns in successions of events. Consider the pattern shown in Fig. 8.4 being applied to the stream of events resulting form the filtering rule from Fig. 8.3.
+
+{width=65%}
+![Fig. 8.4: CEP pattern matching (Kaupp et al., 2017)](images/CEP_Pattern_Matching.jpg)
+
+The condition `pattern("GlassBreakBegin".next("GlassBreakEnd")` in the CEP rule matches if a `GlassBreakBegin` event is immediately followed by a `GlassBreakEnd` event. In this case, a higher-level semantic event `GlassBreakDetected` can be generated and inserted into a queue of the message broker. 
+
+
+### Value Progression Analysis
+
+Fig. 8.5 shows a *value progression analysis*, analyzing the successive change of values in events. 
+
+
+{width=65%}
+![Fig. 8.5: CEP value progression analysis (Kaupp et al., 2017)](images/CEP_Value_Progression_Analysis.jpg)
+
+Each `SpeedCheck` event delivers a snapshot of the speed of the conveyor belt. 
+The condition `slindingWindow(5000s, 10s).check (max(*.speed) - min(*.speed > 0.5)` in the CEP rule uses a sliding window. A sliding window is a subset of the last events in a certain time period (here 500 seconds) on an event stream. The second parameter (`10s`) indicates how often the window is considered. Within this time frame, the speed value of all events considered. 
+If the difference in speed exceeds a threshold (here `0.5`), then a new event `SpeedChanged` is generated and inserted into a queue of the message broker. 
+A speed change may affect defect detection and, therefore, is important semantic information. 
+
+
+### Time Progression Analysis
+
+Fig. 8.6 shows a *time progression analysis*, analyzing the timing of events. 
+
+
+{width=65%}
+![Fig. 8.6: CEP time progression analysis (Kaupp et al., 2017)](images/CEP_Time_Progression_Analysis.jpg)
+
+Each component within the glass inspection machine regularly sends `Ping` events. If no ping event occurs within half a minute, it is considered as a loss of signal. 
+The condition `slidingWindow(30s, 10s).check(count("Ping")==0)` in the CEP rule uses a sliding window of 30 seconds (checked every 10 seconds). If no ping event occurred within the time window, then a `SignalLost` event is generated.
+
+ 
 
 
 
 
 
+### Semantic Enrichment
+
+CEP rules using filters, pattern matching, value progression analysis and time progression analysis can be applied iteratively. This allows incremental semantic enrichment, from primitive low level events to high-level semantic events. See Fig. 8.7.
 
 
-(Kaupp et al., 2017)
+{width=65%}
+![Fig. 8.7: CEP semantic enrichment (Kaupp et al., 2017)](images/CEP_Semantic_Enrichment.jpg)
 
-
-
+Semantic events generated by CEP rules can be used as input for other CEP rules. For example, high conveyor belt speed typically implies a thinner glass layer. With the glass thickness, the properties of the defects change, and in the transition between different thicknesses many defects may occur. The semantic event `SpeedChanged` introduced above may then be used for generating a semantic `ThicknessChanged` event. 
 
 
 
@@ -88,10 +146,10 @@ I will explain CEP with the application example of one of my research projects (
 
 ## Services Map and Product Map
 
-Fig. 8.x shows the CEP services map. 
+Fig. 8.8 shows the CEP services map. 
 
 {width=75%}
-![Fig. 8.x: CEP Services Map](images/CEP_SM.png)
+![Fig. 8.8: CEP Services Map](images/CEP_SM.png)
 
 
 Message brokers implement a message-oriented middleware, providing message queuing technology. The allow managing streams of event messages. They also provide consoles for administering message queues. 
@@ -99,11 +157,11 @@ CEP engines allow specifying CEP rules and executing them. They also allow monit
 
 
 
-Fig. 8.x shows the CEP product map. 
+Fig. 8.9 shows the CEP product map. 
 
 
 {width=75%}
-![Fig. 8.x: CEP Product Map](images/CEP_PM.png)
+![Fig. 8.9: CEP Product Map](images/CEP_PM.png)
 
 All major IT vendors provide message brokers and CEP engines. Also, there are several production-ready open source solutions. 
 Examples of message brokers are Apache Kafka, IBM MQ, TIBCO, WebSphere Business Events, and WSO2 Stream Processor.
@@ -121,5 +179,7 @@ X> Answer the following questions.
 2. What is a message broker?
 2. What is a CEP engine? 
 1. Explain the difference between data access in a DBMS versus a CEP engine?
+2. Explain filter, pattern matching, value progression analysis and time progression analysis.
+3. How can CEP be used for semantic enrichment?
 1. Name prominent CEP products
 
