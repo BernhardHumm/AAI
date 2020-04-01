@@ -1,7 +1,7 @@
 
 # Complex Event Processing
 
-*Complex event processing (CEP)* allows processing streams of event data and deriving conclusions from them.
+*Complex event processing (CEP)* allows processing streams of event data and deriving conclusions from them.
 
 Fig. 8.1. shows CEP in the AI application landscape.
 
@@ -23,21 +23,19 @@ All those appications have in common that complex decisions (e.g., fraud alert, 
 ## Foundations
 
 What is an *event* in this context?
-
 An event is something notable that happens.
-
-What is notable or not entirely depends on the application use case. 
+What is notable entirely depends on the application use case. 
 Examples are:
 
 1. A financial transaction
 1. An airplane landing
 1. A sensor outputs a reading
-1. A change of state in a database, a finite state machine
-1. A key stroke
+1. A change of state in a database
+1. A key stroke performed by a user of a web app
 1. A historic event, e.g., the French Revolution
 
 An event takes place in the real world.
-An *event object* is a data record that represents an event.
+An *event object* is a data record that represents an event.
 
 Examples are:
 
@@ -48,7 +46,7 @@ Examples are:
 
 An *event type (a.k.a. event class)* specifies the common structure of related event objects, i.e., their attributes and data types, e.g., `PurchasingEvent` with attributes `timestamp`, `buyer`, `product` and `price`.
 
-In CEP literature, often the term "event" is also used for event objects and event types. From the context it is usually clear whether the real-world event is meant the concrete data record or its type.
+In CEP literature, often the term "event" is also used for event objects and event types. From the context it is usually clear whether the real-world event is meant, the concrete data record or its type.
 
 A *CEP engine* allows specifying *CEP rules* in a *CEP rule language* and executing them. CEP rules specify patterns that can match events in an *event stream*. *Message brokers* are platforms to manage streams of messages, in particular event objects. 
 
@@ -57,7 +55,7 @@ A *CEP engine* allows specifying *CEP rules* in a *CEP rule language* and execut
 Fig. 8.2. illustrates the difference between data access in database management systems (DBMS) and CEP engines.
 
 {width=60%}
-![Fig. 8.2: Data access in (a) DBMS versus (b) CEP engine](images/AI_landscape-CEP.png)
+![Fig. 8.2: Data access in (a) DBMS versus (b) CEP engine](images/CEP_vs_DBMS.png)
 
 
 A DBMS stores persistent data. A query, e.g., formulated in SQL, executes instantaneously and returns a query result based on the current state of the persistent data.
@@ -69,12 +67,12 @@ In contrast, the data source for CEP is a flowing stream of events. CEP rules ar
 ## Application Example: Fault Detection in the Smart Factory
 
 I will explain CEP with the application example of one of my research projects: fault detection in the smart factory (Beez et al., 2018).  
-The use case is visual quality inspection in glass production. The glass inspection machine consists of cameras and lights as well as servers with inspection software. 
+The use case is visual quality inspection in glass production. A glass inspection machine consists of cameras and lights as well as servers with inspection software. 
 An error may occur in every component of the setup, including the interconnections, and on both the software level and the hardware level. Errors in the inspection machine may lead to uninspected glass or glass of unknown quality and thus impact the plant yield.
 Common inspection machine errors are camera failures, network errors, lighting issues, or incorrect configuration of external system parameters. 
 Often, hints for these kinds of problems can be found provided that the distributed log information the system generates at runtime is considered as a whole. 
 
-Hereafter, I describe some typical CEP rules in this application context. We assume log messages from various components of the inspection machine to to be normalized to a common event format and provided by a message broker. We present parts of CEP rules in pseudo code oriented at CEP languages like for Apache Flink. 
+Hereafter, I describe some typical CEP rules in this application context. We assume log messages from various components of the inspection machine to to be normalized to a common event format and provided by a message broker. Parts of CEP rules are presented in pseudo code, oriented at CEP languages like for Apache Flink. 
 
 
 ### Filtering
@@ -85,12 +83,12 @@ Hereafter, I describe some typical CEP rules in this application context. We ass
 ![Fig. 8.3: CEP filtering (Kaupp et al., 2017)](images/CEP_Filtering.jpg)
 
 
-Assuming that events contain labels like `GlassBreakBegin`, `GlassBreakEnd`, `DefectSpan` etc., then the CEP rule `filter("GlassBreak*")` will filter all events of which label matches the regular expression `"GlassBreak*"`. In the example, events with labels `GlassBreakBegin`, `GlassBreakEnd` are filtered which indicate a break in the glass being manufactured. 
+Assuming that events have types like `GlassBreakBegin`, `GlassBreakEnd`, `DefectSpan` etc., then the CEP rule `filter("GlassBreak*")` will filter all events of which type matches the regular expression `"GlassBreak*"`. In the example, events with type `GlassBreakBegin`, `GlassBreakEnd` are filtered which indicate a break in the glass being manufactured. 
 
 
 ### Pattern Matching
 
-*Pattern matching* allows detecting more complex patterns in successions of events. Consider the pattern shown in Fig. 8.4 being applied to the stream of events resulting form the filtering rule from Fig. 8.3.
+*Pattern matching* allows detecting patterns in successions of events. Consider the pattern shown in Fig. 8.4 being applied to the stream of events resulting form the filtering rule from Fig. 8.3.
 
 {width=65%}
 ![Fig. 8.4: CEP pattern matching (Kaupp et al., 2017)](images/CEP_Pattern_Matching.jpg)
@@ -107,7 +105,7 @@ Fig. 8.5 shows a *value progression analysis*, analyzing the successive change o
 ![Fig. 8.5: CEP value progression analysis (Kaupp et al., 2017)](images/CEP_Value_Progression_Analysis.jpg)
 
 Each `SpeedCheck` event delivers a snapshot of the speed of the conveyor belt. 
-The condition `slindingWindow(5000s, 10s).check (max(*.speed) - min(*.speed > 0.5)` in the CEP rule uses a sliding window. A sliding window is a subset of the last events in a certain time period (here 500 seconds) on an event stream. The second parameter (`10s`) indicates how often the window is considered. Within this time frame, the speed value of all events considered. 
+The condition `slindingWindow(5000s, 10s).check (max(*.speed) - min(*.speed > 0.5)` in the CEP rule uses a sliding window. A sliding window is a subset of the last events in a certain time period (here 500 seconds) on an event stream. The second parameter (`10s`) indicates how often the window is considered. Within this time frame, the speed values of all events are considered. 
 If the difference in speed exceeds a threshold (here `0.5`), then a new event `SpeedChanged` is generated and inserted into a queue of the message broker. 
 A speed change may affect defect detection and, therefore, is important semantic information. 
 
@@ -120,8 +118,8 @@ Fig. 8.6 shows a *time progression analysis*, analyzing the timing of events.
 {width=65%}
 ![Fig. 8.6: CEP time progression analysis (Kaupp et al., 2017)](images/CEP_Time_Progression_Analysis.jpg)
 
-Each component within the glass inspection machine regularly sends `Ping` events. If no ping event occurs within half a minute, it is considered as a loss of signal. 
-The condition `slidingWindow(30s, 10s).check(count("Ping")==0)` in the CEP rule uses a sliding window of 30 seconds (checked every 10 seconds). If no ping event occurred within the time window, then a `SignalLost` event is generated.
+Each component within the glass inspection machine regularly sends `Ping` events. If no `Ping` event occurs within half a minute, it is considered as a loss of signal. 
+The condition `slidingWindow(30s, 10s).check(count("Ping")==0)` in the CEP rule uses a sliding window of 30 seconds, which is checked every 10 seconds. If no `Ping` event occurred within the time window, then a `SignalLost` event is generated.
 
  
 
@@ -174,7 +172,7 @@ Examples of CEP engines are Apache Flink,  MS Azure Stream Analytics, Drools Fus
 
 X> Answer the following questions.
 
-1. What is complex event processing (CEP)?
+1. What is CEP?
 1. What is an event, event object and event type?
 2. What is a message broker?
 2. What is a CEP engine? 
