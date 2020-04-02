@@ -104,7 +104,7 @@ See Fig. 6.4. with an extension of the example in Fig. 6.3 to a 2-gram model.
 
 
 
-{width=90%}
+{width=75%}
 ![Fig. 6.4: ML classification with 2-gram model](images/n-gram-model.png)
 
 
@@ -324,7 +324,7 @@ There are numerous NLP services for completely different NLP tasks. As an exampl
 [Dandelion API](https://dandelion.eu) is a web service for semantic texts analytics, including NER. See a screenshot of an example in Fig. 6.15. 
 
 {width=65%}
-![Fig. 6.15: NERD example](images/NER.png)
+![Fig. 6.15: NER example](images/NER.png)
 
 In this example, the following text is analyzed:
 

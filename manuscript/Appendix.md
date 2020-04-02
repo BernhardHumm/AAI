@@ -7,41 +7,41 @@ The following tables list products for different AI areas in addition to the one
 ## Machine Learning
 
 {title="Machine learning product table", width="wide"}
-|	Product	|	ML library	|	ML development environment	|	ML web service	|
-|---------------|:---------------:|:---------------:|:---------------:|
-|	[aisolver](http://sourceforge.net/projects/aisolver)	|	*	|		|		|	
-|	[Amazon AWS Machine Learning](https://aws.amazon.com/de/machine-learning)	|		|		|	*	|	
-|	[Apache Mahout](https://mahout.apache.org)	|	*	|		|		|	
-|	[bigml](https://bigml.com)	|		|		|	*	|	
-|	[Caffe](http://caffe.berkeleyvision.org)	|	*	|		|		|	
-|	[CURRENNT](http://sourceforge.net/projects/currennt)	|	*	|		|		|	
-|	[Deeplearning4j](http://deeplearning4j.org)	|	*	|		|		|	
-|	[eblearn](http://sourceforge.net/projects/eblearn)	|	*	|		|		|	
-|	[ELKI Data Mining](https://elki-project.github.io)	|	*	|	*	|		|	
-|	[Encog](http://www.heatonresearch.com/encog)	|	*	|		|		|	
-|	[Fast Artificial Neural Network Library](http://sourceforge.net/projects/fann)	|	*	|		|		|	
-|	[Google Cloud Machine Learning](https://cloud.google.com/products/machine-learning)	|		|		|	*	|	
-|	[IBM Watson Machine Learning](https://www.ibm.com/cloud/machine-learning)	|		|		|	*	|	
-|	[Jaden](http://sourceforge.net/projects/jaden)	|	*	|	*	|		|	
-|	[Java Neural Network Framework Neuroph](http://sourceforge.net/projects/neuroph)	|	*	|	*	|		|	
-|	[Joone](http://sourceforge.net/projects/joone)	|	*	|	*	|		|	
-|	[KERAS](https://keras.io)	|		|		|		|	
-|	[KNIME](https://www.knime.com)	|	*	|	*	|		|	
-|	[Microsoft Azure Machine Learning Studio](https://azure.microsoft.com/de-de/services/machine-learning-studio)	|		|		|	*	|	
-|	[MLlib (Apache Spark)](http://spark.apache.org/mllib)	|	*	|		|		|	
-|	[MS Cognitive Toolkit](https://docs.microsoft.com/en-us/cognitive-toolkit)	|	*	|		|		|	
-|	[OpenNN - Open Neural Networks Library](http://sourceforge.net/projects/opennn)	|	*	|		|		|	
-|	[Orange](http://orange.biolab.si)	|	*	|	*	|		|	
-|	[procog](http://precog.com)	|		|		|	*	|	
-|	[R ](https://www.r-project.org)	|	*	|		|		|	
-|	[RapidMiner](https://rapidminer.com)	|	*	|	*	|		|	
-|	[scikit-learn](http://scikit-learn.org)	|	*	|		|		|	
-|	[Shogun](http://www.shogun-toolbox.org)	|	*	|		|		|	
-|	[SPSS Modeler](https://www.ibm.com/analytics/spss-statistics-software)	|	*	|	*	|		|	
-|	[TensorFlow](https://www.tensorflow.org)	|	*	|		|		|	
-|	[Theano](http://deeplearning.net/software/theano)	|	*	|		|		|	
-|	[Torch](http://torch.ch)	|	*	|		|		|	
-|	[WEKA](http://www.cs.waikato.ac.nz/ml/weka)	|	*	|	*	|		|	
+|	Product	|	ML library	|	ML dev. env.	|	ML web service	|	Pre-trained model	|
+|---------------|:---------------:|:---------------:|:---------------:|:---------------:|
+|	[aisolver](http://sourceforge.net/projects/aisolver)	|	*	|		|		|		|
+|	[Amazon AWS Machine Learning](https://aws.amazon.com/de/machine-learning)	|		|		|	*	|		|
+|	[Apache Mahout](https://mahout.apache.org)	|	*	|		|		|		|
+|	[bigml](https://bigml.com)	|		|		|	*	|		|
+|	[Caffe](http://caffe.berkeleyvision.org)	|	*	|		|		|		|
+|	[CURRENNT](http://sourceforge.net/projects/currennt)	|	*	|		|		|		|
+|	[Deeplearning4j](http://deeplearning4j.org)	|	*	|		|		|		|
+|	[eblearn](http://sourceforge.net/projects/eblearn)	|	*	|		|		|		|
+|	[ELKI Data Mining](https://elki-project.github.io)	|	*	|	*	|		|		|
+|	[Encog](http://www.heatonresearch.com/encog)	|	*	|		|		|		|
+|	[Fast Artificial Neural Network Library](http://sourceforge.net/projects/fann)	|	*	|		|		|		|
+|	[Google Cloud Machine Learning](https://cloud.google.com/products/machine-learning)	|		|		|	*	|		|
+|	[IBM Watson Machine Learning](https://www.ibm.com/cloud/machine-learning)	|		|		|	*	|		|
+|	[Jaden](http://sourceforge.net/projects/jaden)	|	*	|	*	|		|		|
+|	[Java Neural Network Framework Neuroph](http://sourceforge.net/projects/neuroph)	|	*	|	*	|		|		|
+|	[Joone](http://sourceforge.net/projects/joone)	|	*	|	*	|		|		|
+|	[KERAS](https://keras.io)	|		|		|		|	*	|
+|	[KNIME](https://www.knime.com)	|	*	|	*	|		|		|
+|	[Microsoft Azure Machine Learning Studio](https://azure.microsoft.com/de-de/services/machine-learning-studio)	|		|		|	*	|		|
+|	[MLlib (Apache Spark)](http://spark.apache.org/mllib)	|	*	|		|		|		|
+|	[MS Cognitive Toolkit](https://docs.microsoft.com/en-us/cognitive-toolkit)	|	*	|		|		|		|
+|	[OpenNN - Open Neural Networks Library](http://sourceforge.net/projects/opennn)	|	*	|		|		|		|
+|	[Orange](http://orange.biolab.si)	|	*	|	*	|		|		|
+|	[procog](http://precog.com)	|		|		|	*	|		|
+|	[R ](https://www.r-project.org)	|	*	|		|		|		|
+|	[RapidMiner](https://rapidminer.com)	|	*	|	*	|		|		|
+|	[scikit-learn](http://scikit-learn.org)	|	*	|		|		|		|
+|	[Shogun](http://www.shogun-toolbox.org)	|	*	|		|		|		|
+|	[SPSS Modeler](https://www.ibm.com/analytics/spss-statistics-software)	|	*	|	*	|		|		|
+|	[TensorFlow](https://www.tensorflow.org)	|	*	|		|		|		|
+|	[Theano](http://deeplearning.net/software/theano)	|	*	|		|		|		|
+|	[Torch](http://torch.ch)	|	*	|		|		|		|
+|	[WEKA](http://www.cs.waikato.ac.nz/ml/weka)	|	*	|	*	|		|		|
 
 
 
