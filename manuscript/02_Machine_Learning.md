@@ -24,9 +24,9 @@ Never use ML when there is an explicit algorithm or explicit rules for solving a
 
 
 
-## Machine Learning Applications
+## ML Applications
 
-Machine learning approaches are used in numerous applications in daily use. Here are a few examples.
+ML approaches are used in numerous applications in daily use. Here are a few examples.
 
 #### Spam Filtering
 
@@ -34,7 +34,7 @@ Spam filters based on machine learning are used in state-of-the-art email client
 
 ![Fig. 2.1: Spam filtering](images/Spam_Filtering.png)
 
-The machine learning spam filter is trained with manually classified samples: spam emails and non-spam emails. After the training phase, the spam filter automatically classifies emails in spam / non-spam. The user may correct machine learning decisions. Those corrections are used as new training samples that improve the correctness of future classifications. 
+The ML spam filter is trained with manually classified samples: spam emails and non-spam emails. After the training phase, the spam filter automatically classifies emails in spam / non-spam. The user may correct ML decisions. Those corrections are used as new training samples that improve the correctness of future classifications. 
 
 
 
@@ -56,7 +56,7 @@ See Fig. 2.3.
 
 ![Fig. 2.3: Fraud detection](images/Fraud_Detection.png)
 
-The overall process is similar to spam classification. The machine learning application  is trained with manually classified samples and then used to automatically identify fraud. Human clerks validate whether, in fact, there is a case of fraud or not. Manual corrections of the automatic classification results are used to further train the machine learning application. In contrast to email spam classification, one sample does not necessarily consist of a single item but possibly of a series of transactions.  
+The overall process is similar to spam classification. The ML application  is trained with manually classified samples and then used to automatically identify fraud. Human clerks validate whether, in fact, there is a case of fraud or not. Manual corrections of the automatic classification results are used to further train the ML application. In contrast to email spam classification, one sample does not necessarily consist of a single item but possibly of a series of transactions.  
 
 
 #### Recommender Systems
@@ -66,16 +66,16 @@ See Fig. 2.4.
 
 ![Fig. 2.4: Recommender systems](images/Recommender_Systems.png)
 
-The machine learning recommender system is trained with the purchasing behavior of a large number of customers and associated customer groups. Then, based on a concrete order of a customer, related products are recommended.  
+The ML recommender system is trained with the purchasing behavior of a large number of customers and associated customer groups. Then, based on a concrete order of a customer, related products are recommended.  
 
 
 
 
-## Machine Learning Areas and Tasks
+## ML Areas and Tasks
 
-Machine learning is a wide area. There are numerous groupings and names for machine learning subareas and tasks in literature. Fig. 2.5 shows a simple way of categorizing machine learning.
+Machine learning is a wide area. There are numerous groupings and names for ML subareas and tasks in literature. Fig. 2.5 shows a simple way of categorizing machine learning.
 
-![Fig. 2.5: Machine learning areas and tasks](images/ML_Tasks.png)
+![Fig. 2.5: ML areas and tasks](images/ML_Tasks.png)
 
 Three areas of machine learning can be distinguished: *supervised learning, unsupervised learning*, and *reinforcement learning*. With supervised learning, one can perform the tasks *classification* and *regression*; with unsupervised learning one can perform the tasks *clustering, feature selection / extraction*, and *topic modeling*. 
 
@@ -83,7 +83,7 @@ Three areas of machine learning can be distinguished: *supervised learning, unsu
 
 ### Supervised Learning
 
-*Supervised learning* assumes a (human) supervisor or trainer who trains the machine learning application with samples. 
+*Supervised learning* assumes a (human) supervisor or trainer who trains the ML application with samples. 
 
 - *Setting*: Sample inputs and desired outputs as specified by the supervisor
 - *Goal*: A model that maps new (unknown) inputs to correct outputs
@@ -123,8 +123,8 @@ Consider, e.g., the task of *clustering*.
 Now consider the tasks of *feature selection* and *feature extraction*.
 
 - *Setting*: A set of input data records with attributes ("features") are given
-- *Goal of feature selection*: Find a subset of the original attributes that are equally well suited for a classification / regression / clustering task. The idea is to automatically distinguish meaningful attributes from attributes that can be omitted without losing information when performing a certain machine learning task. 
-- *Goal of feature extraction*: Like in feature selection, the goal is to identify features that are meaningful for a certain machine learning task. While in feature selection, a subset of the original feature set is to be selected, in feature extraction a new set of features is to be constructed from the original feature set. As a result, various original features may be combined into one.
+- *Goal of feature selection*: Find a subset of the original attributes that are equally well suited for a classification / regression / clustering task. The idea is to automatically distinguish meaningful attributes from attributes that can be omitted without losing information when performing a certain ML task. 
+- *Goal of feature extraction*: Like in feature selection, the goal is to identify features that are meaningful for a certain ML task. While in feature selection, a subset of the original feature set is to be selected, in feature extraction a new set of features is to be constructed from the original feature set. As a result, various original features may be combined into one.
 - *Example*: customer segregation; what features of a customer record are meaningful for customer segregation (e.g., number of sales) and which ones are not (e.g., name).
 
 Finally, consider the task of *topic modeling*.
@@ -144,14 +144,14 @@ Finally, consider the task of *topic modeling*.
 - *Example*: A chess-playing bot attempts the goal of winning chess games. Reinforcement learning can be applied when having a chess-playing bot playing many games against itself (or against other chess playing bots or humans). While playing, the effects of decisions are used to optimize parameters for decision taking. 
 
 
-In the development of AI applications, various machine learning tasks are often combined. For example, unsupervised learning is often applied before supervised learning. Via unsupervised learning, e.g., feature extraction, the input data is pre-processed. Usually this is done in cycles of automatic machine learning processes followed by manual quality assurance and adaptation processes. Once a set of meaningful features are identified, then supervised learning can be applied successfully.
+In the development of AI applications, various ML tasks are often combined. For example, unsupervised learning is often applied before supervised learning. Via unsupervised learning, e.g., feature extraction, the input data is pre-processed. Usually this is done in cycles of automatic ML processes followed by manual quality assurance and adaptation processes. Once a set of meaningful features are identified, then supervised learning can be applied successfully.
 
 
 
 
-## Machine Learning Approaches
+## ML Approaches
 
-Over the many years of AI research, many different machine learning approaches have been developed and optimized. In the next sections, I will briefly introduce a few prominent ones.
+Over the many years of AI research, many different ML approaches have been developed and optimized. In the next sections, I will briefly introduce a few prominent ones.
 
 
 
@@ -267,17 +267,17 @@ Bayesian networks have the advantage over artificial neural networks and support
 
 
 
-### Overview of Machine Learning Approaches
+### Overview of ML Approaches
 
 
-There are many more machine learning approaches than the ones which I briefly introduced above. *Inductive logic programming*, for example, is one of the early approaches. It allows learning logic rules from examples, e.g., learning the rule *parent(p1, p2) and female(p2) -> daughter(p2, p1)* from facts about a large number of people, containing the predicates  "parent", "female" and "daughter".
+There are many more ML approaches than the ones which I briefly introduced above. *Inductive logic programming*, for example, is one of the early approaches. It allows learning logic rules from examples, e.g., learning the rule *parent(p1, p2) and female(p2) -> daughter(p2, p1)* from facts about a large number of people, containing the predicates  "parent", "female" and "daughter".
 
-A major disadvantage of such machine learning approaches purely based on logic is that the sample data must be 100% correct. One incorrect data record or a rare special case would invalidate correct rules, learned otherwise.
+A major disadvantage of such ML approaches purely based on logic is that the sample data must be 100% correct. One incorrect data record or a rare special case would invalidate correct rules, learned otherwise.
 
-Since in many application scenarios, training data is prone to errors, noise, or other data quality problems, most machine learning approaches used today are probabilistic ones. They simply ignore rare exceptions as noise. Artificial neural networks, support vector machines and Bayes networks are prominent examples of probabilistic methods. Even decision trees can deal with probabilities. 
+Since in many application scenarios, training data is prone to errors, noise, or other data quality problems, most ML approaches used today are probabilistic ones. They simply ignore rare exceptions as noise. Artificial neural networks, support vector machines and Bayes networks are prominent examples of probabilistic methods. Even decision trees can deal with probabilities. 
 
-There is not *the* single best machine learning approach. Some approaches allow for explaining the machine learning results, like Bayesian networks and decision tree learning, others do not. Some approaches take into account many hidden, implicit dependencies between attributes of the data without the need of explicit modeling, like artificial neural networks and support vector machines.
-Selecting the right machine learning approach for a specific use case requires experience and often a great deal of experimenting and testing. 
+There is not *the* single best ML approach. Some approaches allow for explaining the ML results, like Bayesian networks and decision tree learning, others do not. Some approaches take into account many hidden, implicit dependencies between attributes of the data without the need of explicit modeling, like artificial neural networks and support vector machines.
+Selecting the right ML approach for a specific use case requires experience and often a great deal of experimenting and testing. 
 
 Fig. 2.13 can help making such a decision by classifying prominent ML approaches to the main ML tasks.
 
@@ -304,13 +304,13 @@ I will show a simple classification example with decision trees. I will use the 
 
 Customers are specified by a number of attributes, e.g., "gender", "age", "payment method" and "last transaction". Those are the *input attributes* for machine learning.
 
-The goal is to classify customers as "loyal" or "churn" in order to address them individually, e.g., via special offers. "Churn" is the *output attribute* which is to be predicted by the machine learning application. The value "churn" indicates the expected loss  of a customer.
+The goal is to classify customers as "loyal" or "churn" in order to address them individually, e.g., via special offers. "Churn" is the *output attribute* which is to be predicted by the ML application. The value "churn" indicates the expected loss  of a customer.
 Some of the customers are already classified (e.g., rows Nos. 1-3), others are not yet classified (e.g., row No. 4).
-A decision tree shall be generated from the customers already classified in order to predict the classification of the new ones. This is done by configuring a machine learning process. See Fig. 2.15.
+A decision tree shall be generated from the customers already classified in order to predict the classification of the new ones. This is done by configuring a ML process. See Fig. 2.15.
 
-![Fig. 2.15: Machine learning process](images/RapidMiner_Process.png)
+![Fig. 2.15: ML process](images/RapidMiner_Process.png)
 
-The simple machine learning process consists of three steps, identified by boxes that are connected. The connections represent data flow. The first process step is the retrieval of the customer data. The next step is to filter those customer records that are already classified. From those records, a decision tree is being generated and returned as a result.
+The simple ML process consists of three steps, identified by boxes that are connected. The connections represent data flow. The first process step is the retrieval of the customer data. The next step is to filter those customer records that are already classified. From those records, a decision tree is being generated and returned as a result.
 
 Fig. 2.16  shows the decision tree generated from the customer records.
 
@@ -328,7 +328,7 @@ Now, this decision tree may be applied to the customers not yet classified. The 
 
 Each customer who was not previously classified (labeled with "?") is now classified either "loyal" or "churn", together with a confidence, e.g., 0.798. 
 
-Can we really trust the classification by the decision tree? I discuss validating the machine learning result in the following section.
+Can we really trust the classification by the decision tree? I discuss validating the ML result in the following section.
 
 
 
@@ -344,9 +344,9 @@ The process for implementing a supervised ML application consists of two major p
 
 In the training phase, a training data set is used to generate an ML model using some ML approach. But can we really trust this model? Is it capable of making good predictions when used in production? To find out, the model's prediction performance is evaluated, i.e., how accurately the model actually predicts. The evaluation is done on a test data set. If the model is good enough, then it can be used for predictions in productive use. However, usually the first model is not nearly good enough for productive use. Then, the ML configuration needs to be adopted, e.g., a different ML approach chosen or parameterised differently, and the training / evaluation cycle starts again - until the model is finally good enough.
 
-Fig. 2.19 zooms into the ML process and gives an overview of the data flow in supervised machine learning.
+Fig. 2.19 zooms into the ML process and gives an overview of the data flow in supervised ML.
 
-![Fig. 2.19: Data flow in supervised machine learning](images/ML_Data_Flow.png)
+![Fig. 2.19: Data flow in supervised ML](images/ML_Data_Flow.png)
 
 In the training phase, the raw data set may be pre-processed, e.g., by normalizing certain values. The input data set is in tabular form. Each row is a training sample. Columns are input attributes (so-called "features") and the expected output (so-called "labels"). The input data set is then split into a training data set and a test data set. 
 The training process step uses the training data set and the ML configuration in order to generate the ML model. 
@@ -555,7 +555,7 @@ The validation process consists of two sub-processes. The first sub-process on t
 
 The second sub-process on the right hand side represents the evaluation phase. Input to the model application is the decision tree as well as the test data set. The result of the validation process is the confusion matrix and the average accuracy. See Fig. 2.25.
 
-
+{width=75%}
 ![Fig. 2.25: Accuracy](images/RapidMiner_Accuracy.png)
 
 The result of cross-validation is displayed as a confusion matrix, showing the number of true positives, true negatives, false positives and false negatives. For each class ("loyal" and "churn"), the precision and recall values are displayed. Additionally, the total accuracy is shown which is 83.89%.
@@ -713,31 +713,31 @@ On the other hand, try to avoid vendor lock-in. Use products with open, standard
 
 
 
-### Machine Learning Services Map
+### ML Services Map
 
-Fig. 2.35 gives an overview of service categories of machine learning products.
+Fig. 2.35 gives an overview of service categories of ML products.
 
 {width=75%}
-![Fig. 2.35: Machine learning services map](images/ML_Services.png)
+![Fig. 2.35: ML services map](images/ML_Services.png)
 
 *ML libraries* provide algorithms for  classification, regression, clustering, feature selection / extraction, topic modeling, etc. using different approaches, e.g.,  decision tree learning, artificial neural networks, Bayesian networks, inductive logic programming, support vector machines, hidden Markov chains, etc. They are implemented in a certain programming language, e.g., Phython, Java or C/C++, and can be used in AI applications that are implemented in a compatible programming language.
 
 *ML APIs* provide an ML programming interface to various ML libraries, e.g., Keras running on top of TensorFlow, CNTK, or Theano. 
 
-*ML Development Environments*  allow experimenting with different machine learning approaches, testing the performance, and configuring solutions. Some of them have visual programming features to configure machine learning processing steps. They usually allow exporting solutions that can then be included in an AI applications as libraries.
+*ML Development Environments*  allow experimenting with different ML approaches, testing the performance, and configuring solutions. Some of them have visual programming features to configure ML processing steps. They usually allow exporting solutions that can then be included in an AI applications as libraries.
 
-*ML web services* provide similar functionality as ML development environments, but need not be installed locally. Instead, they can be used via the Web. This implies the necessity for uploading the machine learning data sets to some cloud storage.
+*ML web services* provide similar functionality as ML development environments, but need not be installed locally. Instead, they can be used via the Web. This implies the necessity for uploading the ML data sets to some cloud storage.
 
 Finally, *ML pre-trained models* can be used in ML libraries, APIs, development environments and web services to perform transfer learning. 
 
 
 
 
-### Machine Learning Product Map
+### ML Product Map
 
-Fig. 2.36  shows an overview of machine learning products, each assigned to the respective service category.
+Fig. 2.36  shows an overview of ML products, each assigned to the respective service category.
 
-![Fig. 2.36: Machine learning product map](images/ML_Product_Map.png)
+![Fig. 2.36: ML product map](images/ML_Product_Map.png)
 
 Examples for ML libraries are 
 [TensorFlow](https://www.tensorflow.org/), 
@@ -762,36 +762,36 @@ Examples for ML web services are
 
 
 
-## Engineering Machine Learning Applications 
+## Engineering ML Applications 
 
 
 
 ### Methodology
 
-Integrating a machine learning component in an AI application requires some experience. So summarize, I recommend using the following methodological steps as a guideline. See Fig. 2.37.
+Integrating an ML component in an AI application requires some experience. So summarize, I recommend using the following methodological steps as a guideline. See Fig. 2.37.
 
 ![Fig. 2.37: A methodology for developing ML applications](images/ML_Methodology.png)
 
 
 1. *Analyze use case*: As in engineering any IT application, the first step is to carefully analyze the use case, i.e., the stakeholders, the goals of the application to be implemented and the users' requirements.
-2. *Identify ML tasks*: Based on the user requirements, the relevant machine learning tasks  should be identified, e.g., classification, regression, topic mining, etc.
-3. *Analyze data carefully*: As in all data-intensive tasks, it is most important to intensively work with the data sets at hand. It is essential to understand the meaning of the data entities and their attributes in order to develop suitable machine learning applications. Statistics and unsupervised machine learning may be used to better understand the data.
-4. *Select ML approach and product(s)*: Which of the various machine learning approaches are appropriate for solving the task: decision trees, artificial neural networks, support vector machines, Bayesian networks, ...? Which products are best suited? See above the method for selecting a product for a certain application use case based on the services map and product map.
+2. *Identify ML tasks*: Based on the user requirements, the relevant ML tasks  should be identified, e.g., classification, regression, topic mining, etc.
+3. *Analyze data carefully*: As in all data-intensive tasks, it is most important to intensively work with the data sets at hand. It is essential to understand the meaning of the data entities and their attributes in order to develop suitable ML applications. Statistics and unsupervised ML may be used to better understand the data.
+4. *Select ML approach and product(s)*: Which of the various ML approaches are appropriate for solving the task: decision trees, artificial neural networks, support vector machines, Bayesian networks, ...? Which products are best suited? See above the method for selecting a product for a certain application use case based on the services map and product map.
 5. *Implement iteratively*: 
 	1. Often, the raw training data needs to be pre-processed, e.g., unnecessary attributes need to be removed (e.g., via feature selection), attributes combined (e.g., via feature extraction), values normalized, data records with quality problems removed, etc. See also Section 4.3 for a description on semantic ETL.
-	2. Then, the pre-processed data set is used for training the machine learning model.
+	2. Then, the pre-processed data set is used for training the ML model.
 	3. Before using the ML model in production it should be validated in order to measure the expected prediction performance.
 	4. If the prediction performance of the ML model is not sufficient, then pre-processing should be considered or the ML configuration should be adapted. Incrementally, training and validation is performed again. This iterative process comes to an end when a sufficient accuracy is reached.
-5. *Use*: Finally, the machine learning application may be used productively. If, during productive use, a human validation of the results is planned, then the manually corrected results may be used for re-training the machine learning model.
+5. *Use*: Finally, the ML application may be used productively. If, during productive use, a human validation of the results is planned, then the manually corrected results may be used for re-training the ML model.
 
 
 
 
-### Caveats: Biased Machine Learning
+### Caveats: Biased ML
 
-ML applications exhibit a lack of robustness (see e.g. Baeza-Yates, 2018 and Mueller-Birn, 2019). Firstly, training data can only reflect a subset of situations in which the ML application is used in practice. Secondly, training data is historical and does not necessarily reflect current circumstances. Additionally, there are various forms of biases influencing ML applications. See Fig. 2.38 (adopted from Baeza-Yates, 2018).
+ML applications exhibit a lack of robustness (see e.g. Baeza-Yates, 2018 and Mueller-Birn, 2019). Firstly, training data can only reflect a subset of situations in which the ML application is used in practice. Secondly, training data is historical and does not necessarily reflect current circumstances. Additionally, there are various forms of biases influencing ML applications. See Fig. 2.38.
 
-![Fig. 2.38: Bias in ML applications](images/Bias.png)
+![Fig. 2.38: Bias in ML applications (adopted from Baeza-Yates, 2018)](images/Bias.png)
 
 In the sections above we discussed *algorithmic bias*, e.g. using too simple or too complex models leading to underfitting or overfitting. However, there are many other sources of bias in the life cycle of an ML application.
 
@@ -820,13 +820,13 @@ Data bias is outside the sphere of influence of engineers of ML applications. Ho
 
 X> Answer the following questions.
 
-1. What is Machine Learning (ML)?
+1. What is ML?
 2. When to use ML / when not to use ML?
 3. Name applications of ML.
 4. Explain the following ML areas: supervised learning, unsupervised learning, reinforcement learning.
 5. Explain the following ML tasks: classification, regression, clustering, feature selection / extraction, topic modeling
 6. Explain the following ML approaches: decision tree learning, Artificial Neural Networks, Bayes networks, deep learning. Name other approaches.
-7. Explain the process for supervised machine learning. How to use training data and test data?
+7. Explain the process for supervised ML. How to use training data and test data?
 8. Explain the measures accuracy, precision, recall, F1 score, MAE, RSME and MSE
 9. Explain k-fold cross-validation
 10. What is bias and variance?
@@ -849,5 +849,3 @@ X> Assignments
 You can use any ML tool you like, e.g., RapidMiner. If you want to program your solution in Python you may follow a [tutorial](https://www.kaggle.com/sashr07/kaggle-titanic-tutorial). Submit your solution to Kaggle and compare yourself with other committers.
 
 1. Participate in the Kaggle regression competition [Housing Prices Competition for Kaggle Learn Users](https://www.kaggle.com/c/home-data-for-ml-course/overview) and proceed as in the first assignment. If you like to program your solution in Python, you may follow the [tutorial](https://www.kaggle.com/dansbecker/basic-data-exploration). 
-
-

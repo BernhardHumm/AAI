@@ -199,7 +199,9 @@ Early NLP parsers were rule-based. They mechanically applied grammar rules to se
 
 
 
-## NLP Services Map
+## Services and Product Maps
+
+### NLP Services Map
 
 Fig. 6.9 shows the NLP services map.
 
@@ -215,7 +217,7 @@ For a number of NLP tasks, entire solutions may be integrated into an AI applica
 Including an NLP web service is, of course, the easiest and least effort solution. However, you should check licenses, performance, privacy and availability issues involved. 
 
 
-## NLP Product Map
+### NLP Product Map
 
 Fig. 6.10 shows the NLP product map.
 
@@ -241,6 +243,9 @@ There are also numerous NLP web services from various providers, e.g.,
 [IBM Watson NLP](https://cloud.ibm.com/catalog/services/natural-language-understanding), and
 [MS Azure Speech Services](https://azure.microsoft.com/de-de/services/cognitive-services/speech).
 
+
+
+## Examples
 
 I will briefly introduce one prominent example for each NLP service category in the next sections, namely  WordNet (NLP resource),  Stanford Parser (NLP bulding block), UIMA (NLP framework), and Dandelion API (NLP web service).
 

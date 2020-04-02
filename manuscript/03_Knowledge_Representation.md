@@ -187,6 +187,9 @@ The architects of those applications made this decision due to performance reaso
 
 
 
+
+
+
 ## Semantic Web Standards
 
 In the following sections I introduce RDF and SPARQL as sample languages and technologies for knowledge representation. Those languages have been standardized by the World Wide Web Consortium (W3C) as part of the [Semantic Web initiative](http://www.w3.org/2001/sw/) and have gained some use in practice. I use those languages for examples in this book. However, neither the W3C standards nor other knowledge representation mechanisms and technologies can be considered as *the* de facto standard in today's AI applications. 
@@ -418,13 +421,14 @@ The label of the painting is "Mona Lisa", the artist is Leonardo da Vinci (Q762)
 
 
 
-### Querying Ontologies: SPARQL
+## Querying Ontologies
+
 
 [SPARQL](http://www.w3.org/TR/sparql11-query/) is the query language for RDF and is also standardized by the W3C. 
 
 
 
-#### SPARQL Namespaces
+### SPARQL Namespaces
 
 SPARQL also supports namespaces but with slightly different a syntax than RDF.
 See, e.g., some relevant namespaces. The keyword `PREFIX` is used to define a namespace prefix which is separated by a colon from the full namespace. 
@@ -435,7 +439,7 @@ See, e.g., some relevant namespaces. The keyword `PREFIX` is used to define a na
 	PREFIX : <http://h-da.de/fbi/artontology/>
 
 
-#### Simple SPARQL Queries
+### Simple SPARQL Queries
 
 SPARQL uses the keywords `SELECT` and `WHERE` similar to [SQL](http://www.iso.org/iso/home/store/catalogue_ics/catalogue_detail_ics.htm?csnumber=53681). The query conditions are expressed as RDF triples in which variables can be used. Variables start with a question mark.
 
@@ -477,7 +481,7 @@ Executed on the Art Ontology, this query will result in 690 artists, including �
 
 
 
-#### Multiple Query Result Variables
+### Multiple Query Result Variables
 
 When you are interested in multi-value query results, then multiple result variables may be specified in the `SELECT` clause of a SPARQL query. 
 
@@ -500,7 +504,7 @@ If all used variables shall be returned then `SELECT *`
 may be used as in SQL. 
 
 
-#### Distinct Query Results
+### Distinct Query Results
 
 As in SQL, `SELECT DISTINCT` avoids duplicates in the result set. 
 
@@ -515,7 +519,7 @@ The following query lists countries of artworks in the Art Ontology.
 
 
 
-#### Path Expressions
+### Path Expressions
 
 Path expressions are a convenient abbreviation for expressing traversals in RDF graphs. Consider the following query for artworks by Paris-born artists.
 
@@ -538,7 +542,7 @@ Note that path expressions a just convenience. The same condition could have bee
 
 
 
-#### Transitive Closures
+### Transitive Closures
 
 SPARQL provides a powerful construct to query transitive closures. 
 Consider the question to find artists that have been influenced by Paul Cézanne, directly or indirectly. 
@@ -564,7 +568,7 @@ If you want to additionally include Paul Cézanne in the result set (0..n: refle
 
 
 
-#### Advanced Features 
+### Advanced Features 
 
 There are numerous advanced SPARQL features which are important for practical use but which I will not go into details in this book:
 
@@ -581,10 +585,10 @@ For those and other features refer to the [SPARQL specification](http://www.w3.o
 
 
 
-### Rule-based Reasoning
+## Rule-based Reasoning
 
 
-#### Overview
+### Overview
 
 *Reasoning* is a major AI technique to derive new knowledge from existing facts in an ontology.
 An intuitive and, hence, popular way of specifying reasoning behavior is via *rules*. Rules are of the form "IF condition(s) THEN conclusion(s)". 
@@ -606,7 +610,7 @@ Some RDF triple store implementations like Apache Jena provide their own rule la
 
 
 
-#### SPARQL Update
+### SPARQL Update
 
 
 Assume you want to query the Art Ontology for artists who are painters as well as sculptors. However, in the Art Ontology schema there is no direct representation of the concepts painter and sculptor. 
@@ -665,7 +669,7 @@ Please note that the SPARQL endpoint is set to query, as for other SPARQL querie
 
 
 
-## Knowledge Representation Services and Product Maps, Tips and Tricks
+## Knowledge Representation Services and Product Maps
 
 
 ### Knowledge Representation Services Map
@@ -697,6 +701,9 @@ Virtuoso, GraphDB, rdf4J, Apache Jena are bundles that include knowledge base, r
 More products and details can be found in the appendix.
 
 
+
+
+## Tips and Tricks
 
 ### Ontology - Make or Buy?
 
@@ -764,7 +771,6 @@ So, my recommendation is to not unnecessarily narrow the product candidates to t
 
 
 
-%% ## Further Reading : (Allemang and Hendler, 2011)
 
 
 

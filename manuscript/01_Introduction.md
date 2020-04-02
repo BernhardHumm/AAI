@@ -160,9 +160,9 @@ Some AI projects have become milestones in AI history due to their public visibi
 
 In 1997, *IBM Deep Blue* beat the chess world champion Garry Kasparov. This was a milestone since chess is considered one of the most complex board games.
 
-See Fig. 1.3.  
+See Fig. 1.4.  
 
-![Fig. 1.3: IBM Deep Blue beats the chess champion Garry Kasparov](images/Deep_Blue.png)
+![Fig. 1.4: IBM Deep Blue beats the chess champion Garry Kasparov](images/Deep_Blue.png)
 
 %% Image: Wikimedia, Creative Commons License
 
@@ -170,17 +170,17 @@ However, when people examined the computational algorithms used  in the Deep Blu
 
 In 2011, IBM succeeded with another important AI project: *IBM Watson*. While Deep Blue targeted a most specific ability, namely playing chess, IBM Watson was able to answer natural language questions about general knowledge.  The media highlight of this project was beating the human champions at the popular US quiz show Jeopardy! This was remarkable since not only questions about history and current events, the sciences, the arts, popular culture, literature, and languages needed to be answered but also play on words as well as execution speed and strategy needed to be considered. 
 
-See Fig. 1.4.
+See Fig. 1.5.
 
-![Fig. 1.4: IBM Watson for the Jeopardy! quiz show](images/IBM_Watson.png)
+![Fig. 1.5: IBM Watson for the Jeopardy! quiz show](images/IBM_Watson.png)
 
 %% "Watson Jeopardy" by Source. Licensed under Fair use via Wikipedia - https://en.wikipedia.org/wiki/File:Watson_Jeopardy.jpg#/media/File:Watson_Jeopardy.jpg
 
 Go is a complex board game that requires intuition, creative and strategic thinking. It has long been considered a difficult challenge in AI and is considerably more difficult to solve than chess. In 2015, AlphaGo, a computer Go program developed by Google DeepMind, played a five-game Go match with the 18-time world champion [Lee Sedol](https://en.wikipedia.org/wiki/AlphaGo_versus_Lee_Sedol). The received  high media attention. AlphaGo won all but the fourth game. This was considered another breakthrough in AI. 
 
-See Fig. 1.5.
+See Fig. 1.6.
 
-![Fig. 1.5: Lee Sedol, Go match with AlphaGo](images/Lee_Sedol-AlphaGo.png)
+![Fig. 1.6: Lee Sedol, Go match with AlphaGo](images/Lee_Sedol-AlphaGo.png)
 
 
 %% https://commons.wikimedia.org/wiki/File:Lee_Se-Dol.jpg

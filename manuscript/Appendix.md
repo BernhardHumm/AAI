@@ -1,11 +1,10 @@
 
-# Appendix
+# Appendix: Product Tables
 
-## Product Tables
 
 The following tables list products for different AI areas in addition to the ones listed in the respective product maps. The assignment to  service categories are indicated by asterisks.
 
-### Machine Learning
+## Machine Learning
 
 {title="Machine learning product table", width="wide"}
 |	Product	|	ML library	|	ML development environment	|	ML web service	|
@@ -47,7 +46,7 @@ The following tables list products for different AI areas in addition to the one
 
 
 
-### Knowledge Representation
+## Knowledge Representation
 
 {title="Knowledge representation product table", width="wide"}
 |	Product	|	Integrated Environment	|	Knowledge Editor	|	API	|	Query Engine	|	Reasoner	|	Integration / Enrichment	|	Knowledge Base	|	Knowledge Resources	|
@@ -81,7 +80,7 @@ The following tables list products for different AI areas in addition to the one
 
 
 
-### AI Application Architecture
+## AI Application Architecture
 
 {title="AI application architecture product table", width="wide"}
 |	Product	|	Presentation	|	Application Logic	|	API	|	Knowledge Base / Query Engine / Reasoner	|	Data Integration / Semantic Enrichment	|	3rd party AI web services	|
@@ -112,7 +111,7 @@ The following tables list products for different AI areas in addition to the one
 
 
 
-### Agent Frameworks
+## Agent Frameworks
 
 {title="Agent frameworks product table", width="wide"}
 |	Product	|	Description	|
@@ -128,7 +127,7 @@ The following tables list products for different AI areas in addition to the one
 
 
 
-### Information Retrieval
+## Information Retrieval
 
 
 {title="Information retrieval product table", width="wide"}
@@ -145,7 +144,7 @@ The following tables list products for different AI areas in addition to the one
 
 
 
-### Natural Language Processing
+## Natural Language Processing
 
 {title="Natural language processing product table", width="wide"}
 |	Product	|	NLP building block	|	NLP framework	|	NLP web service	|	NLP resource	|
@@ -188,7 +187,7 @@ The following tables list products for different AI areas in addition to the one
 
 
 
-### Computer Vision
+## Computer Vision
 
 
 {title="Computer vision product table", width="wide"}
@@ -223,7 +222,7 @@ The following tables list products for different AI areas in addition to the one
 
 
 
-### Complex Event Processing
+## Complex Event Processing
 
 {title="CEP product table", width="wide"}
 |	Product	|	Message broker	|	CEP engine	|
