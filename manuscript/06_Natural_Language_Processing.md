@@ -247,7 +247,7 @@ There are also numerous NLP web services from various providers, e.g.,
 
 ## Examples
 
-I will briefly introduce one prominent example for each NLP service category in the next sections, namely  WordNet (NLP resource),  Stanford Parser (NLP bulding block), UIMA (NLP framework), and Dandelion API (NLP web service).
+I will briefly introduce one prominent example for each NLP service category in the next sections, namely  WordNet (NLP resource),  Stanford Parser (NLP building block), UIMA (NLP framework), and Dandelion API (NLP web service).
 
 More NLP products and details can be found in the appendix.
 
@@ -308,7 +308,7 @@ Third party components like the Stanford parser can be plugged into UIMA as well
 
 See Fig. 6.14.
 
-
+{width=75%}
 ![Fig. 6.14: NLP frameworks](images/NLP_Frameworks.png)
 
 

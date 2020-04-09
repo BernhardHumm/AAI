@@ -17,7 +17,7 @@ Examples of CEP applications are:
 1. Switching active traffic signs based on traffic data
 1. Making purchase recommendations based on click stream analysis in webshops
 
-All those appications have in common that complex decisions (e.g., fraud alert, selling / buying etc.) are made in real-time based on events (e.g., payment transactions, stock market feeds etc.). 
+All those applications have in common that complex decisions (e.g., fraud alert, selling / buying etc.) are made in real-time based on events (e.g., payment transactions, stock market feeds etc.). 
 
 
 ## Foundations

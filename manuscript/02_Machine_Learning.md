@@ -284,7 +284,7 @@ Fig. 2.13 can help making such a decision by classifying prominent ML approaches
 
 ![Fig. 2.13: Overview of ML approaches](images/ML_Approaches.png)
 
-To get further guidance in selecting a sutiable ML approach for a specific tasks, various players in the ML area have provided so-called "ML cheat sheets". See a selection:
+To get further guidance in selecting a suitable ML approach for a specific tasks, various players in the ML area have provided so-called "ML cheat sheets". See a selection:
 
 - [Microsoft](https://docs.microsoft.com/de-de/azure/machine-learning/media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet.svg)
 - [SAS](http://www.7wdata.be/wp-content/uploads/2017/04/CheatSheet.png)
@@ -546,7 +546,7 @@ The general procedure is as follows.
 
 Many ML libraries and toolkits contain easy-to-use components for k-fold cross validation. k can be set as a parameter. A typical value is k=10.
 
-Take as an example the RapidMiner process for customer rating introduced above. RapidMiner offers a validation process which performs k-fold cross-valdation. This can be used to evaluate the accuracy of the decision tree for the customer rating example above. See Fig. 2.24.
+Take as an example the RapidMiner process for customer rating introduced above. RapidMiner offers a validation process which performs k-fold cross-validation. This can be used to evaluate the accuracy of the decision tree for the customer rating example above. See Fig. 2.24.
 
 
 ![Fig. 2.24: Cross validation](images/RapidMiner_CrossValidation.png)

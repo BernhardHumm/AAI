@@ -1,0 +1,21 @@
+Dear readers,
+
+It it 5 years ago that I published the first edition of "Applied Artificial Intelligence - An Engineering Approach". In the meantime, AI has gained enormous attention - a new hype. The development of new AI technologies is rapid. So, it is time for the second edition. 
+Here is what I have added:
+
+- Impacts of AI on society
+- Guidelines for selecting ML approaches
+- Bias in ML
+- Learning curve analysis
+- Use of pre-trained models in deep learning
+- Using Wikidata 
+- Rule-based reasoning
+- NLP with bag-of-words model, tf-idf and n-grams
+- Computer vision with convolutional neural networks and transfer learning
+- Complex event processing
+- Updated AI product maps
+
+Get the current version and have fun reading "Applied Artificial Intelligence - An Engineering Approach", Second Edition. I look forward to your comments.
+
+Best regards
+        Bernhard G. Humm
