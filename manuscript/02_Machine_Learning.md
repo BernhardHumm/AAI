@@ -252,7 +252,7 @@ In Chapter 7 we present transfer learning for computer vision more in detail.
 
 A *Bayesian network* is a directed acyclic graph (DAG) with random variables as nodes and their conditional dependencies as edges. 
 
-For example, a Bayesian network could represent the probabilistic relationships between diseases and symptoms. Given symptoms, the network can be used for diagnostic purposes, computing the probabilities of the presence of various diseases. See Fig. 2.10.
+For example, a Bayesian network could represent the probabilistic relationships between diseases and symptoms. Given symptoms, the network can be used for diagnostic purposes, computing the probabilities of the presence of various diseases. See Fig. 2.12.
 
 ![Fig. 2.12: Bayesian network example (Goodman and Tenenbaum, 2016)](images/Bayesian_Network.png)
 
