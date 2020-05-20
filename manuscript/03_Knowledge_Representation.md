@@ -390,7 +390,7 @@ Fig. 3.11 shows the Art Ontology schema as [UML](http://www.uml.org/) class diag
 ![Fig. 3.11: Art Ontology schema](images/Art_Ontology_Schema.png)
 
 
-The Art Ontology schema consists of 7 classes. `artwork` is the central class with associations to the other classes: `person`, `movement`, `material`, `genre`, `location`, and `motif`, connecting artworks with their creators, the depicted motifs, the location where the artwork is exhibited, the material, the artistic movement and the genre of the artwork. All classes share common attributes which are denoted in the superclass `abstract_entity`: `id`, `label`, `description`, `abstract`, `image`, and `wikipedidaURL`. Some classes have additional attributes, e.g., `gender`, `date_of_birth`, `date_of_death`, `place_of_birth`, `place_of_death` and `citizenship` for class `person`.
+The Art Ontology schema consists of 7 classes. `artwork` is the central class with associations to the other classes: `person`, `movement`, `material`, `genre`, `location`, and `motif`, connecting artworks with their creators, the depicted motifs, the location where the artwork is exhibited, the material, the artistic movement and the genre of the artwork. All classes share common attributes which are denoted in the superclass `abstract_entity`: `id`, `label`, `description`, `abstract`, `image`, and `wikipediaLink`. Some classes have additional attributes, e.g., `gender`, `date_of_birth`, `date_of_death`, `place_of_birth`, `place_of_death` and `citizenship` for class `person`.
 
 
 This is a subset of the entries for Mona Lisa (Q12418).
