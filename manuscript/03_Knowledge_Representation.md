@@ -494,7 +494,7 @@ The following query, e.g., lists artist with their corresponding place of birth.
 	      :place_of_birth ?b .
 	} 
 
-The query result is a set of pairs `?l`, `?p`. See Fig. 3.15.
+The query result is a set of pairs `?l`, `?b`. See Fig. 3.15.
 
 {width=75%}
 ![Fig. 3.15: Multi-variable query](images/SPARQL_Tuple_Query.png)
