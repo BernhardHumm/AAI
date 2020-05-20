@@ -349,7 +349,7 @@ The RDF syntax introduced above is called [Turtle](http://www.w3.org/TR/2014/REC
 
 ![Fig. 3.10: Linked Open Data (LOD) Cloud](images/LOD_Cloud.png)
 
-Prominent linked data ontologies are [WikiData](https://www.wikidata.org), [DBpedia](http://wiki.dbpedia.org/), and [YAGO](http://www.mpi-inf.mpg.de/departments/databases-and-information-systems/research/yago-naga/yago//). 
+Prominent linked data ontologies are [WikiData](https://www.wikidata.org), [DBpedia](http://wiki.dbpedia.org/), and [YAGO](https://yago-knowledge.org/). 
 
 [Schema.org](https://schema.org) is an open initiative originally initiated by the major search engine providers  Google, Microsoft, Yahoo and Yandex. It is based on RDF and provides a vocabulary for semantically specifying things talked about on web pages, including persons, organizations, locations, products, events, etc. Providers of websites can enrich their human-readable content by machine-readable semantic markup.
 Google introduced the term *knowledge graph* as Google's collection of such data which is used for semantic features of the search engine, e.g., the Google info boxes.
