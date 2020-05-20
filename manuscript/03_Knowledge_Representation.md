@@ -453,7 +453,7 @@ See e.g. the following SPARQL query resembling the question "When was Leonardo d
 
 In this query, the variable for holding the date of birth is `?d`.  
 The query consists of two triples -- as you can see, the abbreviated RDF Notation linking several triples with the same subject via a semicolon can be used in SPARQL, too.
-Each triple poses a restriction on the query -- implicitly AND connected. We query for some entry `?p` with label `"Leonardo da Vinci"` and some `date_of_bith` entry `?d`. If such a combination can be found in the ontology the it is returned as the query result.
+Each triple poses a restriction on the query -- implicitly AND connected. We query for some entry `?p` with label `"Leonardo da Vinci"` and some `date_of_bith` entry `?d`. If such a combination can be found in the ontology then it is returned as the query result.
 
 
 Fig. 3.13 shows this query and its result executed in the SPARQL server [Apache Jena Fuseki](https://jena.apache.org/documentation/fuseki2/) after loading the Art Ontology. 
