@@ -598,7 +598,7 @@ Two approaches to rule-based reasoning can be distinguished: *forward chaining* 
 Backward chaining operates inversely. Starting from a particular query, those rules are applied which are necessary for answering the query. 
 Backward chaining is sometimes called *goal-directed* reasoning whereas forward chaining is called *data-driven* reasoning. 
 
-Which approach is better? This, of course, depends on the application use case, in particular the the types of queries asked  and the branching rate of rules. Some technologies provide one strategy only (e.g., Prolog provides backward chaining), others combine forward and backward chaining (e.g., [Drools Expert](https://www.drools.org)).
+Which approach is better? This, of course, depends on the application use case, in particular the types of queries asked  and the branching rate of rules. Some technologies provide one strategy only (e.g., Prolog provides backward chaining), others combine forward and backward chaining (e.g., [Drools Expert](https://www.drools.org)).
 
 For the Semantic Web, there are various approaches for rule-based reasoning, more or less adopted in practice. 
 [SWRL (Semantic Web Rule Language)](https://www.w3.org/Submission/SWRL) is a W3C Member Submission since 2004 but not a W2C standard and not widely adopted in practice. 
