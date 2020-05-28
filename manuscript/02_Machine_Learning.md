@@ -357,7 +357,7 @@ In the evaluation phase, this ML model is applied to the test data set, using th
 
 If the model is not yet good enough, then the ML approach needs to be adjusted. For example, pre-processing can be fine-tuned, the ML approach can be changed (e.g., from decision tree to ANN), the parameters of the ML-approach (so-called "hyperparameters") may be adjusted, e.g., the number of layers and neurons in an ANN or the maximum depth of a decision tree. Then, training and evaluation is re-iterated.
 
-If the model is good enough, i.e., the prediction performance is adequate, then the the previously trained ML can be used productively. For this, the model is used to perform the ML application on production data. The computed result can be used in the AI application, e.g., displayed in a user interface. In case the users perform a manual validation of the computed results, corrected results may be fed back for training improvement.
+If the model is good enough, i.e., the prediction performance is adequate, then the previously trained ML can be used productively. For this, the model is used to perform the ML application on production data. The computed result can be used in the AI application, e.g., displayed in a user interface. In case the users perform a manual validation of the computed results, corrected results may be fed back for training improvement.
 
 
 ### Prediction Performance Measures
@@ -565,7 +565,7 @@ The result of cross-validation is displayed as a confusion matrix, showing the n
 
 ### Bias and Variance - Overfitting and Underfitting
 
-A central point in the ML process as depicted in Figures 2.18 and 2.19 is optimizing the ML configuration if the ML model is not yet good enough. But how do do this in a meaningful way? To acquire an understanding of the problems at hand we introduce the concepts of bias and variance / overfitting and underfitting for regression tasks. Please note that those concepts equally apply to classification tasks. 
+A central point in the ML process as depicted in Figures 2.18 and 2.19 is optimizing the ML configuration if the ML model is not yet good enough. But how to do this in a meaningful way? To acquire an understanding of the problems at hand we introduce the concepts of bias and variance / overfitting and underfitting for regression tasks. Please note that those concepts equally apply to classification tasks. 
 
 An ML model can be seen as a generalization of the training data. In supervised ML, we assume that there is a real function *f* with the features as input and the target as output. However, *f* is unknown. I *f* was known, then there would be no need for machine learning at all. The ML model we get from training  we call {$$}\hat{f}{/$$}. 
 
@@ -580,7 +580,7 @@ Fig. 2.26 shows sample data points for a simple regression task with just one in
 
 Let us simply look for a polynomial function that fits the data points as closely as possible. The question now is: of which degree should the polynomial be? 
  0 (constant), 1 (linear), 2 (quadratic) or any higher degree? 
-Fig. 27 shows three different options for {$$}\hat{f}{/$$}. 
+Fig. 2.27 shows three different options for {$$}\hat{f}{/$$}. 
 
 ![Fig. 2.27: Regression polynomials (a) degree = 1 (linear), (b) degree = 2 (quadratic), (c) degree >> 3](images/Underfitting_Overfitting.png)
 
@@ -590,9 +590,9 @@ Which one is best?
 
 If we simply look at the regression error with respect to the training data, e.g. using the MAE measure, then (c) is the best since the polynomial nearly meets every data point of the training data. But we can assume that the data contains some noise and the real (unknown) function f is not as twisty. 
 
-Without knowing the application domain we cannot really make an informed decision. However, by visually inspecting the data points there is a clear indication that the polynomial (a) (degree = 1) is too simple and the polynomial (c) (degree >> 3) is too complex. It looks like the quadratic polynomial (c) (degree = 2) best approximates the real function *f* and should be used as {$$}\hat{f}{/$$}.
+Without knowing the application domain we cannot really make an informed decision. However, by visually inspecting the data points there is a clear indication that the polynomial (a) (degree = 1) is too simple and the polynomial (c) (degree >> 3) is too complex. It looks like the quadratic polynomial (b) (degree = 2) best approximates the real function *f* and should be used as {$$}\hat{f}{/$$}.
 
-*Bias* is the error (e.g., measured by MAE or RMSE) between the ML model {$$}\hat{f}{/$$} and the data points in the training data set. In Fig. 2.27, (a) has the highest bias and (c) the lowest bias, since the the complex polynomial (c) fits  the data points much more closely than the simple polynomial (a).
+*Bias* is the error (e.g., measured by MAE or RMSE) between the ML model {$$}\hat{f}{/$$} and the data points in the training data set. In Fig. 2.27, (a) has the highest bias and (c) the lowest bias, since the complex polynomial (c) fits  the data points much more closely than the simple polynomial (a).
 
 *Variance* indicates how much the ML model {$$}\hat{f}{/$$} changes if the training data is changed, e.g., by taking a different training set in k-fold cross validation. In the example, the twisty polynomial (c) will look very different if the training data points change, whereas the simple polynomial (a) will not change much if some other noisy data points are used for training.
 
@@ -720,7 +720,7 @@ Fig. 2.35 gives an overview of service categories of ML products.
 {width=75%}
 ![Fig. 2.35: ML services map](images/ML_Services.png)
 
-*ML libraries* provide algorithms for  classification, regression, clustering, feature selection / extraction, topic modeling, etc. using different approaches, e.g.,  decision tree learning, artificial neural networks, Bayesian networks, inductive logic programming, support vector machines, hidden Markov chains, etc. They are implemented in a certain programming language, e.g., Phython, Java or C/C++, and can be used in AI applications that are implemented in a compatible programming language.
+*ML libraries* provide algorithms for  classification, regression, clustering, feature selection / extraction, topic modeling, etc. using different approaches, e.g.,  decision tree learning, artificial neural networks, Bayesian networks, inductive logic programming, support vector machines, hidden Markov chains, etc. They are implemented in a certain programming language, e.g., Python, Java or C/C++, and can be used in AI applications that are implemented in a compatible programming language.
 
 *ML APIs* provide an ML programming interface to various ML libraries, e.g., Keras running on top of TensorFlow, CNTK, or Theano. 
 
