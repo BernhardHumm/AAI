@@ -167,7 +167,7 @@ In my opinion, the metaphor of an agent is useful when designing an AI applicati
 The separation of sensors from actuators as well as the separation of a model of the application domain and the environment from the agent logic is good architectural practice.
 However, the use of an agent framework is not always recommended. This is because every framework involves a learning curve and adds new  technological dependencies to the project. 
 
-If the the agent logic is sufficiently complex and the services provided by the framework are suitable for the application use case then the costs for introducing an agent framework may well be justified.
+If the agent logic is sufficiently complex and the services provided by the framework are suitable for the application use case then the costs for introducing an agent framework may well be justified.
 However, if this is not the case, a traditional component-based software architecture is adequate. The architectural recommendations following the agent metaphor can still be implemented to some degree. 
 
 
