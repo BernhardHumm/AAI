@@ -170,7 +170,7 @@ Note: Tokenization and stemming are often pre-processing steps before applying a
 {width=75%}
 ![Fig. 6.7: Parsing](images/Parsing.png)
 
-Again, the the Penn Treebank tag set is used. E.g., `NP` stands for noun phrase and `VP` for verb phrase. 
+Again, the Penn Treebank tag set is used. E.g., `NP` stands for noun phrase and `VP` for verb phrase. 
 
 Parsing of most natural language sentences is highly ambiguous. As humans, we rarely notice this ambiguity. Our brain combines the syntactic analysis and the semantic analysis and chooses the "obvious" meaning, i.e., the most likely variant. However, we also sometimes stumble on ambiguities in  the language. Many jokes play with misunderstandings based on ambiguities. [For example](http://www.ijokes.eu/index.php/joke/category/misunderstanding?page=2):
 
