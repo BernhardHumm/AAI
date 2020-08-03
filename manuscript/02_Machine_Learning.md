@@ -477,7 +477,7 @@ Clearly, the low F measure of 18% much better represents the catastrophic predic
 
 
 
-#### Which prediction performance measure to chose for classification tasks?
+#### Which prediction performance measure to choose for classification tasks?
 
 Selecting a suitable prediction performance measure and required value for a concrete classification use case is a difficult task. As a rule of thumb, accuracy as a simple and easy-to-understand measure is usually a good choice when dealing with balanced datasets. 
 
