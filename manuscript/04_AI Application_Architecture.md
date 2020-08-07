@@ -84,7 +84,7 @@ The knowledge base is implemented using Eclipse RDF4J (API and knowledge base in
 The data integration aspect is, in my opinion, not treated enough in AI literature. 
 The knowledge in AI applications often stems from various data sources (see the chapter on knowledge representation). This is similar in the field of Business Intelligence (BI) where the process of integrating data from various sources into a data warehouse (DWH) is often called *ETL (Extraction, Transformation, Loading)*. 
 
-ETL can be seen as an architectural pattern where business information systems (data sources) are separated form business intelligence systems. ETL is a pipeline for extracting, transforming, and loading data in a format highly optimized for its use (analytic application).
+ETL can be seen as an architectural pattern where business information systems (data sources) are separated from business intelligence systems. ETL is a pipeline for extracting, transforming, and loading data in a format highly optimized for its use (analytic application).
 
 The ETL architectural pattern also is suitable for the data integration of AI applications. Since in AI applications, data is often semantically enriched, I use the term *Semantic ETL*.
 
