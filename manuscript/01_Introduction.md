@@ -137,7 +137,7 @@ Such exaggerated claims create much media attention but may eventually lead to a
 
 Software applications and in particular AI applications may have massive impacts on society. I believe that software engineers must be aware of those implications and act responsibly.
 
-Automation technology has always had enormous impact on the labor market. We can see this development particularly since the the industrial revolution in the 19th century. With the advent of information technology in the 20th century, the speed of innovation has accelerated.
+Automation technology has always had enormous impact on the labor market. We can see this development particularly since the industrial revolution in the 19th century. With the advent of information technology in the 20th century, the speed of innovation has accelerated.
 AI technology is a continuation of this highly dynamic process, with ever increasing innovation speed. Like in earlier technology shifts, groups of jobs will become obsolete and new jobs will emerge. 
 
 There are numerous predictions about the implications on AI on the labor market. Some predict a replacement rate of human labor by robots for certain business sectors of up to [99%](https://futurism.com/will-artificial-intelligence-take-job-experts-weigh). Some predict that  fears of massive displacement of workers are [unfounded in the longer term](https://ec.europa.eu/epsc/sites/epsc/files/ai-report_online-version.pdf).  
