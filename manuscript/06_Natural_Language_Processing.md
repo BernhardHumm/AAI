@@ -319,7 +319,7 @@ UIMA is open source under the Apache license. The interfaces are approved as an 
 
 ### NLP Services: Named Entity Recognition with Dandelion API
 
-There are numerous NLP services for completely different NLP tasks. As an example, I pick *Named Entity Recognition (NER)*. NER is a sub task of information extraction, locating and classifying elements in a text as persons, organizations, locations, etc.
+There are numerous NLP services for completely different NLP tasks. As an example, I pick *Named Entity Recognition (NER)*. NER is a subtask of information extraction, locating and classifying elements in a text as persons, organizations, locations, etc.
 
 [Dandelion API](https://dandelion.eu) is a web service for semantic texts analytics, including NER. See a screenshot of an example in Fig. 6.15. 
 
@@ -338,7 +338,7 @@ Dandelion detected the language English and the following named entities:
 4. Place [Louvre](http://dbpedia.org/resource/Louvre)
 5. Place [Paris](http://dbpedia.org/resource/Paris)
 
-The Dbpedia links allow retrieving additional information about the named entities, e.g., the birth date and death date of Leonardo da Vinci. The Dandelion API provides a JSON file containing all this information including including confidence scores for each named entity detected.
+The Dbpedia links allow retrieving additional information about the named entities, e.g., the birth date and death date of Leonardo da Vinci. The Dandelion API provides a JSON file containing all this information including confidence scores for each named entity detected.
 
 Dandelion can be configured to provide higher precision or more tags (higher recall). When favoring more tags, then the following additional named entity is identified:
 
