@@ -105,7 +105,7 @@ Fig. 8.5 shows a *value progression analysis*, analyzing the successive change o
 ![Fig. 8.5: CEP value progression analysis (Kaupp et al., 2017)](images/CEP_Value_Progression_Analysis.jpg)
 
 Each `SpeedCheck` event delivers a snapshot of the speed of the conveyor belt. 
-The condition `slindingWindow(5000s, 10s).check (max(*.speed) - min(*.speed > 0.5)` in the CEP rule uses a sliding window. A sliding window is a subset of the last events in a certain time period (here 500 seconds) on an event stream. The second parameter (`10s`) indicates how often the window is considered. Within this time frame, the speed values of all events are considered. 
+The condition `slidingWindow(5000s, 10s).check (max(*.speed) - min(*.speed > 0.5)` in the CEP rule uses a sliding window. A sliding window is a subset of the last events in a certain time period (here 5000 seconds) on an event stream. The second parameter (`10s`) indicates how often the window is considered. Within this time frame, the speed values of all events are considered. 
 If the difference in speed exceeds a threshold (here `0.5`), then a new event `SpeedChanged` is generated and inserted into a queue of the message broker. 
 A speed change may affect defect detection and, therefore, is important semantic information. 
 

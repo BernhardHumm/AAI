@@ -170,7 +170,7 @@ Note: Tokenization and stemming are often pre-processing steps before applying a
 {width=75%}
 ![Fig. 6.7: Parsing](images/Parsing.png)
 
-Again, the the Penn Treebank tag set is used. E.g., `NP` stands for noun phrase and `VP` for verb phrase. 
+Again, the Penn Treebank tag set is used. E.g., `NP` stands for noun phrase and `VP` for verb phrase. 
 
 Parsing of most natural language sentences is highly ambiguous. As humans, we rarely notice this ambiguity. Our brain combines the syntactic analysis and the semantic analysis and chooses the "obvious" meaning, i.e., the most likely variant. However, we also sometimes stumble on ambiguities in  the language. Many jokes play with misunderstandings based on ambiguities. [For example](http://www.ijokes.eu/index.php/joke/category/misunderstanding?page=2):
 
@@ -319,7 +319,7 @@ UIMA is open source under the Apache license. The interfaces are approved as an 
 
 ### NLP Services: Named Entity Recognition with Dandelion API
 
-There are numerous NLP services for completely different NLP tasks. As an example, I pick *Named Entity Recognition (NER)*. NER is a sub task of information extraction, locating and classifying elements in a text as persons, organizations, locations, etc.
+There are numerous NLP services for completely different NLP tasks. As an example, I pick *Named Entity Recognition (NER)*. NER is a subtask of information extraction, locating and classifying elements in a text as persons, organizations, locations, etc.
 
 [Dandelion API](https://dandelion.eu) is a web service for semantic texts analytics, including NER. See a screenshot of an example in Fig. 6.15. 
 
@@ -338,7 +338,7 @@ Dandelion detected the language English and the following named entities:
 4. Place [Louvre](http://dbpedia.org/resource/Louvre)
 5. Place [Paris](http://dbpedia.org/resource/Paris)
 
-The Dbpedia links allow retrieving additional information about the named entities, e.g., the birth date and death date of Leonardo da Vinci. The Dandelion API provides a JSON file containing all this information including including confidence scores for each named entity detected.
+The Dbpedia links allow retrieving additional information about the named entities, e.g., the birth date and death date of Leonardo da Vinci. The Dandelion API provides a JSON file containing all this information including confidence scores for each named entity detected.
 
 Dandelion can be configured to provide higher precision or more tags (higher recall). When favoring more tags, then the following additional named entity is identified:
 

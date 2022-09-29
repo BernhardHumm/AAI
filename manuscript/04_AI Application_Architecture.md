@@ -84,7 +84,7 @@ The knowledge base is implemented using Eclipse RDF4J (API and knowledge base in
 The data integration aspect is, in my opinion, not treated enough in AI literature. 
 The knowledge in AI applications often stems from various data sources (see the chapter on knowledge representation). This is similar in the field of Business Intelligence (BI) where the process of integrating data from various sources into a data warehouse (DWH) is often called *ETL (Extraction, Transformation, Loading)*. 
 
-ETL can be seen as an architectural pattern where business information systems (data sources) are separated form business intelligence systems. ETL is a pipeline for extracting, transforming, and loading data in a format highly optimized for its use (analytic application).
+ETL can be seen as an architectural pattern where business information systems (data sources) are separated from business intelligence systems. ETL is a pipeline for extracting, transforming, and loading data in a format highly optimized for its use (analytic application).
 
 The ETL architectural pattern also is suitable for the data integration of AI applications. Since in AI applications, data is often semantically enriched, I use the term *Semantic ETL*.
 
@@ -167,7 +167,7 @@ In my opinion, the metaphor of an agent is useful when designing an AI applicati
 The separation of sensors from actuators as well as the separation of a model of the application domain and the environment from the agent logic is good architectural practice.
 However, the use of an agent framework is not always recommended. This is because every framework involves a learning curve and adds new  technological dependencies to the project. 
 
-If the the agent logic is sufficiently complex and the services provided by the framework are suitable for the application use case then the costs for introducing an agent framework may well be justified.
+If the agent logic is sufficiently complex and the services provided by the framework are suitable for the application use case then the costs for introducing an agent framework may well be justified.
 However, if this is not the case, a traditional component-based software architecture is adequate. The architectural recommendations following the agent metaphor can still be implemented to some degree. 
 
 
