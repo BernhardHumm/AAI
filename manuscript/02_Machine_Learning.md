@@ -243,6 +243,8 @@ To get further guidance in selecting a suitable ML approach for a specific tasks
 
 ## Example: Classifying Customers using  Decision Tree Learning
 
+### Using an ML IDE
+
 I will show a simple classification example with decision trees. I will use the free Basic Edition of [RapidMiner Studio](https://rapidminer.com/products/studio/), an integrated development environment for machine learning. In this example, a customer rating is to be performed. See Fig. 2.14  for a subset of the data set, taken from a RapidMiner tutorial.
 
 ![Fig. 2.14: Customer sample data](images/RapidMiner_Data.png)
@@ -271,15 +273,44 @@ Each customer who was not previously classified (labeled with "?") is now classi
 
 Can we really trust the classification by the decision tree? I discuss validating the ML result in the following section.
 
+### Using a ML Library
+
+The following code example shows Python code using the libraries [pandas ](https://pandas.pydata.org)and [scikit-learn](https://scikit-learn.org) to solve the same problem. 
+
+```
+    # Load training data
+    train_data = read_csv('data/train.csv‘)  
+
+    # Separate features from target
+    features = ['Gender', 'Age', 'PaymentMethod', 'LastTransaction']  
+    target = „Churn"  
+    X = train_data[features]  
+    y = train_data[target]
+
+    # Configure model
+    model = DecisionTreeClassifier()
+
+    # Train model
+    model.fit(X_train, y)
+
+    # Validate model
+    scores = cross_val_score(model, X, y)  
+
+    # Use model
+    predictions = model.predict(X_prod)
+```
+
+`read_csv` reads data from a CSV file into a pandas `DataFrame`. The feature matrix `X` and target vector `y` are assigned by selecting columns of this `DataFrame`. The model type is configured by instantiating the `DecisionTreeClassifier` class. The model is trained using the `fit` method. Cross validation can be performed using the function `cross_val_score` (the result needs to be printed or inspected). Finally, the trained model can be used using the `predict` method.
+
 ## ML Methodology
 
 ### The ML Process and Data Flow
 
-The process for implementing a supervised ML application consists of two major phases: the training phase and the productive use. See Fig. 2.18 for a simplified overview as [BPMN diagram](https://www.omg.org/spec/BPMN). 
+The process for implementing a supervised ML application consists of two major phases: the training phase and the production phase. See Fig. 2.18 for a simplified overview as [BPMN diagram](https://www.omg.org/spec/BPMN). 
 
 ![Fig. 2.18: The ML process simplified](images/ML_Process.png)
 
-In the training phase, a training data set is used to generate an ML model using some ML approach. But can we really trust this model? Is it capable of making good predictions when used in production? To find out, the model's prediction performance is evaluated, i.e., how accurately the model actually predicts. The evaluation is done on a test data set. If the model is good enough, then it can be used for predictions in productive use. However, usually the first model is not nearly good enough for productive use. Then, the ML configuration needs to be adopted, e.g., a different ML approach chosen or parameterised differently, and the training / evaluation cycle starts again - until the model is finally good enough.
+In the training phase, an ML model is configured with some ML approach. A training data set is used to generate an ML model according to the configuration. But can we really trust this model? Is it capable of making good predictions when used in production? To find out, the model's prediction performance is evaluated, i.e., how accurately the model actually predicts. The evaluation is done on a test data set. If the model is good enough, then it can be used for predictions in productive use. However, usually the first model is not nearly good enough for productive use. Then, the ML configuration needs to be adopted, e.g., a different ML approach chosen or parameterised differently, and the training / evaluation cycle starts again - until the model is finally good enough.
 
 Fig. 2.19 zooms into the ML process and gives an overview of the data flow in supervised ML.
 
@@ -352,7 +383,7 @@ An accuracy of 91% looks like a decent prediction performance, does it not? Howe
 
 How can it be that such a fatal misclassification rate results in such a high accuracy value? The reason is that the data set is *imbalanced*: 91% of the sample cases are benign and only 9% are malignant - and we are interested in the minority class malignant.
 
-### Precision, Recall and F measure
+#### Precision, Recall and F measure
 
 The prediction performance measures Precision, Recall and F measure are better suited for imbalanced data sets than accuracy is.
 
@@ -518,7 +549,7 @@ The total error of an ML model (red curve) stems from errors from bias (blue cur
 
 %% https://towardsdatascience.com/understanding-the-bias-variance-tradeoff-165e6942b229
 
-### Optimizing ML configuration
+## Automated Machine Learning
 
 In the simple example shown in Fig. 2.27, it is possible to guess the appropriate model complexity by visually inspecting the data points. In realistic ML scenarios with dozens, sometimes thousands of features, this is impossible. 
 How to optimize an ML configuration in practice if the prediction performance is not yet good enough?
@@ -526,7 +557,12 @@ How to optimize an ML configuration in practice if the prediction performance is
 As said before, the ML approach can be changed (e.g., from decision tree to ANN) or the hyperparameters may be adjusted, e.g., the number of layers and neurons in an ANN or the maximum depth of a decision tree.
 Optimizing the ML configuration is often a question of *experience* (see, e.g., the ML cheat sheets mentioned above) as well as trial and error. 
 
-The trial and error approach is obviously not satisfying. You can also view finding the best ML configuration as an optimization task with the goal to reach the best prediction performance. Many ML toolsets provide features for performing such an optimization. See Fig. 2.29 for the AutoModel feature in RapidMiner. 
+The trial and error approach is obviously not satisfying. 
+To make ML also accessible for people with lesser ML skills, the field of *automated machine learning (AutoML)* emerged. AutoML is an active field of research and there are numerous AutoML solutions available, both commercial and open source. 
+
+AutoML regards the steps for configuring ML (pre-processing, model selection, hyperparameter tuning, etc.) as an optimization task. In  the multidimensional search space, the configuration is chosen with the best prediction performance. 
+
+See Fig. 2.29 for the AutoModel feature in RapidMiner. 
 
 ![Fig. 2.29: AutoModel feature in RapidMiner](images/RapidMiner_AutoModel.png)
 
@@ -717,3 +753,7 @@ X> Assignments
    You can use any ML tool you like, e.g., RapidMiner. If you want to program your solution in Python you may follow a [tutorial](https://www.kaggle.com/sashr07/kaggle-titanic-tutorial). Submit your solution to Kaggle and compare yourself with other committers.
 
 2. Participate in the Kaggle regression competition [Housing Prices Competition for Kaggle Learn Users](https://www.kaggle.com/c/home-data-for-ml-course/overview) and proceed as in the first assignment. If you like to program your solution in Python, you may follow the [tutorial](https://www.kaggle.com/dansbecker/basic-data-exploration). 
+   
+   ```
+   
+   ```

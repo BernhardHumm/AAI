@@ -1,6 +1,4 @@
-
 # Preface
-
 
 Why yet another book on Artificial Intelligence? 
 
@@ -14,13 +12,8 @@ After re-entering university as a professor 15 years ago, a common theme of my c
 
 When I perceived a growing demand for AI applications in the business and consumer markets in 2014, I started a new M.Sc. course "Applied Artificial Intelligence" at Darmstadt University of Applied Sciences. This book reflects topics of this course. I am constantly learning: from project experience, from my colleagues and partners, from my students, and hopefully also from you, the readers of this book. So please, don't hesitate to contact me under bernhard.humm@h-da.de when you agree or disagree with my findings. 
 
-
 X> To support you to come to grips with the topics I have added questions and exercises in all chapters. They are indicated by a pencil symbol.
-
 
 Finally, I would like to thank my friend and project partner Prof Dr Paul Walsh from NSilico Lifescience Ltd., Ireland, for valuable comments and hints.
 
-
-
-Bernhard Humm, Darmstadt, Germany, 2016 and 2020
-
+Bernhard Humm, Darmstadt, Germany, 2016 and 2022
