@@ -79,7 +79,7 @@ Please note, that various different namings and groupings of AI areas can be fou
 
 Two fundamentally different approaches to AI can be distinguished (depicted as hexagons in Fig. 1.3):
 
-- **Knowledge based AI**: Knowledge is represented explicitly (with symbols) in a human-readable way, e.g., with semantic networks, ontologies, or logic programming languages (see the boxes with technologies attached to the approaches in Fig. 1.3).
+- **Knowledge based AI**: Knowledge is represented explicitly (with symbols) in a human-readable way, e.g., with knowledge graphs, semantic networks, or logic programming languages (see the boxes with technologies attached to the approaches in Fig. 1.3).
 - **Machine learning**: Knowledge is implicit in form of numbers, e.g., as weights in  artificial neural networks, support vector machines, in linear / logistic regression etc.
 
 Both approaches, symbolic and non-symbolic, have been around from the various beginnings of AI in the 1950s. In the first decades of AI research and practice, symbolic approaches were most prominent and showed the most convincing results. However, in the last century this has shifted and today, non-symbolic approaches - particularly machine learning - are most prominent. 

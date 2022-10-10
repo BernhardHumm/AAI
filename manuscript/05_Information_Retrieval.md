@@ -99,8 +99,8 @@ In the example shown in Fig. 5.3, the user is typing the letters “vi…”. Va
  
 By selecting one of the suggested terms, the user also selects a semantic category (artist, artwork, motif, genre, etc.). The search will then be refined accordingly using the search term and the semantic category. 
 
-OpenArtBrowser and its semantic autosuggest feature is based on the Art Ontology described in Chapter 3. 
-The semantic AutoSuggest feature was implemented using ElasticSearch. An ngram index was created from the ArtOntology. An autocomplete widget of  some JavaScript library like [JQuery UI](https://jqueryui.com/autocomplete/)  was used in the HTML client. From the web client, the ElasticSearch server was invoked to query the terms.
+OpenArtBrowser and its semantic autosuggest feature is based on the Art knowledge graph described in Chapter 3. 
+The semantic AutoSuggest feature was implemented using ElasticSearch. An ngram index was created from the Art knowledge graph. An autocomplete widget of  some JavaScript library like [JQuery UI](https://jqueryui.com/autocomplete/)  was used in the HTML client. From the web client, the ElasticSearch server was invoked to query the terms.
 
 The  implementation of the entire semantic autosuggest feature involves less than 100 lines of code. 
 

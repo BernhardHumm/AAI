@@ -42,7 +42,7 @@ Instead of including AI libraries, 3rd party AI web services can be used. Major 
 
 The underlying data of the AI application is stored in a *knowledge base* which is accessed by the application logic layer via an API. As outlined in the chapter on knowledge representation, technologies with reasoning engines (like, e.g., Apache Jena) may be used. However, also classic storage technologies like RDBMS or NoSQL databases are often used.  
 
-Finally, data may be loaded into the knowledge base from various sources, e.g., ontologies, databases, web pages, documents etc. Those data may be *integrated and semantically enriched* (see the chapter on knowledge representation).
+Finally, data may be loaded into the knowledge base from various sources, e.g., knowledge graphs, databases, web pages, documents etc. Those data may be *integrated and semantically enriched* (see the chapter on knowledge representation).
 
 In a concrete AI application, each of those layers may be developed differently. Also, depending on the application use case, individual layers may be missing entirely. For example, in applications where knowledge items are created by the users, the data integration layer is not needed. In an application where the reasoning capabilities of the knowledge base are sufficient, an explicit application logic layer may be omitted. In an embedded AI application, e.g, a robot, a graphical user interface is not needed.  
 
@@ -75,7 +75,7 @@ In this architecture, the virtual museum guide GUI is implemented with HTML5 / C
 - Story generation: for generating stories about artworks suitable for the current user
 - Natural language processing (NLP): for generating voice output and analyzing voice input
 
-The knowledge base is implemented using Eclipse RDF4J (API and knowledge base including reasoner and SPARQL query engine). The Art Ontology is loaded into RDF4J at system start. In an offline step, it is extracted beforehand via Python scripts from Wikidata.
+The knowledge base is implemented using Eclipse RDF4J (API and knowledge base including reasoner and SPARQL query engine). The Art knowledge graph is loaded into RDF4J at system start. In an offline step, it is extracted beforehand via Python scripts from Wikidata.
 
 
 
