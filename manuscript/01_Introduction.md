@@ -13,9 +13,7 @@ A few examples of AI in everyday use were and still are:
 - AI in computer games
 - Semantic Internet search, including question answering; See Fig. 1.1.
 
-
 ![Fig. 1.1: AI in everyday use: Google's question answering "When was JFK born?"](images/GoogleQA.png)
-
 
 Commercial examples are:
 
@@ -25,20 +23,15 @@ Commercial examples are:
 - Industrial computer vision
 - Self-driving cars, drones, rockets (military and commercial)
 
-
 The public perception of AI has changed drastically in the last few years. AI has re-gained an enormous attention in public debate - like in the 1980s. Nobody questions the importance of AI any more; instead, many people raise exaggerated, unrealistic claims and fears - which is common in hype topics. 
 
-
 I expect AI to continue to change our daily lives and labor markets in an enormous way, just like technology has changed the daily lives of generations since the 19th century with ever increasing speed. 
-
 
 How are AI applications developed? 
 
 While most AI publications, such as scientific papers and text books, focus on the theory behind AI solutions, little can be found on engineering AI applications. What kinds of AI libraries, frameworks and services already exist? Which ones should be chosen in which situation? How to integrate them into maintainable AI applications with a good user experience? How to meet functional and non-functional requirements, in particular high performance?
 
 The focus of this book is to answer those kinds of questions for software developers and architects.
-
-
 
 ## Overview of this Book
 
@@ -49,8 +42,6 @@ Inspired by one of my AI projects, I use application examples from the domain of
 At the end of each chapter I repeat the main themes in form of questions that you, the reader, can use as a *quick check*.
 
 The appendix contains product tables as well as source code examples that can be used as starting point for your own developments. 
-
-
 
 ## What is AI?
 
@@ -87,8 +78,9 @@ The different areas of AI can be structured according to those behaviors. See th
 Please note, that various different namings and groupings of AI areas can be found in literature.
 
 Two fundamentally different approaches to AI can be distinguished (depicted as hexagons in Fig. 1.3):
-- **Symbolic AI / knowledge based AI**: Knowledge is represented explicitly (with symbols) in a human-readable way, e.g., with semantic networks, ontologies, or logic programming languages (see the boxes with technologies attached to the approaches in Fig. 1.3).
-- **Non-symbolic AI / machine learning**: Knowledge is implicit in form of numbers, e.g., as weights in  artificial neural networks, support vector machines, in linear / logistic regression etc.
+
+- **Knowledge based AI**: Knowledge is represented explicitly (with symbols) in a human-readable way, e.g., with semantic networks, ontologies, or logic programming languages (see the boxes with technologies attached to the approaches in Fig. 1.3).
+- **Machine learning**: Knowledge is implicit in form of numbers, e.g., as weights in  artificial neural networks, support vector machines, in linear / logistic regression etc.
 
 Both approaches, symbolic and non-symbolic, have been around from the various beginnings of AI in the 1950s. In the first decades of AI research and practice, symbolic approaches were most prominent and showed the most convincing results. However, in the last century this has shifted and today, non-symbolic approaches - particularly machine learning - are most prominent. 
 
@@ -96,10 +88,7 @@ Both approaches have advantages and disadvantages. Non-symbolic approaches requi
 
 Both approaches have been applied in all areas of AI, but symbolic approaches are commonly used for knowing, reasoning, and acting whereas non-symbolic approaches are commonly used perceiving, communicating, and learning. 
 
-I expect both approaches to stay in the future. Hybrid approaches combine the advantages of symbolic and non-symbolic AI; I expect them to gain increasing importance. Hybrid approaches include Bayes networks, hidden Markov models, decision tree learning etc. 
-
-
-
+I expect hybrid AI approaches will gain importance in future. Hybrid approaches combine the advantages of machine learning and knowledge-based AI; I expect them to gain increasing importance. Hybrid approaches include Bayes networks, hidden Markov models, decision tree learning etc. 
 
 ## A Brief History of AI
 
@@ -114,7 +103,6 @@ The 1960s - 1980s saw unprecedented *AI hype*, triggered by enthusiastic promise
 or
 
 “Machines will be capable of doing any work that a man can do.” (Herbert Simon, 1985) (Citations from (American Heritage, 2001)).
-
 
 This hype resulted in massive funding of AI projects, particularly in the US.
 
@@ -131,8 +119,6 @@ This development of AI applications by major technology drivers lead to the situ
 I personally cannot see the slightest evidence for such bold claims and regard them as pure science fiction. 
 Such exaggerated claims create much media attention but may eventually lead to another AI winter. A most profound response to such claims has been written by [Rodney Brooks in 2017](http://rodneybrooks.com/the-seven-deadly-sins-of-predicting-the-future-of-ai/) which I recommend reading.
 
-
-
 ## Impacts of AI on Society
 
 Software applications and in particular AI applications may have massive impacts on society. I believe that software engineers must be aware of those implications and act responsibly.
@@ -144,15 +130,14 @@ There are numerous predictions about the implications on AI on the labor market.
 
 To quote Mark Twain (or Niels Bohr maybe others), ["It’s Difficult to Make Predictions, Especially About the Future"](https://quoteinvestigator.com/2013/10/20/no-predict/) ;-). I personally assume that the ever increasing automation technology will, in fact, decrease the need for human labor since we cannot (and should not) increase consumption forever. In this case it will be necessary to come to a societal agreement of how to distribute the wealth generated by machines. Some discuss a [basic income](https://en.wikipedia.org/wiki/Basic_income) as one model.
 
-
-Also, as a society, we must come to an agreement, which decisions we may leave to machines and which ones we must not. Alan Bundy pointedly and correctly states in an [CACM viewpoint](https://cacm.acm.org/magazines/2017/2/212436-smart-machines-are-not-a-threat-to-humanity/): "Smart machines are not a threat to humanity. Worrying about machines that are too smart distracts us from the real and present threat from machines that are too dumb". 
+Also, as a society, we must come to an agreement, which decisions we may leave to machines and which ones we must not. Alan Bundy pointedly and correctly states in an [CACM viewpoint](https://cacm.acm.org/magazines/2017/2/212436-smart-machines-are-not-a-threat-to-humanity/): "Smart machines are not a threat to humanity. Worrying about machines that are too smart distracts us from the real and present threat from machines that are too dumb". *Bias in machine learning* is an issue which has come to public attention recently. Since machine learning depends on data, the quality of data severely affects the quality of decision being made. But data can be biased due to the creators or origins of data - and thus, decisions based on machine learning can be biased. 
 
 More and more decisions are delegated to machines although, of course, no piece of software is perfect. This may be fine for self-driving cars, at least as soon as they drive safer than average humans (which I expect in the foreseeable future). But it may be dangerous in areas where decisions by machines may have far-reaching impacts that no human can foresee. One of those areas may be high-frequency trading where machines autonomously make selling and buying decisions, but the impact on the global financial market is unclear. Even more critical are autonomous weapons that are programmed to detect alleged attacks automatically and to start a counter-strike without human intervention.  
 An [open letter from AI and robotics researchers on autonomous weapons](https://futureoflife.org/open-letter-autonomous-weapons/) in which this issue is discussed was signed by more than 30,000 people.
 
+Data-intensive applications like machine learning may use an enormous amount of computing power and, thus energy. Thus, positive societal effects of AI may be alleviated by a large carbon footprint. *Green AI* is the field which tries to reduce negative effects of AI on the environment. 
+
 Computer scientists developing AI applications must be aware of their impact and act responsibly. Current keywords in the debate are responsible AI, ethical AI, human-centered AI or explainable AI. We will cover aspects of this in the book.
-
-
 
 ## Prominent AI Projects
 
@@ -182,19 +167,14 @@ See Fig. 1.6.
 
 ![Fig. 1.6: Lee Sedol, Go match with AlphaGo](images/Lee_Sedol-AlphaGo.png)
 
-
 %% https://commons.wikimedia.org/wiki/File:Lee_Se-Dol.jpg
 %% https://commons.wikimedia.org/wiki/File:Lee_Sedol_(B)_vs_AlphaGo_(W)_-_Game_4.jpg
-
 
 To conclude, AI applications have made enormous progress in the last two decades - applications that were unthinkable in the late 20th century. All those applications exhibit behavior of human intelligence in certain situations (playing games, answering questions, driving cars, etc.) without necessarily  imitating human intelligence as such. Looking inside the implementation of such applications may be disappointing to people hoping to gain insights in the very nature of human intelligence. They are IT applications and follow engineering practices of IT applications. And they may be useful in every-day's life. 
 
 %% REMARK: maybe remove hints about believers in hard AI
 
 The following chapters give insights into engineering such AI applications. 
-
-
-
 
 ## Further Reading
 
@@ -210,24 +190,13 @@ Also, there are a number of recommendable online courses on AI - with a similar 
 - Coursera: [Introduction to Artificial Intelligence](https://www.coursera.org/learn/introduction-to-ai)
 - edX: [Introduction to Artificial Intelligence](https://www.edx.org/course/introduction-to-artificial-intelligence-ai-3) 
 
-
-
-
-
 ## Quick Check
 
 X> The quick check shall help you assessing whether you have understood the main topics of this chapter. Answer the following questions.
 
 1. What does the term "Artificial Intelligence" mean?
-1. What are main areas of AI?
-1. Sketch the history of AI
-1. In what sense is AI today relevant and ubiquitous?
-2. What are potential impacts of AI applications on society?
-1. Name a few prominent AI projects
-
-
-
-
-
-
-
+2. What are main areas of AI?
+3. Sketch the history of AI
+4. In what sense is AI today relevant and ubiquitous?
+5. What are potential impacts of AI applications on society?
+6. Name a few prominent AI projects
