@@ -1,6 +1,4 @@
-
 # Copyright Notice
-
 
 All photos in figures of this book are published under the Creative Commons (CC) License.
 
@@ -16,13 +14,12 @@ All photos in figures of this book are published under the Creative Commons (CC)
 - Fig. 3.2:  Wikimedia Commons, Painter Michelangelo Buonarroti (1457-1564) {PD-Italy}{PD-Canada}, [File:The_Creation_of_Adam.jpg](https://commons.wikimedia.org/wiki/File:The_Creation_of_Adam.jpg)
 - Fig. 3.10:  CC Wikimedia Commons, Author Max Schmachtenberg, Source [lod-cloud.net](http://lod-cloud.net/), [Lod-cloud_colored_1000px.png](https://commons.wikimedia.org/wiki/File:Lod-cloud_colored_1000px.png) 
 
-
 - Fig. 7.3:  CC Wikimedia Commons, Author Mbroemme5783, 4 October 2012, [Face_Capture.PNG](https://commons.wikimedia.org/wiki/File:Face_Capture.PNG)
 - Fig. 7.4:  CC Wikimedia Commons, Author R Walters, 22 July 2007, [Restoration.jpg](https://commons.wikimedia.org/wiki/File:Restoration.jpg)
 - Fig. 7.5:  CC Wikimedia Commons, Author OpenStax College, Source  [cnx.org](http://cnx.org/content/col11496/1.6/), 5 April 2013, [113abcd_Medical_Imaging_Techniques.jpg](https://commons.wikimedia.org/wiki/File:113abcd_Medical_Imaging_Techniques.jpg)
 - Fig. 7.6:  Wikimedia Commons, Author KUKA Roboter GmbH, Bachmann; Source KUKA Roboter GmbH, Zugspitzstr. 140, D-86165 Augsburg, Germany, Dep. Marketing, www.kuka-robotics.com; 2003, [KUKA_robot_for_flat_glas_handling.jpg](https://commons.wikimedia.org/wiki/File:KUKA_robot_for_flat_glas_handling.jpg)
 - Fig. 7.7:  CC Wikimedia Commons, Author Robert Basic, Source Audi A8 2013
-Uploaded by AVIA BavARia, 17 October 2013, [Audi_A8_2013_(11209949525).jpg](https://commons.wikimedia.org/wiki/File:Audi_A8_2013.jpg)
+  Uploaded by AVIA BavARia, 17 October 2013, [Audi_A8_2013_(11209949525).jpg](https://commons.wikimedia.org/wiki/File:Audi_A8_2013.jpg)
 - Fig. 7.8:  Wikimedia Commons, Author NASA/JPL/Cornell University, Maas Digital LLC, Source [photojournal.jpl.nasa.gov](http://photojournal.jpl.nasa.gov/catalog/PIA04413), February 2003, [NASA_Mars_Rover.jpg](https://commons.wikimedia.org/wiki/File:NASA_Mars_Rover.jpg)
 - Fig. 7.9: CC Wikimedia Commons, Author Vazquez88, 5 February 2013, [Motion_Capture_with_Chad_Phantom.png](https://commons.wikimedia.org/wiki/File:Motion_Capture_with_Chad_Phantom.png)
-
+- Author photo by Markus Schmidt, Hochschule Darmstadt - University of Applied Sciences

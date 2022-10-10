@@ -243,7 +243,7 @@ To get further guidance in selecting a suitable ML approach for a specific tasks
 
 ## Example: Classifying Customers using  Decision Tree Learning
 
-### Using an ML IDE
+### Using a ML IDE
 
 I will show a simple classification example with decision trees. I will use the free Basic Edition of [RapidMiner Studio](https://rapidminer.com/products/studio/), an integrated development environment for machine learning. In this example, a customer rating is to be performed. See Fig. 2.14  for a subset of the data set, taken from a RapidMiner tutorial.
 
@@ -277,13 +277,13 @@ Can we really trust the classification by the decision tree? I discuss validatin
 
 The following code example shows Python code using the libraries [pandas ](https://pandas.pydata.org)and [scikit-learn](https://scikit-learn.org) to solve the same problem. 
 
-```
+```py
     # Load training data
-    train_data = read_csv('data/train.csv‘)  
+    train_data = read_csv('data/train.csv')  
 
     # Separate features from target
     features = ['Gender', 'Age', 'PaymentMethod', 'LastTransaction']  
-    target = „Churn"  
+    target = 'Churn'  
     X = train_data[features]  
     y = train_data[target]
 
