@@ -106,7 +106,7 @@ Semantic ETL consists of the following steps.
 
 ## Application Logic /  Agents
 
-In many AI publications, e.g., (Russell and Norvig, 2013), *agents* are described as a metaphor for the central component of an AI application which exhibits intelligent behavior.
+In many AI publications, e.g., (Russell and Norvig, 2021), *agents* are described as a metaphor for the central component of an AI application which exhibits intelligent behavior.
 
 Fig. 4.3 by Russell and Norvig (1995) illustrates the concept of an agent.
 

@@ -44,8 +44,6 @@ A knowledge graph consists of *facts* and a *schema*. Facts are based on the sch
 A knowledge graph of some form is in the center of many AI applications.
 Adding new instances and relationships to the knowledge graphs means extending the functionality of the AI application. 
 
-
-
 ### Reasoning
 
 Knowledge graph technology may exhibit more expressive power than a traditional relational database. In addition to the knowledge that is stated explicitly, knowledge may be derived via *reasoning*.
@@ -300,7 +298,6 @@ Prominent linked data knowledge graphs are [WikiData](https://www.wikidata.org),
 [Schema.org](https://schema.org) is an open initiative originally initiated by the major search engine providers  Google, Microsoft, Yahoo and Yandex. It is based on RDF and provides a vocabulary for semantically specifying things talked about on web pages, including persons, organizations, locations, products, events, etc. Providers of websites can enrich their human-readable content by machine-readable semantic markup.
 Google introduced the term knowledge graph as Google's collection of such data which is used for semantic features of the search engine, e.g., the Google info boxes.
 
-
 Projects like [OpenStreetMap](https://www.openstreetmap.org/) and [GeoNames](http://www.geonames.org/) use different technology but also follow the idea of linked data. 
 
 Linked data is important: Due to the community editing and network effect, the coverage of topics is enormous. However, not every large linked data set is a suitable knowledge graph for a concrete AI application. In section "Tips and Tricks" I give hints on knowledge graph selection and creation.  
@@ -528,27 +525,27 @@ But you may infer this information from the Art knowledge graph with the followi
 
 Those rules can easily been expressed using  SPARQL INSERT statements. 
 
-    INSERT {?c a :painter}
+    INSERT {?p a :painter}
     WHERE {       
-      ?a a/rdfs:label "painting" ;
-         :artist ?c .
+      ?a a :painting ;
+         :artist ?p .
     } 
     
     
-    INSERT {?c a :painter}
+    INSERT {?p a :painter}
     WHERE {       
-      ?a a/rdfs:label "drawing" ;
-         :artist ?c .
+      ?a a :drawing ;
+         :artist ?p .
     } 
     
     
-    INSERT {?c a :sculptor}
+    INSERT {?p a :sculptor}
     WHERE {   
-      ?a a/rdfs:label "sculpture" ;
-         :artist ?c .
+      ?a a :sculpture ;
+         :artist ?p .
     } 
 
-SPARQL INSERT statements allow providing RDF triples after the `INSERT` keyword, containing SPARQL variables that are matched according to the conditions specified in the `WHERE` part. The `WHERE` part can contain everything that can be specified in SPARQL queries. In the example above, it is assumed that the Art knowledge graph contains the Wikidata type information, e.g., `wd:Q3305213` (painting), `wd:Q93184` (drawing) or `wd:Q860861` (sculpture) for artworks. The `WHERE` conditions are straight forward, using  path expressions.
+SPARQL INSERT statements allow providing RDF triples after the `INSERT` keyword, containing SPARQL variables that are matched according to the conditions specified in the `WHERE` part. The `WHERE` part can contain everything that can be specified in SPARQL queries. In the example above, it is assumed that the Art knowledge graph contains type information, e.g., `:painting` ( `wd:Q3305213`) , `:drawing` ( `wd:Q93184`)  or `:sculpture` (`wd:Q860861`)  for artworks, as well as `:artist` information for each artwork.  The `WHERE` conditions are straight forward.
 
 When experimenting with SPARQL INSERT statements in the Fuseki web app,  make sure that the SPARQL endpoint is set to `update`. See Fig. 3.16.
 
@@ -622,8 +619,6 @@ Advantages are:
 - Potentially higher quality due to contribution and use by many communities (as mentioned above, this is not always the case)
 
 However, developing a custom knowledge graph for a specific use case, e.g., within a corporation is not as expensive as one might think. Experience from practice shows that an experienced team can model about 1,000 concepts within a week (Hoppe, 2015).
-
-
 
 ### Pre-Processing Off-the-Shelf knowledge graphs
 

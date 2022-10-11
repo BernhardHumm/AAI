@@ -79,16 +79,16 @@ Please note, that various different namings and groupings of AI areas can be fou
 
 Two fundamentally different approaches to AI can be distinguished (depicted as hexagons in Fig. 1.3):
 
-- **Knowledge based AI**: Knowledge is represented explicitly (with symbols) in a human-readable way, e.g., with knowledge graphs, semantic networks, or logic programming languages (see the boxes with technologies attached to the approaches in Fig. 1.3).
-- **Machine learning**: Knowledge is implicit in form of numbers, e.g., as weights in  artificial neural networks, support vector machines, in linear / logistic regression etc.
+- **Knowledge based AI** (sometimes called symbolic AI): Knowledge is represented explicitly in a human-readable way, e.g., with knowledge graphs, semantic networks, or logic programming languages (see the boxes with technologies attached to the approaches in Fig. 1.3).
+- **Machine learning** (sometimes called non-symbolic AI): Knowledge is implicit in form of numbers, e.g., as weights in  artificial neural networks, support vector machines, in linear / logistic regression etc.
 
-Both approaches, symbolic and non-symbolic, have been around from the various beginnings of AI in the 1950s. In the first decades of AI research and practice, symbolic approaches were most prominent and showed the most convincing results. However, in the last century this has shifted and today, non-symbolic approaches - particularly machine learning - are most prominent. 
+Both approaches, knowledge-based AI and machine learning, have been around from the various beginnings of AI in the 1950s. In the first decades of AI research and practice, knowledge-based AI was most prominent and showed the most convincing results. However, in the last century this has shifted and today, machine learning approaches are most prominent. 
 
-Both approaches have advantages and disadvantages. Non-symbolic approaches require little upfront knowledge, just (many) samples for training. They exhibit good behavior, e.g., in classifying situations, also with noisy data. However, the reasoning behind decisions cannot be explained to humans. In contrast, the reasoning behind symbolic approaches is explicit and can be retraced by humans. However, explicit knowledge engineering is required upfront and reasoning under uncertainty is challenging. 
+Both approaches have advantages and disadvantages. Machine learning approaches require little upfront knowledge, just (many) samples for training. They exhibit good behavior, e.g., in classifying situations, also with noisy data. However, the reasoning behind decisions cannot be explained to humans. In contrast, the reasoning behind knowledge-based AI is explicit and can be retraced by humans. However, explicit knowledge engineering is required upfront and reasoning under uncertainty is challenging. 
 
-Both approaches have been applied in all areas of AI, but symbolic approaches are commonly used for knowing, reasoning, and acting whereas non-symbolic approaches are commonly used perceiving, communicating, and learning. 
+Both approaches have been applied in all areas of AI, but knowledge-based AI is more commonly used for the abilities of knowing, reasoning, and acting, whereas machine learning approaches are more commonly used for the abilities of perceiving, communicating, and learning. 
 
-I expect hybrid AI approaches will gain importance in future. Hybrid approaches combine the advantages of machine learning and knowledge-based AI; I expect them to gain increasing importance. Hybrid approaches include Bayes networks, hidden Markov models, decision tree learning etc. 
+I expect *hybrid AI approaches* will gain importance in future. Hybrid approaches combine the advantages of machine learning and knowledge-based AI. Machine learning may be used for knowledge-based AI, e.g., in the (semi-)automatic extraction of knowledge graphs from texts. Knowledge-based AI may be used for machine learning, e.g., by enriching training data with knowledge-graphs. Explicitly hybrid approaches include Bayes networks, hidden Markov models, decision tree learning etc. 
 
 ## A Brief History of AI
 
@@ -180,7 +180,7 @@ The following chapters give insights into engineering such AI applications.
 
 There are numerous publications on AI, scientific papers and text books. I present only a very short selection.
 
-Stuart Russell's and Peter Norvig's book: "Artificial Intelligence: A Modern Approach" (Russell and Norvig, 2013) is the standard textbook on AI. It gives detailed insights in AI mechanisms and the theories behind them - issues which I do not focus on in this book. It may be used as an excellent source for further reading when you need to know more about those issues.
+Stuart Russell's and Peter Norvig's book: "Artificial Intelligence: A Modern Approach" (Russell and Norvig, 2021) is the standard textbook on AI. It gives detailed insights in AI mechanisms and the theories behind them - issues which I do not focus on in this book. It may be used as an excellent source for further reading when you need to know more about those issues.
 
 Marc Watson has written a number of books on practical aspects of AI: "Practical Artificial Intelligence Programming with Java" (Watson, 2013), "Practical Semantic Web and Linked Data Applications, Java, Scala, Clojure, and JRuby Edition" (Watson, 2010), "Practical Semantic Web and Linked Data Applications, Common Lisp Edition" (Watson, 2011). While they are some of the relatively few books dealing with the development aspects of AI applications, the focus is still somewhat different from the focus of this book. Watson introduces concrete frameworks and tools in concrete programming languages. In contrast, I rather give an overview of the tools available in form of services maps and product maps, together with hints as to which tools to use in which context and how to integrate them. Insofar, also Watson's book may be used for further reading in case you have decided on specific languages and tools covered by him. 
 

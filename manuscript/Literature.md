@@ -53,8 +53,8 @@ Systems?" [Medium.com](https://medium.com/@clmb/what-is-beyond-the-human-centere
 (Russell and Norvig,  1995)
 Stuart Russell, Peter Norvig: "Artificial Intelligence: A Modern Approach", Prentice-Hall, 1995.
 
-(Russell and Norvig, 2013)
-Stuart Russell, Peter Norvig: "Artificial Intelligence: A Modern Approach", 3rd Edition. Pearson, 2013.
+(Russell and Norvig, 2021)
+Stuart Russell, Peter Norvig: "Artificial Intelligence: A Modern Approach", 4th Edition. Pearson, 2021. ISBN: 978-1-292-40113-3.
 
 (Tensorflow, 2016)
 Tensorflow:"MNIST for Beginners" [Tutorial](https://www.tensorflow.org/versions/r1.0/get_started/mnist/beginners) (accessed 2016-05-01).
