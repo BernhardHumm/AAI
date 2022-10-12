@@ -1,5 +1,3 @@
-
-
 # Computer Vision
 
 *Computer vision (CV)* is a wide field of AI. It is all about processing images: still images and moving images (videos) / analyzing and generating. Relevant questions are:
@@ -15,10 +13,7 @@ Fig 7.1. shows computer vision in the AI landscape.
 Computer vision can be assigned to the ability of "perceiving".
 In the following section, I will briefly introduce prominent computer vision applications.
 
-
-
 ## Computer Vision Applications
-
 
 ### Optical Character Recognition (OCR)
 
@@ -27,7 +22,6 @@ Optical Character Recognition (OCR) is the extraction of text from images of typ
 See Fig. 7.2. for the reconstruction of the text from the Wikipedia article on Michelangelo from a screenshot using [FreeOCR](http://www.freeocr.net).
 
 ![Fig. 7.2: OCR Example](images/OCR.png)
-
 
 Use cases include the following ones. 
 
@@ -38,9 +32,6 @@ Use cases include the following ones.
 - Checking documents, e.g. passports, drivers licenses, etc. 
 - Archiving and retrieving text documents for which only scans are available, e.g. Google Books
 - Converting handwriting in real-time (pen computing)
-
-
-
 
 ### Face Recognition
 
@@ -57,10 +48,6 @@ Use cases include the following ones.
 - Biometrical identification of people, e.g., for airport security
 - Retrieving photos of prominent people from the Web
 
-
-
-
-
 ### Image Processing
 
 Image processing is the wide area of post-processing digital images, particularly photos, for several reasons. Examples are:
@@ -70,10 +57,7 @@ Image processing is the wide area of post-processing digital images, particularl
 - Slicing, i.e., dividing an image into different sections to be used individually
 - Image restoration; see Fig. 7.4.
 
-
 ![Fig. 7.4: Image restoration](images/Image_Restoration.png)
-
-
 
 ### Medical Applications
 
@@ -85,9 +69,6 @@ Computer vision has numerous uses cases in medicine. Examples are:
 See Fig. 7.5.
 
 ![Fig. 7.5: Medical computer vision applications](images/Medical_Applications.png)
-
-
-
 
 ### Industrial and Agricultural Applications
 
@@ -101,7 +82,6 @@ See Fig. 7.6.
 
 ![Fig. 7.6: Industrial computer vision application](images/Industrial_Application.png)
 
-
 ### Automotive Applications
 
 Computer vision applications are, today, state-of-the-art in modern cars. Examples are:
@@ -113,10 +93,7 @@ Computer vision applications are, today, state-of-the-art in modern cars. Exampl
 
 See Fig. 7.7.
 
-
 ![Fig. 7.7: Automotive computer vision application](images/Automotive_Application.png)
-
-
 
 ### Military, Aviation and Aerospace Applications
 
@@ -127,12 +104,7 @@ Also in military and aviation and aerospace industries, computer vision is appli
 - Detection of enemy soldiers or vehicles
 - Autonomous vehicles (see Fig. 7.8)
 
-
 ![Fig. 7.8: Autonomous space vehicle](images/Aerospace_Application.png)
-
-
-
-
 
 ### Computer Games and Cinema
 
@@ -143,64 +115,49 @@ Examples are:
 - Generation of images and scenes in animated movies  
 - Motion capturing for digitizing videos taken from human actors; see Fig. 7.9.
 
-
-
 ![Fig. 7.9: Motion capturing](images/Motion_Capturing.png)
-
-
-	
-
 
 ## Computer Vision Tasks and Approaches
 
 As computer vision is a wide field, there are many groups of tasks that may or may not be relevant in a concrete project. This is a simple grouping of computer vision tasks:
 
 1. *Image acquisition*: Obtaining image data from light-sensitive cameras, ultra-sonic cameras, radars, range sensors, PET/CT/MRI/ultrasound devices, etc. The image data may be 2D or 3D / still images or sequences (video).
-1. *Pre-processing*: Preparing the image data for further processing, e.g. by scaling, noise reduction, contrast enhancement, etc. Approaches include filtering and transformation algorithms.
-1. *Feature extraction*: Identifying lines, edges, ridges, corners, texture, etc. in images. In use are specific algorithms, e.g., for edge detection. 
-1. Segmentation: Identifying image regions of particular interest, e.g. faces in photos. Machine learning approaches are used.
-1. *High-level processing*: Application-specific image processing, e.g., classification, image recognition, scene analysis, etc. Machine learning approaches as well as other AI approaches for decision making are used.
-1. *Image Generation*: generating images (still or moving) from an internal representation (usually 3D). Specific rendering algorithms are used.
-
-
+2. *Pre-processing*: Preparing the image data for further processing, e.g. by scaling, noise reduction, contrast enhancement, etc. Approaches include filtering and transformation algorithms.
+3. *Feature extraction*: Identifying lines, edges, ridges, corners, texture, etc. in images. In use are specific algorithms, e.g., for edge detection. 
+4. Segmentation: Identifying image regions of particular interest, e.g. faces in photos. Machine learning approaches are used.
+5. *High-level processing*: Application-specific image processing, e.g., classification, image recognition, scene analysis, etc. Machine learning approaches as well as other AI approaches for decision making are used.
+6. *Image Generation*: generating images (still or moving) from an internal representation (usually 3D). Specific rendering algorithms are used.
 
 ## Services and Product Maps
 
 Fig. 7.10 shows the services map for computer vision.
 
-{width=85%}
+{width=90%}
 ![Fig. 7.10: Computer vision services map](images/Computer_Vision_SM.png)
 
-Like for machine learning, there are products available on the library level, the framework level, and the web service level.
+Like for machine learning, there are products available on the library level, the API level, and the web service level.
 
-- *CV / ML algorithms and libraries*: Algorithms for image pre-processing and feature extraction as well as machine learning libraries.
+- *CV / ML libraries*: Implementations for image pre-processing and feature extraction as well as machine learning libraries.
 - *CV / ML APIs*: APIs for interfacing with various ML libraries
-- *CV / ML development environments / frameworks*: [IDEs](Integrated_Development_Environments) and frameworks  for experimenting with different computer vision  approaches and configuring solutions.
 - *CV web services*: Web services for image search, named entity recognition, etc.
 - *CV pre-trained models*: Pre-trained ML models for transfer learning CV tasks. 
-
 
 Fig. 7.11 shows the product map for computer vision. 
 
 {width=90%}
 ![Fig. 7.11: Computer vision product map](images/Computer_Vision_PM.png)
 
-[TensorFlow](https://www.tensorflow.org) and [OpenCV](http://opencv.org) are examples for CV / ML libraries. [RapidMiner](https://rapidminer.com) is an IDE for machine learning. 
-[Keras](https://keras.io) is a Python ML library, interfacing to TensorFlow, CNTK, or Theano.
+[TensorFlow](https://www.tensorflow.org) and [OpenCV](http://opencv.org) are examples for CV / ML libraries.
+[Keras](https://keras.io) is a Python ML library, interfacing to TensorFlow, CNTK, or Theano. KERAS is also an interface for loading various pre-trained models for CV.
 Examples for CV web services are: [Autokeyword](http://autokeyword.me) and [clarifai](http://www.clarifai.com) for entity recognition, [tineye](https://www.tineye.com) and [Google image search](https://www.google.de) for image retrieval. The major vendors Google, Amazon, IBM and Microsoft offer web services for CV tasks.
 
 More products and details can be found in the appendix.
-
-
-
 
 ## Examples
 
 In this section I present a few CV technologies by example. 
 
-
 ### Example: OCR with Deep Learning using TensorFlow (Yalçın, 2018)
-
 
 [TensorFlow](https://www.tensorflow.org/) is an open source Python library for machine learning. It was developed by members of Google's Machine Intelligence research organization. 
 
@@ -224,7 +181,6 @@ The categories are *one-hot encoded*. This means that there are 10 columns in th
 {width=50%}
 ![Fig. 7.14: Representation of MNIST training data (Tensorflow, 2016)](images/MNIST_Array.png)
 
-
 #### Deep Learning
 
 Deep learning has become the de-facto standard for image processing and is used and explained in this tutorial. 
@@ -247,104 +203,85 @@ It is common to insert a pooling layer after each convolutional layer. A pooling
 {width=40%}
 ![Fig. 7.17: Pooling layer (Yalçın, 2018)](images/Pooling_Layer.png)
 
-
 After successions of convolutional layers and pooling layers for reducing complexity while focusing on relevant features, a set of fully connected layers are used for classification. As the name suggests, in fully-connected layers, each neuron of one layer is connected with all neurons of the next layer. See Fig. 7.18. 
-
 
 {width=40%}
 ![Fig. 7.18: Fully connected layers (Yalçın, 2018)](images/Fully_Connected_Layer.png)
-
 
 #### Keras and TensorFlow
 
 I will now explain parts of the Keras and TensorFlow code from (Yalçın, 2018).
 Keras and Tensorflow allow importing and downloading the MNIST dataset directly from their API.
 
-	import tensorflow as tf
-	(x_train, y_train), (x_test, y_test) = tf.keras.datasets.mnist.load_data()
-
-
+    import tensorflow as tf
+    (x_train, y_train), (x_test, y_test) = tf.keras.datasets.mnist.load_data()
 
 It is important to access the shape of the dataset to channel it to the convolutional layers. This is done using the `shape` attribute of `numpy` arrays.
 
-	x_train.shape
-
+    x_train.shape
 
 The result is  `(55000, 28, 28)`. `55000` represents the number of images in the train dataset and `(28, 28)` represents the size of the image: 28 x 28 pixels.
-
-
 
 To be able to use the dataset in Keras, the data must be normalized  as it is always required in neural networks. This can be achieved by dividing the RGB codes by 255. 
 Furthermore, the data format required by the API must be met. Here, the three-dimensional arrays must be converted to four-dimensional arrays. 
 
-	# Reshaping the array to 4-dims so that it can work with the Keras API
-	x_train = x_train.reshape(x_train.shape[0], 28, 28, 1)
-	x_test = x_test.reshape(x_test.shape[0], 28, 28, 1)
-	input_shape = (28, 28, 1)	# Making sure that the values are float so that we can get decimal points after division
-	x_train = x_train.astype('float32')
-	x_test = x_test.astype('float32')	# Normalizing the RGB codes by dividing it to the max RGB value.
-	x_train /= 255
-	x_test /= 255
-
-
-
+    # Reshaping the array to 4-dims so that it can work with the Keras API
+    x_train = x_train.reshape(x_train.shape[0], 28, 28, 1)
+    x_test = x_test.reshape(x_test.shape[0], 28, 28, 1)
+    input_shape = (28, 28, 1)    # Making sure that the values are float so that we can get decimal points after division
+    x_train = x_train.astype('float32')
+    x_test = x_test.astype('float32')    # Normalizing the RGB codes by dividing it to the max RGB value.
+    x_train /= 255
+    x_test /= 255
 
 The architecture of the simple deep neural network has the following layers:
 
 1. A convolutional layer
 2. A max pooling layer
-3. A flatten layer to avoid overfitting by disregarding some of the neurons
-4. 2 dense layers for classification
-5. A flatten layer to convert 2D arrays to a 1D array.
+3. A flatten layer to convert 2D arrays to a 1D array. 
+4. Two dense layers for classification
+5. A dropout layer to avoid overfitting by randomly disregarding some of the neurons during training
 
 The following code implements this architecture.
 
-	# Creating a Sequential Model and adding the layers
-	model = Sequential()
-	model.add(Conv2D(28, kernel_size=(3,3), input_shape=input_shape))
-	model.add(MaxPooling2D(pool_size=(2, 2)))
-	model.add(Flatten()) # Flattening the 2D arrays for fully connected layers
-	model.add(Dense(128, activation=tf.nn.relu))
-	model.add(Dropout(0.2))
-	model.add(Dense(10,activation=tf.nn.softmax))
-
+    # Creating a Sequential Model and adding the layers
+    model = Sequential()
+    model.add(Conv2D(28, kernel_size=(3,3), input_shape=input_shape))
+    model.add(MaxPooling2D(pool_size=(2, 2)))
+    model.add(Flatten()) # Flattening the 2D arrays for fully connected layers
+    model.add(Dense(128, activation=tf.nn.relu))
+    model.add(Dropout(0.2))
+    model.add(Dense(10,activation=tf.nn.softmax))
 
 The following code specifies an optimizer and loss function that uses a metric for training. 
 
-	model.compile(optimizer='adam', 
-	              loss='sparse_categorical_crossentropy', 
-	              metrics=['accuracy'])
-
+    model.compile(optimizer='adam', 
+                  loss='sparse_categorical_crossentropy', 
+                  metrics=['accuracy'])
 
 Now the model can be trained. The value `epochs` specifies how often all training data shall be used. 
 
-	model.fit(x=x_train,y=y_train, epochs=10)
-
-
+    model.fit(x=x_train,y=y_train, epochs=10)
 
 Finally, you may evaluate the trained model as follows.
 
-	model.evaluate(x_test, y_test)
-
+    model.evaluate(x_test, y_test)
 
 The result is an accuracy of 98.5% on the test dataset. This is quite a good result for such a simple model and only 10 epochs of training. If, however, an error of 0.1% is not tolerable, then the model can be optimized, e.g., by experimenting with  more epochs, different optimizers or loss functions, more layers, different hyperparameters etc. 
 
-
 The trained model can now be used to predict the digit in an unknown image. 
 
-	image_index = 4444
-	plt.imshow(x_test[image_index].reshape(28, 28),cmap='Greys')
-	pred = model.predict(x_test[image_index].reshape(1, img_rows, img_cols, 1))
-	print(pred.argmax())
+    image_index = 4444
+    plt.imshow(x_test[image_index].reshape(28, 28),cmap='Greys')
+    pred = model.predict(x_test[image_index].reshape(1, img_rows, img_cols, 1))
+    print(pred.argmax())
 
 In this example, the digit `9` is returned which is, indeed the correct classification of the image with index `4444`. See  Fig. 7.19.
 
 {width=20%}
 ![Fig. 7.19: Image example (Yalçın, 2018)](images/MNIST_9.png)
 
-
 Using a ML library like TensorFlow requires a considerably deeper understanding of the algorithms at hand than working with a ML IDE like RapidMiner. However, it allows optimizing an application more specifically.
-
 
 ### Example: Transfer Learning with Keras (Ananthram, 2018)
 
@@ -365,16 +302,12 @@ Then the next layers may recognize textures, then parts of objects like legs, ey
 The classification as such takes place in the few fully connected layers at the end. When classifying new things, e.g., individual dog breeds, then all the pre-trained features like colors, lines, textures etc. may be re-used and only classifying the dog breeds need to be trained. 
 All this helps in making the training process much faster, requiring much less training data compared to training the neural network from scratch.
 
-
 #### Keras and MobileNet
-
 
 [MobileNet](https://keras.io/applications/#mobilenet) is a pre-trained model which gives reasonably good image classification accuracy while occupying relatively little  space (17 MB).
 In this example, the ML library [Keras](https://keras.io) is used. Keras supports transfer learning by accessing several pre-trained models via the API.
 
-
 Building the model requires the following steps:
-
 
 1. Importing the pre-trained model and adding the dense layers
 2. Loading training data 
@@ -388,63 +321,46 @@ The following Python code imports MobileNet.
 Mobilenet's last layer consists of 1000 neurons, one for each class for which it was originally trained. Since we want to train the network for different classes, e.g., dog breeds, we have to discard the last layer. 
 If the dog breed classifier is to identify 120 different breeds, then we need 120 neurons in the final layer. This can be done using the following code.
 
-
-	base_model=MobileNet(weights='imagenet',include_top=False) #imports the mobilenet model and discards the last 1000 neuron layer.
-	x=base_model.output
-	x=GlobalAveragePooling2D()(x)
-	x=Dense(1024,activation='relu')(x) #we add dense layers so that the model can learn more complex functions and classify for better results.
-	x=Dense(1024,activation='relu')(x) #dense layer 2
-	x=Dense(512,activation='relu')(x) #dense layer 3
-	preds=Dense(120,activation='softmax')(x) #final layer with softmax activation
-
+    base_model=MobileNet(weights='imagenet',include_top=False) #imports the mobilenet model and discards the last 1000 neuron layer.
+    x=base_model.output
+    x=GlobalAveragePooling2D()(x)
+    x=Dense(1024,activation='relu')(x) #we add dense layers so that the model can learn more complex functions and classify for better results.
+    x=Dense(1024,activation='relu')(x) #dense layer 2
+    x=Dense(512,activation='relu')(x) #dense layer 3
+    preds=Dense(120,activation='softmax')(x) #final layer with softmax activation
 
 Next we make a model based on the architecture provided.
 
-
-	model=Model(inputs=base_model.input,outputs=preds)
-
-
+    model=Model(inputs=base_model.input,outputs=preds)
 
 As we will be using the pre-trained weights, we have to set all the weights to be non-trainable. 
 
-
-	for layer in model.layers:
-	    layer.trainable=False
-
-
+    for layer in model.layers:
+        layer.trainable=False
 
 #### Loading Training Data
 
 The following code loads the training data, which must be in a particular format, from a folder.
 
-
-	train_datagen=ImageDataGenerator(preprocessing_function=preprocess_input) 	
-	train_generator=train_datagen.flow_from_directory('path-to-the-main-data-folder',
-	                                                 target_size=(224,224),
-	                                                 color_mode='rgb',
-	                                                 batch_size=32,
-	                                                 class_mode='categorical',
-	                                                 shuffle=True)
-
+    train_datagen=ImageDataGenerator(preprocessing_function=preprocess_input)     
+    train_generator=train_datagen.flow_from_directory('path-to-the-main-data-folder',
+                                                     target_size=(224,224),
+                                                     color_mode='rgb',
+                                                     batch_size=32,
+                                                     class_mode='categorical',
+                                                     shuffle=True)
 
 #### Training the Model
 
 The following code performs compiling and training of the model on the dataset. 
 
-
-	model.compile(optimizer='Adam',loss='categorical_crossentropy',metrics=['accuracy'])
-	step_size_train=train_generator.n//train_generator.batch_size
-	model.fit_generator(generator=train_generator,
-	                   steps_per_epoch=step_size_train,
-	                   epochs=10)
+    model.compile(optimizer='Adam',loss='categorical_crossentropy',metrics=['accuracy'])
+    step_size_train=train_generator.n//train_generator.batch_size
+    model.fit_generator(generator=train_generator,
+                       steps_per_epoch=step_size_train,
+                       epochs=10)
 
 The model can now be evaluated and used for predicting classes in new images. 
-
-
-
-
-
-
 
 ### Example: Named Entity Recognition with the Autokeyword.me Web Service
 
@@ -458,18 +374,13 @@ In this example, the painting ["Isabella" by John Everett Millais (1829-1896)](h
 
 Using an image tagging web service is easy and simply requires invoking an API. However, if the results are not suitable for an application use case, there is no way of optimizing the solution like when using a library or a framework.
 
-
-
-
 ## Quick Check
 
 X> Answer the following questions.
 
 1. Name applications of computer vision
-1. What are the main tasks and approaches in computer vision?
-1. Which libraries / frameworks / web services can be used for computer vision?
-2. Explain deep learning. What are convolutional layers? What are pooling layers? What are dense layers?
-3. Explain transfer learning
-4. What are the advantages / disadvantages of using a web service compared to a library or framework?
-
-
+2. What are the main tasks and approaches in computer vision?
+3. Which libraries / frameworks / web services can be used for computer vision?
+4. Explain deep learning. What are convolutional layers? What are pooling layers? What are dense layers?
+5. Explain transfer learning
+6. What are the advantages / disadvantages of using a web service compared to a library or framework?

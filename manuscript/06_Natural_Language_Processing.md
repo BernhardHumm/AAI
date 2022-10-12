@@ -251,7 +251,7 @@ spaCy parsing can be acomplished with a few lines of Phython code. First, you ne
 
 Language processing in spaCy is organized in pipelines. Apart from pre-trained pipelines for many languages, you can also configure custom pipelines. See a [screenshot ](https://spacy.io/usage/processing-pipelines)from the spaCy web site in Fig. 6.14.
 
-{width=75%}
+
 ![Fig. 6.14: NLP pipelines with spaCy](images/NLP_spaCy_pipeline.png)
 
 The input to a language pipeline is a text string, the output is a spaCy `Doc`. A pipeline can be configured using NLP building blocks like tokenizer, tagger, parser, ner, lemmatizer etc.  
