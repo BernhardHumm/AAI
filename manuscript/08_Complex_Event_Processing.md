@@ -1,19 +1,12 @@
 # Complex Event Processing
 
-*Complex event processing (CEP)* allows processing streams of event data and deriving conclusions from them. CEP is a field of growing importance in various business sectors. *Internet of Things (IoT)* devices for logistics providers, smart factories, or automotive manufacturers submit a constant stream of sensor inputs which need to be analyzed in real-time in order to react accordingly. Other examples are *business activity monitoring* or *market data analysis* where conclusions are drawn from business events. 
+*Complex event processing (CEP)* allows processing streams of event data and deriving conclusions from them. 
 
-Fig. 8.1. shows various applications of CEP depending on the timing.
+CEP can be assigned to the ability of "reasoning". Fig. 8.1. shows CEP in the AI application landscape.
 
-{width=60%}
-![Fig. 8.1: Applications of CEP](images/CEP_Applications.png)
+![Fig. 8.1: CEP in the AI landscape](images/AI_landscape-CEP.png)
 
-*Predictive analysis* as in *predictive maintenance* tries to predict events before they actually happen, e.g., the failure of parts in a smart factory so that they can be replaced right on time. *Real-time CEP* takes place immediately after an event, e.g., when reacting to errors occurring in a smart factory. *Event reporting* collects activities in order to provide reporting on streams of events. 
-
-Fig. 8.2. shows CEP in the AI application landscape.
-
-![Fig. 8.2: CEP in the AI landscape](images/AI_landscape-CEP.png)
-
-CEP can be assigned to the ability of "reasoning". 
+CEP is a field of growing importance in various business sectors. *Internet of Things (IoT)* devices for logistics providers, smart factories, or automotive manufacturers submit a constant stream of sensor inputs which need to be analyzed in real-time in order to react accordingly. Other examples are *business activity monitoring* or *market data analysis* where conclusions are drawn from business events. 
 
 Examples of CEP applications are:
 
@@ -22,7 +15,14 @@ Examples of CEP applications are:
 3. Switching active traffic signs based on traffic data
 4. Making purchase recommendations based on click stream analysis in webshops
 
-All those applications have in common that complex decisions (e.g., fraud alert, selling / buying etc.) are made in real-time based on events (e.g., payment transactions, stock market feeds etc.). 
+All those applications have in common that complex decisions (e.g., fraud alert, selling / buying etc.) are made in real-time based on events (e.g., payment transactions, stock market feeds etc.).
+
+Fig. 8.2. shows various application scenarios of CEP depending on the timing.
+
+{width=60%}
+![Fig. 8.2: Application scenarios of CEP](images/CEP_Applications.png)
+
+*Predictive analysis* as in *predictive maintenance* tries to predict events before they actually happen, e.g., the failure of parts in a smart factory so that they can be replaced right on time. *Real-time CEP* takes place immediately after an event, e.g., when reacting to errors occurring in a smart factory. *Event reporting* collects activities in order to provide reporting on streams of events. 
 
 ## Foundations
 

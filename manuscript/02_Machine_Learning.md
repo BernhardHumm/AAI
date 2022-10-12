@@ -6,7 +6,7 @@
 
 What does ML mean?
 
-ML allows for making decisions or predictions based on models which have been generated automatically ("learned") from sample data. 
+*ML allows for making decisions or predictions based on models which have been generated automatically ("learned") from sample data.* 
 
 The models are generated automatically in a *learning phase* (a.k.a. *training phase*). Explicitly programming instructions for decisions or predictions, as in classic programming, is not necessary in a machine learning setting. Rather machine learning algorithms process data to learn patterns within them.
 
@@ -233,7 +233,7 @@ Fig. 2.13 can help making such a decision by classifying prominent ML approaches
 
 ![Fig. 2.13: Overview of ML approaches](images/ML_Approaches.png)
 
-To get further guidance in selecting a suitable ML approach for a specific tasks, various players in the ML area have provided so-called "ML cheat sheets". See a selection:
+To get further guidance in selecting a suitable ML approach for a specific tasks, various players in the ML area have provided so-called "ML cheat sheets" which are helpful when selecting a suitable ML approach for a problem. See a selection:
 
 - [Microsoft](https://docs.microsoft.com/de-de/azure/machine-learning/media/algorithm-cheat-sheet/machine-learning-algorithm-cheat-sheet.svg)
 - [SAS](http://www.7wdata.be/wp-content/uploads/2017/04/CheatSheet.png)
@@ -243,7 +243,7 @@ To get further guidance in selecting a suitable ML approach for a specific tasks
 
 ## Example: Classifying Customers using  Decision Tree Learning
 
-### Using a ML IDE
+### Using an ML IDE
 
 I will show a simple classification example with decision trees. I will use the free Basic Edition of [RapidMiner Studio](https://rapidminer.com/products/studio/), an integrated development environment for machine learning. In this example, a customer rating is to be performed. See Fig. 2.14  for a subset of the data set, taken from a RapidMiner tutorial.
 
@@ -566,7 +566,7 @@ See Fig. 2.29 for the AutoModel feature in RapidMiner.
 
 ![Fig. 2.29: AutoModel feature in RapidMiner](images/RapidMiner_AutoModel.png)
 
-Here, the customer classification example from Section 2.4 is used. 9 different ML approaches are tried out, including deep learning, decision tree, and support vector machine. For all approaches, different hyperparameters are tried out and the best prediction performances are displayed. With an accuracy of 85%, decision tree turns out to be the best approach. The Decision tree approach also exhibits the best runtime performance (76 ms for training and 76 ms for scoring 1000 samples).
+Here, the customer classification example from Section 2.4 is used. 9 different ML approaches are tried out, including deep learning, decision tree, and support vector machine. For all approaches, different hyperparameters are tried out and the best prediction performances are displayed. With an accuracy of 85%, decision tree turns out to be the best approach. The decision tree approach also exhibits the best runtime performance (76 ms for training and 76 ms for scoring 1000 samples).
 
 However, since training complex ML models may consume a considerable amount of computing power, optimizing the ML configuration will be even more costly. 
 In the next section we present a method for optimizing ML configurations in a more informed way. 
@@ -681,7 +681,7 @@ Examples for ML web services are
 
 ### Methodology
 
-Integrating an ML component in an AI application requires some experience. So summarize, I recommend using the following methodological steps as a guideline. See Fig. 2.37.
+Integrating an ML component in an AI application requires some experience. To summarize, I recommend using the following methodological steps as a guideline. See Fig. 2.37.
 
 ![Fig. 2.37: A methodology for developing ML applications](images/ML_Methodology.png)
 
@@ -698,7 +698,7 @@ Integrating an ML component in an AI application requires some experience. So su
 
 ### Caveats: Biased ML
 
-ML applications exhibit a lack of robustness (see e.g. Baeza-Yates, 2018 and Mueller-Birn, 2019). Firstly, training data can only reflect a subset of situations in which the ML application is used in practice. Secondly, training data is historical and does not necessarily reflect current circumstances. Additionally, there are various forms of biases influencing ML applications. See Fig. 2.38.
+ML applications may exhibit a lack of robustness (see e.g. Baeza-Yates, 2018 and Mueller-Birn, 2019). Firstly, training data can only reflect a subset of situations in which the ML application is used in practice. Secondly, training data is historical and does not necessarily reflect current circumstances. Additionally, there are various forms of biases influencing ML applications. See Fig. 2.38.
 
 ![Fig. 2.38: Bias in ML applications (adopted from Baeza-Yates, 2018)](images/Bias.png)
 

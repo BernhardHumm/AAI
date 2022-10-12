@@ -24,9 +24,9 @@ Relevant questions for knowledge representation are:
 
 ## Knowledge Graphs
 
-In this book, I use the term knowledge graph for represented knowledge with the following definition.
+In this book, I use the term "knowledge graph"" for represented knowledge with the following definition.
 
-A *knowledge graph* is the representation of knowledge of a particular application domain, i.e., a *representation of the relevant concepts and their relationships*.  
+A *knowledge graph* is the representation of knowledge of a particular application domain, i.e., a representation of the relevant *concepts *and their *relationships*.  
 
 It shall be noted that other terms like ontologies, thesauri or semantic nets are used with similar meanings. For details see e.g., (Busse et al., 2015).
 Let us look at some specific examples of knowledge about creative arts (Fig. 3.3).

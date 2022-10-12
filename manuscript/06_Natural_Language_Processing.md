@@ -240,21 +240,20 @@ Which integration type is recommended? As usual, integrating the online service 
 
 Features include tokenization, POS tagging, dependency parsing, lemmatization, sentence boundary detection, named entity recognition and entity linking, similarity, text classification, and rule-based matching. 
 
-spaCy provides a variety of linguistic annotations to give insights into a text’s grammatical structure. This includes the word types, like the parts of speech, and how the words are related to each other. 
+spaCy provides a variety of linguistic annotations to give insights into a text's grammatical structure. This includes the word types, like the parts of speech, and how the words are related to each other. 
 
 See Fig. 6.13 for an example of parsing a sentence from the [spaCy web site](https://spacy.io/usage/visualizers)
 
-{width=75%}
+
 ![Fig. 6.13: spaCy sentence parsing](images/NLP_spaCy_dependency.png)
 
 spaCy parsing can be acomplished with a few lines of Phython code. First, you need to `load `a language, here `en_core_web_sm`. then, you pass a text string to the language. The result is a spaCy `Doc `which contains structured information about the text, e.g., the dependency graph of the parsed sentence which can be displayed using `displacy`.  
 
-Language processing in spaCy is organized in pipelines. Apart from pre-trained pipelines for many languages, you can also configure custom pipelines. See a [screenshot ](https://spacy.io/usage/processing-pipelines)from the spaCy web site in Fig. 6.14.
-
+Language processing in spaCy is organized in pipelines. Apart from pre-trained pipelines for many languages, you can also configure custom pipelines. See a [screenshot ](https://spacy.io/usage/processing-pipelines) from the spaCy web site in Fig. 6.14.
 
 ![Fig. 6.14: NLP pipelines with spaCy](images/NLP_spaCy_pipeline.png)
 
-The input to a language pipeline is a text string, the output is a spaCy `Doc`. A pipeline can be configured using NLP building blocks like tokenizer, tagger, parser, ner, lemmatizer etc.  
+The input to a language pipeline is a text string, the output is a spaCy `Doc`. A pipeline can be configured using NLP building blocks like tokenizer, tagger, parser, named entity recognition, lemmatizer etc.  
 
 ### NLP Web Services: Named Entity Recognition with Dandelion API
 
@@ -267,7 +266,8 @@ There are numerous NLP services for completely different NLP tasks. As an exampl
 
 In this example, the following text is analyzed:
 
-    The Mona Lisa is a 16th century oil painting created by Leonardo. It's held at the Louvre in Paris.
+    The Mona Lisa is a 16th century oil painting created by Leonardo. 
+    It's held at the Louvre in Paris.
 
 Dandelion detected the language English and the following named entities:
 
@@ -283,7 +283,7 @@ Dandelion can be configured to provide higher precision or more tags (higher rec
 
 Concept [Tudor period](http://dbpedia.org/resource/Tudor_period)
 
-This is a wrong identification. Although Leonardo da Vinci lived during the Tudor period, this period applies to England and not to Italy. This shows that NER, like all AI approaches, may produce erroneous results; just like humans who can misunderstand words in texts.
+This is a wrong identification. Although Leonardo da Vinci lived during the Tudor period, this period applies to England and not to Italy. This shows that NER, like all AI approaches, may produce erroneous results - just like humans who can misunderstand words in texts.
 
 ## Quick Check
 

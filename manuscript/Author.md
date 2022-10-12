@@ -10,4 +10,4 @@ Contact:
 Prof. Bernhard G. Humm, Dipl.-Inform., Ph.D. Computer Science (AUS)  
 Hochschule Darmstadt - University of Applied Sciences, Computer Science Department  
 Haardring 100, 64295 Darmstadt, Germany  
-bernhard.humm@h-da.de, www.fbi.h-da.de/~b.humm
+bernhard.humm@h-da.de, https://fbi.h-da.de/personen/bernhard-humm

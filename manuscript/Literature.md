@@ -1,8 +1,6 @@
-
 # Literature
 
 {begin-hanging-paragraphs}
-
 
 (Allemang and Hendler, 2011)
 Dean Allemang, James Hendler: "Semantic Web for the Working Ontologist: Effective Modeling in RDFS and OWL". 2nd Edition Morgan Kaufmann Publishers Inc., San Francisco, 2011.
@@ -25,6 +23,8 @@ Börteçin Ege, Bernhard Humm, Anatol Reibold (Editors): "Corporate Semantic Web
 
 (Galkin, 2016)
 Ivan Galkin: "Crash Introduction to Artificial Neural Networks".  University of Massachusetts Lowell. [Online resource](http://ulcar.uml.edu/~iag/CS/Intro-to-ANN.html) (accessed 2016/05/01).
+
+(Géron, 2019) Aurélien Géron: Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow, 2nd Edition. O'Reilly Media, Inc., 2019. ISBN: 9781492032649
 
 (Goodman and Tenenbaum, 2016)
 Noah D. Goodman, Joshua B. Tenenbaum: "Probabilistic Models of Cognition".  [Online resource](https://probmods.org/) (accessed 2016/05/25).
@@ -50,6 +50,8 @@ Systems?" [Medium.com](https://medium.com/@clmb/what-is-beyond-the-human-centere
 
 (O'Neil 2016) Cathy O'Neil: "Weapons of Math Destruction". Crown Books, 2016. ISBN 0553418815
 
+(Raman and Tok, 2018) Anand Raman, Wee Hyong Tok: A Developer's Guide to Building AI Applications.  O'Reilly Media, Inc., 2018. ISBN: 9781492037828
+
 (Russell and Norvig,  1995)
 Stuart Russell, Peter Norvig: "Artificial Intelligence: A Modern Approach", Prentice-Hall, 1995.
 
@@ -59,18 +61,9 @@ Stuart Russell, Peter Norvig: "Artificial Intelligence: A Modern Approach", 4th
 (Tensorflow, 2016)
 Tensorflow:"MNIST for Beginners" [Tutorial](https://www.tensorflow.org/versions/r1.0/get_started/mnist/beginners) (accessed 2016-05-01).
 
-(Watson, 2010)
-Marc Watson: "Practical Semantic Web and Linked Data Applications, Java, Scala, Clojure, and JRuby Edition". [www.markwatson.com](https://www.markwatson.com/books/), 2010 (accessed 2016/05/25).
 
-(Watson, 2011)
-Marc Watson: "Practical Semantic Web and Linked Data Applications, Common Lisp Edition". [www.markwatson.com](https://www.markwatson.com/books/), 2011 (accessed 2016/05/25).
-
-(Watson, 2013)
-Marc Watson: "Practical Artificial Intelligence Programming with Java". LeanPub, 2013.
 
 (Yalçın, 2018)
 Orhan Gazi Yalçın: "Image Classification in 10 Minutes with MNIST Dataset". [Towards Data Science](https://towardsdatascience.com/image-classification-in-10-minutes-with-mnist-dataset-54c35b77a38d), Aug 19, 2018 (accessed 2020/03/24). 
 
 {end-hanging-paragraphs}
-
-
