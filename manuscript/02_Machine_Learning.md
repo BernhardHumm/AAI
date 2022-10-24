@@ -291,7 +291,7 @@ The following code example shows Python code using the libraries [pandas ](https
     model = DecisionTreeClassifier()
 
     # Train model
-    model.fit(X_train, y)
+    model.fit(X, y)
 
     # Validate model
     scores = cross_val_score(model, X, y)  
