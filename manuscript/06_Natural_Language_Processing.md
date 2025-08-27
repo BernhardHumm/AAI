@@ -165,6 +165,49 @@ X> As an exercise, you may construct a parse tree for each interpretation of the
 
 Early NLP parsers were rule-based. They mechanically applied grammar rules to sentences. They had enormous difficulties with the multiple alternative parse trees, as well as with grammatically incorrect sentences. Most modern NLP parsers are statistics-based. They produce the most likely parse result according to statistics and can also deal with grammatically incorrect sentences, as we humans do. 
 
+
+## Word Embeddings
+
+In NLP, understanding the meaning of words is fundamental. This presents a challenge: how can we represent words in a way that preserves their meaning while making them usable for algorithms?
+
+*Word embeddings* offer a powerful solution. They are dense, continuous vector representations of words or expressions that capture semantic relationships based on context and usage. Unlike one-hot encoding, which treats each word as an isolated symbol, word embeddings place words in a high-dimensional space where similar meanings result in similar vectors.
+
+For example, in a well-trained embedding space, the vector for *king* minus *man* plus *woman* yields a result astonishingly close to *queen*. This arithmetic-like behavior emerges because embeddings encode not just identity, but linguistic nuance—gender, tense, syntactic role, and more.
+
+FIGURE
+
+Popular models like Word2Vec, GloVe, and FastText have revolutionized NLP by enabling machines to learn these representations from massive corpora. 
+The following Python code example using the gensim library is demonstrating this. 
+
+~~~~~~~~
+from gensim.models import Word2Vec
+
+# Sample corpus
+sentences = [
+    ["king", "queen", "man", "woman"],
+    ["paris", "france", "berlin", "germany"],
+    ["apple", "fruit", "carrot", "vegetable"]
+]
+
+# Train Word2Vec model
+model = Word2Vec(sentences, vector_size=100, window=5, min_count=1, workers=4)
+
+# Example: vector arithmetic
+result = model.wv.most_similar(positive=["king", "woman"], negative=["man"])
+print(result)  # Should return something close to 'queen'
+~~~~~~~~
+
+
+
+*Contextual embeddings* from models like BERT and GPT have pushed the boundaries further, allowing the meaning of a word to shift depending on its sentence-level context.
+
+In applied AI, word embeddings are the backbone of many tasks: sentiment analysis, machine translation, question answering, and beyond. They bridge the gap between raw text and understanding.
+
+
+
+
+
+
 ## Services and Product Maps
 
 ### NLP Services Map
