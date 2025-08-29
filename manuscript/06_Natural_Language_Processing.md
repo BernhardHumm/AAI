@@ -170,13 +170,24 @@ Early NLP parsers were rule-based. They mechanically applied grammar rules to se
 
 In NLP, understanding the meaning of words is fundamental. This presents a challenge: how can we represent words in a way that preserves their meaning while making them usable for algorithms?
 
-*Word embeddings* offer a powerful solution. They are dense, continuous vector representations of words or expressions that capture semantic relationships based on context and usage. Unlike one-hot encoding, which treats each word as an isolated symbol, word embeddings place words in a high-dimensional space where similar meanings result in similar vectors.
+*Word embeddings* offer a powerful solution. They are dense, continuous vector representations of words that capture semantic relationships based on context and usage. Unlike one-hot encoding, which treats each word as an isolated symbol, word embeddings place words in a high-dimensional space.
+Words with similar meanings are positioned close to each other, and the distance and direction between vectors encode the degree of similarity.
 
-For example, in a well-trained embedding space, the vector for *king* minus *man* plus *woman* yields a result astonishingly close to *queen*. This arithmetic-like behavior emerges because embeddings encode not just identity, but linguistic nuance—gender, tense, syntactic role, and more.
+See Fig. 6.x for an example.
 
-FIGURE
+{width=50%}
+![Fig. 6.x: Word embeddings](images/Word_Embeddings.png)
 
-Popular models like Word2Vec, GloVe, and FastText have revolutionized NLP by enabling machines to learn these representations from massive corpora. 
+The example is highly simplified for illustration purposes. Actual word embeddings typically have hundreds of dimensions to capture more intricate relationships and nuances in meaning. However, in a diagram only 2 or 3 dimensions can be visualized. The dimensions have no explicit semantic meaning and have no names. Instead, they are mathematical dimensions like in PCA (principal component analysis). In the example, terms that are closer together like colour/paint are closer in the multidimensional space whereas others like battery/charger are more distant.
+Embeddings do not only contain nouns, but also verbs, adverbs, proper nouns, acronyms etc. 
+
+Though dimensions are not named, the implicitly do encode linguistic nuance—gender, tense, syntactic role, and more. One useful result is that you can use mathematical functions on word embeddings. 
+For example, in a well-trained embedding space, the vector for *king* minus *man* plus *woman* yields a result astonishingly close to *queen*. 
+See Fig. 6.X 
+
+{width=50%}
+![Fig. 6.x: Mathematical operations on word embeddings](images/Word_Embeddings_math.png)
+
 The following Python code example using the gensim library is demonstrating this. 
 
 ~~~~~~~~
@@ -198,12 +209,80 @@ print(result)  # Should return something close to 'queen'
 ~~~~~~~~
 
 
+Multilingual word embeddings encode terms in different natural languages into the same vector space. See Fig. 6.x for an illustration. Multilingual embeddings are most useful for machine translation tasks.
 
-*Contextual embeddings* from models like BERT and GPT have pushed the boundaries further, allowing the meaning of a word to shift depending on its sentence-level context.
+{width=50%}
+![Fig. 6.x: Word Embeddings](images/Multilingual_Word_Embeddings.png)
 
-In applied AI, word embeddings are the backbone of many tasks: sentiment analysis, machine translation, question answering, and beyond. They bridge the gap between raw text and understanding.
+The process of creating word embeddings involves training a model on a large corpus of text (e.g., Wikipedia or Google News). The corpus is preprocessed by tokenizing the text into words, removing stop words and punctuation and performing other text-cleaning tasks.
+Simpler embedding models like Word2Vec, GloVe, and FastText embed a word into exactly one vector. 
+
+*Contextual embeddings* from models like BERT and GPT have pushed the boundaries further, allowing the meaning of a word to shift depending on its sentence-level context. This is important because the same word can have toatlly different meaning in different contexts (polysemy). See Fig. 6.x. with the example of the word "bank" which, depending on context, could mean a financial institution or a riverside.
+
+{width=50%}
+![Fig. 6.x: Word Embeddings](images/Contextual_Word_Embeddings.png)
+
+A sliding context window is applied to the text, and for each target word, the surrounding words within the window are considered as context words. The word embedding model is trained to predict a target word based on its context words or vice versa.
 
 
+In NLP, word embeddings are the backbone of many tasks: sentiment analysis, machine translation, question answering, and beyond. They bridge the gap between raw text and understanding.
+
+
+
+## Large Language Models (LLMs)
+
+
+Large Language Models (LLMs) have revolutionized natural language processing (NLP) by achieving state-of-the-art performance across a wide range of tasks—from machine translation and summarization to question answering and code generation.
+LLMs are a class of deep learning models designed to understand, generate, and manipulate human language.  
+LLMs are trained on massive corpora of text data, enabling them to learn statistical patterns, semantic relationships, and contextual nuances of language. Their scale—often measured in billions of parameters—allows them to generalize across domains and perform tasks with minimal fine-tuning.
+
+### LLM Tasks
+
+![Fig. 6.x: LLM tasks](images/LLM_tasks.png)
+
+Fig. 6 gives an overview of tasks that can be performed with LLMs. Generally speaking, a LLM completes some texts, i.e. answers to questions in a chat or a dialogue, or entire stories. It can be used for text reformulation or summarization, but also for spell checking and grammar correction. Also translating texts or generating texts in multiple natural languages is possible. One prominent use case is in software engineering where LLMs can be used for generating, refactoring or documenting source code. 
+
+LLMs are neural networks and are trained on large volumes of textual data, e.g., books, encyclopedias, news articles, scientific papers, social media posts or web pages of any kind. Also source code from repositories or synthetic data generated from databases or ontologies are used for training special purposes. 
+
+
+### Foundation: Likely word orders
+
+Simplified speaking, a LLM is a mathematical function that predicts most likely word orders. For a given sequence of words it predicts the probability of all potential following words and picks the most likely one. See Fig. 6.x for an example.
+
+![Fig. 6.x: LLM output prediction](images/LLM_prediction_1.png)
+
+Here the sentence  "The cat likes to sleep in the [...]" is given as input. The LLM assigns probabilities to all tokens in its vocabulary (e.g., 50,000 = the number of output tokens of the neural network) and pics the most likely one as succeeding word, e.g., "box".
+
+This step can be repeated iteratively as seen in Fig. 6.x
+
+![Fig. 6.x: LLM: iterative output prediction](images/LLM_prediction_2.png)
+
+In this case, after the word "box" (1st step), the punctuation mark "." may be predicted in the second step of the iteration.
+
+
+
+### LLM Architecture
+
+The architecture of state-of-the-art LLMs is most sophisticated and varies for different LLM which have been developed and trained for differnt tasks. The following Fig. 6.x shows components commonly used in LLMs.
+
+![Fig. 6.x: LLM architecture](images/LLM_architecture.png)
+
+The input text (usually called "prompt") into an LLM is in a simple first step tokenized, i.e., split into a set of tokens (words, subwords or punctuation characters). Then, a word embedding is computed as explained in the last section. Where the initial embedding is static, encoding adds information about the position of a token in a sentence, resulting in a contextual embedding. The attention mechanism is at the heart of LLMs and adds further contextual information, namely the relationship between tokens in a text (in the example above, the tokens "the" and "cat" strongly belong together, as well as "likes" and "sleep"). This is comparable to NLP parsing (which  assigns roles of tokens in a sentence, e.g., subject, predicate, object), but in contrast to NLP parsing it is not based on static grammar rules but dynamically learned during the training process.
+Often, the attention layer is followed by a feed-forward neural network for refinement (not depicted in Fig. 6.x). 
+LLMs stack multiple layers of attention and feed-forward blocks. Each layer refines the model’s understanding incrementally. In early layers, the model might learn basic grammar or word associations (e.g., “cat” and “dog” are both animals). Deeper layers handle abstract concepts, like irony or logical reasoning.
+
+Finally, a decoder is used for generating output tokens. They are fed back into the embedding layer of the LLM and, in parallel, concatenated to the output text.
+
+
+
+### Training Process
+
+### Discussion
+
+
+
+
+## Retrieval-Augmented Generation (RAG)
 
 
 
