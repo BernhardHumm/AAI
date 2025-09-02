@@ -7,27 +7,30 @@ Fig. 6.1 shows NLP in the AI landscape.
 
 NLP can be assigned to the ability of "communicating". It is a broad area that covers many aspects. Examples are:
 
+- Question answering and communicating using a chatbot
 - Spell checking and grammar checking of written texts, e.g., as in word processors
 - Classifying texts, e.g. according to the topic
 - Understanding written text, e.g., the sentiment of Twitter tweets (positive, neutral, negative)
 - Understanding speech, e.g., voice control of a navigation system
 - Translating texts, e.g., between English and German
-- Answering natural language questions, e.g., in a specific domain like medicine
 - Summarizing written texts, e.g., news
 - Generating  texts, e.g., story telling
 - Generating voice, e.g., routing information in a navigation system
 
 Due to the diversity of NLP, different subareas are distinguished. There is no commonly agreed classification but often the following NLP subareas are mentioned:
 
-- *Information Retrieval (IR)* supports retrieving documents for a specific information need. As explained in the last chapter, the term "Document Retrieval" would be more suitable. Information Retrieval is usually considered a subarea of NLP.
 
-- *Information Extraction (IE)* deals with the understanding of written and spoken text. This includes the analysis of texts and transformation into a knowledge representation that can be queried. Sentiment analysis is a simple form of information extraction.
 
 - *Question Answering (QA)* generates natural language answers to natural language questions, in written or spoken form. 
 
 - *Machine Translation* allows translating texts between different natural languages.
 
 - *Text Generation* supports the generation of written or spoken texts. Text summaries and story telling are forms of text generation.
+
+- *Information Retrieval (IR)* supports retrieving documents for a specific information need. As explained in the last chapter, the term "Document Retrieval" would be more suitable. Information Retrieval is usually considered a subarea of NLP.
+
+- *Information Extraction (IE)* deals with the understanding of written and spoken text. This includes the analysis of texts and transformation into a knowledge representation that can be queried. Sentiment analysis is a simple form of information extraction.
+
 
 ## The Big Picture
 
@@ -37,12 +40,101 @@ Fig. 6.2 shows the big picture of NLP as seven levels of language understanding,
 ![Fig. 6.2: The 7 levels of language understanding, adopted from (Harriehausen, 2015)](images/Levels_of_Language_Understanding.png)
 
 The figure shows information levels and NLP processing steps to raise the level of understanding. 
-On the lowest level there are acoustic signals. *Phonetic analysis* uses features of the voice to extract sounds. *Phonological analysis* uses sound combinations of specific languages in order to extract letters. *Lexical analysis* may use dictionaries to extract individual words. *Syntactic analysis* (parsing) uses grammar rules in order to extract sentences and their structure (parse tree). *Semantic analysis* uses background knowledge to represent the knowledge in a text. Finally, *pragmatic analysis* may draw conclusions and consequences for actions.
+On the lowest level there are acoustic signals. *Phonetic analysis* uses features of the voice to extract sounds. *Phonological analysis* uses sound combinations of specific languages in order to extract letters. *Lexical analysis* may use dictionaries to extract individual words. *Syntactic analysis* (parsing) uses grammar in order to extract sentences and their structure (parse tree). *Semantic analysis* uses background knowledge to represent the knowledge in a text. Finally, *pragmatic analysis* may draw conclusions and consequences for actions.
 
 In most AI applications, only some NLP processing steps are relevant. When dealing with written texts, then phonetic and phonological analysis are not necessary. Also, semantic and pragmatic analysis may be simple or even irrelevant, depending on the application use case.
 
-In this chapter, I focus on lexical, syntactic and semantic analysis which is used in most NLP applications. I first explain a simple approach, namely the bag-of-words model. 
-I then explain individual processing steps for lexical and syntactic analysis (from letters to sentences) that may lead to a deeper semantic analysis.
+
+## From Characters to Sentences: The Building Blocks of NLP
+
+In this section I will present some basic building blocks of NLP approaches: from individual to  structured sentences.
+
+### Tokenization
+
+*Tokenization* is the step of grouping characters into words. This step seems primitive: splitting strinbs by blank characters seems to be enough. However, tokenization is a little more complicated. 
+Consider the following example sentence: 
+
+    My dog also likes eating sausage. 
+
+Following the primitive tokenization approach, the last word identified would be `sausage.`. However, in fact, the last word is `sausage` and the period `'.'` is a separate token. So, the correct tokenization result is as follows (Fig. 6.5).
+
+![Fig. 6.5: Tokenization example](images/Tokenization.png)
+
+### Sentence splitting
+
+*Sentence splitting* identifies whole sentences. Sentences are terminated by periods (full stops). However, simply splitting texts by periods is not enough. Consider the following sample sentence.
+
+    Interest rates raised by 0.2 percent.
+
+Obviously, the point in `0.2` is part of a floating point number and does not terminate the sentence. Other cases to be considered are abbreviations like `e.g.`, ellipsis (`...`), etc.
+
+### Stemming, Part-of-speech (PoS) Tagging
+
+*Stemming* means reducing a word to its root word. E.g., `eat` is the root word of `eating`. *Part of speech (PoS)* is the grammatical category of a word. E.g., `eating` is the gerund or the present participle of the verb `to eat`. *PoS Tagging* is the step of identifying the PoS of a word. 
+
+Fig. 6.6 shows the PoS tagging result of the sentence `My dog also likes eating sausage.` 
+
+![Fig. 6.6: PoS tagging example](images/POS_Tagging.png)
+
+In this figure, the [Penn Treebank tag set](http://www.clips.ua.ac.be/pages/mbsp-tags) is used. E.g., Verb, gerund or present participle is marked as `VBG`. The Penn Treebank tag set is a de-facto standard used by many PoS tagging tools.  
+
+
+### Parsing
+
+*Parsing* is the step of analyzing the grammar of a sentence. The result is the sentence structure, usually denoted as a tree. Fig. 6.7 shows the parsing result for the sentence `My dog also likes eating sausage.`
+
+{width=75%}
+![Fig. 6.7: Parsing](images/Parsing.png)
+
+Again, the Penn Treebank tag set is used. E.g., `NP` stands for noun phrase and `VP` for verb phrase. 
+
+Parsing of most natural language sentences is highly ambiguous. As humans, we rarely notice this ambiguity. Our brain combines the syntactic analysis and the semantic analysis and chooses the "obvious" meaning, i.e., the most likely variant. However, we also sometimes stumble on ambiguities in  the language. Many jokes play with misunderstandings based on ambiguities. [For example](http://www.ijokes.eu/index.php/joke/category/misunderstanding?page=2):
+
+"I want to be a millionaire. Just like my dad!"
+"Wow, your dad's a millionaire?"
+"No, but he always wanted to be."
+
+Did you notice the ambiguity?
+
+If you technically parse natural language sentences you may be surprised of how many different interpretations of the same sentence are valid. Consider the following example sentence:
+
+    I saw the man on the hill with a telescope.
+
+Fig. 6.8, adopted from [AllThingsLinguistic](http://allthingslinguistic.com/post/52411342274/how-many-meanings-can-you-get-for-the-sentence-i), shows five different, valid interpretations of this sentence.
+
+![Fig. 6.8: Parsing ambiguity](images/Parsing_Ambiguity.png)
+
+X> As an exercise, you may construct a parse tree for each interpretation of the sentence.
+
+Early NLP parsers were rule-based. They mechanically applied grammar rules to sentences. They had enormous difficulties with the multiple alternative parse trees, as well as with grammatically incorrect sentences. Most modern NLP parsers are statistics-based. They produce the most likely parse result according to statistics and can also deal with grammatically incorrect sentences, as we humans do. Modern Large Language Models (LLMs - see below) do not explicitly use NLP parsers but use an attention mechanism to learn structure (like grammar rules) from large numbers of texts. 
+
+### Coding Example: spaCy
+
+[spaCy ](https://spacy.io)is a free, open-source library for advanced NLP in Python. spaCy is designed specifically for production use and helps building applications that process large volumes of text. It can be used to build information extraction or natural language understanding systems, or to pre-process text for deep learning.
+
+Features include tokenization, POS tagging, dependency parsing, lemmatization, sentence boundary detection, named entity recognition and entity linking, similarity, text classification, and rule-based matching. 
+
+spaCy provides a variety of linguistic annotations to give insights into a text's grammatical structure. This includes the word types, like the parts of speech, and how the words are related to each other. 
+
+See Fig. 6.13 for an example of parsing a sentence from the [spaCy web site](https://spacy.io/usage/visualizers)
+
+
+![Fig. 6.13: spaCy sentence parsing](images/NLP_spaCy_dependency.png)
+
+spaCy parsing can be acomplished with a few lines of Phython code. First, you need to `load `a language, here `en_core_web_sm`. then, you pass a text string to the language. The result is a spaCy `Doc `which contains structured information about the text, e.g., the dependency graph of the parsed sentence which can be displayed using `displacy`.  
+
+
+
+DELETE
+
+Language processing in spaCy is organized in pipelines. Apart from pre-trained pipelines for many languages, you can also configure custom pipelines. See a [screenshot ](https://spacy.io/usage/processing-pipelines) from the spaCy web site in Fig. 6.14.
+
+![Fig. 6.14: NLP pipelines with spaCy](images/NLP_spaCy_pipeline.png)
+
+The input to a language pipeline is a text string, the output is a spaCy `Doc`. A pipeline can be configured using NLP building blocks like tokenizer, tagger, parser, named entity recognition, lemmatizer etc.  
+
+
+
 
 ## Simple Approach: Bag-of-words Model
 
@@ -97,80 +189,17 @@ See Fig. 6.4. with an extension of the example in Fig. 6.3 to a 2-gram model.
 
 n-gram models can be combined with tf-idf by simply computing the tf-idf values for the n-grams.
 
-The BoW model is  simple and relatively easy to implement. Despite its simplicity, it delivers good prediction performance for many application use cases, particularly when combined with extensions like tf-idf or n-grams, and particularly with large training data sets. 
+The BoW model is  simple and relatively easy to implement. Despite its simplicity, it delivers good prediction performance for a number application use cases, particularly when combined with extensions like tf-idf or n-grams, and particularly with large training data sets. 
 
-Obviously, the number of features (attributes) in the BoW model can get extremely large, particularly when using n-grams. Hundreds of thousands of features are possible.  Particularly with huge training data sets this can cause major performance problems in the ML training and prediction phases. Feature selection mechanisms from unsupervised ML may be used to reduce the number of features and, hence, alleviate those performance problems. 
+Obviously, the number of features (attributes) in the BoW model can get extremely large, particularly when using n-grams. Hundreds of thousands of features are possible.  Particularly with huge training data sets this can cause major performance problems in the ML training and prediction phases. 
 
-## Deeper Semantic Analysis: From Letters to Sentences
-
-The bags-of-words model is a simple approach, based on counting words. This is most different from the way humans understand texts. Despite its simplicity it delivers surprisingly good results for simple NLP tasks like text classification. However, it is obvious that complex NLP tasks like question answering require a deeper semantic analysis of texts than simply counting words. 
-
-In this section I will present some approaches: from letters to sentences.
-
-### Tokenization
-
-*Tokenization* is the step of grouping letters into words. This step seems primitive: looking for blank characters seems to be enough. However, tokenization is a little more complicated. 
-Consider the following example sentence: 
-
-    My dog also likes eating sausage. 
-
-Following the primitive tokenization approach, the last word identified would be `sausage.`. However, in fact, the last word is `sausage` and the period `'.'` is a separate token. So, the correct tokenization result is as follows (Fig. 6.5).
-
-![Fig. 6.5: Tokenization example](images/Tokenization.png)
-
-### Sentence splitting
-
-*Sentence splitting* identifies whole sentences. Sentences are terminated by periods (full stops). However, simply looking for the next period is not enough. Consider the following sample sentence.
-
-    Interest rates raised by 0.2 percent.
-
-Obviously, the point in `0.2` is part of a floating point number and does not terminate the sentence. Other cases to be considered are abbreviations like `e.g.`, ellipsis (`...`), etc.
-
-### Stemming, Part-of-speech (PoS) Tagging
-
-*Stemming* means reducing a word to its root word. E.g., `eat` is the root word of `eating`. *Part of speech (PoS)* is the grammatical category of a word. E.g., `eating` is the gerund or the present participle of the verb `to eat`. *PoS Tagging* is the step of identifying the PoS of a word. 
-
-Fig. 6.6 shows the PoS tagging result of the sentence `My dog also likes eating sausage.` 
-
-![Fig. 6.6: PoS tagging example](images/POS_Tagging.png)
-
-In this figure, the [Penn Treebank tag set](http://www.clips.ua.ac.be/pages/mbsp-tags) is used. E.g., Verb, gerund or present participle is marked as `VBG`. The Penn Treebank tag set is a de-facto standard used by many PoS tagging tools.  
-
-Note: Tokenization and stemming are often pre-processing steps before applying a BoW model. They may improve prediction performance and, at the same time, reduce the number of features.
-
-### Parsing
-
-*Parsing* is the step of analyzing the grammar of a sentence. The result is the sentence structure, usually denoted as a tree. Fig. 6.7 shows the parsing result for the sentence `My dog also likes eating sausage.`
-
-{width=75%}
-![Fig. 6.7: Parsing](images/Parsing.png)
-
-Again, the Penn Treebank tag set is used. E.g., `NP` stands for noun phrase and `VP` for verb phrase. 
-
-Parsing of most natural language sentences is highly ambiguous. As humans, we rarely notice this ambiguity. Our brain combines the syntactic analysis and the semantic analysis and chooses the "obvious" meaning, i.e., the most likely variant. However, we also sometimes stumble on ambiguities in  the language. Many jokes play with misunderstandings based on ambiguities. [For example](http://www.ijokes.eu/index.php/joke/category/misunderstanding?page=2):
-
-"I want to be a millionaire. Just like my dad!"
-"Wow, your dad's a millionaire?"
-"No, but he always wanted to be."
-
-If you technically parse natural language sentences you may be surprised of how many different interpretations of the same sentence are valid. Consider the following example sentence:
-
-    I saw the man on the hill with a telescope.
-
-Fig. 6.8, adopted from [AllThingsLinguistic](http://allthingslinguistic.com/post/52411342274/how-many-meanings-can-you-get-for-the-sentence-i), shows five different, valid interpretations of this sentence.
-
-![Fig. 6.8: Parsing ambiguity](images/Parsing_Ambiguity.png)
-
-X> As an exercise, you may construct a parse tree for each interpretation of the sentence.
-
-Early NLP parsers were rule-based. They mechanically applied grammar rules to sentences. They had enormous difficulties with the multiple alternative parse trees, as well as with grammatically incorrect sentences. Most modern NLP parsers are statistics-based. They produce the most likely parse result according to statistics and can also deal with grammatically incorrect sentences, as we humans do. 
 
 
 ## Word Embeddings
 
-In NLP, understanding the meaning of words is fundamental. This presents a challenge: how can we represent words in a way that preserves their meaning while making them usable for algorithms?
+*Word embeddings* are a powerful NLP mechanism that alleviates two weeknesses of the BoW model: it avoids the sparsity of the vector representation while adding some sense of meaning.
 
-*Word embeddings* offer a powerful solution. They are dense, continuous vector representations of words that capture semantic relationships based on context and usage. Unlike one-hot encoding, which treats each word as an isolated symbol, word embeddings place words in a high-dimensional space.
+Word embeddings are dense, continuous vector representations of words that capture semantic relationships based on context and usage. Unlike one-hot encoding, which treats each word as an isolated symbol, word embeddings place words in a high-dimensional space.
 Words with similar meanings are positioned close to each other, and the distance and direction between vectors encode the degree of similarity.
 
 See Fig. 6.x for an example.
@@ -178,17 +207,17 @@ See Fig. 6.x for an example.
 {width=50%}
 ![Fig. 6.x: Word embeddings](images/Word_Embeddings.png)
 
-The example is highly simplified for illustration purposes. Actual word embeddings typically have hundreds of dimensions to capture more intricate relationships and nuances in meaning. However, in a diagram only 2 or 3 dimensions can be visualized. The dimensions have no explicit semantic meaning and have no names. Instead, they are mathematical dimensions like in PCA (principal component analysis). In the example, terms that are closer together like colour/paint are closer in the multidimensional space whereas others like battery/charger are more distant.
+The example is highly simplified for illustration purposes. Actual word embeddings typically have hundreds of dimensions to capture more intricate relationships and nuances in meaning. However, in a diagram only 2 or 3 dimensions can be visualized. The dimensions have no explicit semantic meaning and have no names. Instead, they are mathematical dimensions like in PCA (Principal Component Analysis). In the example, terms that are closer together like colour/paint are closer in the multidimensional space whereas others like battery/charger are more distant.
 Embeddings do not only contain nouns, but also verbs, adverbs, proper nouns, acronyms etc. 
 
-Though dimensions are not named, the implicitly do encode linguistic nuance—gender, tense, syntactic role, and more. One useful result is that you can use mathematical functions on word embeddings. 
+Though dimensions are not named, the implicitly do encode linguistic nuance   - gender, tense, syntactic role, and more. One useful result is that you can use mathematical functions on word embeddings. 
 For example, in a well-trained embedding space, the vector for *king* minus *man* plus *woman* yields a result astonishingly close to *queen*. 
 See Fig. 6.X 
 
 {width=50%}
 ![Fig. 6.x: Mathematical operations on word embeddings](images/Word_Embeddings_math.png)
 
-The following Python code example using the gensim library is demonstrating this. 
+The following Python code example using the gensim library  demonstrates this. 
 
 ~~~~~~~~
 from gensim.models import Word2Vec
@@ -232,9 +261,9 @@ In NLP, word embeddings are the backbone of many tasks: sentiment analysis, mach
 ## Large Language Models (LLMs)
 
 
-Large Language Models (LLMs) have revolutionized natural language processing (NLP) by achieving state-of-the-art performance across a wide range of tasks—from machine translation and summarization to question answering and code generation.
+Large Language Models (LLMs) have revolutionized natural language processing (NLP) by achieving state-of-the-art performance across a wide range of tasks — from machine translation and summarization to question answering and code generation.
 LLMs are a class of deep learning models designed to understand, generate, and manipulate human language.  
-LLMs are trained on massive corpora of text data, enabling them to learn statistical patterns, semantic relationships, and contextual nuances of language. Their scale—often measured in billions of parameters—allows them to generalize across domains and perform tasks with minimal fine-tuning.
+LLMs are trained on massive corpora of text data, enabling them to learn statistical patterns, semantic relationships, and contextual nuances of language. Their scale — often measured in billions of parameters — allows them to generalize across domains and perform tasks with minimal fine-tuning.
 
 ### LLM Tasks
 
@@ -245,13 +274,13 @@ Fig. 6 gives an overview of tasks that can be performed with LLMs. Generally spe
 LLMs are neural networks and are trained on large volumes of textual data, e.g., books, encyclopedias, news articles, scientific papers, social media posts or web pages of any kind. Also source code from repositories or synthetic data generated from databases or ontologies are used for training special purposes. 
 
 
-### Foundation: Likely word orders
+### Foundation: Likely word sequences
 
-Simplified speaking, a LLM is a mathematical function that predicts most likely word orders. For a given sequence of words it predicts the probability of all potential following words and picks the most likely one. See Fig. 6.x for an example.
+In simple terms, a LLM is a mathematical function that predicts most likely word sequences. For a given sequence of words it predicts the probability of all potential following words and picks the most likely one. See Fig. 6.x for an example.
 
 ![Fig. 6.x: LLM output prediction](images/LLM_prediction_1.png)
 
-Here the sentence  "The cat likes to sleep in the [...]" is given as input. The LLM assigns probabilities to all tokens in its vocabulary (e.g., 50,000 = the number of output tokens of the neural network) and pics the most likely one as succeeding word, e.g., "box".
+Here the sentence  "The cat likes to sleep in the [...]" is given as input. The LLM assigns probabilities to all tokens in its vocabulary (e.g., 50,000 tokens, which equals the number of output neurons of the LLM) and picks the most likely one as succeeding word, e.g., "box".
 
 This step can be repeated iteratively as seen in Fig. 6.x
 
@@ -267,7 +296,7 @@ The architecture of state-of-the-art LLMs is most sophisticated and varies for d
 
 ![Fig. 6.x: LLM architecture](images/LLM_architecture.png)
 
-The input text (usually called "prompt") into an LLM is in a simple first step tokenized, i.e., split into a set of tokens (words, subwords or punctuation characters). Then, a word embedding is computed as explained in the last section. Where the initial embedding is static, encoding adds information about the position of a token in a sentence, resulting in a contextual embedding. The attention mechanism is at the heart of LLMs and adds further contextual information, namely the relationship between tokens in a text (in the example above, the tokens "the" and "cat" strongly belong together, as well as "likes" and "sleep"). This is comparable to NLP parsing (which  assigns roles of tokens in a sentence, e.g., subject, predicate, object), but in contrast to NLP parsing it is not based on static grammar rules but dynamically learned during the training process.
+The input text (usually called "prompt") into an LLM is tokenized first, i.e., split into a set of tokens (words, subwords or punctuation characters). Then, a word embedding is computed as explained in the last section. Where the initial embedding is static, encoding adds information about the position of a token in a sentence, resulting in a contextual embedding. The attention mechanism is at the heart of LLMs and adds further contextual information, namely the relationship between tokens in a text (in the example above, the tokens "the" and "cat" strongly belong together, as well as "likes" and "sleep"). This is comparable to NLP parsing (which  assigns roles of tokens in a sentence, e.g., subject, predicate, object), but in contrast to NLP parsing it is not based on static grammar rules but dynamically learned during the training process.
 Often, the attention layer is followed by a feed-forward neural network for refinement (not depicted in Fig. 6.x). 
 LLMs stack multiple layers of attention and feed-forward blocks. Each layer refines the model’s understanding incrementally. In early layers, the model might learn basic grammar or word associations (e.g., “cat” and “dog” are both animals). Deeper layers handle abstract concepts, like irony or logical reasoning.
 
@@ -277,13 +306,75 @@ Finally, a decoder is used for generating output tokens. They are fed back into 
 
 ### Training Process
 
-### Discussion
+LLMs are trained on massive amounts of data. The following training phases can be distinguished (see Fig. 6.x).
+
+![Fig. 6.x: LLM training](images/LLM_training.png)
+
+1. **Self-Supervised learning**: In the first training phase, the model is exposed to vast amounts of unstructured data. Its task is to predict missing elements—like words or phrases—within that data. Through this predictive exercise, the model gradually develops an understanding of language structure and the nuances of the domain it’s trained on. This foundational stage focuses primarily on learning to anticipate and generate coherent text.
+2. **Supervised learning**: Building on the groundwork laid by self-supervised learning, the second phase—supervised learning—introduces explicit instruction-following. Here, the model is trained using labeled examples to respond accurately to specific prompts. This stage is pivotal in shaping the model’s ability to interact meaningfully with users, interpret their requests, and deliver relevant, helpful responses. It transforms the model from a passive generator into an active conversational partner.
+3. **Reinforcement learning**: The final phase tunes the model’s behavior by rewarding desirable outputs and penalizing undesirable ones. Unlike previous stages, it doesn’t rely on direct answers but instead evaluates the quality of the model’s responses. Human annotators assess outputs, identifying which ones are helpful, safe, or appropriate. These judgments are used to train a reward model, which guides the language model toward producing higher-quality, user-aligned responses. This phase is especially effective in minimizing harmful or offensive content and promoting thoughtful, accurate communication.
+
+
+
+
+
+
+**Fine-tuning** is the process of continuing the training of a pre-trained LLM on a smaller, specialized dataset. The goal is to adapt the model’s general capabilities to a more specific use case, such as use-case-specific language (e.g., legal, medical, financial), task-specific behavior (e.g., summarization, sentiment analysis, code generation) or dialect adaptation. During fine-tuning, the model retains its broad understanding of language but becomes more precise and aligned with the desired output patterns.
+
+Fine-tuning is not always necessary. It is best reserved for situations where specialized knowledge is required and you have high-quality labeled data. However, even in those situations, compute-intensive fine-tuning is not always necessary. The following lighter-weight options should be considered first. 
+
+
+- **Prompt engineering**: Crafting better prompts to guide the model’s behavior, e.g., Providing examples within the prompt itself (few-shot prompting);
+- **Retrieval-augmented generation (RAG)**: Supplying external documents at runtime to inform responses.
+
+We explain those mechnaisms in the following sections.
+
+
+## Prompt Engineering
+
+Prompt engineering is the art and science of crafting effective inputs—called *prompts*—to guide the behavior of LLMs. Since LLMs generate outputs based on the patterns they’ve learned during training, the way a prompt is phrased can dramatically influence the relevance, accuracy, and tone of the response.
+
+Rather than modifying the model itself, prompt engineering leverages the model’s existing capabilities by strategically designing the input text. This makes it a powerful tool for adapting general-purpose models to specific tasks without additional training.
+
+Consider the following best practices for prompt engineering. 
+
+| Principle | Description | Example |
+|----------|-------------|---------|
+| **Be Explicit** | Clearly state the task and desired format. | “Summarize the following article in bullet points.” |
+| **Use Role-Playing** | Assign the model a persona or role to shape tone and expertise. | “You are a legal assistant. Explain this contract clause.” |
+| **Provide Examples** | Use few-shot prompting by including input-output pairs. | “Translate: ‘Hallo’ → ‘Hello’” |
+| **Set Constraints** | Limit length, style, or content to control output. | “Write a tweet under 280 characters about climate change.” |
+| **Chain Prompts** | Break complex tasks into smaller steps or use intermediate prompts. | First: “Extract key facts.” Then: “Write a summary based on those facts.” |
+| **Iterate and Refine** | Test multiple versions of a prompt with different LLMs to improve results. | Try variations like “Explain like I’m five” vs. “Explain to a graduate student.” |
+| **Avoid Ambiguity** | Vague prompts lead to unpredictable outputs. | Instead of “Tell me about dogs,” use “List three health benefits of owning a dog.” |
+
 
 
 
 
 ## Retrieval-Augmented Generation (RAG)
 
+One common problem of LLMs is called *hallucinations*. As explained above, LLMs do not explicitly represented knowledge (are not part of knowledge-based AI), but just generate likely word sequences. Since they are trained with enormous corpuses of texts, answers to questions in the domain of the training texts are often surprisingly good. However, since there is no explicitly represented knowledge, there is also no awareness of not knowing something. The LLM will always generate most likely word sequences, no matter whether or not it has been trained on the subject of the user question. In addition, re-training an LLM is extremely costly and is performed in larger time periods, months or years. The direct result of this is that recent events are not reflected, e.g., if you ask about your favorite football club's match last weekend, or about a recent election. In this case, the LLM will hallucinate some answer - just a likely word sequence.
+
+*Retrieval-Augmented Generation (RAG)* is a commonly used technique to alleviate those problems. It is also most advantageous when an LLM-cased chatbot shall be used in the context of a closed information source, e.g., intranet company data. 
+RAG is a hybrid architecture that combines the strengths of information retrieval (IR) and generative models (LLMs) to produce more accurate, context-aware, and factually grounded outputs. 
+RAG systems dynamically retrieve relevant information from external sources—such as document databases, knowledge bases, or the web—and use that information to guide or enrich the generation process. All current LLM-based chatbots like ChatGPT or Gemini use RAG.
+
+
+![Fig. 6.x: Retrieval-Augmented Generation (RAG) architecture](images/RAG.png)
+
+See Fig. 6.x for an overview of the RAG architecture.
+Let us consider the example of a recent election. A user of a LLM-based chatbot may ask the question "Who is the current president of Germany?" (see Step 1 in the Fig.). The LLM may have been trained long before the election and therefore cannot answer correctly. The user question is first sent to an IR knowledge base (which could, e.g., be the Google search index - Step 2). It may contain Wikipedia entries about Germany, news articles, federal websites etc. The retrieval result is a set of documents or document chunks that match the question. In a third step, the user question together with the retrieved document chunks (maybe together with additional information, e.g., the chat history) are sent as a prompt to the LLM. The LLM then generates an answer in natural language which includes the retrieved information. 
+
+When implementing RAG in a setting with closed information source, e.g., a chatbot for intranet company data, often a *vector store* is used as technology for the retrieval component. See Fig. 6.x for an overview. 
+
+
+![Fig. 6.x: RAG with vector store](images/Vector_store.png)
+
+In an offline batch process, the data sources (e.g., PDF files, websites etc.) need to be indexed. In a first step, large documents are split into smaller chunks, e.g, with 1,000 tokens each. In a second step, all chunks of all documents are converted into a vector representation, using a word embedding. The document chunks together with metadata are stored in the vector store, indexed by their vector representations.
+This offline indexing batch needs to be performed on a regular basis, e.g., daily.
+
+In the online RAG-based chatbot application, the same embedding model is used to generate a vector representation of a new user question. The vector store allows a similarity search, returning the k most similar document chunks compared to the user query. The retrieved chunks can now be used for RAG, as explained in Fig 6.Y
 
 
 
@@ -356,26 +447,6 @@ A set of "standoff files" can be downloaded and can be used in applications of a
 
 Which integration type is recommended? As usual, integrating the online service is the least-effort approach. If a permanent Internet connection is guaranteed and the performance is sufficient, then this is recommended. Working with the raw files offers the most flexibility but requires considerable implementation effort. In most cases, working with the locally installed WordNet database is the solution of choice: good performance, no dependency on the remote system and relatively small implementation overhead. 
 
-### NLP Library and Pipeline Framework: spaCy
-
-[spaCy ](https://spacy.io)is a free, open-source library for advanced NLP in Python. spaCy is designed specifically for production use and helps building applications that process large volumes of text. It can be used to build information extraction or natural language understanding systems, or to pre-process text for deep learning.
-
-Features include tokenization, POS tagging, dependency parsing, lemmatization, sentence boundary detection, named entity recognition and entity linking, similarity, text classification, and rule-based matching. 
-
-spaCy provides a variety of linguistic annotations to give insights into a text's grammatical structure. This includes the word types, like the parts of speech, and how the words are related to each other. 
-
-See Fig. 6.13 for an example of parsing a sentence from the [spaCy web site](https://spacy.io/usage/visualizers)
-
-
-![Fig. 6.13: spaCy sentence parsing](images/NLP_spaCy_dependency.png)
-
-spaCy parsing can be acomplished with a few lines of Phython code. First, you need to `load `a language, here `en_core_web_sm`. then, you pass a text string to the language. The result is a spaCy `Doc `which contains structured information about the text, e.g., the dependency graph of the parsed sentence which can be displayed using `displacy`.  
-
-Language processing in spaCy is organized in pipelines. Apart from pre-trained pipelines for many languages, you can also configure custom pipelines. See a [screenshot ](https://spacy.io/usage/processing-pipelines) from the spaCy web site in Fig. 6.14.
-
-![Fig. 6.14: NLP pipelines with spaCy](images/NLP_spaCy_pipeline.png)
-
-The input to a language pipeline is a text string, the output is a spaCy `Doc`. A pipeline can be configured using NLP building blocks like tokenizer, tagger, parser, named entity recognition, lemmatizer etc.  
 
 ### NLP Web Services: Named Entity Recognition with Dandelion API
 
