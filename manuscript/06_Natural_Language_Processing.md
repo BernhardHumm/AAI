@@ -417,38 +417,15 @@ There are also numerous NLP web services from various providers, e.g.,
 [IBM Watson NLP](https://cloud.ibm.com/catalog/services/natural-language-understanding), and
 [MS Azure Speech Services](https://azure.microsoft.com/de-de/services/cognitive-services/speech).
 
-## Examples
+
 
 I will briefly introduce one prominent example for each NLP service category in the next sections, namely  WordNet (NLP resource),  spaCy (NLP library and pipeline framework), and Dandelion API (NLP web service).
 
 More NLP products and details can be found in the appendix.
 
-### NLP Resources: WordNet
-
-[WordNet](https://wordnet.princeton.edu) is a state-of-the-art lexical database for the English language. It lists over 150,000 English words: nouns, verbs, adjectives and adverbs. For each word, different meanings ("senses") are distinguished. For example, 7 different noun senses and one verb sense of the word "dog" are listed, including the animal as well as minced meat (as in "hot dog"). 
-
-Fig. 6.11 shows a screenshot of the [WordNet online search](http://wordnetweb.princeton.edu/perl/webwn?s=dog).
-
-![Fig. 6.11: WordNet example: Senses of the word "dog"](images/WordNet_Senses.png)
-
-For each word sense,  a description and different relationships are specified.
-
-- Synonyms, e.g., "Canis familiaris" and "Domestic" dog for the "animal" sense of the word "dog"
-- Hypernyms (broader terms), e.g., "mammal" and "animal"
-- Hyponyms (narrower terms), e.g., "Puppy", "Hunting dog", "Poodle", etc.
-
-See Fig. 6.12.
-
-![Fig. 6.12: WordNet example: Relations of the word "dog"](images/WordNet_Relations.png)
-
-WordNet is open source under a BSD license. 
-It can be used in AI applications in various forms. 
-A set of "standoff files" can be downloaded and can be used in applications of any programming language. The WordNet database can be downloaded as a binary for Windows, Unix, and Linux. It can be integrated into applications of any programming language using operating system calls. Finally, the online version of WordNet can be integrated via HTTP. 
-
-Which integration type is recommended? As usual, integrating the online service is the least-effort approach. If a permanent Internet connection is guaranteed and the performance is sufficient, then this is recommended. Working with the raw files offers the most flexibility but requires considerable implementation effort. In most cases, working with the locally installed WordNet database is the solution of choice: good performance, no dependency on the remote system and relatively small implementation overhead. 
 
 
-### NLP Web Services: Named Entity Recognition with Dandelion API
+### NLP Web Service: Named Entity Recognition with Dandelion API
 
 There are numerous NLP services for completely different NLP tasks. As an example, I pick *Named Entity Recognition (NER)*. NER is a subtask of information extraction, locating and classifying elements in a text as persons, organizations, locations, etc.
 
@@ -477,6 +454,144 @@ Dandelion can be configured to provide higher precision or more tags (higher rec
 Concept [Tudor period](http://dbpedia.org/resource/Tudor_period)
 
 This is a wrong identification. Although Leonardo da Vinci lived during the Tudor period, this period applies to England and not to Italy. This shows that NER, like all AI approaches, may produce erroneous results - just like humans who can misunderstand words in texts.
+
+
+### NLP Web Service: OpenAI API
+
+The *OpenAI API* provides access to powerful language models like GPT-4o and GPT-3.5, enabling developers to access those LLMs as web services. It supports tasks such as 
+Text generation and summarization,  
+Question answering and reasoning , 
+Code generation and debugging, etc. 
+
+The API is accessible via RESTful endpoints and SDKs (e.g., Python, Node.js), making it easy to integrate into web apps, mobile platforms, and enterprise systems.
+
+Key Concepts are:
+
+- **Model Selection**: Choose from models like `gpt-4o`, `gpt-3.5-turbo`, or `dall-e`.
+- **Prompting**: Send structured messages to guide the model’s output.
+- **Authentication**: Use a secure API key to access the service.
+- **Rate Limits & Pricing**: Pay-as-you-go model with usage tiers.
+
+Consider the following simple Python example for chat completion. 
+
+
+```python
+import openai
+import os
+
+# Load your API key securely
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
+# Send a prompt to the model
+response = openai.ChatCompletion.create(
+    model="gpt-3.5-turbo",
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant."},
+        {"role": "user", "content": "Explain the concept of tokenization in NLP."}
+    ]
+)
+
+# Print the model's reply
+print(response['choices'][0]['message']['content'])
+```
+
+
+### NLP Framework for LLM Integration: Ollama
+
+
+*Ollama* is an integration platform that lets you run LLMs on your own machine.  It is designed for developers, researchers, and privacy-conscious users who want the power of models like LLaMA, Mistral, or Gemma without relying on external servers.
+
+One of its key innovations is the use of Modelfiles, which bundle everything needed to run a model — weights, configuration, and even custom prompts — into a single, portable package. This makes it easy to customize and deploy models for specific tasks.
+
+Ollama supports a command-line interface (CLI) and a Python API, making it ideal for rapid prototyping, edge computing, and even air-gapped environments where internet access is restricted. It is cross-platform, open-source, and currently free to use, with optional enterprise features on the horizon.
+
+If you're curious, I can show you how to build your own Modelfile or run a custom model locally. Want to go hands-on?
+
+Consider the following simple Python example for generating text using Ollama.
+
+```python
+import ollama
+
+# Create a client instance
+client = ollama.Client()
+
+# Generate text using a model (e.g., llama2)
+response = client.generate(
+    model="llama2",
+    prompt="Tell me a short story about a robot and a cat."
+)
+
+print(response.text)
+```
+
+
+
+### NLP Pipelining Framework: LlamaIndex
+
+*LlamaIndex* (formerly GPT Index) is a  framework designed to connect LLMs with  custom data. Like many NLP framewoks it is based on the pipeline architectural pattern: individual NLP tasks can be configured in a pipeline and are executed sequentially. LlamaIndex is most suitable for building RAG applications. See Fig. 6.X for an overview from llamaindex.ai.
+
+
+![Fig. 6.X: LlamaIndex overview (from llamaindex.ai)](images/LlamaIndex.png)
+
+
+LlamaIndex provides connectors for various document types like PDF, HTML etc. Documents can be pre-processed using NLP tools including parsing, extracting information and indexing in a vector store. Then, all kinds of LLM-based text generation can be performed, including workflow agents. Finally, results can be published over various channels, e.g. chat responses, files, but also APIs. 
+
+LlamaIndex integrates with vector stores like Pinecone, Weaviate, Qdrant. It is ideal for building RAG-based chatbots, semantic search, and document Q&A systems.Consider the following Python example for building a simple RAG system. 
+
+
+
+```python
+from llama_index import VectorStoreIndex, SimpleDirectoryReader
+
+# Load your documents (e.g., from a folder)
+documents = SimpleDirectoryReader("data").load_data()
+
+# Create an index from the documents
+index = VectorStoreIndex.from_documents(documents)
+
+# Create a query engine
+query_engine = index.as_query_engine()
+
+# Ask a question
+response = query_engine.query("What is the main topic of the document?")
+print(response)
+```
+
+This will return a natural language answer based on the content of the provided documents, powered by an LLM under the hood.
+
+
+### NLP Resources: LLM LLaMA
+
+The *LLaMA (Large Language Model Meta AI)* family, developed by Meta AI, represents a significant milestone in the evolution of open LLMs. First introduced in 2023, LLaMA models have rapidly progressed through multiple generations, culminating in the release of LLaMA 4 in 2025. These models range in size from 1 billion to over 2 trillion parameters, and are designed to be efficient, scalable, and adaptable across a wide range of tasks—from natural language understanding to code generation and multimodal reasoning. Unlike many proprietary models, LLaMA emphasizes accessibility and community-driven innovation, offering source-available licenses and instruction-tuned variants that support fine-tuning for specialized applications. 
+LLaMA LLMs can easily be integrated in local NLP applications using integration frameworks like Ollama. 
+
+
+### Knowledge-Based NLP Resources: WordNet
+
+Word embeddings and LLMs are all ML-based NLP resources. They work extremely well for many tasks but still suffer from problems that all ML-based approaches have: they make errors, such as hallucinations. 
+Traditionally, knowledge-based resources have long been used in NLP and they can still be useful today. Human-curated NLP knowledge graphs are especially useful in domains requiring precision, interpretability, or controlled vocabulary. The most prominent example for a knowledge-based NLP resource is WordNet.
+[WordNet](https://wordnet.princeton.edu) is a state-of-the-art lexical database for the English language. It lists over 150,000 English words: nouns, verbs, adjectives and adverbs. For each word, different meanings ("senses") are distinguished. For example, 7 different noun senses and one verb sense of the word "dog" are listed, including the animal as well as minced meat (as in "hot dog"). 
+
+Fig. 6.11 shows a screenshot of the [WordNet online search](http://wordnetweb.princeton.edu/perl/webwn?s=dog).
+
+![Fig. 6.11: WordNet example: Senses of the word "dog"](images/WordNet_Senses.png)
+
+For each word sense,  a description and different relationships are specified.
+
+- Synonyms, e.g., "Canis familiaris" and "Domestic" dog for the "animal" sense of the word "dog"
+- Hypernyms (broader terms), e.g., "mammal" and "animal"
+- Hyponyms (narrower terms), e.g., "Puppy", "Hunting dog", "Poodle", etc.
+
+See Fig. 6.12.
+
+![Fig. 6.12: WordNet example: Relations of the word "dog"](images/WordNet_Relations.png)
+
+WordNet is open source under a BSD license. 
+It can be used in AI applications in various forms. 
+A set of "standoff files" can be downloaded and can be used in applications of any programming language. The WordNet database can be downloaded as a binary for Windows, Unix, and Linux. It can be integrated into applications of any programming language using operating system calls. Finally, the online version of WordNet can be integrated via HTTP. 
+
+Which integration type is recommended? As usual, integrating the online service is the least-effort approach. If a permanent Internet connection is guaranteed and the performance is sufficient, then this is recommended. Working with the raw files offers the most flexibility but requires considerable implementation effort. In most cases, working with the locally installed WordNet database is the solution of choice: good performance, no dependency on the remote system and relatively small implementation overhead. 
+
 
 ## Quick Check
 
