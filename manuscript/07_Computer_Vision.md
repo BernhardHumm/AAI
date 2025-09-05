@@ -128,6 +128,91 @@ As computer vision is a wide field, there are many groups of tasks that may or m
 5. *High-level processing*: Application-specific image processing, e.g., classification, image recognition, scene analysis, etc. Machine learning approaches as well as other AI approaches for decision making are used.
 6. *Image Generation*: generating images (still or moving) from an internal representation (usually 3D). Specific rendering algorithms are used.
 
+
+
+## Convolutional Neural Networks (CNN)
+
+
+
+## Transfer Learning
+
+
+
+
+## Diffusion Models
+
+
+For generating images, various approaches are used. The approach currently used in most state-of-the-art CV generative AI systems like Stable Diffusion and Dall-E are diffusion models. 
+Diffusion models are most complex.  I will describe various concepts separately.
+
+### Autoencoders (AE)
+
+
+An *autoencoder (AE)* is a type of ANN used to learn efficient representations of data, typically for the purpose of dimensionality reduction, feature extraction, or generative modeling. AEs are trained in an unsupervised manner: the goal is to reconstruct the input as accurately as possible.
+
+
+AEs consist of two main components:
+
+- **Encoder**:  Compresses the input data into a lower-dimensional  representation, called latent space
+
+- **Decoder**:  Reconstructs the original input from the latent representation.  
+
+See Fig. 7.x for an overview of the autoencoder architecture. 
+
+![Fig. 7.X: Autoencoder architecture](images/Autoencoder.png)
+
+The input an be any data vector, also an image. The encoder and decoder are nulti-layer neural networks that are symmetric, with decreasing layer sizes. In the simples case, those are fully-conneced (dense) feed-forward networks. For image AEs, also CNN are used. The hidden layer in the center of the AE is called latent space. it is a compressed representation of the input. The output of the network is the reconstructed image.
+
+An AE is trained to best possibly reconstruct the input, i.e., to minimize the reconstruction error.
+
+One variant of AEs are *Variational Autoencoders (VAE)*. In a standard autoencoder, the encoder maps each input to a single point in latent space.
+In a VAE, the encoder maps each input to a region in latent space. 
+This allows the model to generate new data by sampling from the latent space.
+
+
+### Diffusion Process
+
+*Diffusion* is a natural physical phenomenon where particles move from a region of higher concentration to that of lower concentration, e.g., when opening a bottle with high pressure or under pressure. The concept of diffusion in AI models is used metaphorically.
+Diffusion models work by gradually adding Gaussian noise to the original data in the forward diffusion process and then learning to remove the noise in the reverse diffusion process. See Fig. 7.x.
+
+![Fig. 7.X: The diffusion process](images/Diffusion_process.png)
+
+*Forward diffusion (noising)* is the process of deconstructing an original image by adding noise through multiple iterations. Random pixels are added until we reach a state that is referred to as  "pure noise". At this point, we can no longer recognize the original image.
+However, the entire process is designed to be both predictable and reversible. 
+Mathematically speaking, forward diffusion can be described as a Markov chain. A Markov chain is a mathematical system that undergoes transitions from one state to the next.
+
+The *reverse diffusion (denoising) process* aims to reverse what was done during forward diffusion. By going through multiple steps, data is reconstructed from a noisy state back to its original form or a new coherent form.
+
+
+
+### Training a Diffusion Model
+
+Diffusion models are trained on massive amounts of image data together with their descriptive metadata. 
+During training, diffusion models  combine *representation learning* (via encoding/decoding) and *generative modeling* (via forward/reverse diffusion - noising/denoising). Both aspects are intertwined.
+
+The VAE encoder/decoder is usually pretrained and frozen during diffusion training, though some advanced models train both jointly.
+
+For training the generative model aspect, forward diffusion (noising) is performed over multiple steps. It produces a noisy latent representation that simulates degradation. This is a fixed process - no learning takes place here.
+Then, for reverse diffusion (denoising), a neural network (so-called *UNet architecture*) is trained to predict the noise added at each step. It learns to reconstruct clean latent representation from noisy one. 
+
+
+
+
+### Using a Trained Diffusion Model
+
+Fig. 7.x shows how such a pretrained diffusion model can be used for inferencing. 
+
+![Fig. 7.X: Diffusion model](images/Diffusion_model.png)
+
+Input to the image generation is a textual prompt, e.g., "cat". This text is first tokenized and embedded like in LLMs (see respective section).
+Then, an initial latent representation is generated, representing pure noise. 
+Denoising is the heart of the diffusion model where generation takes place. Using the pre-trained UNet neural network, the initial latent representation is stepwise (50-100 steps) transformed into a denoised, full latent representation. Like in LLMs, an attention mechanism is used in all steps to align generation with the semantics from the text prompt.
+
+Finally, the trained decoder is applied to transform latent representation into a full-resolution image.
+
+
+
+
 ## Services and Product Maps
 
 Fig. 7.10 shows the services map for computer vision.
