@@ -3,35 +3,38 @@
 How relevant is *Artificial Intelligence*? 
 
 When I wrote the first edition of this book in 2015, Artificial Intelligence (AI) was hardly noticeably in public.  For many people, AI was nothing more than a burst bubble of a 20th century hype.
-However, even then AI was *relevant and ubiquitous* in IT applications of business and consumer markets. 
+However, even then AI was relevant and ubiquitous in IT applications of business and consumer markets. 
 
-A few examples of AI in everyday use were and still are:
+Nowadays, nobody questions the relevance of AI. Countries, companies and research organizations specify AI as one of the main strategic areas. AI is hype. Although, as in all hype topics, some expectations and and fears are over-exaggerated, there is no doubt that AI is one of the leading technologies and is here to stay.  
 
-- Speech control for smart-phones, navigation systems in cars, etc.
+A few examples of AI in everyday use are:
+
+- Chatbots and question answering with tools like ChatGPT or Gemini
+- Image and video generation with tools like DALL-E and Stable Diffusion
+- Speech control for smart-phones, navigation systems and digital assistants, etc.
 - Face recognition in cameras
 - Learning spam filters in e-mail clients
 - AI in computer games
-- Semantic Internet search, including question answering; See Fig. 1.1.
-
-![Fig. 1.1: AI in everyday use: Google's question answering "When was JFK born?"](images/GoogleQA.png)
+- Semantic Internet search, including machine translation and question answering
 
 Commercial examples are:
 
+- Multi-channel customer service
 - Business intelligence
-- Sentiment analysis
-- Robotics
-- Industrial computer vision
+- Robotics and automation
+- Supply chain management and logistics
 - Self-driving cars, drones, rockets (military and commercial)
 
-The public perception of AI has changed drastically in the last few years. AI has re-gained an enormous attention in public debate - like in the 1980s. Nobody questions the importance of AI any more; instead, many people raise exaggerated, unrealistic claims and fears - which is common in hype topics. 
+
 
 I expect AI to continue to change our daily lives and labor markets in an enormous way, just like technology has changed the daily lives of generations since the 19th century with ever increasing speed. 
 
 How are AI applications developed? 
 
-While most AI publications, such as scientific papers and text books, focus on the theory behind AI solutions, little can be found on engineering AI applications. What kinds of AI libraries, frameworks and services already exist? Which ones should be chosen in which situation? How to integrate them into maintainable AI applications with a good user experience? How to meet functional and non-functional requirements, in particular high performance?
+While most AI publications, such as scientific articles and text books, focus on the (mathematical) foundation of AI, little can be found on engineering AI applications. What kinds of AI libraries, frameworks and services exist? Which ones should be chosen in which situation? How to integrate them into maintainable AI applications with a good user experience? How to meet functional and non-functional requirements, in particular high performance?
 
 The focus of this book is to answer those kinds of questions for software developers and architects.
+
 
 ## Overview of this Book
 
@@ -51,7 +54,7 @@ The appendix contains product tables as well as source code examples that can be
 
 Note that this definition does not claim or even postulate that AI applications *are* intelligent nor that AI is comparable ore even equivalent to human intelligence.
 
-What are tasks commonly associated with intelligent beings?
+What are abilities commonly associated with intelligent beings?
 
 - **Perceiving**: Seeing, listening, sensing, etc.
 - **Learning, knowing, reasoning**: Thinking, understanding, planning etc.
@@ -64,7 +67,7 @@ See Fig. 1.2.
 
 %% (Image: Wikimedia)
 
-The different areas of AI can be structured according to those behaviors. See the circles in the "landscape of AI" (inspired by an [AI Spektrum poster](https://www.sigs-datacom.de/order/poster/Landkarte-KI-Poster-AI-2018.php)) in Fig. 1.3.
+The different areas of AI can be structured according to those abilities. See the circles in the "landscape of AI" (inspired by an [AI Spektrum poster](https://www.sigs-datacom.de/order/poster/Landkarte-KI-Poster-AI-2018.php)) in Fig. 1.3.
 
 ![Fig. 1.3: The AI landscape](images/AI_landscape.png)
 
@@ -79,10 +82,10 @@ Please note, that various different namings and groupings of AI areas can be fou
 
 Two fundamentally different approaches to AI can be distinguished (depicted as hexagons in Fig. 1.3):
 
-- **Knowledge based AI** (sometimes called symbolic AI): Knowledge is represented explicitly in a human-readable way, e.g., with knowledge graphs, semantic networks, or logic programming languages (see the boxes with technologies attached to the approaches in Fig. 1.3).
-- **Machine learning** (sometimes called non-symbolic AI): Knowledge is implicit in form of numbers, e.g., as weights in  artificial neural networks, support vector machines, in linear / logistic regression etc.
+- **Knowledge based AI** (sometimes called *symbolic AI*): Knowledge is represented explicitly in a human-readable way, e.g., with knowledge graphs, semantic networks, or logic programming languages (see the boxes with technologies attached to the approaches in Fig. 1.3).
+- **Machine learning** (sometimes called *non-symbolic AI*): Knowledge is implicit in form of numbers, e.g., as weights in  artificial neural networks, support vector machines, in linear / logistic regression etc.
 
-Both approaches, knowledge-based AI and machine learning, have been around from the various beginnings of AI in the 1950s. In the first decades of AI research and practice, knowledge-based AI was most prominent and showed the most convincing results. However, in the last century this has shifted and today, machine learning approaches are most prominent. 
+Both approaches, knowledge-based AI and machine learning, have been around from the various beginnings of AI in the 1950s. In the first decades of AI research and practice, knowledge-based AI was most prominent and showed the most convincing results. However, in the last decades this has shifted and today, machine learning approaches are most prominent. 
 
 Both approaches have advantages and disadvantages. Machine learning approaches require little upfront knowledge, just (many) samples for training. They exhibit good behavior, e.g., in classifying situations, also with noisy data. However, the reasoning behind decisions cannot be explained to humans. In contrast, the reasoning behind knowledge-based AI is explicit and can be retraced by humans. However, explicit knowledge engineering is required upfront and reasoning under uncertainty is challenging. 
 

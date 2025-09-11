@@ -4,7 +4,7 @@
 
 - How to retrieve and classify images and videos, e.g., which photos depict certain people?
 - What is depicted in an image / which situation takes place in a video, e.g., is there a danger of a vehicle collision?
-- How to generate images / videos from an internal representation, e.g., in a computer game?
+- How to generate images / videos from a textual prompt or an internal representation, e.g., in a computer game or a movie?
 
 Fig 7.1. shows computer vision in the AI landscape.
 
@@ -17,47 +17,72 @@ In the following section, I will briefly introduce prominent computer vision app
 
 ### Optical Character Recognition (OCR)
 
-Optical Character Recognition (OCR) is the extraction of text from images of typed, handwritten or printed text. 
-
+*Optical Character Recognition (OCR)* is the extraction of text from images of typed, handwritten or printed text. 
 See Fig. 7.2. for the reconstruction of the text from the Wikipedia article on Michelangelo from a screenshot using [FreeOCR](http://www.freeocr.net).
 
 ![Fig. 7.2: OCR Example](images/OCR.png)
 
 Use cases include the following ones. 
 
-- Scanning addresses on letters
-- Automatic number plate recognition
-- Evaluating manually filled-out forms, e.g. in polls or surveys
+- Scanning addresses on letters;
+- Automatic number plate recognition;
+- Evaluating manually filled-out forms, e.g. in polls or surveys;
 - Data entry for business information systems, e.g. from invoices, bank statements and receipts etc.
 - Checking documents, e.g. passports, drivers licenses, etc. 
 - Archiving and retrieving text documents for which only scans are available, e.g. Google Books
-- Converting handwriting in real-time (pen computing)
+- Converting handwriting in real-time (pen computing).
+
 
 ### Face Recognition
 
 Face recognition is the detection of human faces in images or videos, as well as the identification of the respective persons. 
-
 See Fig. 7.3.
 
 ![Fig. 7.3: Face Recognition](images/Face_Recognition.png)
 
 Use cases include the following ones. 
 
-- Identifying friends and family members in a private photo collection
-- Face detection in cameras to focus and measure exposure on the face of the person being photographed
-- Biometrical identification of people, e.g., for airport security
-- Retrieving photos of prominent people from the Web
+- Identifying friends and family members in a private photo collection;
+- Face detection in cameras to focus and measure exposure on the face of the person being photographed;
+- Biometrical identification of people, e.g., for airport security;
+- Retrieving photos of prominent people from the web.
+
+### Named Entity Recognition (NER)
+
+*Named Entity Recognition (NER)* is the task of identifying objects like persons on an image. 
+Web services for image tagging like [Autokeyword.me](http://autokeyword.me) allow classifying and tagging images of any kind. See Fig. 7.20.  
+
+![Fig. 7.20: Tagging example with Autokeyword.me](images/Autokeyword.png)
+
+%% http://autokeyword.me/demo/tags.php?key=common&ftc=&qurl=http%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F8%2F82%2FJohn_Everett_Millais_-_Isabella.jpg 
+
+In this example, the painting ["Isabella" by John Everett Millais (1829-1896)](https://upload.wikimedia.org/wikipedia/commons/8/82/John_Everett_Millais_-_Isabella.jpg)  is analyzed. Tagging results include concepts like woman and man as well as attributes like attractive and smiling. They are all provided with a degree of probability, indicated by a bar at the circles. For example, the category man is more probable than boy and, indeed, there are men but no single boy depicted in the painting. So, the category "boy" is a false positive. There are also false negatives, e.g., the dogs on the painting were not recognized.
+
 
 ### Image Processing
 
-Image processing is the wide area of post-processing digital images, particularly photos, for several reasons. Examples are:
+Image processing is the area of post-processing digital images, particularly photos, for several reasons. Examples are:
 
 - Changing color, brightness, contrast, smoothing, noise reduction, etc.
-- Retouching, e.g., removing red eyes
-- Slicing, i.e., dividing an image into different sections to be used individually
+- Retouching, e.g., removing red eyes;
+- Slicing, i.e., dividing an image into different sections to be used individually;
+- Blurring background in video conferences;
 - Image restoration; see Fig. 7.4.
 
 ![Fig. 7.4: Image restoration](images/Image_Restoration.png)
+
+
+### Image Generation
+
+Generative AI for images and videos has revolutionized creative industries, enabling users to produce visuals and dynamic content from text prompts.Prominent tools are DALL·E, Runway ML, and Midjourney. 
+In recent years, the popularity of these tools has surged, driven by their accessibility and the growing demand for rapid, high-quality content creation across social media, advertising, and entertainment.
+
+See Fig. 7.X for an example image generated by DALL-E with the prompt "Drinking wine with Mona Lisa". 
+
+![Fig. 7.X: Image generation with DALL-E: "Drinking wine with Mona Lisa"](images/DALL-E.png)
+
+
+
 
 ### Medical Applications
 
@@ -70,13 +95,14 @@ See Fig. 7.5.
 
 ![Fig. 7.5: Medical computer vision applications](images/Medical_Applications.png)
 
+
 ### Industrial and Agricultural Applications
 
-Computer vision is increasingly used for automating processes in industry and agriculture. Examples are:
+Computer vision is used for automating processes in industry and agriculture. Examples are:
 
-- Quality management in manufacturing processes
-- Robot control in manufacturing processes
-- Sorting fruits in agriculture
+- Quality management in manufacturing processes;
+- Robot control in manufacturing processes;
+- Sorting fruits in agriculture.
 
 See Fig. 7.6.
 
@@ -86,10 +112,10 @@ See Fig. 7.6.
 
 Computer vision applications are, today, state-of-the-art in modern cars. Examples are:
 
-- Parking aid and automatic parking
-- Collision warning
-- Road sign detection
-- Autonomous driving
+- Parking aid and automatic parking;
+- Collision warning;
+- Road sign detection;
+- Autonomous driving.
 
 See Fig. 7.7.
 
@@ -99,23 +125,25 @@ See Fig. 7.7.
 
 Also in military and aviation and aerospace industries, computer vision is applied. Examples are:
 
-- Collision detection
-- Drone and missile navigation
-- Detection of enemy soldiers or vehicles
-- Autonomous vehicles (see Fig. 7.8)
+- Collision detection;
+- Drone and missile navigation;
+- Detection of enemy soldiers or vehicles;
+- Autonomous vehicles (see Fig. 7.8).
 
 ![Fig. 7.8: Autonomous space vehicle](images/Aerospace_Application.png)
+
 
 ### Computer Games and Cinema
 
 Computer games are mostly visual. Also in modern cinema, computer vision is heavily used for special effects.
 Examples are:
 
-- Generation of moving images in computer games  
-- Generation of images and scenes in animated movies  
+- Generation of moving images in computer games;
+- Generation of images and scenes in animated movies  ;
 - Motion capturing for digitizing videos taken from human actors; see Fig. 7.9.
 
 ![Fig. 7.9: Motion capturing](images/Motion_Capturing.png)
+
 
 ## Computer Vision Tasks and Approaches
 
@@ -126,127 +154,16 @@ As computer vision is a wide field, there are many groups of tasks that may or m
 3. *Feature extraction*: Identifying lines, edges, ridges, corners, texture, etc. in images. In use are specific algorithms, e.g., for edge detection. 
 4. Segmentation: Identifying image regions of particular interest, e.g. faces in photos. Machine learning approaches are used.
 5. *High-level processing*: Application-specific image processing, e.g., classification, image recognition, scene analysis, etc. Machine learning approaches as well as other AI approaches for decision making are used.
-6. *Image Generation*: generating images (still or moving) from an internal representation (usually 3D). Specific rendering algorithms are used.
+6. *Image Generation*: generating images (still or moving) from textual prompts or an internal representation (usually 3D). Specific rendering algorithms are used.
 
 
 
-## Convolutional Neural Networks (CNN)
+### Convolutional Neural Networks (CNN)
 
-
-
-## Transfer Learning
-
-
-
-
-## Diffusion Models
-
-
-For generating images, various approaches are used. The approach currently used in most state-of-the-art CV generative AI systems like Stable Diffusion and Dall-E are diffusion models. 
-Diffusion models are most complex.  I will describe various concepts separately.
-
-### Autoencoders (AE)
-
-
-An *autoencoder (AE)* is a type of ANN used to learn efficient representations of data, typically for the purpose of dimensionality reduction, feature extraction, or generative modeling. AEs are trained in an unsupervised manner: the goal is to reconstruct the input as accurately as possible.
-
-
-AEs consist of two main components:
-
-- **Encoder**:  Compresses the input data into a lower-dimensional  representation, called latent space
-
-- **Decoder**:  Reconstructs the original input from the latent representation.  
-
-See Fig. 7.x for an overview of the autoencoder architecture. 
-
-![Fig. 7.X: Autoencoder architecture](images/Autoencoder.png)
-
-The input an be any data vector, also an image. The encoder and decoder are nulti-layer neural networks that are symmetric, with decreasing layer sizes. In the simples case, those are fully-conneced (dense) feed-forward networks. For image AEs, also CNN are used. The hidden layer in the center of the AE is called latent space. it is a compressed representation of the input. The output of the network is the reconstructed image.
-
-An AE is trained to best possibly reconstruct the input, i.e., to minimize the reconstruction error.
-
-One variant of AEs are *Variational Autoencoders (VAE)*. In a standard autoencoder, the encoder maps each input to a single point in latent space.
-In a VAE, the encoder maps each input to a region in latent space. 
-This allows the model to generate new data by sampling from the latent space.
-
-
-### Diffusion Process
-
-*Diffusion* is a natural physical phenomenon where particles move from a region of higher concentration to that of lower concentration, e.g., when opening a bottle with high pressure or under pressure. The concept of diffusion in AI models is used metaphorically.
-Diffusion models work by gradually adding Gaussian noise to the original data in the forward diffusion process and then learning to remove the noise in the reverse diffusion process. See Fig. 7.x.
-
-![Fig. 7.X: The diffusion process](images/Diffusion_process.png)
-
-*Forward diffusion (noising)* is the process of deconstructing an original image by adding noise through multiple iterations. Random pixels are added until we reach a state that is referred to as  "pure noise". At this point, we can no longer recognize the original image.
-However, the entire process is designed to be both predictable and reversible. 
-Mathematically speaking, forward diffusion can be described as a Markov chain. A Markov chain is a mathematical system that undergoes transitions from one state to the next.
-
-The *reverse diffusion (denoising) process* aims to reverse what was done during forward diffusion. By going through multiple steps, data is reconstructed from a noisy state back to its original form or a new coherent form.
-
-
-
-### Training a Diffusion Model
-
-Diffusion models are trained on massive amounts of image data together with their descriptive metadata. 
-During training, diffusion models  combine *representation learning* (via encoding/decoding) and *generative modeling* (via forward/reverse diffusion - noising/denoising). Both aspects are intertwined.
-
-The VAE encoder/decoder is usually pretrained and frozen during diffusion training, though some advanced models train both jointly.
-
-For training the generative model aspect, forward diffusion (noising) is performed over multiple steps. It produces a noisy latent representation that simulates degradation. This is a fixed process - no learning takes place here.
-Then, for reverse diffusion (denoising), a neural network (so-called *UNet architecture*) is trained to predict the noise added at each step. It learns to reconstruct clean latent representation from noisy one. 
-
-
-
-
-### Using a Trained Diffusion Model
-
-Fig. 7.x shows how such a pretrained diffusion model can be used for inferencing. 
-
-![Fig. 7.X: Diffusion model](images/Diffusion_model.png)
-
-Input to the image generation is a textual prompt, e.g., "cat". This text is first tokenized and embedded like in LLMs (see respective section).
-Then, an initial latent representation is generated, representing pure noise. 
-Denoising is the heart of the diffusion model where generation takes place. Using the pre-trained UNet neural network, the initial latent representation is stepwise (50-100 steps) transformed into a denoised, full latent representation. Like in LLMs, an attention mechanism is used in all steps to align generation with the semantics from the text prompt.
-
-Finally, the trained decoder is applied to transform latent representation into a full-resolution image.
-
-
-
-
-## Services and Product Maps
-
-Fig. 7.10 shows the services map for computer vision.
-
-{width=90%}
-![Fig. 7.10: Computer vision services map](images/Computer_Vision_SM.png)
-
-Like for machine learning, there are products available on the library level, the API level, and the web service level.
-
-- *CV / ML libraries*: Implementations for image pre-processing and feature extraction as well as machine learning libraries.
-- *CV / ML APIs*: APIs for interfacing with various ML libraries
-- *CV web services*: Web services for image search, named entity recognition, etc.
-- *CV pre-trained models*: Pre-trained ML models for transfer learning CV tasks. 
-
-Fig. 7.11 shows the product map for computer vision. 
-
-{width=90%}
-![Fig. 7.11: Computer vision product map](images/Computer_Vision_PM.png)
-
-[TensorFlow](https://www.tensorflow.org) and [OpenCV](http://opencv.org) are examples for CV / ML libraries.
-[Keras](https://keras.io) is a Python ML library, interfacing to TensorFlow, CNTK, or Theano. KERAS is also an interface for loading various pre-trained models for CV.
-Examples for CV web services are: [Autokeyword](http://autokeyword.me) and [clarifai](http://www.clarifai.com) for entity recognition, [tineye](https://www.tineye.com) and [Google image search](https://www.google.de) for image retrieval. The major vendors Google, Amazon, IBM and Microsoft offer web services for CV tasks.
-
-More products and details can be found in the appendix.
-
-## Examples
-
-In this section I present a few CV technologies by example. 
-
-### Example: OCR with Deep Learning using TensorFlow (Yalçın, 2018)
-
-[TensorFlow](https://www.tensorflow.org/) is an open source Python library for machine learning. It was developed by members of Google's Machine Intelligence research organization. 
-
-The simple OCR (Object Character Recognition) example is taken from the [online tutorial](https://towardsdatascience.com/image-classification-in-10-minutes-with-mnist-dataset-54c35b77a38d) (Yalçın, 2018). 
+*Convolutional Neural Networks (CNN)* are one of the key technologies for CV. They are a neural network (NN) approach with multiple layers (deep NN) for processing images. 
+We demonstrate CNNs by means of an example: OCR of images of numbers using TensorFlow.
+[TensorFlow](https://www.tensorflow.org/) is an open source Python library for ML. It was developed by members of Google's Machine Intelligence research organization. 
+The simple OCR example is taken from the [online tutorial](https://towardsdatascience.com/image-classification-in-10-minutes-with-mnist-dataset-54c35b77a38d) (Yalçın, 2018). 
 The task is to recognize digits from images where each image contains exactly one digit.
 See Fig. 7.12.
 
@@ -254,7 +171,7 @@ See Fig. 7.12.
 
 #### MNIST
 
-The images are taken from the [MNIST](http://yann.lecun.com/exdb/mnist) database of handwritten digits, available for learning computer vision techniques. 
+The images are taken from the [MNIST](http://yann.lecun.com/exdb/mnist) database of handwritten digits, available for learning CV techniques. 
 Each image is 28 pixels by 28 pixels. Those pixels can be interpreted as an 28x28 array of numbers. See Fig. 7.13.
 
 ![Fig. 7.13: Interpreting an image as array of pixels (Tensorflow, 2016)](images/PixelArray.png)
@@ -266,27 +183,32 @@ The categories are *one-hot encoded*. This means that there are 10 columns in th
 {width=50%}
 ![Fig. 7.14: Representation of MNIST training data (Tensorflow, 2016)](images/MNIST_Array.png)
 
-#### Deep Learning
+#### CNN Architecture
 
-Deep learning has become the de-facto standard for image processing and is used and explained in this tutorial. 
-See Fig. 7.15 for a typical deep learning network topology for image processing.
+Fig. 7.15 shows the conceptual architecture of a CNN.
 
 {width=75%}
 ![Fig. 7.15: Deep learning for image processing, adapted from (Ananthram, 2018)](images/Deep_Learning_CV.png)
 
-The input layer of the deep neural network are neurons representing each pixel value of the images to be classified: 784 values in the MNIST example. The output of the network are neurons representing each class, i.e., one neuron for each digit 0...9.
-Between input layer and output layer there are several *convolutional layers, pooling layers* and *fully connected layers*. Each output of one layer is input to the next layer.  This type of deep neural network is also called *convolutional neural network (CNN)*.
+The input layer of the CNN are neurons representing each pixel value of the images to be classified: 784 values in the MNIST example. The output of the network are neurons representing each class, i.e., one neuron for each digit 0...9.
+Between input layer and output layer there are several *convolutional layers, pooling layers* and *fully connected layers*. Each output of one layer is input to the next layer.  
+
+#### Convolutional Layers
 
 Convolutional layers are used to extract features from the images, e.g., edges. The idea is to use a small pixel filter (light blue 3x3 matrix in Fig. 7.16) which is successively compared with the pixels of the image (blue 5x5 matrix in Fig. 7.16). The comparison is performed simply by computing the dot product: the higher the dot product, the better the match. 
-The comparison is performed step by step, eg.,  with a one pixel shift at each step. The result is a smaller matrix than the original pixel matrix (yellow 3x3 matrix in Fig. 7.16). The resulting matrix preserves the relationship between different parts of an image while decreasing the complexity. 
+The comparison is performed step by step, eg.,  with a one pixel shift at each step. The result is a smaller matrix than the original pixel matrix (yellow 3x3 matrix in Fig. 7.16). The resulting matrix preserves the relationship between different parts of an image while decreasing complexity. 
 
 {width=60%}
 ![Fig. 7.16: Convolutional layer (Yalçın, 2018)](images/Convolutional_Layer.png)
+
+#### Pooling Layers
 
 It is common to insert a pooling layer after each convolutional layer. A pooling layer further decreases complexity by considering parts of a matrix (differently colored 2x2 matrices in Fig. 7.17) and computing a simple aggregation like the maximum of numbers in this part (*max pooling*). The resulting matrix is smaller, e.g., 2x2 in Fig. 7.17.
 
 {width=40%}
 ![Fig. 7.17: Pooling layer (Yalçın, 2018)](images/Pooling_Layer.png)
+
+#### Fully Connected Layers
 
 After successions of convolutional layers and pooling layers for reducing complexity while focusing on relevant features, a set of fully connected layers are used for classification. As the name suggests, in fully-connected layers, each neuron of one layer is connected with all neurons of the next layer. See Fig. 7.18. 
 
@@ -307,7 +229,7 @@ It is important to access the shape of the dataset to channel it to the convolut
 
 The result is  `(55000, 28, 28)`. `55000` represents the number of images in the train dataset and `(28, 28)` represents the size of the image: 28 x 28 pixels.
 
-To be able to use the dataset in Keras, the data must be normalized  as it is always required in neural networks. This can be achieved by dividing the RGB codes by 255. 
+To be able to use the dataset in Keras, the data must be normalized as it is always required in neural networks. This can be achieved by dividing the RGB codes by 255. 
 Furthermore, the data format required by the API must be met. Here, the three-dimensional arrays must be converted to four-dimensional arrays. 
 
     # Reshaping the array to 4-dims so that it can work with the Keras API
@@ -352,7 +274,7 @@ Finally, you may evaluate the trained model as follows.
 
     model.evaluate(x_test, y_test)
 
-The result is an accuracy of 98.5% on the test dataset. This is quite a good result for such a simple model and only 10 epochs of training. If, however, an error of 0.1% is not tolerable, then the model can be optimized, e.g., by experimenting with  more epochs, different optimizers or loss functions, more layers, different hyperparameters etc. 
+The result is an accuracy of 98.5% on the test dataset. This is quite a good result for such a simple model and only 10 epochs of training. If, however, an error of 1.5% is not tolerable, then the model can be optimized, e.g., by experimenting with  more epochs, different optimizers or loss functions, more layers, different hyperparameters etc. 
 
 The trained model can now be used to predict the digit in an unknown image. 
 
@@ -368,24 +290,25 @@ In this example, the digit `9` is returned which is, indeed the correct classifi
 
 Using a ML library like TensorFlow requires a considerably deeper understanding of the algorithms at hand than working with a ML IDE like RapidMiner. However, it allows optimizing an application more specifically.
 
-### Example: Transfer Learning with Keras (Ananthram, 2018)
 
-#### Transfer Learning
+### Transfer Learning
 
-Training a deep neural network from scratch is possible for small projects. However, most applications require the training of very large neural networks and this takes huge amounts of processed data and computational power. Both are expensive.
+Training a deep NN from scratch is possible for small projects. However, most applications require the training of very large neural networks and this requires huge amounts of data and computational resources. Both are expensive.
 
-This is where *transfer learning* comes into play. In transfer learning, the pre-trained weights of an already trained model (e.g., trained on millions of images belonging to thousands of classes, on several high power GPU’s for several days) are used for predicting new classes. The advantages are obvious: 
+This is where *transfer learning* comes into play. In transfer learning, the pre-trained weights of an already trained model (e.g., trained on millions of images belonging to thousands of classes, on several high power GPUs for several days) are used for predicting new classes. The advantages are obvious: 
 
 1. There is no need of an extremely large training dataset.
 2. Not much computational power is required, as pre-trained weights are used and only  the weights of the last few layers have to be learned.
 
-To understand how transfer learning works re-consider the architecture of a convolutional neural network in Fig. 7.15. Feature learning takes place in a succession of convolutional layers and pooling layers. 
-E.g., the filters on the first few layers may learn to recognize colors and certain horizontal and vertical lines.
+To understand how transfer learning works re-consider the architecture of a CNN in Fig. 7.15. Feature learning takes place in a succession of convolutional layers and pooling layers. 
+The filters on the first few layers may learn to recognize colors and certain horizontal and vertical lines.
 The next few layers may recognize trivial shapes using the lines and colors learned in the previous layers.
 Then the next layers may recognize textures, then parts of objects like legs, eyes, noses etc.
 
 The classification as such takes place in the few fully connected layers at the end. When classifying new things, e.g., individual dog breeds, then all the pre-trained features like colors, lines, textures etc. may be re-used and only classifying the dog breeds need to be trained. 
 All this helps in making the training process much faster, requiring much less training data compared to training the neural network from scratch.
+In the following sections I give an example on using a pre-trained network based on a tutorial in (Ananthram, 2018). 
+
 
 #### Keras and MobileNet
 
@@ -398,7 +321,6 @@ Building the model requires the following steps:
 2. Loading training data 
 3. Training the model.
 
-I will explain those steps in the next sections.
 
 #### Importing Pre-trained Model and Adding Layers
 
@@ -406,13 +328,13 @@ The following Python code imports MobileNet.
 Mobilenet's last layer consists of 1000 neurons, one for each class for which it was originally trained. Since we want to train the network for different classes, e.g., dog breeds, we have to discard the last layer. 
 If the dog breed classifier is to identify 120 different breeds, then we need 120 neurons in the final layer. This can be done using the following code.
 
-    base_model=MobileNet(weights='imagenet',include_top=False) #imports the mobilenet model and discards the last 1000 neuron layer.
+    base_model=MobileNet(weights='imagenet',include_top=False) # imports the mobilenet model and discards the last 1000 neuron layer.
     x=base_model.output
     x=GlobalAveragePooling2D()(x)
-    x=Dense(1024,activation='relu')(x) #we add dense layers so that the model can learn more complex functions and classify for better results.
-    x=Dense(1024,activation='relu')(x) #dense layer 2
-    x=Dense(512,activation='relu')(x) #dense layer 3
-    preds=Dense(120,activation='softmax')(x) #final layer with softmax activation
+    x=Dense(1024,activation='relu')(x) # add dense layers so that the model can learn more complex functions and classify for better results.
+    x=Dense(1024,activation='relu')(x) # dense layer 2
+    x=Dense(512,activation='relu')(x) # dense layer 3
+    preds=Dense(120,activation='softmax')(x) # final layer with softmax activation
 
 Next we make a model based on the architecture provided.
 
@@ -437,7 +359,7 @@ The following code loads the training data, which must be in a particular format
 
 #### Training the Model
 
-The following code performs compiling and training of the model on the dataset. 
+The following code compiles and trains of the model with the dataset. 
 
     model.compile(optimizer='Adam',loss='categorical_crossentropy',metrics=['accuracy'])
     step_size_train=train_generator.n//train_generator.batch_size
@@ -447,17 +369,107 @@ The following code performs compiling and training of the model on the dataset.
 
 The model can now be evaluated and used for predicting classes in new images. 
 
-### Example: Named Entity Recognition with the Autokeyword.me Web Service
 
-Web services for image tagging like [Autokeyword.me](http://autokeyword.me) allow classifying and tagging images of any kind. See Fig. 7.20.  
+### Diffusion Models
 
-![Fig. 7.20: Tagging example with Autokeyword.me](images/Autokeyword.png)
+For generating images, various approaches are used. The approach currently used in most state-of-the-art CV generative AI systems like Stable Diffusion and DALL-E are diffusion models. 
+Diffusion models are most complex.  I will describe various concepts separately.
 
-%% http://autokeyword.me/demo/tags.php?key=common&ftc=&qurl=http%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2F8%2F82%2FJohn_Everett_Millais_-_Isabella.jpg 
 
-In this example, the painting ["Isabella" by John Everett Millais (1829-1896)](https://upload.wikimedia.org/wikipedia/commons/8/82/John_Everett_Millais_-_Isabella.jpg)  is analyzed. Tagging results include concepts like woman and man as well as attributes like attractive and smiling. They are all provided with a degree of probability, indicated by a bar at the circles. For example, the category man is more probable than boy and, indeed, there are men but no single boy depicted in the painting. So, the category "boy" is a false positive. There are also false negatives, e.g., the dogs on the painting were not recognized.
+#### Autoencoders (AE)
 
-Using an image tagging web service is easy and simply requires invoking an API. However, if the results are not suitable for an application use case, there is no way of optimizing the solution like when using a library or a framework.
+An *autoencoder (AE)* is a type of NN used to learn efficient representations of data, typically for the purpose of dimensionality reduction, feature extraction, or generative modeling. AEs are trained in an unsupervised manner: the goal is to reconstruct the input as accurately as possible.
+
+AEs consist of two main components:
+
+- **Encoder**:  Compresses the input data into a lower-dimensional  representation, called *latent space*;
+
+- **Decoder**:  Reconstructs the original input from the latent representation.  
+
+See Fig. 7.x for an overview of the autoencoder architecture. 
+
+![Fig. 7.X: Autoencoder architecture](images/Autoencoder.png)
+
+The input of an AE may be any data vector, in this example representing an image representing the digit 8. The encoder and decoder are multi-layer NNs that are symmetric, with decreasing layer sizes. In the simplest case, those are fully-connected (dense) feed-forward networks. For image AEs, also CNNs may be used. The hidden layer in the center of the AE is called latent space. It is a compressed representation of the input. The output of the network is the reconstructed image.
+
+An AE is trained to best possibly reconstruct the input, i.e., to minimize the reconstruction error.
+
+One variant of AEs are *Variational Autoencoders (VAE)*. In a standard autoencoder, the encoder maps each input to a single point in latent space.
+In a VAE, the encoder maps each input to a region in latent space. 
+This allows the model to generate new data by sampling from the latent space.
+
+
+#### Diffusion Process
+
+*Diffusion* is a natural physical phenomenon where particles move from a region of higher concentration to that of lower concentration, e.g., when opening a bottle with high pressure. The concept of diffusion in AI models is used metaphorically.
+Diffusion models work by gradually adding Gaussian noise (following a normal distribution) to the original data in the forward diffusion process and then learning to remove the noise in the reverse diffusion process. See Fig. 7.x.
+
+![Fig. 7.X: The diffusion process](images/Diffusion_process.png)
+
+*Forward diffusion (noising)* is the process of deconstructing an original image by adding noise through multiple iterations. Random pixels are added until we reach a state that is referred to as  "pure noise". At this point, we can no longer recognize the original image.
+However, the entire process is designed to be both predictable and reversible. 
+Mathematically speaking, forward diffusion can be described as a Markov chain. A Markov chain is a mathematical system that undergoes transitions from one state to the next.
+
+The *reverse diffusion (denoising) process* aims to reverse what was done during forward diffusion. By going through multiple steps, data is reconstructed from a noisy state back to its original form or a new coherent form.
+
+
+
+#### Training a Diffusion Model
+
+Diffusion models are trained on massive amounts of image data together with their descriptive metadata. 
+During training, diffusion models  combine *representation learning* (via encoding/decoding) and *generative modeling* (via forward/reverse diffusion - noising/denoising). Both aspects are intertwined.
+
+The VAE encoder/decoder is usually pretrained and frozen during diffusion training, though some advanced models train both jointly.
+
+For training the generative model aspect, forward diffusion (noising) is performed over multiple steps. It produces a noisy latent representation that simulates degradation. This is a fixed process - no learning takes place here.
+Then, for reverse diffusion (denoising), a neural network (so-called *UNet architecture*) is trained to predict the noise added at each step. It learns to reconstruct clean latent representation from noisy one. 
+
+
+
+
+#### Using a Trained Diffusion Model
+
+Fig. 7.x shows how such a pretrained diffusion model can be used for inferencing. 
+
+![Fig. 7.X: Diffusion model](images/Diffusion_model.png)
+
+Input to the image generation is a textual prompt, e.g., "cat". This text is first tokenized and embedded like in LLMs (see last chapter).
+Then, an initial latent representation is generated, representing pure noise. 
+Denoising is the heart of the diffusion model where generation takes place. Using the pre-trained UNet NN, the initial latent representation is stepwise (50-100 steps) transformed into a denoised, full latent representation. Like in LLMs, an attention mechanism is used in all steps to align generation with the semantics from the text prompt.
+
+Finally, the trained decoder is applied to transform latent representation into a full-resolution image.
+
+
+
+
+## Services and Product Maps
+
+Fig. 7.10 shows the services map for computer vision.
+
+{width=90%}
+![Fig. 7.10: Computer vision services map](images/CV_SM.png)
+
+Like for machine learning, there are products available on the library level, the API level, and the web service level.
+
+- *CV / ML libraries*: Implementations for image pre-processing and feature extraction as well as machine learning libraries.
+- *CV / ML APIs*: APIs for interfacing with various ML libraries
+- *CV web services*: Web services for image search, named entity recognition, etc.
+- *CV pre-trained models*: Pre-trained ML models for generative AI and transfer learning CV. 
+
+Fig. 7.11 shows the product map for computer vision. 
+
+{width=90%}
+![Fig. 7.11: Computer vision product map](images/CV_PM.png)
+
+[TensorFlow](https://www.tensorflow.org) and [OpenCV](http://opencv.org) are examples for CV / ML libraries.
+Hugging Face is a platform for numerous generative AI models, also for CV. It provides an API for accessing those models as well as web services for cloud access. 
+[Keras](https://keras.io) is a Python ML library, interfacing to TensorFlow, CNTK, or Theano. 
+The major vendors Google, Amazon, IBM and Microsoft offer web services for CV tasks.
+Leading pretrained models for image and video generation are DALL-E and Stable Diffusion, ControlNet, which are provided by Hugging Face. Keras provides access to pre-trained models for image classification like YOLO, ResNet MobileNet, UNet and more. 
+
+More products and details can be found in the appendix.
+
+
 
 ## Quick Check
 
@@ -465,7 +477,9 @@ X> Answer the following questions.
 
 1. Name applications of computer vision
 2. What are the main tasks and approaches in computer vision?
-3. Which libraries / frameworks / web services can be used for computer vision?
-4. Explain deep learning. What are convolutional layers? What are pooling layers? What are dense layers?
-5. Explain transfer learning
-6. What are the advantages / disadvantages of using a web service compared to a library or framework?
+3. Explain CNN. What are convolutional layers? What are pooling layers? What are dense layers?
+4. Explain transfer learning
+5. Explain autoencoders
+6. Explain diffusion models
+7. Which libraries / frameworks / web services can be used for computer vision?
+10. What are the advantages / disadvantages of using a web service compared to a library or framework?
