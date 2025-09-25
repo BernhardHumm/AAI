@@ -31,110 +31,116 @@ The reference architecture is structured as a *layered architecture* similar to 
 
 The *interaction layer* implements the (graphical) user interface which, in the case of a web apps or mobile apps, may be implemented with state-of-the-art UI frameworks based on HTML/CSS/JavaScript. The user interaction can be multi-modal based on voice, text, images or videos. In an embedded AI system like a mobile robot, physical actions may also be performed. 
 
-A commonly used metaphor for the application logic in an AI system is that of an *AI agent*. Python is the de-facto standard programming language for AI applications, but all other state-of-the-art programming languages like Java, C# and C++ are also in use. Often, the agent logic (the controller of the AI application) is hard-coded in the programming languages. If more flexibility is required, agent frameworks can be used, e.g., LangChain and LlamaIndex for LLM-based AI agents.
+A commonly used metaphor for the application logic in an AI system is that of an *AI agent*. Python is the de-facto standard programming language for AI applications, but  other state-of-the-art programming languages like Java, C# and C++ are also in use. 
+The traditional AI programming languages of the 1980s, Lisp and Prolog, only play a niche role in today's AI application development. But they had a major influence on the design of modern dynamic programming languages like Python.
+Often, the agent logic (the controller of the AI application) is hard-coded in the programming languages. If more flexibility is required, agent frameworks can be used, e.g., LangChain and LlamaIndex for LLM-based AI agents (see below for details).
 
-AI applications typically base their intelligent behavior on AI resources like ML models or knowledge graphs. ML models may be custom models trained for the purpose of the AI application. In enterprises, often ML *lifecycle management* systems (e.g., mlflow) are used that manage ML training, model versioning, validation and monitoring as well as model deployment.
+AI applications typically base their intelligent behavior on AI resources like ML models or knowledge graphs as well as hybrid resources like vectorstores. ML models may be custom models trained for the purpose of the AI application. Libraries like Keras, TensorFlow, Scikit-learn and Spark may be used. In enterprises, often ML *lifecycle management* systems (e.g., mlflow) are used that manage ML training, model versioning, validation and monitoring as well as model deployment.
 
 Often, off-the-shelf ML models are used, e.g., LLMs, usually fetched from *AI repositories* like huggingface. They provide all kinds of pre-trained ML models. Also, off-the-shelf knowledge graphs like WikiData or Word Nets can be obtained from public sites.
 
-In contrast to loading AI resources from repositories, *AI web services* may be accessed from cloud providers like Google, Amazon, Microsoft or IBM. They include AI services for NLP (e.g., speech-to-text, text-to-speech, chatbots), CV (e.g., image or video generation), ML (e.g., training and deployment of large ML models) and orchestration (e.g., workflows or agents).
+The *integration* layer allows integrating external sources into the AI application. Integrating pre-trained models like LLMs into an AI application is simple and usually a single line of code in a framework like langchain or llamaindex. However, integrating external AI resources may also be more complex. For this, the ETL (extract, transform, load) architectural pattern known from data warehouses and business intelligence may be employed. For example, off-the-shelf knowledge graphs like WikiData may be queried, filtered, and integrated. Semantic enrichment is a step of combining various knowledge resources. ETL is an offline step for providing AI resources for the AI application which accesses them online efficiently.
 
-AI resources may also knowledge-graphs or wordnets as well as hybrid resources like vectorstores. 
+Other data may needs to be integrated in an offline step, e.g., private data from company databases or applications which are needed for training application-specific ML models. Additionally, such ML training data may be semantically enriched by information from off-the-shelf ontologies, e.g., for medical concepts.
 
+In addition to offline integration of data sources, AI agents may access the environment online, i.e. at the time of a user interaction. E.g., a user request may invoke a web search first, then the results may be used for accessing web services, e.g., for making reservations online. 
 
-
-The *application logic layer* implements the intelligence of the AI application, e.g., in form of intelligent agents. 
-The AI application logic is usually implemented in a general-purpose programming language. Within the last years, Python is evolving as the primary AI programming language (as Lisp and Prolog were in the 1980s). But object-oriented languages like Java, C# and C++ are also in common use. 
-Often, powerful libraries and frameworks for AI tasks like machine learning, language processing, image processing, etc. are utilized. Examples are Keras, TensorFlow, Scikit-learn and Spark. 
-
-Instead of including AI libraries, 3rd party AI web services can be used. Major vendors like Google, Amazon, Microsoft, and IBM offer AI suites with web services for machine learning, language processing, image processing etc.
-
-The underlying data of the AI application is stored in a *knowledge base* which is accessed by the application logic layer via an API. As outlined in the chapter on knowledge representation, technologies with reasoning engines (like, e.g., Apache Jena) may be used. However, also classic storage technologies like RDBMS or NoSQL databases are often used.  
-
-Finally, data may be loaded into the knowledge base from various sources, e.g., knowledge graphs, databases, web pages, documents etc. Those data may be *integrated and semantically enriched* (see the chapter on knowledge representation).
-
-In a concrete AI application, each of those layers may be developed differently. Also, depending on the application use case, individual layers may be missing entirely. For example, in applications where knowledge items are created by the users, the data integration layer is not needed. In an application where the reasoning capabilities of the knowledge base are sufficient, an explicit application logic layer may be omitted. In an embedded AI application, e.g, a robot, a graphical user interface is not needed.  
+In addition to using AI resources locally, AI applications may access *AI web services* from cloud providers like Google, Amazon, Microsoft or IBM. They include AI services for NLP (e.g., speech-to-text, text-to-speech, chatbots), CV (e.g., image or video generation), ML (e.g., training and deployment of large ML models) and orchestration (e.g., workflows or agents).
 
 
+In a concrete AI application, each of those layers may be developed differently. Also, depending on the application use case, individual layers may be missing entirely. In the following sections I will show a few examples.
 
 
+## AI Sample Architectures
 
-## Application Example: Virtual Museum Guide
+### Corporate AI Chatbot
 
-Let us consider a concrete application scenario: a *virtual museum guide*. The task of the virtual museum guide is to guide users through a virtual museum - much like a human museum guide who guides visitors though the physical museum. 
-
-The degree of intelligence of this virtual museum guide may vary a lot. 
-In the simplest form, the guide may offer the users displays of paintings along with descriptive text. 
-The paintings may simply be presented in a fixed order which has been curated by a human. 
+Consider the example of a corporate AI chatbot which allows employees to ask questions about corporate data like company rules, forms, best practices, colleagues, customers, and products. See Fig. 4.X for an application architecture based on the AI reference architecture. 
 
 
-In the most complex form, the virtual museum guide tells stories about the paintings, answers natural-language questions of the users (possibly via speech input and output), and adapts the selected paintings and stories to the users' background. For example, children will be told different stories than adults.
+![Fig. 4.1: Example corporate AI chatbot](images/Corporate_AI_chatbot.png)
 
-While one would probably not consider the simple virtual museum guide as intelligent, the complex one definitely exhibits behavior of human intelligence: understanding, speaking, telling stories, answering questions, etc.
-
-Fig. 4.2 shows a potential architecture of a virtual museum guide application. 
-
-{width=75%}
-![Fig. 4.2: Example architecture: Virtual museum guide application](images/Virtual_Museum_Guide_Application_Architecture.png)
-
-In this architecture, the virtual museum guide GUI is implemented with HTML5 / CSS and JavaScript including  state-of-the-art libraries. The application logic of the virtual museum guide is implemented in Java including libraries like Eclipse rdf4j. Sub-components are:
-
-- Arts model: for representing artworks and their content
-- User model: for representing the current user and his / her background
-- Story generation: for generating stories about artworks suitable for the current user
-- Natural language processing (NLP): for generating voice output and analyzing voice input
-
-The knowledge base is implemented using Eclipse RDF4J (API and knowledge base including reasoner and SPARQL query engine). The Art knowledge graph is loaded into RDF4J at system start. In an offline step, it is extracted beforehand via Python scripts from Wikidata.
+The interaction component is a simple text-based graphical user interface (GUI) similar to ChatGPT, based on some HTML/CSS/JS framework. 
+The AI agent is implemented with LangChain and follows the RAG (Retrieval-Augmented Generation) architectural pattern (for details see Chapter NLP). Company data and documents are extracted from the corporate Intranet, databases and applications using ETL and are indexed in a vectorstore (Qdrant). An LLM like LLama is loaded via Ollama and integrated in LangChain.
 
 
 
-## Data Integration / Semantic Enrichment
+### AI Trading Bot
+
+Consider the example of an AI trading bot, e.g., for a manufacturing company dynamically buying energy from an energy exchange. See Fig. 4.x for an application architecture.
+
+![Fig. 4.1: Example corporate AI chatbot](images/AI_trading_bot.png)
+
+the AI agent is based on a custom ML model which is trained offline and optimized for company purposes. The training data is extracted from historical data of the energy exchange as well as from the corporate ERP (enterprise resource planning) system. The ML models are corporate assets and are managed with lifecycle management using mlflow. This includes permanent monitoring, re-training and deployment when needed.
+The life trading bot consistently checks online manufacturing orders (in the ERP system) and prices on the energy exchange. Via APIs to the energy exchange trading system, energy is purchased dynamically. Via a GUI, trading activities are reported and can be monitored by staff. 
+
+
+### Knowledge Browser
+
+
+Consider the example of a knowledge browser like openartbrowser for the domain of creative arts. See Fig. 4.x for an architecture diagram.
+
+![Fig. 4.1: Example corporate AI chatbot](images/Knowledge_browser.png)
+
+openartbrowser is based on information on WikiData. Information about artworks, artists, artistic movements, museums etc. are extracted from Wikidata in a regular batch process. Data is filtered, quality assured and semantically enriched using custom Python code. The data is loaded into a ElasticSearch server for high-performance access by the web application implemented with a HTML/CSS/JS based framework.
 
 The data integration aspect is, in my opinion, not treated enough in AI literature. 
-The knowledge in AI applications often stems from various data sources (see the chapter on knowledge representation). This is similar in the field of Business Intelligence (BI) where the process of integrating data from various sources into a data warehouse (DWH) is often called *ETL (Extraction, Transformation, Loading)*. 
+Let us have a more detailed look into the individual steps of the ETL process:
 
-ETL can be seen as an architectural pattern where business information systems (data sources) are separated from business intelligence systems. ETL is a pipeline for extracting, transforming, and loading data in a format highly optimized for its use (analytic application).
-
-The ETL architectural pattern also is suitable for the data integration of AI applications. Since in AI applications, data is often semantically enriched, I use the term *Semantic ETL*.
-
-Semantic ETL consists of the following steps.
-
-1. *Extraction* of data from source systems: These could be files, websites, databases, SPARQL endpoints, etc., e.g., the DBpedia SPARQL endpoint. 
+1. *Extraction* of WikiData items via the SPARQL endpoint. 
 2. *Filtering* irrelevant data and data of insufficient quality; e.g., selecting  only paintings, sculptures and the respective artists from Wikidata; selecting  English descriptions only  and filtering attributes with wrong datatypes.
-3. *Technical format transformation*: transforming from the source formats to the target format, e.g., from JSON to RDF
+3. *Technical format transformation*: transforming from the source formats to the target format
 4. *Data schema transformation*: transforming from the data schemas of the source format to a target data schema, e.g., renaming `wd:Q3305213` to `:artwork`
-5. *Semantic enrichment*: heuristically integrating semantic information from various data sources, e.g., Michelangelo's birth and death date from GND, his influences from YAGO, and his paintings from Wikidata
+5. *Semantic enrichment*: heuristically integrating semantic information from various data sources, e.g., linking Youtube videos with artists and artistic movements
 6. *Performance tuning*: optimizing the data storage according to the application use cases, e.g., normalizing data and indexing for high-performance access
-7. *Loading*: storing data in the target knowledge base, e.g., rdf4j.
+7. *Loading*: storing data in the target knowledge base, e.g., ElasticSearch.
 
 
 
 
-## Presentation
+## Hybrid AI
 
-The (graphical) user interface of an AI application is not AI-specific. As in all IT applications, it is of essential importance for the user's experience of the application. See the comprehensive literature for developing user-centric applications.  
+In Chapter 1, I introduced the main families of AI approaches: machine learning (non-symbolic AI) and knowledge-based AI (symbolic AI). Hybrid approaches combine both. I expect hybrid AI as an important future direction of AI research and practice for solving most complex tasks.
 
+Before we delve into hybrid approaches, I would first like to examine the characteristics of the two main families of AI methods.
 
+**Machine learning (ML) methods** require data—usually large and extensive datasets—to function well. In supervised learning, this data must be annotated by human experts (labeling), for example, in predicting diseases like cancer from medical images, where the information indicates whether an image shows a tumor or not. After configuring ML methods (model selection, hyperparameter tuning), the machine generates an ML model (training phase), which condenses the characteristics of the data into a mathematical model. However, this model is typically not understandable to human experts. The ML model can then be embedded into AI applications, such as predicting the presence of a tumor in new medical images.
 
-## Programming Languages
+**Knowledge-based AI methods** are fundamentally different. They do not require training data. Instead, human experts model relationships within a domain—such as medicine—using a formalism like an ontology language (knowledge engineering). This formalized knowledge can be inspected and quality-assured by humans—unlike the ML model. But just like the ML model, it can be embedded into AI applications, for example, to support doctors in diagnosing diseases.
 
-Within the last years, Python is being established as the major AI programming language. This development has been supported by major players publishing their AI libraries and frameworks in Python, e.g., Google TensorFlow.
-Also, there are still numerous AI libraries available in traditional object-oriented programming languages like Java, C#, and C++. The traditional AI programming languages of the 1980, Lisp and Prolog, only play a niche role in today's AI application development. But they have a major influence on the design of modern dynamic programming languages like Python, R, Julia and others.
-
-For making a sound programming language decision in an AI application development project, one should consider various aspects:
-
-- Which technology stack offers the best resources (runtime platform, libraries, developers' tools, etc.)?
-- Are there enough developers familiar with the technology?
-- Where is the best support (User groups etc.)
-
-To conclude: for developing AI applications, all software engineering principles for the development of large-scale, complex IT systems apply. 
+When comparing the advantages and disadvantages of ML and knowledge-based AI, they are complementary (see Fig. 4.x).
 
 
+![Fig. 4.1: Comparison of ML and knowledge-based AI](images/Comparison_ML_KBAI.png)
+
+A disadvantage of knowledge-based AI is that knowledge engineering can be a time-consuming and costly process. It is also only applicable in domains where knowledge can be explicitly specified. For image processing, for example, this is not feasible. Furthermore, knowledge-based methods are not robust against noisy data, which is common with sensors.
+
+This is precisely where ML excels. ML models can be trained without explicit knowledge and are robust against noise and scalable to extremely large datasets, as demonstrated by LLMs.
+
+However, one of the key weaknesses of ML methods is that they are inherently error-prone—you can only estimate the probability of error using metrics. Most ML methods are not inherently explainable, and biases are difficult to detect. Additionally, annotating large datasets can be expensive, and large amounts of data are usually required for good results.
+
+These are exactly the strengths of knowledge-based AI: it is inherently explainable and can be quality-assured by experts. Moreover, it can be applied in domains where only limited data is available.
+
+In summary, the strengths and weaknesses of ML and knowledge-based AI are complementary. Combining both approaches offers the opportunity to leverage their strengths and mitigate their weaknesses. This is precisely the goal of hybrid AI: the combination of ML and knowledge-based AI.
+
+We distinguish four types of hybrid AI usage:
+
+1. **ML for knowledge-based AI**: Using ML to enhance knowledge-based AI, e.g., ML-based text analysis to build knowledge graphs.
+
+2. **Knowledge-based AI for ML**: Using knowledge-based AI to improve ML, e.g., semantic enrichment of training data using knowledge graphs.
+
+3. **Inherently hybrid AI methods**: AI methods that combine ML with symbolic representations, e.g., Bayesian networks, graph neural networks, or conceptual clustering.
+
+4. **Combined use of ML and knowledge-based AI**: Equal, integrated use of both approaches within an application, e.g., in autonomous driving—knowledge-based AI for formalizing traffic regulations and ML for traffic recognition.
+
+
+The AI reference architecture include ML-based AI applications, knowledge-based AI applications and hybrid AI applications. 
 
 
 
 
-## Application Logic /  Agents
+
+## Agents
 
 In many AI publications, e.g., (Russell and Norvig, 2021), *agents* are described as a metaphor for the central component of an AI application which exhibits intelligent behavior.
 
@@ -149,76 +155,54 @@ Fig. 4.4 shows examples of agents, from simple to complex.
 
 ![Fig. 4.4: Examples of agents](images/Examples_of_Agents.png)
 
+Agent systems follow the perceive / reason / act cycle. See Fig. 4.x
+
 ![Fig. 4.4: Agentic cycle: perceive, reason, act](images/Agent_cycle.png)
 
-FIG PERCEIVE/REASON/ACT
-
-
-Is it appropriate to call the virtual museum guide an agent?
-In its simple form (pre-defined guides) one might intuitively say "no".
-In its complex form (story telling) the answer surely is "yes". 
-
-In my opinion, however, this question is not too relevant.  Much more relevant is the question whether the agent metaphor is beneficial for designing the virtual museum guide application. And this question may well be answered with "yes". 
-Thinking of the virtual museum guide as an agent may lead to an architecture where perceptions are separated from actions and where the agent establishes a model of all past perceptions that is used for planning the next actions. And the separation of those concerns may well be a good architectural decision. 
-
-
-DELETE
-
-%%![A Simple Agent (Source: Stuart Russel, Berkeley, Lecture on Artificial Intelligence)](images/Simple_Agent.png)
-%%![A Complex Agent (Source: Stuart Russel, Berkeley, Lecture on Artificial Intelligence)](images/Complex_Agent.png)
+*Perceive* means the acquisition and interpretation of information from the environment (e.g., user input). *Reason* means analyzing the goal, evaluating alternatives, and deciding for actions to be taken. *Act* means evaluating the selected action.
 
 
 
-
-
-### Agent Frameworks
+### Knowledge-Based Agent Frameworks
 
 *Agent frameworks* provide a base architecture and offer services for developing the agent logic of an AI application. 
-A number of agent frameworks implement a plug-in architecture where framework components and custom components can be integrated. Some frameworks specify domain-specific languages (DSL) for the agent logic. Usually, APIs for integrating code in different programming languages are provided. 
+A number of traditional knowledge-based agent frameworks implement a plug-in architecture where framework components and custom components can be integrated. Some frameworks specify domain-specific languages (DSL) for the agent logic. Usually, APIs for integrating code in different programming languages are provided. 
 
 See, e.g., the architecture of [Cougaar](http://www.cougaar.world) in Fig. 4.5.
 
 
-#### Knowledge-Based Agent Frameworks
-
-
 ![Fig. 4.5: An agent framework example: Cougaar (More et al., 2004)](images/Agent_Framework.png)
 
-
-In Cougaar, coordinator components like a Cost/Benefit Plugin provide the agent logic. The blackboard component is a shared repository for storing information on current problems, suggestions for solving the problems as well as (partial) solutions. 
+In Cougaar, coordinator components like a Cost/Benefit Plugin provide the agent logic. The *blackboard* component is a shared repository for storing information on current problems, suggestions for solving the problems as well as (partial) solutions. 
 Sensors and actuator components may be plugged in. Sensors regularly update  information on the blackboard.
 
-Other agent frameworks are 
-[JaCaMo](http://jacamo.sourceforge.net),
-[JADE](http://jade.tilab.com),
-[JIAC](http://www.jiac.de/agent-frameworks),
-[AgentFactory](https://sourceforge.net/projects/agentfactory), and the
-[Jadex BDI Agent System](http://sourceforge.net/projects/jadex/).
-For details see the appendix.
+
+
+### LLM-Based Agent Frameworks
+
+While knowledge-based agent frameworks gain little attention at the moment, modern LLM-based agent frameworks are booming. They allow developing flexible agents configured by natural language system prompts. 
+To get an impression about using an LLM-based agent, I introduce GitHub Copilot in the next section. Afterwards I show how such AI applications are developed using an LLM-based agent framework, here LangChain. 
 
 
 
-### When to use an Agent Framework?
+#### Application example: GitHub Copilot
 
-In my opinion, the metaphor of an agent is useful when designing an AI application. 
-The separation of sensors from actuators as well as the separation of a model of the application domain and the environment from the agent logic is good architectural practice.
-However, the use of an agent framework is not always recommended. This is because every framework involves a learning curve and adds new  technological dependencies to the project. 
+Have you ever used an agentic coding framework like GitHub Copilot? This is not only a great way to use AI for improving programmer's productivity but it is also a perfect example of an agent application. See Fig. for a screenshot from https://github.com/features/copilot .
 
-If the agent logic is sufficiently complex and the services provided by the framework are suitable for the application use case then the costs for introducing an agent framework may well be justified.
-However, if this is not the case, a traditional component-based software architecture is adequate. The architectural recommendations following the agent metaphor can still be implemented to some degree. 
+![Fig. 4.4: GitHub Copilot](images/GitHub_Copilot.png)
 
+The agent system analyzes the code of a project allows writing natural requests to be performed, e.g."Create a new service fro runner. Allow for searching by ID. Run the tests to validate everything works." The respective code including tests is generated and the tests are executed successfully. The programmer can inspect the code and decide on keeping or undoing the changes. 
 
 
-#### LLM-Based Agent Frameworks
+#### Example: LangChain Agent Framework
 
-
-#### Example: LangChain Agents
-
+LangChain provides the concepts of agents and tools. Agents implement the control logic and invoke tools. Tool implement the actions to be taken. See Fig. 4.x
 
 ![Fig. 4.4: LangChain agent framework example](images/LangChain_agent.png)
 
-Tutorial https://python.langchain.com/docs/tutorials/agents 
+The user of an AI agent system sends a request in natural language, e.g., via a chatbot. The agent object is configured with an LLM and a set of tools. It interprets the user request and selects tools to be invoked. This step is called *reasoning*. The first step could be performing a web search with content from the user request using TavilySearch. More tools could be connected that implement specific behaviour. The agent is passing respective parameters. Via the Model Context Protocol (MCP), APIs can also be accessed dynamically where the agent performs a mapping between the user request and the service offered by a web service. 
 
+The code examples from this section are taken from the LangChain agent tutorial https://python.langchain.com/docs/tutorials/agents . The following code snippet shows how an agent is created.
 
     # Import relevant functionality
     from langchain.chat_models import init_chat_model
@@ -233,7 +217,10 @@ Tutorial https://python.langchain.com/docs/tutorials/agents
     tools = [search]
     agent_executor = create_react_agent(model, tools, checkpointer=memory)
 
-Using the agent:
+A concrete LLM (claude-3-5-sonnet-latest) is configured as model and TavilySearch as the only tool. Per default, agents are stateless. MemorySaver allows accessing previous agent actions into the decisions. The agent is configured with the model, the tool and MemorySaver.
+
+The next code snippet shows how to use the agent.
+
 
 
     # Use the agent
@@ -249,8 +236,7 @@ Using the agent:
         step["messages"][-1].pretty_print()
 
 
-
-Result:
+Assume that the user question is "What's the weather in SF?" This string is passed as content to the agent. The resulting answer is streamed. The output is as follows. 
 
 
     ================================[1m Human Message [0m=================================
@@ -280,20 +266,28 @@ Result:
     This is quite typical weather for San Francisco, with the characteristic fog that the city is known for. Would you like to know anything else about the weather or San Francisco in general?
 
 
+This example shows out-of-the-box tools like TravisSearch. You can also build custom tools, e.g., accessing local databases or web services. This can easily be done by using the @tool decorator for Python functions. Via natural language descriptions you can customize the behavior of the agent and its tools. 
 
-LLM performs reasoning, tools perform perception and action. 
-here: out of the box.
-via prompt engineering you can customize reasoning.
-you can also implement own tools, e.g., for accessing APIs, e.g., local databases, but also web services.
-
-PROTOCOL.
+When agents use other agents as tools, we speak of multi-agent systems. Framework like LangChain allow building complex networks of interacting agents.
 
 
-Multi-agent
+### Comparison of Knowledge-based and LLM-based Agent Frameworks
+
+LLM-based agent frameworks are a hype topic today. But do they really perform reasoning?
+LLMs generate text by predicting the most probable next token given a context. This is statistical pattern matching, not symbolic logic. They don’t have a formal model of logic or truth.
+Insofar it is debated in the AI community whether you can really call this reasoning.
+However, since they have been trained with millions of examples of reasoning, argumentation, and problem-solving they behave extremely well and they seem to reason. One could say they simulate reasoning. 
+The great advantage of LLM-based agents are their flexibility, fuzzy reasoning and natural language configuration.
+However, they suffer from the disadvantages of all ML-based AI approaches: they are error-prone and are not explainable. 
+Additionally, LLM reasoning is slow, taking seconds instead of milliseconds for reasoning steps. 
+This is where the traditional knowledge-based agent systems have their strengths. They act deterministically and the reasoning can be traced. Also, they tend to be faster than LLM-based agents. 
+So, again, the sweet spot is the combination of both approaches, hybrid agent systems. I expect them to become more popular in the future. 
+
 
 
 
 #### Engineering Agent Systems
+
 
 
 Define objectives
@@ -304,80 +298,7 @@ implement decision-making models
 test and iterate
 
 
-#### LLMs and Reasoning
 
-Are LLMs really reasoning?
-
------------------------------------------
-
-
-You're absolutely right to question this—it's one of the most debated topics in AI today. The short answer is: **LLMs simulate reasoning**, but whether they *truly* reason depends on how you define it.
-
----
-
-### 🧠 What LLMs Actually Do
-
-LLMs like GPT or Claude generate text by predicting the **most probable next token** given a context. This is statistical pattern matching, not symbolic logic. They don’t have:
-- A formal model of logic or truth.
-- Internal representations of beliefs or goals.
-- Deductive or inductive reasoning in the classical sense.
-
-So yes—at their core, they’re **probabilistic sequence generators** trained on vast corpora.
-
----
-
-### 🤔 But Then Why Do They *Look* So Smart?
-
-Because:
-- They’ve seen millions of examples of reasoning, argumentation, and problem-solving.
-- They can **mimic reasoning patterns**—like solving math problems, writing proofs, or making decisions—by reproducing structures they've learned.
-- They can chain thoughts, revise answers, and even self-correct, which *feels* like reasoning.
-
-This leads to **emergent behavior**: they appear to reason, even though they don’t have a reasoning engine.
-
----
-
-### 🧩 So Are They Reasoning?
-
-Let’s break it down:
-
-| Perspective         | Verdict on LLM Reasoning           |
-|---------------------|------------------------------------|
-| **Philosophical**   | No—they lack intentionality or understanding. |
-| **Cognitive science** | Maybe—they simulate reasoning behavior. |
-| **Engineering**     | Yes—they solve problems effectively. |
-| **Logic/AI**        | Not really—they don’t use formal inference. |
-
----
-
-### 🧠 What *Is* Real Reasoning Then?
-
-Traditional reasoning involves:
-- **Deduction**: From rules to conclusions.
-- **Induction**: From examples to generalizations.
-- **Abduction**: From effects to possible causes.
-
-LLMs don’t do this explicitly. But they *approximate* it by pattern matching across billions of examples.
-
----
-
-### 🔮 The Future: Hybrid Reasoning
-
-The most promising direction is **hybrid systems**:
-- LLMs for flexible, fuzzy reasoning.
-- Symbolic engines (like Prolog, SAT solvers, or rule-based systems) for precision.
-- Agents that combine both—reasoning when needed, generating when helpful.
-
-------------------------------------------
-
-
-#### Model Context Protocol (MCP)
-
-
-#### Example: GitHub Copilot
-
-
-## hybrid AI
 
 
 ## Quick Check
