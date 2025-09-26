@@ -113,7 +113,7 @@ The effect of those wildly exaggerated promises was the same as in all hype. Whe
 
 From then on, unnoticed and often not under the term AI, AI methods and technologies have matured enormously driven by major technology companies. For example, Google co-founder [Larry Page](http://bigdata-madesimple.com/12-famous-quotes-on-artificial-intelligence-by-google-founders) said in 2006:  "We want to create the ultimate search engine that can understand anything. Some people could call that artificial intelligence" . 
 
-This development of AI applications by major technology drivers lead to the situation today where AI is relevant and ubiquitous in everyday applications. Moreover, AI has become a hype topic, again. This is promoted by continuous media attention, science fiction movies, and bold statements by individuals in the AI community that are remarkably similar to the ones in the 1970s:
+This development of AI applications by major technology drivers lead to the situation today where AI is relevant and ubiquitous in everyday use. Moreover, AI has become a hype topic, again, particularly boosted by generative AI. This is promoted by continuous media attention, science fiction movies, and bold statements by individuals in the AI community that are remarkably similar to the ones in the 1970s:
 
 “Artificial intelligence will reach human levels by around 2029. Follow that out further to, say, 2045, we will have multiplied the intelligence, the human biological machine intelligence of our civilization a billion-fold.” ([Ray Kurzweil, 2005](https://www.brainyquote.com/quotes/ray_kurzweil_591137)) 
 
@@ -125,7 +125,7 @@ Such exaggerated claims create much media attention but may eventually lead to a
 Software applications and in particular AI applications may have massive impacts on society. I believe that software engineers must be aware of those implications and act responsibly.
 
 Automation technology has always had enormous impact on the labor market. We can see this development particularly since the industrial revolution in the 19th century. With the advent of information technology in the 20th century, the speed of innovation has accelerated.
-AI technology is a continuation of this highly dynamic process, with ever increasing innovation speed. Like in earlier technology shifts, groups of jobs will become obsolete and new jobs will emerge. 
+AI technology is a continuation of this highly dynamic process, with ever increasing innovation speed. Like in earlier technology shifts, groups of jobs will become obsolete and new jobs will emerge. With agentic coding, also the software engineering industry is undergoing massive changes. 
 
 There are numerous predictions about the implications on AI on the labor market. Some predict a replacement rate of human labor by robots for certain business sectors of up to [99%](https://futurism.com/will-artificial-intelligence-take-job-experts-weigh). Some predict that  fears of massive displacement of workers are [unfounded in the longer term](https://ec.europa.eu/epsc/sites/epsc/files/ai-report_online-version.pdf).  
 
@@ -133,7 +133,7 @@ To quote Mark Twain (or Niels Bohr maybe others), ["It’s Difficult to Make Pre
 
 Also, as a society, we must come to an agreement, which decisions we may leave to machines and which ones we must not. Alan Bundy pointedly and correctly states in an [CACM viewpoint](https://cacm.acm.org/magazines/2017/2/212436-smart-machines-are-not-a-threat-to-humanity/): "Smart machines are not a threat to humanity. Worrying about machines that are too smart distracts us from the real and present threat from machines that are too dumb". 
 
-*Bias in machine learning* is an issue which has come to public attention recently. Since machine learning depends on data, the quality of data severely affects the quality of decision being made. But data can be biased due to the creators or origins of data - and thus, decisions based on machine learning can be biased. 
+*Bias in machine learning* is an issue which is in public attention. Since machine learning depends on data, the quality of data severely affects the quality of decision being made. But data can be biased due to the creators or origins of data - and thus, decisions based on machine learning can be biased. 
 
 More and more decisions are delegated to machines although, of course, no piece of software is perfect. This may be fine for self-driving cars, at least as soon as they drive safer than average humans (which I expect in the foreseeable future). But it may be dangerous in areas where decisions by machines may have far-reaching impacts that no human can foresee. One of those areas may be high-frequency trading where machines autonomously make selling and buying decisions, but the impact on the global financial market is unclear. Even more critical are autonomous weapons that are programmed to detect alleged attacks automatically and to start a counter-strike without human intervention.  An [open letter from AI and robotics researchers on autonomous weapons](https://futureoflife.org/open-letter-autonomous-weapons/) in which this issue is discussed was signed by more than 30,000 people.
 
@@ -163,6 +163,11 @@ See Fig. 1.5.
 
 %% "Watson Jeopardy" by Source. Licensed under Fair use via Wikipedia - https://en.wikipedia.org/wiki/File:Watson_Jeopardy.jpg#/media/File:Watson_Jeopardy.jpg
 
+
+In 2012, the ImageNet Large Scale Visual Recognition Challenge marked a turning point in AI history. A deep convolutional neural network called *AlexNet*, developed by Alex Krizhevsky, Ilya Sutskever, and Geoffrey Hinton, dramatically outperformed all previous models in image classification. It reduced the top-5 error rate by more than 10 percentage points, showcasing the power of deep learning on large datasets. This breakthrough demonstrated that neural networks, when trained with sufficient data and computational power, could rival human-level perception in visual tasks. The success of AlexNet ignited a wave of innovation across computer vision, speech recognition, and natural language processing. It also accelerated GPU adoption for AI workloads and laid the foundation for modern architectures like ResNet and Transformers. The ImageNet moment is widely credited with launching the deep learning revolution.
+
+
+
 Go is a complex board game that requires intuition, creative and strategic thinking. It has long been considered a difficult challenge in AI and is considerably more difficult to solve than chess. In 2015, AlphaGo, a computer Go program developed by Google DeepMind, played a five-game Go match with the 18-time world champion [Lee Sedol](https://en.wikipedia.org/wiki/AlphaGo_versus_Lee_Sedol). The received  high media attention. AlphaGo won all but the fourth game. This was considered another breakthrough in AI. 
 
 See Fig. 1.6.
@@ -172,27 +177,30 @@ See Fig. 1.6.
 %% https://commons.wikimedia.org/wiki/File:Lee_Se-Dol.jpg
 %% https://commons.wikimedia.org/wiki/File:Lee_Sedol_(B)_vs_AlphaGo_(W)_-_Game_4.jpg
 
-To conclude, AI applications have made enormous progress in the last two decades - applications that were unthinkable in the late 20th century. All those applications exhibit behavior of human intelligence in certain situations (playing games, answering questions, driving cars, etc.) without necessarily  imitating human intelligence as such. Looking inside the implementation of such applications may be disappointing to people hoping to gain insights in the very nature of human intelligence. They are IT applications and follow engineering practices of IT applications. And they may be useful in every-day's life. 
 
-%% REMARK: maybe remove hints about believers in hard AI
+In late 2022, OpenAI’s ChatGPT captured global attention as the first large-scale conversational AI to reach mainstream adoption. Built on GPT-3.5 and later GPT-4, ChatGPT demonstrated remarkable fluency, contextual understanding, and versatility across domains—from coding and writing to tutoring and entertainment. Within weeks, it amassed over 100 million users, becoming the fastest-growing consumer application in history. Its intuitive chat interface made advanced AI accessible to the general public, sparking widespread fascination and debate. ChatGPT’s viral success marked a cultural shift, bringing generative AI into classrooms, workplaces, and daily life. It also catalyzed a wave of innovation in agentic systems, prompting tech giants to accelerate their own AI offerings. The launch of ChatGPT redefined expectations for human–machine interaction and set the stage for the agentic AI era.
+
+
+In 2023, AI-generated art and music surged into mainstream culture, transforming creative industries and public perception of AI. Tools like *DALL·E 2*, *Midjourney*, and *Stable Diffusion* enabled users to generate stunning visuals from text prompts, while platforms such as *AIVA* and *Soundraw* composed original music with minimal human input. Artists, designers, and hobbyists embraced these models for rapid prototyping and inspiration, while debates around authorship, copyright, and artistic authenticity intensified. Social media was flooded with AI-generated portraits, album covers, and surreal compositions, blurring the line between human and machine creativity. The boom democratized access to high-quality content creation and sparked new genres of digital expression. AI art exhibitions, music collaborations, and viral remix culture became global phenomena. This moment marked a shift from AI as a tool of analysis to AI as a co-creator, redefining the boundaries of imagination.
+
+In 2025, OpenAI introduced *GPT-4o*, a groundbreaking multimodal model capable of processing text, images, and audio in real time. This leap enabled the creation of real-time agentic systems that could hold spoken conversations, interpret visual input, and act autonomously across digital environments. GPT-4o’s responsiveness and contextual depth redefined human–AI interaction, making agents feel more intuitive, adaptive, and lifelike. Developers rapidly integrated GPT-4o into virtual assistants, customer service bots, and educational tutors. Its release marked a shift from static chatbots to dynamic, multimodal agents capable of reasoning and reacting in real time. GPT-4o became the foundation for next-generation AI applications across industries.
+
+
+
+To conclude, AI applications have made enormous progress in the last two decades - applications that were unthinkable in the late 20th century. All those applications exhibit behavior of human intelligence in certain situations (answering questions, performing tasks, playing games, driving cars, etc.) without necessarily  imitating human intelligence as such. 
 
 The following chapters give insights into engineering such AI applications. 
 
 ## Further Reading
 
-There are numerous publications on AI, scientific papers and text books. I present only a very short selection.
+There are numerous publications on AI, scientific papers, text books and online resources.
+Many text books an scientific papers focus on the mathematical foundations and theories behind AI mechanisms. 
+Many tutorials by vendors like OpenAI provide excellent entry points in using specific AI frameworks.
+Many online articles on platforms like "Towards Data Science (Medium)" introduce AI concepts and methods on a practical level.
+Online courses by organizations like Udacity, Coursera or edX provide theoretical background as well as hands-on experience with AI technologies. 
+In the end, also chats with chatbots like ChatGPT or Gemini can deepen knowledge on engineering AI applications. 
 
-Stuart Russell's and Peter Norvig's book: "Artificial Intelligence: A Modern Approach" (Russell and Norvig, 2021) is the standard textbook on AI. It gives detailed insights in AI mechanisms and the theories behind them - issues which I do not focus on in this book. It may be used as an excellent source for further reading when you need to know more about those issues.
 
-Many books and web resources focus on programming level, explaining how to use certain Python machine learning libraries, e.g., (Géron, 2019) for Scikit-learn, Keras and TensorFlow. A few books focus on the development of AI application but most focus on a particular technology stack, e.g., the Microsoft stack as in (Raman and Tok, 2018). 
-
-In contrast, I rather give an overview of the tools available in form of services maps and product maps, together with hints as to which tools to use in which context and how to integrate them. Insofar, other books may be used for further reading in case you have decided on specific languages and tools. 
-
-Also, there are a number of recommendable online courses on AI - with a similar focus as Russell and Norvig's standard text book (2021). Examples are:
-
-- Udacity: [Intro to Artificial Intelligence](https://www.udacity.com/course/cs271)  
-- Coursera: [Introduction to Artificial Intelligence](https://www.coursera.org/learn/introduction-to-ai)
-- edX: [Introduction to Artificial Intelligence](https://www.edx.org/course/introduction-to-artificial-intelligence-ai-3) 
 
 ## Quick Check
 
@@ -201,6 +209,6 @@ X> The quick check shall help you assessing whether you have understood the main
 1. What does the term "Artificial Intelligence" mean?
 2. What are main areas of AI?
 3. Sketch the history of AI
-4. In what sense is AI today relevant and ubiquitous?
+4. What is the role of AI today?
 5. What are potential impacts of AI applications on society?
 6. Name a few prominent AI projects

@@ -297,6 +297,61 @@ develop communication protocols
 implement decision-making models
 test and iterate
 
+Certainly! Here's a concise and structured section suitable for a book chapter on **Applied AI – An Engineering Approach**, focusing on the **methodology for developing agentic AI applications**:
+
+---
+
+## Methodology for Developing Agentic AI Applications
+
+Agentic AI systems differ from traditional software in that they exhibit autonomy, goal-directed behavior, and the ability to interact with tools, data, and other agents. Furthermore, the high degree of flexibility makes testing and quality assurance difficult.  Engineering such systems requires a blend of software architecture, prompt design, and reasoning orchestration, as well as quality management. The following methodology outlines a practical, iterative approach:
+
+**1. Define the Agent’s Role and Scope**
+
+Start by specifying the agent’s purpose:
+- What task(s) should it perform?
+- What tools, data sources, or APIs will it need?
+- What constraints or ethical boundaries must it respect?
+
+This step anchors the agent in a clear operational context.
+
+**2. Design the Agent Architecture**
+
+Choose an appropriate framework. Is an LLM-based framework like LangChain appropriate or should a knowledge-based framework based on specified rules be chosen? 
+Design the architecture including core components, interaction model and state management. 
+Use modular design to allow for future extensibility.
+
+**3. Implement Agent Application**
+
+Agents rely on external tools to act meaningfully. Define:
+- RESTful APIs, databases, search engines, or file systems
+- Tool schemas and input/output formats
+- Error handling and fallback strategies
+
+Tools should be composable and testable in isolation.
+
+Implement the agent logic. 
+When using a knowledge-based approach, design the rule base in a modular manner. Large rule bases can be difficult to test.
+When using a LLM-based approach, Craft prompts that guide the agent’s behavior. 
+Use few-shot examples, role instructions, and tool-calling syntax
+Test for robustness across edge cases and ambiguous inputs
+Prompt engineering is iterative and central to agent reliability.
+
+**4. Evaluate and Improve Incrementally**
+Thoroughly evaluate the agent applications using pre-defined scenarios. Similar to unit testing, re-evalute those scenarios when making changes to the agent's logic.
+Include Human-in-the-loop feedback
+Embed mechanisms for Performance monitoring (accuracy, latency, tool usage).
+Evaluation should be domain-specific and aligned with user expectations.
+Continuously improve the agent system incrementally. 
+
+**5. Deploy and Monitor**
+Package the agent for deployment:
+- Choose between cloud, edge, or hybrid hosting
+- Secure tool access and user data
+- Monitor for drift, misuse, or unexpected behavior
+
+Use observability tools to track agent decisions and outcomes.
+
+This methodology emphasizes modularity, transparency, and iterative refinement, aligning agentic AI development with engineering best practices. By treating agents as composable systems rather than monolithic models, developers can build robust, explainable, and adaptive AI applications.
 
 
 
