@@ -20,13 +20,22 @@ Never use ML when there is an explicit algorithm or explicit rules for solving a
 
 ML approaches are used in numerous applications in daily use. Here are a few examples.
 
-#### Spam Filtering
+#### Conversational AI
 
-Spam filters based on machine learning are used in state-of-the-art email clients. The task is to classify incoming emails as spam or not spam. See Fig. 2.1.
+*Conversational AI* has become a transformative interface across industries and daily life. It powers virtual assistants, customer support bots, tutoring systems, and productivity tools—enabling natural, human-like interaction through text or voice. Users rely on it to draft emails, answer questions, summarize documents, and even write code. 
+They are based on large language models (LLM) like GPT and Gemini. They are trained on vast amounts of texts. The rise of multimodal models now extends usage to image and audio interpretation. 
+See Fig. 2.x.
+![Fig. 2.1: LLM chatbot](images/LLM_chatbot.png)
 
-![Fig. 2.1: Spam filtering](images/Spam_Filtering.png)
+#### Generative AI
 
-The ML spam filter is trained with manually classified samples: spam emails and non-spam emails. After the training phase, the spam filter automatically classifies emails in spam / non-spam. The user may correct ML decisions. Those corrections are used as new training samples that improve the correctness of future classifications. 
+Generative AI for images and videos has revolutionized visual content creation, making high-quality media accessible to professionals and hobbyists alike. Tools like DALL·E, Midjourney, and Runway allow users to generate photorealistic or stylized visuals from simple text prompts, while video platforms like Pika and Synthesia enable dynamic storytelling without cameras or actors. 
+Like LLMs, those models are trained on vast amounts of images and videos. 
+See Fig. 2.x.
+![Fig. 2.1: Generative AI system](images/GenAI_system.png)
+
+
+
 
 #### Stock Market Analysis and Prediction
 
@@ -55,6 +64,16 @@ See Fig. 2.4.
 
 The ML recommender system is trained with the purchasing behavior of a large number of customers and associated customer groups. Then, based on a concrete order of a customer, related products are recommended.  
 
+
+
+#### Spam Filtering
+
+Spam filters based on machine learning are used in state-of-the-art email clients. The task is to classify incoming emails as spam or not spam. See Fig. 2.1.
+
+![Fig. 2.1: Spam filtering](images/Spam_Filtering.png)
+
+The ML spam filter is trained with manually classified samples: spam emails and non-spam emails. After the training phase, the spam filter automatically classifies emails in spam / non-spam. The user may correct ML decisions. Those corrections are used as new training samples that improve the correctness of future classifications. 
+
 ## ML Areas and Tasks
 
 Machine learning is a wide area. There are numerous groupings and names for ML subareas and tasks in literature. Fig. 2.5 shows a simple way of categorizing machine learning.
@@ -70,7 +89,17 @@ Three areas of machine learning can be distinguished: *supervised learning, unsu
 - *Setting*: Sample inputs and desired outputs as specified by the supervisor
 - *Goal*: A model that maps new (unknown) inputs to correct outputs
 
-Consider, e.g., the task of *classification*.
+
+See Fig. 2.x for a simple overview of supervised learning. 
+
+![Fig. 2.5: Supervised learning](images/Supervised_learning.png)
+
+Supervised learning is divided in two phases.
+In the *training phase (offline)*, training data, manually classified (labeled) by domain experts, are condensed into an ML model using mathematical approaches. The training process can be configured by hyperparameters. The ML model is an implicit representation of the information in the training samples.
+In the *execution phase (online)* (also called inference phase), the ML model is used in an AI application, e.g. for making predictions. 
+
+
+Consider the task of *classification*.
 
 - *Setting*: A set of sample input data records (training data set) are given which are classified into a number of pre-defined classes
 - *Goal*: A model that correctly classifies new input records.
@@ -86,6 +115,7 @@ Now consider the task of *regression*.
   - Input: History of values of a share
   - Output: Predicted values in the future
 
+
 ### Unsupervised Learning
 
 *Unsupervised learning* aims at detecting correlations in (large) data sets that are hard to detect by humans. There is no human supervisor who defines what correct classifications are. A related term is *data mining*. 
@@ -93,24 +123,45 @@ Now consider the task of *regression*.
 - *Setting*: A set of data records are given
 - *Goal*: Find meaningful structures within the data
 
-Consider, e.g., the task of *clustering*. 
+
+
+See Fig. 2.x for a simple overview of unsupervised learning. 
+
+![Fig. 2.5: Unsupervised learning](images/Unsupervised_learning.png)
+
+
+The training data for unsupervised learning is not labelled upfront. They are analyzed by different mathematical approaches like clustering, feature selection etc. The results are patterns / structures / representations that can be interpreted by human experts and used for further processing, e.g., pre-processing for supervised learning.
+
+
+
+
+Consider the task of *clustering*. 
 
 - *Setting*: A set of input records are given
 - *Goal*: Identify clusters, i.e. groups of similar records, where the similarity metric is initially unknown
 - *Example* customer segregation: Groups of customers shall be identified that exhibit similar purchasing behavior. Those customer groups can then be targeted individually. 
 
-Now consider the tasks of *feature selection* and *feature extraction*.
+Now consider the tasks of *feature selection* and *feature extraction* which can be subsumed under the term *dimensionality reduction*.
 
 - *Setting*: A set of input data records with attributes ("features") are given
 - *Goal of feature selection*: Find a subset of the original attributes that are equally well suited for a classification / regression / clustering task. The idea is to automatically distinguish meaningful attributes from attributes that can be omitted without losing information when performing a certain ML task. 
 - *Goal of feature extraction*: Like in feature selection, the goal is to identify features that are meaningful for a certain ML task. While in feature selection, a subset of the original feature set is to be selected, in feature extraction a new set of features is to be constructed from the original feature set. As a result, various original features may be combined into one.
 - *Example*: customer segregation; what features of a customer record are meaningful for customer segregation (e.g., number of sales) and which ones are not (e.g., name).
 
-Finally, consider the task of *topic modeling*.
+Consider the task of *topic modeling*.
 
 - *Setting*: A set of text documents are given.
 - *Goal*: Find topics that occur in several documents and classify the documents accordingly.
 - *Example*: Automatic extraction of a meaningful vocabulary for a specific field from a set of articles in this field.
+
+
+Finally, consider the task or *representation learning*. 
+
+- *Setting*: A set of text documents are given.  
+- *Goal*: Learn compact, informative representations of the documents without using labels.  
+- *Example*: Automatically generate vector embeddings for each document that capture semantic similarity, enabling clustering, search, or recommendation.
+
+
 
 ### Reinforcement Learning
 
@@ -119,6 +170,13 @@ Finally, consider the task of *topic modeling*.
 - *Setting*:  An agent interacts with a dynamic environment in which it must reach a goal
 - *Goal*: Improving the agent's behavior
 - *Example*: A chess-playing bot attempts the goal of winning chess games. Reinforcement learning can be applied when having a chess-playing bot playing many games against itself (or against other chess playing bots or humans). While playing, the effects of decisions are used to optimize parameters for decision taking. 
+
+See Fig. 2.x for a simple overview of reinforcement learning. 
+
+![Fig. 2.5: Reinforcement learning](images/Reinforcement_learning.png)
+
+Reinforcement learning assumes that a trained ML model is executed in an environment in which the result of the execution is evaluated automatically using a reward function. This reward is used as a label for re-training the ML model. So, the model performance is incrementally improved. 
+
 
 In the development of AI applications, various ML tasks are often combined. For example, unsupervised learning is often applied before supervised learning. Via unsupervised learning, e.g., feature extraction, the input data is pre-processed. Usually this is done in cycles of automatic ML processes followed by manual quality assurance and adaptation processes. Once a set of meaningful features are identified, then supervised learning can be applied successfully.
 
@@ -178,29 +236,25 @@ Fig. 2.10 shows an [ANN playground](http://playground.tensorflow.org) with the s
 
 ![Fig. 2.10: ANN playground with Tensorflow](images/Tensorflow_playground.png)
 
-Artificial neural networks are popular since they are relatively easy to use and do not require a deep background in statistics.  They can handle large amounts of data, implicitly detecting complex relationships between attributes. 
 
-An important disadvantage is that artificial neural networks behave as black-box systems. Users cannot explain how learning from input data was actually performed and, hence, cannot explain classifications made by the artificial neural network.
 
-*Support Vector Machines* are a popular alternative to ANNs and share their advantages and disadvantages. 
+ANN are the most prominent ML approach today.   They can handle large amounts of data, implicitly detecting complex relationships between attributes. 
 
-### Deep Learning
+An important disadvantage is that ANN, like support vector machines (SVN) behave as black-box systems. Users cannot explain how learning from input data was actually performed and, hence, cannot explain classifications made by the artificial neural network.
 
-Deep learning is a popular architecture of ANNs with a cascade of several layers. Each layer performs a specific tasks and each successive layer uses the output from the previous layer as input. Examples for individual tasks may be feature extraction (unsupervised ML), and classification (supervised ML). 
-Deep learning is currently the most common approach for image recognition and voice recognition tasks. The first layers in the cascade perform low-level, pixel-oriented tasks including feature selection; later layers perform increasingly complex tasks like high-level recognition. See Fig. 2.11 for an illustration. 
+The success of ANN is largely due to specialized, complex network architectures in combination with vast training data and compute resources.
+Fig. 2.x is an extract of "The neural network zoo" published by Fjodor van Veen and Stefan Leijnen on asimovinstitute.org. 
 
-{width=75%}
-![Fig. 2.11: Deep learning](images/Deep_Learning.jpg)
+![Fig. 2.11: ANN architectures](images/ANN_architectures.png)
 
-In Chapter 7 we present deep learning for computer vision more in detail. 
+Neural networks have input cells (yellow), hidden cells (green) and output cells (red). The simplest form are feed-forward networks which connect form input cells to output cells. We speak of deep (feed forward) networks when there are multiple hidden cells, usually fully-connected. 
+Auto Encoders are an interesting variant since they match input cells and output cells, thereby reproducing the input. They can be used for anomaly detection and other purposes. 
+Recurrent neural networks are an extension in that they introduce loops within the neural network. 
+Convolutional neural networks (CNN), particularly used for computer vision, add special-purpose-layers like convolutions and pool for feature extraction tasks. Their invention was a major breakthrough in modern AI. Large language models (LLM) and diffusion models have even more sophisticated architectures and are capable of performing more complex tasks.
 
-### Transfer Learning
+In this section, I will focus on simple ML approaches. Autoencoders and LLMs will be detailed in Chapter 6; CNNs and diffusion models will be detailed in Chapter 7.
 
-*Transfer learning* is a technique of re-using pre-trained deep neural networks, adding and training additional layers for specific tasks. This approach makes sense since training large ANNs may use an enormous amount of computing power and require a very large number of training data. For example, for classifying specific dog races, you can re-use a pre-trained ANN model like [ResNet](https://keras.io/applications/#resnet) and add layers for classifying the specific races. Then, you need to train just the added layers with specific training data. 
 
-In Chapter 7 we present transfer learning for computer vision more in detail.
-
-%% TODO ### Support Vector Machines
 
 ### Bayesian Networks
 
@@ -306,11 +360,12 @@ The following code example shows Python code using the libraries [pandas ](https
 
 ### The ML Process and Data Flow
 
-The process for implementing a supervised ML application consists of two major phases: the training phase and the production phase. See Fig. 2.18 for a simplified overview as [BPMN diagram](https://www.omg.org/spec/BPMN). 
+The process for implementing a supervised ML application consists of two major phases: the training phase and the execution phase. See Fig. 2.18 for a simplified overview as [BPMN diagram](https://www.omg.org/spec/BPMN). 
 
-![Fig. 2.18: The ML process simplified](images/ML_Process.png)
+![Fig. 2.18: The ML process simplified](images/ML_process.png)
 
 In the training phase, an ML model is configured with some ML approach. A training data set is used to generate an ML model according to the configuration. But can we really trust this model? Is it capable of making good predictions when used in production? To find out, the model's prediction performance is evaluated, i.e., how accurately the model actually predicts. The evaluation is done on a test data set. If the model is good enough, then it can be used for predictions in productive use. However, usually the first model is not nearly good enough for productive use. Then, the ML configuration needs to be adopted, e.g., a different ML approach chosen or parameterised differently, and the training / evaluation cycle starts again - until the model is finally good enough.
+Then it can be executed in  production to make predictions on live data (execution phase).
 
 Fig. 2.19 zooms into the ML process and gives an overview of the data flow in supervised ML.
 
@@ -325,7 +380,7 @@ In the evaluation phase, this ML model is applied to the test data set, using th
 
 If the model is not yet good enough, then the ML approach needs to be adjusted. For example, pre-processing can be fine-tuned, the ML approach can be changed (e.g., from decision tree to ANN), the parameters of the ML-approach (so-called "hyperparameters") may be adjusted, e.g., the number of layers and neurons in an ANN or the maximum depth of a decision tree. Then, training and evaluation is re-iterated.
 
-If the model is good enough, i.e., the prediction performance is adequate, then the previously trained ML can be used productively. For this, the model is used to perform the ML application on production data. The computed result can be used in the AI application, e.g., displayed in a user interface. In case the users perform a manual validation of the computed results, corrected results may be fed back for training improvement.
+If the model is good enough, i.e., the prediction performance is adequate, then the previously trained ML can be execution in a production environment. For this, the model is used to perform the ML application on live data. The computed result can be used in the AI application, e.g., displayed in a user interface. In case the users perform a manual validation of the computed results, corrected results may be fed back for training improvement.
 
 ### Prediction Performance Measures
 
@@ -333,7 +388,7 @@ Can we really trust the results of an ML application? How confident are we that 
 
 #### Confusion Matrix
 
-A *confusion matrix* is the basis for measuring the prediction performance of ML applications for classification. The name indicates that it allows to realize if the ML application is confusing two classes, i.e. commonly mislabeling one as another. See Fig. 2.20.
+A *confusion matrix* is the basis for measuring the prediction performance of ML classification models. The name indicates that it allows to realize if the ML application is confusing two classes, i.e. commonly mislabeling one as another. See Fig. 2.20.
 
 ![Fig. 2.20: Confusion matrix](images/Confusion_Matrix.png)
 
