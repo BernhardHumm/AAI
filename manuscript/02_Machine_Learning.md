@@ -696,23 +696,23 @@ On the other hand, try to avoid vendor lock-in. Use products with open, standard
 Fig. 2.35 gives an overview of service categories of ML products.
 
 {width=75%}
-![Fig. 2.35: ML services map](images/ML_Services.png)
+![Fig. 2.35: ML services map](images/ML_SM.png)
 
 *ML libraries* provide algorithms for  classification, regression, clustering, feature selection / extraction, topic modeling, etc. using different approaches, e.g.,  decision tree learning, artificial neural networks, Bayesian networks, inductive logic programming, support vector machines, hidden Markov chains, etc. They are implemented in a certain programming language, e.g., Python, Java or C/C++, and can be used in AI applications that are implemented in a compatible programming language.
 
-*ML APIs* provide an ML programming interface to various ML libraries, e.g., Keras running on top of TensorFlow, CNTK, or Theano. 
+*ML frameworks* allow managing the ML development cycle (e.g., MLflow), allow configuring ML approaches in form of workflows (e.g., LangChain), or provide an API to various ML libraries (e.g. Keras running on top of TensorFlow, CNTK, or Theano). 
 
 *ML Development Environments*  allow experimenting with different ML approaches, testing the performance, and configuring solutions. Some of them have visual programming features to configure ML processing steps. They usually allow exporting solutions that can then be included in an AI applications as libraries.
 
 *ML web services* provide similar functionality as ML development environments, but need not be installed locally. Instead, they can be used via the Web. This implies the necessity for uploading the ML data sets to some cloud storage.
 
-Finally, *ML pre-trained models* can be used in ML libraries, APIs, development environments and web services to perform transfer learning. 
+Finally, *ML pre-trained models* can be used in ML libraries, APIs, development environments and web services to be used out-of-the-box or perform transfer learning. 
 
 ### ML Product Map
 
 Fig. 2.36  shows an overview of ML products, each assigned to the respective service category.
 
-![Fig. 2.36: ML product map](images/ML_Product_Map.png)
+![Fig. 2.36: ML product map](images/ML_PM.png)
 
 Examples for ML libraries are 
 [TensorFlow](https://www.tensorflow.org/), 
@@ -721,6 +721,7 @@ Examples for ML libraries are
 [CNTK](https://docs.microsoft.com/en-us/cognitive-toolkit/), and 
 [Theano](http://deeplearning.net/software/theano/). 
 [Keras](https://keras.io/) is an example for an ML API.
+Examples for ML frameworks are MLflow, Airflow, Langchain and Llamaindex.
 Examples for ML development environments are 
 [SPSS Modeler](http://www-01.ibm.com/software/analytics/spss/products/modeler/), 
 [RapidMiner](https://rapidminer.com/), and
@@ -730,20 +731,21 @@ Examples for ML web services are
 [Google Cloud ML](https://cloud.google.com/products/ai/), 
 [IBM Watson ML](https://www.ibm.com/cloud/machine-learning), and
 [Microsoft Azure ML](https://azure.microsoft.com/de-de/services/machine-learning/).
-[Keras](https://keras.io/) also bundles ML pre-trained models like [ResNet](https://keras.io/applications/#resnet).
+Examples for platforms or libraries providing pre-trained ML models are HuggingFace, LangChain and Keras.
+
 
 ## Engineering ML Applications
 
 ### Methodology
 
-Integrating an ML component in an AI application requires some experience. To summarize, I recommend using the following methodological steps as a guideline. See Fig. 2.37.
+Integrating an ML component in an AI application requires some experience. I recommend using the following methodological steps as a guideline. See Fig. 2.37.
 
 ![Fig. 2.37: A methodology for developing ML applications](images/ML_Methodology.png)
 
-1. *Analyze use case*: As in engineering any IT application, the first step is to carefully analyze the use case, i.e., the stakeholders, the goals of the application to be implemented and the users' requirements.
+1. *Analyze use case*: As in engineering any IT application, the first step is to carefully analyze the use case, i.e., the stakeholders, the goals of the application to be implemented and the users' requirements. This includes the specifying the minimum prediction performance required. 
 2. *Identify ML tasks*: Based on the user requirements, the relevant ML tasks  should be identified, e.g., classification, regression, topic mining, etc.
 3. *Analyze data carefully*: As in all data-intensive tasks, it is most important to intensively work with the data sets at hand. It is essential to understand the meaning of the data entities and their attributes in order to develop suitable ML applications. Statistics and unsupervised ML may be used to better understand the data.
-4. *Select ML approach and product(s)*: Which of the various ML approaches are appropriate for solving the task: decision trees, artificial neural networks, support vector machines, Bayesian networks, ...? Which products are best suited? See above the method for selecting a product for a certain application use case based on the services map and product map.
+4. *Select ML approach and product(s)*: Which of the various ML approaches are appropriate for solving the task: decision trees, artificial neural networks, support vector machines, Bayesian networks, ...? Which products are best suited? See above the method for selecting a product for a certain application use case based on the services map and product map. If pre-trained models do the job, use them off-the-shelf or for transfer learning.
 5. *Implement iteratively*: 
    1. Often, the raw training data needs to be pre-processed, e.g., unnecessary attributes need to be removed (e.g., via feature selection), attributes combined (e.g., via feature extraction), values normalized, data records with quality problems removed, etc. See also Section 4.3 for a description on semantic ETL.
    2. Then, the pre-processed data set is used for training the ML model.
@@ -785,20 +787,21 @@ X> Answer the following questions.
 3. Name applications of ML.
 4. Explain the following ML areas: supervised learning, unsupervised learning, reinforcement learning.
 5. Explain the following ML tasks: classification, regression, clustering, feature selection / extraction, topic modeling
-6. Explain the following ML approaches: decision tree learning, Artificial Neural Networks, Bayes networks, deep learning. Name other approaches.
-7. Explain the process for supervised ML. How to use training data and test data?
-8. Explain the measures accuracy, precision, recall, F1 score, MAE, RSME and MSE
-9. Explain k-fold cross-validation
-10. What is bias and variance?
-11. Explain overfitting and underfitting
-12. What are learning curves? How to interpret them?
-13. How to increase / decrease model complexity?
-14. How does learning curve analysis work for classification (instead of regression)?
-15. Explain the concepts of services maps and product maps. How can they be used for selecting products in a project?
-16. Explain the main services of ML
-17. Name prominent products for each ML service
-18. How to proceed in engineering an ML application (methodology)?
-19. What are sources of bias in ML applications and how to deal with them?
+6. Explain the following ML approaches: decision tree learning, Artificial Neural Networks, Bayes networks. Name other approaches.
+7. Explain various ANN architectures.
+8. Explain the process for supervised ML. How to use training data and test data?
+9. Explain the measures accuracy, precision, recall, F1 score, MAE, RSME and MSE
+10. Explain k-fold cross-validation
+11. What is bias and variance?
+12. Explain overfitting and underfitting
+13. What are learning curves? How to interpret them?
+14. How to increase / decrease model complexity?
+15. How does learning curve analysis work for classification (instead of regression)?
+16. Explain the concepts of services maps and product maps. How can they be used for selecting products in a project?
+17. Explain the main services of ML
+18. Name prominent products for each ML service
+19. How to proceed in engineering an ML application (methodology)?
+20. What are sources of bias in ML applications and how to deal with them?
 
 X> Assignments
 
