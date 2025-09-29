@@ -60,7 +60,7 @@ From this explicitly stated knowledge, the following fact may be derived via rea
 
 X> I leave it to the reader to find an explanation why the reasoning result is, in fact, correct. Take a while to think about it. What is the intuitive, common sense, explanation? Can you also formulate the explanation more formally? How would a computer program (a reasoning engine) have to be constructed in order to derive the new fact automatically?
 
-In Section 3.5 we show how rule-based reasoning can be used. However, implementing a reasoning engine is beyond the scope of this book.  This book focuses on engineering AI applications using off-the-shelf components like a reasoning engine (Much like a book on engineering JavaEE applications will not explain how the Java compiler is implemented). For further reading refer, e.g., to (Russell and Norvig, 2013).
+In Section 3.5 we show how rule-based reasoning can be used. However, implementing a reasoning engine is beyond the scope of this book.  This book focuses on engineering AI applications using off-the-shelf components like a reasoning engine. For further reading refer, e.g., to (Russell and Norvig, 2013).
 
 ### Querying
 
@@ -589,6 +589,9 @@ Fig. 3.20 shows the knowledge representation product map.
 
 Virtuoso, GraphDB, rdf4J, Apache Jena are bundles that include knowledge base, reasoning / query engines and  Java APIs. Pellet, FaCT++, and HermiT are reasoning engines that may be plugged into other products. Protégé and Topbraid Composer are knowledge editors; Topbraid Suite, PoolParty and Semafora are integrated environments that include knowledge editors and runtime-components. Examples for knowledge resources are WikiData, DBpedia, YAGO, CYC and GND.  
 
+My experience is that RDF-based knowledge bases only provide sufficient performance for small-scale knowledge graphs. When confronted with large knowledge bases, I recommend different, industry-ready technology. *Labeled Property Graphs (LPG)* is a technology with similar expressive power than RDF/RDFS and SPARQL. However, LPG graph databases provide much better performance and scale to very large data volumes. Examples of tools are Neo4J, Amazon Neptune, Memgraph and RedisGraph. 
+RDF files can be loaded into Neo4J. SPARQL queries can be converted into Cypher, the widely adopted query language of Neo4J. 
+
 More products and details can be found in the appendix.
 
 ## Tips and Tricks
@@ -620,7 +623,7 @@ Advantages are:
 
 However, developing a custom knowledge graph for a specific use case, e.g., within a corporation is not as expensive as one might think. Experience from practice shows that an experienced team can model about 1,000 concepts within a week (Hoppe, 2015).
 
-### Pre-Processing Off-the-Shelf knowledge graphs
+### Pre-Processing Off-the-Shelf Knowledge Graphs
 
 When analyzing off-the-shelf knowledge graphs for a concrete application use case, the knowledge graphs' scope, structure and quality should be taken into account. Sometimes one or several knowledge graphs can be identified that are quite suitable but do not fit perfectly. In this case a pre-processing step, much like the *ETL (Extraction, Transformation, Loading)* step in Data Warehouses, is recommendable. Knowledge graph pre-processing may include the following activities:
 
