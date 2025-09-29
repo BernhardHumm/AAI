@@ -286,20 +286,6 @@ So, again, the sweet spot is the combination of both approaches, hybrid agent sy
 
 
 
-#### Engineering Agent Systems
-
-
-
-Define objectives
-choose agent roles
-select the right framework
-develop communication protocols
-implement decision-making models
-test and iterate
-
-Certainly! Here's a concise and structured section suitable for a book chapter on **Applied AI – An Engineering Approach**, focusing on the **methodology for developing agentic AI applications**:
-
----
 
 ## Methodology for Developing Agentic AI Applications
 
@@ -362,10 +348,7 @@ X> Answer the following questions.
 
 1. What characterizes an AI application? 
 1. What are the main components of the AI reference architecture?
-1. Could you speak of an AI application  if none of these technologies are used: reasoning engine, machine learning framework, agent framework?
-1. What is an agent? Give examples.
-1. Which services do agent frameworks offer?
-1. In which situations is the use of an agent framework recommended? In which not?
-2. Which programming language should be used for developing an AI application?
-
-	
+2. Give examples of AI application architectures derived from the reference architecture
+3. What is hybrid AI? What are the advantages and disadvantages?
+4. What are agents? Which services do knowledge-based agent frameworks offer? Which services do LLM-based agent-frameworks offer?
+5. How to engineer agentic AI systems (methodology)?
