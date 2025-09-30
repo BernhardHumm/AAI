@@ -7,51 +7,78 @@ The following tables list products for different AI areas in addition to the one
 {title="Machine learning product table", width="wide"}
 |    Product    |    ML library    |    ML dev. env.    |    ML web service    |    Pre-trained model    |
 |---------------|:---------------:|:---------------:|:---------------:|:---------------:|
-|    [aisolver](http://sourceforge.net/projects/aisolver)    |    *    |        |        |        |
-|    [Amazon AWS Machine Learning](https://aws.amazon.com/de/machine-learning)    |        |        |    *    |        |
-|    [Apache Mahout](https://mahout.apache.org)    |    *    |        |        |        |
-|    [bigml](https://bigml.com)    |        |        |    *    |        |
-|    [Caffe](http://caffe.berkeleyvision.org)    |    *    |        |        |        |
-|    [CatBoost](https://catboost.ai)    |    *    |        |        |        |
-|    [CURRENNT](http://sourceforge.net/projects/currennt)    |    *    |        |        |        |
-|    [Deeplearning4j](https://projects.eclipse.org/proposals/eclipse-deeplearning4j)    |    *    |        |        |        |
-|    [eblearn](http://sourceforge.net/projects/eblearn)    |    *    |        |        |        |
-|    [ELKI Data Mining](https://elki-project.github.io)    |    *    |    *    |        |        |
-|    [Encog](http://www.heatonresearch.com/encog)    |    *    |        |        |        |
-|    [Fast Artificial Neural Network Library](http://sourceforge.net/projects/fann)    |    *    |        |        |        |
-|    [Fastai](https://github.com/fastai/fastai)    |    *    |        |        |        |
-|    [Google Cloud Machine Learning](https://cloud.google.com/products/machine-learning)    |        |        |    *    |        |
-|    [H2O](https://h2o.ai)    |    *    |        |    *    |        |
-|    [IBM Watson Machine Learning](https://www.ibm.com/cloud/watson-studio)    |        |        |    *    |        |
-|    [Jaden](http://sourceforge.net/projects/jaden)    |    *    |    *    |        |        |
-|    [Java Neural Network Framework Neuroph](http://sourceforge.net/projects/neuroph)    |    *    |    *    |        |        |
-|    [Joone](http://sourceforge.net/projects/joone)    |    *    |    *    |        |        |
-|    [Keras](https://keras.io)    |        |        |        |    *    |
-|    [KNIME](https://www.knime.com)    |    *    |    *    |        |        |
-|    [LightGBM](https://mljar.com/machine-learning/lightgbm/)    |    *    |        |        |        |
-|    [MATLAB Machine Learning Toolbox](https://www.mathworks.com/products/statistics.html)    |        |    *    |        |        |
-|    [Microsoft Azure Machine Learning Studio](https://azure.microsoft.com/de-de/services/machine-learning-studio)    |        |        |    *    |        |
-|    [MLlib (Apache Spark)](http://spark.apache.org/mllib)    |    *    |        |        |        |
-|    [MS Cognitive Toolkit](https://docs.microsoft.com/en-us/cognitive-toolkit)    |    *    |        |        |        |
-|    [Apache MXNET](https://mxnet.apache.org)    |    *    |        |        |        |
-|    [OpenNN - Open Neural Networks Library](http://sourceforge.net/projects/opennn)    |    *    |        |        |        |
-|    [Orange](https://orangedatamining.com)    |    *    |    *    |        |        |
-|    [procog](http://precog.com)    |        |        |    *    |        |
-|    [Prophet](https://facebook.github.io/prophet)    |    *    |        |        |        |
-|    [Pytorch](https://pytorch.org)    |    *    |        |        |        |
-|    [R ](https://www.r-project.org)    |    *    |        |        |        |
-|    [RapidMiner](https://rapidminer.com)    |    *    |    *    |        |        |
-|    [scikit-learn](http://scikit-learn.org)    |    *    |        |        |        |
-|    [Shogun](https://github.com/shogun-toolbox/shogun)    |    *    |        |        |        |
-|    [sktime](https://www.sktime.org)    |    *    |        |        |        |
-|    [SPSS Modeler](https://www.ibm.com/analytics/spss-statistics-software)    |    *    |    *    |        |        |
-|    [Statsmodels](https://www.statsmodels.org)    |    *    |        |        |        |
-|    [TensorFlow](https://www.tensorflow.org)    |    *    |        |        |        |
-|    [Theano](https://pypi.org/project/Theano)    |    *    |        |        |        |
-|    [Torch](http://torch.ch)    |    *    |        |        |        |
-|    [tslearn](https://github.com/tslearn-team/tslearn)    |    *    |        |        |        |
-|    [WEKA](http://www.cs.waikato.ac.nz/ml/weka)    |    *    |    *    |        |        |
-|    [XGBoost](https://github.com/dmlc/xgboost)    |    *    |        |        |        |
+|	[Airflow](airflow.apache.org)	|		|		|		|		|
+|	[aisolver](aisolver.com)	|	*	|		|		|		|
+|	[Amazon AWS Machine Learning](aws.amazon.com/machine-learning)	|		|		|	*	|		|
+|	[Anthropic Console](console.anthropic.com)	|		|		|		|	*	|
+|	[Apache Mahout](mahout.apache.org)	|	*	|		|		|		|
+|	[Apache MXNET](mxnet.apache.org)	|	*	|		|		|		|
+|	[AutoGen (Microsoft)](microsoft.com/en-us/research/project/autogen)	|		|		|		|		|
+|	[BigML](bigml.com)	|		|		|	*	|		|
+|	[Caffe](caffe.berkeleyvision.org)	|	*	|		|		|		|
+|	[CatBoost](catboost.ai)	|	*	|		|		|		|
+|	[Cohere](cohere.com)	|		|		|		|	*	|
+|	[CrewAI](crewai.com)	|		|		|		|		|
+|	[CURRENNT](github.com/che-shr-cat/currennt)	|	*	|		|		|		|
+|	[Deeplearning4j](deeplearning4j.konduit.ai)	|	*	|		|		|		|
+|	[DSPy (Stanford)](dspy.ai)	|		|		|		|		|
+|	[eblearn](eblearn.sourceforge.net)	|	*	|		|		|		|
+|	[ELKI Data Mining](elki-project.github.io)	|	*	|	*	|		|		|
+|	[Encog](heatonresearch.com/encog)	|	*	|		|		|		|
+|	[Fast Artificial Neural Network Library (FANN)](github.com/libfann/fann)	|	*	|		|		|		|
+|	[Fastai](fast.ai)	|	*	|		|		|		|
+|	[FlowiseAI](flowiseai.com)	|		|		|		|		|
+|	[Google Cloud Machine Learning](cloud.google.com/products/ai)	|		|		|	*	|		|
+|	[Google Vertex AI / Gemini](cloud.google.com/vertex-ai)	|		|		|		|	*	|
+|	[H2O](h2o.ai)	|	*	|		|	*	|		|
+|	[Haystack (deepset)](haystack.deepset.ai)	|		|		|		|		|
+|	[Hugging Face](huggingface.co)	|		|		|		|	*	|
+|	[IBM Watson Machine Learning](ibm.com/cloud/machine-learning)	|		|		|	*	|		|
+|	[Jaden](jaden.ai)	|	*	|	*	|		|		|
+|	[Java Neural Network Framework Neuroph](neuroph.sourceforge.net)	|	*	|	*	|		|		|
+|	[Joone](joone.org)	|	*	|	*	|		|		|
+|	[Keras](keras.io)	|		|		|		|	*	|
+|	[KNIME](knime.com)	|	*	|	*	|		|		|
+|	[Kubeflow](kubeflow.org)	|		|		|		|		|
+|	[LangChain](langchain.com)	|		|		|		|		|
+|	[LightGBM](github.com/microsoft/LightGBM)	|	*	|		|		|		|
+|	[LlamaIndex](llamaindex.ai)	|		|		|		|		|
+|	[MATLAB Machine Learning Toolbox](mathworks.com/products/statistics.html)	|		|	*	|		|		|
+|	[Meta AI (LLaMA)](ai.meta.com)	|		|		|		|	*	|
+|	[Metaflow (Netflix)](metaflow.org)	|		|		|		|		|
+|	[Microsoft Azure Machine Learning Studio](azure.microsoft.com/en-us/products/machine-learning)	|		|		|	*	|		|
+|	[MLflow](mlflow.org)	|		|		|		|		|
+|	[MLlib (Apache Spark)](spark.apache.org/mllib)	|	*	|		|		|		|
+|	[MS Cognitive Toolkit (CNTK)](github.com/microsoft/CNTK)	|	*	|		|		|		|
+|	[ONNX Model Zoo](onnx.ai/models)	|		|		|		|	*	|
+|	[OpenAgents (OpenAI)](openagents.dev)	|		|		|		|		|
+|	[OpenAI API](platform.openai.com)	|		|		|		|	*	|
+|	[OpenNN - Open Neural Networks Library](opennn.net)	|	*	|		|		|		|
+|	[Orange](orange.biolab.si)	|	*	|	*	|		|		|
+|	[procog](procog.ai)	|		|		|	*	|		|
+|	[Prophet](facebook.github.io/prophet)	|	*	|		|		|		|
+|	[PyTorch](pytorch.org)	|	*	|		|		|		|
+|	[PyTorch Hub](pytorch.org/hub)	|		|		|		|	*	|
+|	[R](r-project.org)	|	*	|		|		|		|
+|	[RapidMiner](rapidminer.com)	|	*	|	*	|		|		|
+|	[Ray Serve](docs.ray.io/en/latest/serve)	|		|		|		|		|
+|	[scikit-learn](scikit-learn.org)	|	*	|		|		|		|
+|	[Semantic Kernel (Microsoft)](aka.ms/semantickernel)	|		|		|		|		|
+|	[Shogun](shogun-toolbox.org)	|	*	|		|		|		|
+|	[sktime](sktime.org)	|	*	|		|		|		|
+|	[SPSS Modeler](ibm.com/products/spss-modeler)	|	*	|	*	|		|		|
+|	[Statsmodels](statsmodels.org)	|	*	|		|		|		|
+|	[Superagent](superagent.sh)	|		|		|		|		|
+|	[TensorFlow](tensorflow.org)	|	*	|		|		|		|
+|	[TensorFlow Hub](tfhub.dev)	|		|		|		|	*	|
+|	[Theano](github.com/Theano/Theano)	|	*	|		|		|		|
+|	[Torch](github.com/torch/torch7)	|	*	|		|		|		|
+|	[tslearn](tslearn.readthedocs.io)	|	*	|		|		|		|
+|	[WEKA](waikato.github.io/weka-wiki)	|	*	|	*	|		|		|
+|	[XGBoost](xgboost.ai)	|	*	|		|		|		|
+
+
+
 
 ## Knowledge Representation
 
