@@ -83,225 +83,379 @@ The following tables list products for different AI areas in addition to the one
 ## Knowledge Representation
 
 {title="Knowledge representation product table", width="wide"}
-|    Product    |    Integrated Environment    |    Knowledge Editor    |    API    |    Query Engine    |    Reasoner    |    Integration / Enrichment    |    Knowledge Base    |    Knowledge Resources    |
+|	Product	|	Integrated Environment	|	Knowledge Editor	|	API	|	Query Engine	|	Reasoner	|	Integration / Enrichment	|	Knowledge Base	|	Knowledge Resources	|
 |---------------|:---------------:|:---------------:|:---------------:|:---------------:|:---------------:|:---------------:|:---------------:|:---------------:|
-|    [AllegroGraph](https://allegrograph.com)    |        |        |    *    |    *    |    *    |        |    *    |        |
-|    [Apache Jena](https://jena.apache.org)    |        |        |    *    |    *    |    *    |        |    *    |        |
-|    [Apache Jena Fuseki](https://jena.apache.org/documentation/fuseki2)    |        |        |        |    *    |        |        |        |        |
-|    [Apache Stanbol](https://stanbol.apache.org)    |        |        |    *    |    *    |    *    |    *    |    *    |        |
-|    [Cognitum FluentEditor](https://www.cognitum.eu/semantics/FluentEditor)    |        |    *    |        |        |        |        |        |        |
-|    [CYC](http://www.cyc.com)    |        |        |        |        |        |        |        |    *    |
-|    [DBpedia](https://wiki.dbpedia.org)    |        |        |        |        |        |        |        |    *    |
-|    [dotNetRDF](https://www.dotnetrdf.org)    |        |        |    *    |        |        |        |        |        |
-|    [Ecliplse rdf4j](https://rdf4j.org)    |        |        |    *    |    *    |    *    |        |    *    |        |
-|    [FaCT++](http://owl.man.ac.uk/factplusplus)    |        |        |        |        |    *    |        |        |        |
-|    [GND](https://www.dnb.de/EN/Professionell/Standardisierung/GND/gnd_node.html)    |        |        |        |        |        |        |        |    *    |
-|    [GraphDB](http://www.ontotext.com/products/ontotext-graphdb)    |        |        |        |    *    |    *    |        |    *    |        |
-|    [HermiT](http://hermit-reasoner.com)    |        |        |        |        |    *    |        |        |        |
-|    [Empolis Knowledge Express](https://knowledge.express/en/knowledge-graph-2/)    |    *    |    *    |    *    |    *    |    *    |        |    *    |        |
-|    [Neo4J](https://neo4j.com)    |        |        |        |        |        |        |    *    |        |
-|    [OpenLink Virtuoso](https://virtuoso.openlinksw.com)    |        |        |    *    |    *    |    *    |        |    *    |        |
-|    [PoolParty](https://www.poolparty.biz)    |    *    |    *    |    *    |    *    |    *    |    *    |    *    |        |
-|    [Protégé](http://protege.stanford.edu)    |        |    *    |        |        |        |        |        |        |
-|    [RacerPro](http://franz.com/agraph/racer)    |        |        |        |        |    *    |        |        |        |
-|    [Semafora](https://www.semafora-systems.com)    |    *    |    *    |    *    |    *    |    *    |        |    *    |        |
-|    [TopBraid Composer](https://archive.topquadrant.com/products/topbraid-composer)    |        |    *    |        |        |        |        |        |        |
-|    [Topbraid EDG](https://archive.topquadrant.com/products/topbraid-enterprise-data-governance)    |    *    |    *    |    *    |    *    |    *    |    *    |    *    |        |
-|    [Wikidata](https://www.wikidata.org)    |        |        |        |        |        |        |        |    *    |
-|    [YAGO](https://www.mpi-inf.mpg.de/departments/databases-and-information-systems/research/yago-naga/yago)    |        |        |        |        |        |        |        |    *    |
+|	[AllegroGraph](franz.com/agraph)	|		|		|	*	|	*	|	*	|		|	*	|		|
+|	[Amazon Neptune](aws.amazon.com/neptune)	|		|		|		|	*	|		|		|	*	|		|
+|	[Apache Jena](jena.apache.org)	|		|		|	*	|	*	|	*	|		|	*	|		|
+|	[Apache Jena Fuseki](jena.apache.org/documentation/fuseki2)	|		|		|		|	*	|		|		|		|		|
+|	[Apache Stanbol](stanbol.apache.org)	|		|		|	*	|	*	|	*	|	*	|	*	|		|
+|	[ArangoDB](arangodb.com)	|		|		|		|	*	|		|		|	*	|		|
+|	[Cognitum FluentEditor](cognitum.eu/FluentEditor)	|		|	*	|		|		|		|		|		|		|
+|	[CYC](cyc.com)	|		|		|		|		|		|		|		|	*	|
+|	[DBpedia](dbpedia.org)	|		|		|		|		|		|		|		|	*	|
+|	[dotNetRDF](dotnetrdf.org)	|		|		|	*	|		|		|		|		|		|
+|	[Eclipse RDF4J](rdf4j.org)	|		|		|	*	|	*	|	*	|		|	*	|		|
+|	[Empolis Knowledge Express](empolis.com)	|	*	|	*	|	*	|	*	|	*	|		|	*	|		|
+|	[FaCT++](github.com/owlcs/factplusplus)	|		|		|		|		|	*	|		|		|		|
+|	[GND (Gemeinsame Normdatei)](dnb.de/gnd)	|		|		|		|		|		|		|		|	*	|
+|	[GraphDB](ontotext.com/products/graphdb)	|		|		|		|	*	|	*	|		|	*	|		|
+|	[HermiT](hermit-reasoner.com)	|		|		|		|		|	*	|		|		|		|
+|	[Memgraph](memgraph.com)	|		|		|		|	*	|		|		|	*	|		|
+|	[Neo4J](neo4j.com)	|		|		|		|	*	|		|		|	*	|		|
+|	[OpenLink Virtuoso](virtuoso.openlinksw.com)	|		|		|	*	|	*	|	*	|		|	*	|		|
+|	[OrientDB](orientdb.dev)	|		|		|		|	*	|		|		|	*	|		|
+|	[PoolParty](poolparty.biz)	|	*	|	*	|	*	|	*	|	*	|	*	|	*	|		|
+|	[Protégé](protege.stanford.edu)	|		|	*	|		|		|		|		|		|		|
+|	[RacerPro](franz.com/agraph/racer)	|		|		|		|		|	*	|		|		|		|
+|	[RedisGraph](redis.io/docs/stack/graph)	|		|		|		|	*	|		|		|	*	|		|
+|	[Semafora](semafora-systems.com)	|	*	|	*	|	*	|	*	|	*	|		|	*	|		|
+|	[SPARQLWrapper](sparqlwrapper.readthedocs.io)	|		|		|	*	|		|		|		|		|		|
+|	[TigerGraph](tigergraph.com)	|		|		|		|	*	|		|		|	*	|		|
+|	[TopBraid Composer](topbraidcomposer.org)	|		|	*	|		|		|		|		|		|		|
+|	[TopBraid EDG](topquadrant.com/topbraid-edg)	|	*	|	*	|	*	|	*	|	*	|	*	|	*	|		|
+|	[Wikidata](wikidata.org)	|		|		|		|		|		|		|		|	*	|
+|	[YAGO](yago-knowledge.org)	|		|		|		|		|		|		|		|	*	|
+
+
 
 ## AI Application Architecture
 
 {title="AI application architecture product table", width="wide"}
-|    Product    |    Presentation    |    Application Logic    |    API    |    Knowledge Base / Query Engine / Reasoner    |    Data Integration / Semantic Enrichment    |    3rd party AI web services    |
-|---------------|:---------------:|:---------------:|:---------------:|:---------------:|:---------------:|:---------------:|
-|    [AllgegroGraph](https://franz.com/agraph/allegrograph)    |        |        |    *    |    *    |        |        |
-|    [Amazon AWS AI](https://aws.amazon.com/ai)    |        |        |        |        |        |    *    |
-|    [Apache Any23](https://any23.apache.org)    |        |        |        |        |    *    |        |
-|    [Apache Jena](https://jena.apache.org)    |        |        |    *    |    *    |        |        |
-|    [Apache Nutch](http://nutch.apache.org)    |        |        |        |        |    *    |        |
-|    [Apache Stanbol](https://stanbol.apache.org)    |        |        |    *    |    *    |    *    |        |
-|    C#    |        |    *    |        |        |        |        |
-|    C++    |        |    *    |        |        |        |        |
-|    Clojure / Lisp    |        |    *    |        |        |        |        |
-|    [Eclipse rdf4j](http://rdf4j.org)    |        |        |    *    |    *    |        |        |
-|    [Google Cloud AI](https://cloud.google.com/products/ai)    |        |        |        |        |        |    *    |
-|    [GraphDB](https://www.ontotext.com/products/graphdb)    |        |        |        |    *    |        |        |
-|    HTML/CSS    |    *    |        |        |        |        |        |
-|    [IBM Watson AI Services](https://www.ibm.com/watson/products-services)    |        |        |        |        |        |    *    |
-|    Java    |        |    *    |        |        |        |        |
-|    JavaScript    |    *    |        |        |        |        |        |
-|    [Keras](https://keras.io)    |        |    *    |        |        |        |        |
-|    [Microsoft Azure AI](https://www.microsoft.com/AI)    |        |        |        |        |        |    *    |
-|    Python    |        |    *    |        |        |        |        |
-|    [scikit-learn](https://scikit-learn.org)    |        |    *    |        |        |        |        |
-|    [Spark MLlib](https://spark.apache.org/mllib)    |        |    *    |        |        |        |        |
-|    [TensorFlow](https://www.tensorflow.org)    |        |    *    |        |        |        |        |
-|    [Virtuoso](http://virtuoso.openlinksw.com)    |        |        |    *    |    *    |    *    |        |
+|	Product	|	Interaction	|	AI Agent	|	AI resources	|	Integration	|	AI web services	|	AI repositories	|	Lifecycle management	|
+|---------------|:---------------:|:---------------:|:---------------:|:---------------:|:---------------:|:---------------:|:---------------:|
+|	[Agent Factory](agentfactory.org)	|		|	*	|		|		|		|		|		|
+|	[Agent Met4FoF](met4fof.eu)	|		|	*	|		|		|		|		|		|
+|	[AgentVerse](agentverse.ai)	|		|	*	|		|		|		|		|		|
+|	[AllgegroGraph](allegrograph.com)	|		|		|	*	|		|		|		|		|
+|	[Amazon AWS AI](aws.amazon.com/ai)	|		|		|		|		|	*	|		|		|
+|	[Amazon Bedrock](aws.amazon.com/bedrock)	|		|		|		|		|	*	|		|		|
+|	[Amazon Neptune](aws.amazon.com/neptune)	|		|		|	*	|		|		|		|		|
+|	[Apache Any23](any23.apache.org)	|		|		|		|	*	|		|		|		|
+|	[Apache Jena](jena.apache.org)	|		|		|	*	|		|		|		|		|
+|	[Apache Jena Fuseki](jena.apache.org/documentation/fuseki2)	|		|		|	*	|		|		|		|		|
+|	[Apache Nutch](nutch.apache.org)	|		|		|		|	*	|		|		|		|
+|	[Apache Stanbol](stanbol.apache.org)	|		|		|	*	|	*	|		|		|		|
+|	[ArangoDB](arangodb.com)	|		|		|	*	|		|		|		|		|
+|	[AutoGen (Microsoft)](microsoft.com/en-us/research/project/autogen)	|		|	*	|		|		|		|		|		|
+|	[Azure ML](azure.microsoft.com/en-us/products/machine-learning)	|		|		|		|		|		|		|	*	|
+|	[Blazegraph](blazegraph.com)	|		|		|	*	|		|		|		|		|
+|	[C#](learn.microsoft.com/en-us/dotnet/csharp)	|		|	*	|		|		|		|		|		|
+|	[C++](cplusplus.com)	|		|	*	|		|		|		|		|		|
+|	[Chroma](trychroma.com)	|		|		|	*	|		|		|		|		|
+|	[ClearML](clear.ml)	|		|		|		|		|		|		|	*	|
+|	[Clojure / Lisp](clojure.org)	|		|	*	|		|		|		|		|		|
+|	[Cougaar](cougaar.org)	|		|	*	|		|		|		|		|		|
+|	[CrewAI](crewai.com)	|		|	*	|		|		|		|		|		|
+|	[Dagshub](dagshub.com)	|		|		|		|		|		|		|	*	|
+|	[DBpedia](dbpedia.org)	|		|		|		|		|		|	*	|		|
+|	[Dgraph](dgraph.io)	|		|		|	*	|		|		|		|		|
+|	[DVC (Data Version Control)](dvc.org)	|		|		|		|		|		|		|	*	|
+|	[Eclipse rdf4j](rdf4j.org)	|		|		|	*	|		|		|		|		|
+|	[ElasticSearch (+ KNN plugin)](elastic.co)	|		|		|	*	|		|		|		|		|
+|	[FAISS (Meta)](faiss.ai)	|		|		|	*	|		|		|		|		|
+|	[Google Cloud AI](cloud.google.com/products/ai)	|		|		|		|		|	*	|		|		|
+|	[Google Vertex AI](cloud.google.com/vertex-ai)	|		|		|		|		|	*	|		|		|
+|	[GraphDB (Ontotext)](ontotext.com/products/graphdb)	|		|		|	*	|		|		|		|		|
+|	[Gymnasium](gymnasium.farama.org)	|		|	*	|		|		|		|		|		|
+|	[Haystack Agents](haystack.deepset.ai)	|		|	*	|		|		|		|		|		|
+|	[HTML/CSS](developer.mozilla.org)	|	*	|		|		|		|		|		|		|
+|	[Hugging Face](huggingface.co)	|		|		|		|		|		|	*	|		|
+|	[IBM Watson AI Services](ibm.com/watson)	|		|		|		|		|	*	|		|		|
+|	[JaCaMo](jacamo.sourceforge.net)	|		|	*	|		|		|		|		|		|
+|	[JADE (Java Agent DEvelopment Framework)](jade.tilab.com)	|		|	*	|		|		|		|		|		|
+|	[Jadex BDI Agent System](jadex-agents.informatik.uni-hamburg.de)	|		|	*	|		|		|		|		|		|
+|	[JanusGraph](janusgraph.org)	|		|		|	*	|		|		|		|		|
+|	[Java](oracle.com/java)	|		|	*	|		|		|		|		|		|
+|	[JavaScript](javascript.info)	|	*	|		|		|		|		|		|		|
+|	[JIAC (Java-based Intelligent Agent Componentware)](dfki.de/en/web/research/projects/jiac)	|		|	*	|		|		|		|		|		|
+|	[Keras](keras.io)	|		|		|	*	|		|		|		|		|
+|	[Kubeflow](kubeflow.org)	|		|		|		|		|		|		|	*	|
+|	[LangChain](langchain.com)	|		|	*	|		|		|		|		|		|
+|	[LlamaIndex](llamaindex.ai)	|		|	*	|		|		|		|		|		|
+|	[Mesa](mesa.readthedocs.io)	|		|	*	|		|		|		|		|		|
+|	[Meta AutoGPT](github.com/meta-llama)	|		|	*	|		|		|		|		|		|
+|	[Metaflow (Netflix)](metaflow.org)	|		|		|		|		|		|		|	*	|
+|	[Microsoft Azure AI](azure.microsoft.com/en-us/solutions/ai)	|		|		|		|		|	*	|		|		|
+|	[MLflow](mlflow.org)	|		|		|		|		|		|		|	*	|
+|	[Model Context Protocol (MCP)](modelcontext.org)	|		|		|		|	*	|		|		|		|
+|	[ModelDB (Verta)](verta.ai)	|		|		|		|		|		|		|	*	|
+|	[ModelScope](modelscope.cn)	|		|		|		|		|		|	*	|		|
+|	[Neo4j](neo4j.com)	|		|		|	*	|		|		|		|		|
+|	[Neptune.ai](neptune.ai)	|		|		|		|		|		|		|	*	|
+|	[NVIDIA NGC](ngc.nvidia.com)	|		|		|		|		|		|	*	|		|
+|	[ONNX Model Zoo](onnx.ai/models)	|		|		|		|		|		|	*	|		|
+|	[OpenAgents (OpenAI)](openagents.dev)	|		|	*	|		|		|		|		|		|
+|	[OpenAI API](platform.openai.com)	|		|		|		|		|	*	|		|		|
+|	[osBrain](github.com/opensistemas/osbrain)	|		|	*	|		|		|		|		|		|
+|	[Oxigraph](oxigraph.org)	|		|		|	*	|		|		|		|		|
+|	[PADE (Python Agent DEvelopment framework)](github.com/grei-ufc/pade)	|		|	*	|		|		|		|		|		|
+|	[Papers with Code](paperswithcode.com)	|		|	*	|		|		|		|		|		|
+|	[Pinecone](pinecone.io)	|		|		|		|		|		|	*	|		|
+|	[Python](python.org)	|		|		|	*	|		|		|		|		|
+|	[PyTorch Hub](pytorch.org/hub)	|		|	*	|		|		|		|		|		|
+|	[Qdrant](qdrant.tech)	|		|		|		|		|		|	*	|		|
+|	[RDF4J (Eclipse)](rdf4j.org)	|		|		|	*	|		|		|		|		|
+|	[ReAct-style Agents](github.com/google-deepmind/react)	|		|		|	*	|		|		|		|		|
+|	[Redis Vector](redis.io/docs/stack/redisearch)	|		|	*	|		|		|		|		|		|
+|	[SageMaker MLOps](aws.amazon.com/sagemaker)	|		|		|	*	|		|		|		|		|
+|	[scikit-learn](scikit-learn.org)	|		|		|		|		|		|		|	*	|
+|	[Semantic Kernel](aka.ms/semantickernel)	|		|		|	*	|		|		|		|		|
+|	[SPADE (Smart Python Agent Development Environment)](spade-mas.readthedocs.io)	|		|	*	|		|		|		|		|		|
+|	[Spark MLlib](spark.apache.org/mllib)	|		|	*	|		|		|		|		|		|
+|	[SPARQLWrapper](sparqlwrapper.readthedocs.io)	|		|		|	*	|		|		|		|		|
+|	[Stardog](stardog.com)	|		|		|	*	|		|		|		|		|
+|	[TensorFlow](tensorflow.org)	|		|		|	*	|		|		|		|		|
+|	[TensorFlow Hub](tfhub.dev)	|		|		|	*	|		|		|		|		|
+|	[TigerGraph](tigergraph.com)	|		|		|		|		|		|	*	|		|
+|	[uAgents](github.com/fetchai/uAgents)	|		|		|	*	|		|		|		|		|
+|	[Virtuoso](virtuoso.openlinksw.com)	|		|	*	|		|		|		|		|		|
+|	[Weaviate](weaviate.io)	|		|		|	*	|	*	|		|		|		|
+|	[Weights & Biases (W&B)](wandb.ai)	|		|		|	*	|		|		|		|		|
+|	[Wikidata](wikidata.org)	|		|		|	*	|		|		|		|		|
+|	[YAGO](yago-knowledge.org)	|		|		|		|		|		|		|	*	|
+|	[ZenML](zenml.io)	|		|		|		|		|		|	*	|		|
+|	[Zilliz / Milvus](milvus.io)	|		|		|		|		|		|	*	|		|
+|	[ZenML]()	|		|		|		|		|		|		|	*	|
+|	[Zilliz / Milvus]()	|		|		|	*	|		|		|		|		|
 
-## Agent Frameworks
 
-{title="Agent frameworks product table", width="wide"}
-|    Product    |    Description    |
-|---------------|---------------|
-|    [Agent Factory](https://sourceforge.net/projects/agentfactory)    |    The Agent Factory Framework is an open source collection of tools, platforms, and languages that support the development and deployment of multi-agent systems.    |
-|    [Agent Met4FoF](https://www.ptb.de/empir2018/met4fof/software/multi-agent-framework-agentmet4fof)    |    Metrology for the Factory of the Future    |
-|    [Cougaar (Cognitive Agent Architecture)](https://www.cougaarsoftware.com)    |    Cougaar is a java-based architecture for the construction of large-scale distributed agent-based applications    |
-|    [JaCaMo](http://jacamo.sourceforge.net)    |    JaCaMo is a framework for Multi-Agent Programming    |
-|    [JADE (Java Agent DEvelopment Framework)](https://jade.tilab.com)    |    JADE (Java Agent DEvelopment Framework) is a software Framework fully implemented in the Java language. It simplifies the implementation of multi-agent systems through a middle-ware    |
-|    [Jadex BDI Agent System](http://sourceforge.net/projects/jadex)    |    Jadex is a Belief Desire Intention (BDI) reasoning engine that allows for programming intelligent software agents in XML and Java    |
-|    [JIAC (Java-based Intelligent Agent Componentware)](http://www.jiac.de/agent-frameworks)    |    JIAC (Java-based Intelligent Agent Componentware) is a Java-based agent architecture and framework that eases the development and the operation of large-scale, distributed applications and services.     |
-|    [Mesa](https://github.com/projectmesa/mesa/)    |    Mesa is an Apache2 licensed agent-based modeling (or ABM) framework in Python. It allows users to quickly create agent-based models using built-in core components (such as spatial grids and agent schedulers) or customized implementations; visualize them using a browser-based interface; and analyze their results using Python's data analysis tools. Its goal is to be the Python 3-based alternative to NetLogo, Repast, or MASON.    |
-|    [osBrain](https://github.com/opensistemas-hub/osbrain)    |    osBrain is a general-purpose multi-agent system module written in Python and developed by OpenSistemas.    |
-|    [PADE (Python Agent DEvelopment framework)](https://pade.readthedocs.io)    |    PADE is a framework for development, execution and management of multi-agent systems environments of distributed computation.    |
-|    [SPADE (Smart Python Agent Development Environment)](https://github.com/javipalanca/spade)    |    A multi-agent systems platform written in Python and based on instant messaging (XMPP).    |
+
 
 ## Information Retrieval
 
 {title="Information retrieval product table", width="wide"}
-|    Product    |    Search engine library    |    Indexer    |    Crawler    |    Search server platform    |    Search web service    |
-|---------------|:---------------:|:---------------:|:---------------:|:---------------:|:---------------:|
-|    [Apache Lucene](http://lucene.apache.org)    |        |    *    |        |        |        |
-|    [Apache Nutch](http://nutch.apache.org)    |        |        |    *    |        |        |
-|    [Apache Solr](https://solr.apache.org)    |    *    |    *    |        |    *    |        |
-|    [Elastic Search](https://www.elastic.co)    |    *    |    *    |        |    *    |        |
-|    [Google Search](https://www.google.com)    |        |        |        |        |    *    |
-|    [Yahoo Search](https://yahoo.com)    |        |        |        |        |    *    |
-|    [Yandex Search](https://www.yandex.com)    |        |        |        |        |    *    |
+|	Product	|	Retrieval engine	|	Crawler	|	Retrieval server	|	Retrieval web service	|
+|---------------|:---------------:|:---------------:|:---------------:|:---------------:|
+|	[Annoy](https://github.com/spotify/annoy)	|	*	|		|		|		|
+|	[Apache Lucene](https://lucene.apache.org/)	|	*	|		|		|		|
+|	[Apache Lucene.net](https://lucenenet.apache.org/)	|	*	|		|		|		|
+|	[Apache Nutch](https://nutch.apache.org/)	|		|	*	|		|		|
+|	[Apache PyLucene](https://lucene.apache.org/pylucene/)	|	*	|		|		|		|
+|	[Apache Solr](https://solr.apache.org/)	|	*	|		|	*	|		|
+|	[Bing](https://www.bing.com/)	|		|		|		|	*	|
+|	[Elastic Search](https://www.elastic.co/elasticsearch)	|	*	|		|	*	|		|
+|	[FAISS (Facebook AI)](https://faiss.ai/)	|	*	|		|		|		|
+|	[Google Search](https://search.google.com/)	|		|		|		|	*	|
+|	[MeiliSearch](https://www.meilisearch.com/)	|	*	|		|		|		|
+|	[Milvus](https://milvus.io/)	|	*	|		|		|		|
+|	[Pinecone](https://www.pinecone.io/)	|	*	|		|		|		|
+|	[Qdrant](https://qdrant.tech/)	|	*	|		|		|		|
+|	[Sphinx Search](https://sphinxsearch.com/)	|	*	|		|		|		|
+|	[Vespa](https://vespa.ai/)	|	*	|		|		|		|
+|	[Weaviate](https://weaviate.io/)	|	*	|		|		|		|
+|	[Whoosh](https://whoosh.readthedocs.io/)	|	*	|		|		|		|
+|	[Yahoo Search](https://search.yahoo.com/)	|		|		|		|	*	|
+|	[Yandex Search](https://yandex.com/)	|		|		|		|	*	|
+
+
 
 ## Natural Language Processing
 
 {title="Natural language processing product table", width="wide"}
-|    Product    |    NLP building block    |    NLP framework    |    NLP web service    |    NLP resource    |
-|---------------|:---------------:|:---------------:|:---------------:|:---------------:|
-|    [Amazon Alexa Voice service](https://developer.amazon.com/de/alexa-voice-service)    |        |        |    *    |        |
-|    [Amazon Comprehend](https://aws.amazon.com/de/comprehend)    |        |        |    *    |        |
-|    [Apache OpenNLP](https://opennlp.apache.org)    |    *    |        |        |        |
-|    [Apache UIMA (Unstructured Information Management Architecture)](https://uima.apache.org)    |        |    *    |        |        |
-|    [Aylien](https://aylien.com)    |        |        |    *    |        |
-|    [Botkit](https://github.com/howdyai/botkit)    |        |    *    |        |        |
-|    [ChatterBot](https://github.com/gunthercox/ChatterBot)    |    *    |    *    |        |        |
-|    [Chrome Web Speech API](https://developers.google.com/web/updates/2013/01/Voice-Driven-Web-Apps-Introduction-to-the-Web-Speech-API?hl=en)    |        |    *    |        |        |
-|    [CogCompNLP](https://github.com/CogComp/cogcomp-nlp)    |    *    |        |        |        |
-|    [compromise](https://www.npmjs.com/package/compromise)    |    *    |        |        |        |
-|    [Dandelion API](https://dandelion.eu)    |        |        |    *    |        |
-|    [DBpediaSpotlight](https://www.dbpedia-spotlight.org)    |        |        |    *    |        |
-|    [DeepL](https://www.deepl.com/translator)    |        |        |    *    |        |
-|    [GATE (General Architecture for Text Engineering)](https://gate.ac.uk)    |        |    *    |        |        |
-|    [Gensim](https://github.com/RaRe-Technologies/gensim)    |    *    |        |        |        |
-|    [Germanet](http://www.sfs.uni-tuebingen.de/GermaNet)    |        |        |        |    *    |
-|    [Google Cloud Natural Language API](https://cloud.google.com/natural-language)    |        |        |    *    |        |
-|    [Google Dialogflow](https://dialogflow.com)    |    *    |        |    *    |        |
-|    [Google Translate API](https://cloud.google.com/translate)    |        |        |    *    |        |
-|    [IBM Watson NLP](https://cloud.ibm.com/catalog/services/natural-language-understanding)    |        |        |    *    |        |
-|    [Microsoft translator API](https://www.microsoft.com/en-us/translator/business/translator-api)    |        |        |    *    |        |
-|    [MonkeyLearn](https://monkeylearn.com)    |        |        |    *    |        |
-|    [MS Azure Speech Services](https://azure.microsoft.com/de-de/services/cognitive-services/speech)    |        |        |    *    |        |
-|    [MS Bot Framework](https://dev.botframework.com)    |        |    *    |    *    |        |
-|    [natural ](https://www.npmjs.com/package/natural)    |    *    |        |        |        |
-|    [Natural Language Toolkit](https://www.nltk.org)    |        |    *    |        |        |
-|    [NLP.js](https://www.npmjs.com/package/node-nlp)    |    *    |        |        |        |
-|    [Ontotext](https://www.ontotext.com)    |        |        |    *    |        |
-|    [OpenAI GPT-3](https://openai.com/api)    |        |        |    *    |        |
-|    [Pandorabots](https://home.pandorabots.com)    |    *    |    *    |        |        |
-|    [Pytorch NLP](https://pytorchnlp.readthedocs.io)    |    *    |        |        |        |
-|    [RASA](https://rasa.com)    |    *    |    *    |        |        |
-|    [retext](https://www.npmjs.com/package/retext)    |    *    |        |        |        |
-|    [scikit-learn](https://scikit-learn.org)    |    *    |        |        |        |
-|    [spaCy](https://spacy.io)    |    *    |    *    |    *    |    *    |
-|    [Spark MLlib](https://spark.apache.org/mllib)    |    *    |        |        |        |
-|    [Stanford CoreNLP](https://stanfordnlp.github.io/CoreNLP)    |    *    |        |        |        |
-|    [TensorFlow](https://www.tensorflow.org)    |    *    |        |        |        |
-|    [textacy](https://readthedocs.org/projects/textacy)    |    *    |        |        |        |
-|    [TextBlob](https://textblob.readthedocs.io)    |    *    |        |        |        |
-|    [TextRazor](https://www.textrazor.com)    |    *    |        |    *    |        |
-|    [Unbabel](https://unbabel.com)    |        |        |    *    |        |
-|    [Wikimeta API](https://www.programmableweb.com/api/wikimeta)    |        |        |    *    |        |
-|    [Wordnet](http://wordnet.princeton.edu)    |        |        |        |    *    |
-|    [Yandex Translate API](https://api.yandex.com/translate)    |        |        |    *    |        |
+|	Product	|	NLP library	|	NLP framework	|	NLP web service	|	NLP resource	|	Vector store	|
+|---------------|:---------------:|:---------------:|:---------------:|:---------------:|:---------------:|
+|	[Agency Swarm](agency-swarm.ai)	|		|	*	|		|		|		|
+|	[AllenNLP](allenai.org/allennlp)	|		|	*	|		|		|		|
+|	[Amazon Alexa Voice Service](developer.amazon.com/alexa)	|		|		|	*	|		|		|
+|	[Amazon Comprehend](aws.amazon.com/comprehend)	|		|		|	*	|		|		|
+|	[Apache OpenNLP](opennlp.apache.org)	|	*	|		|		|		|		|
+|	[Apache UIMA](uima.apache.org)	|		|	*	|		|		|		|
+|	[AutoGen](microsoft.github.io/autogen)	|		|	*	|		|		|		|
+|	[Aylien](aylien.com)	|		|		|	*	|		|		|
+|	[BERT](huggingface.co/docs/transformers/model_doc/bert)	|		|		|		|	*	|		|
+|	[Botkit](getbotkit.com)	|		|	*	|		|		|		|
+|	[ChatterBot](pypi.org/project/ChatterBot)	|	*	|	*	|		|		|		|
+|	[Chroma](trychroma.com)	|		|		|		|		|	*	|
+|	[Chrome Web Speech API](developer.mozilla.org/Web_Speech_API)	|		|	*	|		|		|		|
+|	[Claude Opus](anthropic.com/claude/opus)	|		|		|		|	*	|		|
+|	[CogCompNLP](github.com/CogComp/cogcomp-nlp)	|	*	|		|		|		|		|
+|	[compromise](github.com/spencermountain/compromise)	|	*	|		|		|		|		|
+|	[CrewAI](crewai.com)	|		|	*	|		|		|		|
+|	[Dandelion API](dandelion.eu)	|		|		|	*	|		|		|
+|	[DBpediaSpotlight](dbpedia-spotlight.org)	|		|		|	*	|		|		|
+|	[Deep Lake](deeplake.ai)	|		|		|		|		|	*	|
+|	[DeepL](deepl.com)	|		|		|	*	|		|		|
+|	[DeepSeek](deepseek.com)	|		|		|		|	*	|		|
+|	[FAISS](faiss.ai)	|		|		|		|		|	*	|
+|	[GATE](gate.ac.uk)	|		|	*	|		|		|		|
+|	[Gemini](deepmind.google/technologies/gemini)	|		|		|	*	|	*	|		|
+|	[Gensim](radimrehurek.com/gensim)	|	*	|		|		|		|		|
+|	[Germanet](uni-tuebingen.de/en/1056)	|		|		|		|	*	|		|
+|	[Google Cloud Natural Language API](cloud.google.com/natural-language)	|		|		|	*	|		|		|
+|	[Google Dialogflow](dialogflow.cloud.google.com)	|	*	|		|	*	|		|		|
+|	[Google Translate API](cloud.google.com/translate)	|		|		|	*	|		|		|
+|	[GPT](openai.com/gpt)	|		|		|	*	|	*	|		|
+|	[gpt4all](gpt4all.io)	|		|	*	|		|	*	|		|
+|	[Grok](x.ai)	|		|		|		|	*	|		|
+|	[Haystack](haystack.deepset.ai)	|		|	*	|		|		|		|
+|	[Hugging Face Transformers](huggingface.co/transformers)	|		|	*	|		|		|		|
+|	[IBM Watson NLP](ibm.com/watson-natural-language-understanding)	|		|		|	*	|		|		|
+|	[Kairntech](kairntech.com)	|		|	*	|		|		|		|
+|	[Langchain](langchain.com)	|		|	*	|		|		|		|
+|	[LLaMA](ai.meta.com/llama)	|		|		|	*	|	*	|		|
+|	[LlamaIndex](llamaindex.ai)	|		|	*	|		|		|		|
+|	[Microchain](github.com/microchain-ai/microchain)	|		|	*	|		|		|		|
+|	[Microsoft Translator API](microsoft.com/translator)	|		|		|	*	|		|		|
+|	[Milvus](milvus.io)	|		|		|		|		|	*	|
+|	[Mistral](mistral.ai)	|		|		|		|	*	|		|
+|	[MonkeyLearn](monkeylearn.com)	|		|		|	*	|		|		|
+|	[MS Azure Speech Services](azure.microsoft.com/speech-services)	|		|		|	*	|		|		|
+|	[MS Bot Framework](dev.botframework.com)	|		|	*	|	*	|		|		|
+|	[natural](github.com/NaturalNode/natural)	|	*	|		|		|		|		|
+|	[Natural Language Toolkit (NLTK)](nltk.org)	|		|	*	|		|		|		|
+|	[NLP.js](github.com/axa-group/nlp.js)	|	*	|		|		|		|		|
+|	[Nova](novalabs.ai)	|		|		|		|	*	|		|
+|	[ollama](ollama.com)	|		|	*	|		|	*	|		|
+|	[Ontotext](ontotext.com)	|		|		|	*	|		|		|
+|	[OpenAI GPT-3](openai.com/research/gpt-3)	|		|		|	*	|		|		|
+|	[OpenNLP](opennlp.apache.org)	|		|	*	|		|		|		|
+|	[Orq.ai](orq.ai)	|		|	*	|		|		|		|
+|	[Pandorabots](pandorabots.com)	|	*	|	*	|		|		|		|
+|	[Phi](phi-1.github.io)	|		|		|		|	*	|		|
+|	[Pinecone](pinecone.io)	|		|		|		|		|	*	|
+|	[Pytorch NLP](github.com/torchtext/torchtext)	|	*	|		|		|		|		|
+|	[Qdrant](qdrant.tech)	|		|		|		|		|	*	|
+|	[Qwen](qwen.aliyun.com)	|		|		|		|	*	|		|
+|	[RASA](rasa.com)	|	*	|	*	|		|		|		|
+|	[retext](github.com/retextjs/retext)	|	*	|		|		|		|		|
+|	[ScaNN](github.com/google-research/scann)	|		|		|		|		|	*	|
+|	[scikit-learn](scikit-learn.org)	|	*	|		|		|		|		|
+|	[Semantic Kernel](aka.ms/semantic-kernel)	|		|	*	|		|		|		|
+|	[spaCy](spacy.io)	|	*	|	*	|	*	|	*	|		|
+|	[Spark MLlib](spark.apache.org/mllib)	|	*	|		|		|		|		|
+|	[Speechnotes](speechnotes.co)	|		|		|	*	|		|		|
+|	[Stanford CoreNLP](nlp.stanford.edu/software/corenlp.shtml)	|	*	|		|		|		|		|
+|	[TaskWeaver](taskweaver.ai)	|		|	*	|		|		|		|
+|	[TensorFlow](tensorflow.org)	|	*	|		|		|		|		|
+|	[textacy](textacy.readthedocs.io)	|	*	|		|		|		|		|
+|	[TextBlob](textblob.readthedocs.io)	|	*	|		|		|		|		|
+|	[TextRazor](textrazor.com)	|	*	|		|	*	|		|		|
+|	[Unbabel](unbabel.com)	|		|		|	*	|		|		|
+|	[Vespa](vespa.ai)	|		|		|		|		|	*	|
+|	[Weaviate](weaviate.io)	|		|		|		|		|	*	|
+|	[Wikimeta API](api.wikimedia.org)	|		|		|	*	|		|		|
+|	[Wordnet](wordnet.princeton.edu)	|		|		|		|	*	|		|
+|	[Yandex Translate API](yandex.cloud/en/services/translate)	|		|		|	*	|		|		|
+
+
+
 
 ## Computer Vision
 
 {title="Computer vision product table", width="wide"}
-|    Product    |    CV/ML library    |        CV web service    |    CV Pre-trained model    |
-|---------------|:---------------:|:---------------:|:---------------:|
-|    [Amazon Rekognition](https://aws.amazon.com/rekognition)    |        |    *    |        |
-|    [Autotag](http://autokeyword.me/demo/?key=common)    |        |    *    |        |
-|    [BetaFace](http://www.betaface.com)    |        |    *    |        |
-|    [BoofCV](http://boofcv.org)    |    *    |        |        |
-|    [Caffe](https://caffe.berkeleyvision.org)    |    *    |        |        |
-|    [Clarifai](http://www.clarifai.com)    |        |    *    |        |
-|    [CUDA Toolkit](https://developer.nvidia.com/cuda-toolkit)    |    *    |        |        |
-|    [Deci](https://deci.ai)    |        |    *    |        |
-|    [DeepFace](https://github.com/serengil/deepface)    |    *    |        |        |
-|    [DenseNet](https://keras.io/applications/#densenet)    |        |        |    *    |
-|    [encog](http://www.heatonresearch.com/encog)    |    *    |        |        |
-|    [Fastai](https://www.fast.ai)    |    *    |        |        |
-|    [Google Cloud Vision API](https://cloud.google.com/vision)    |        |    *    |        |
-|    [IBM Watson Visual Recognition](https://www.ibm.com/watson/services/visual-recognition)    |        |    *    |        |
-|    [Inception](https://keras.io/applications/#inceptionv3)    |        |        |    *    |
-|    [Keras](https://keras.io)    |    *    |        |        |
-|    [Labelbox](https://labelbox.com)    |        |    *    |        |
-|    [MATLAB Computer Vision Toolbox](https://www.mathworks.com/products/computer-vision.html)    |        |        |        |
-|    [MobileNet](https://keras.io/applications/#mobilenetv2)    |        |        |    *    |
-|    [MS Azure Computer Vision](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision)    |        |    *    |        |
-|    [Nanonets](https://nanonets.com)    |        |    *    |        |
-|    [NASNet](https://keras.io/applications/#nasnet)    |        |        |    *    |
-|    [Neptune](https://neptune.ai)    |        |    *    |        |
-|    [Neuroph (Java Neural Network Framework)](http://neuroph.sourceforge.net)    |    *    |        |        |
-|    [OpenCV](http://opencv.org)    |    *    |        |        |
-|    [OpenVINO](https://docs.openvino.ai)    |    *    |        |        |
-|    [RapidMiner](https://rapidminer.com)    |    *    |        |        |
-|    [ResNet](https://keras.io/applications/#resnet)    |        |        |    *    |
-|    [Scikit-image](https://scikit-image.org)    |    *    |        |        |
-|    [Segments](https://segments.ai)    |        |    *    |        |
-|    [Sentisight](https://www.sentisight.ai)    |        |    *    |        |
-|    [ShaipCloud](https://www.shaip.com/shaipcloud-platform)    |        |    *    |        |
-|    [SimpleCV](http://simplecv.org)    |    *    |        |        |
-|    [Supervisely](https://supervise.ly)    |        |    *    |        |
-|    [SURF](http://people.ee.ethz.ch/~surf)    |    *    |        |        |
-|    [TensorFlow](https://www.tensorflow.org)    |    *    |        |        |
-|    [Theano](https://pypi.org/project/Theano)    |    *    |        |        |
-|    [tineye](https://www.tineye.com)    |        |    *    |        |
-|    [Torch](http://torch.ch)    |    *    |        |        |
-|    [VGG19](https://keras.io/applications/#vgg19)    |        |        |    *    |
-|    [Viso Suite](https://viso.ai)    |        |    *    |        |
-|    [YOLO](https://viso.ai/deep-learning/yolov3-overview)    |    *    |        |        |
+|	Product	|	CV/ML library	|	CV/ML API	|	CV web service	|	CV Pre-trained model	|
+|---------------|:---------------:|:---------------:|:---------------:|:---------------:|
+|	[Amazon Rekognition](aws.amazon.com/rekognition)	|		|		|	*	|		|
+|	[Arya.ai Passive Face Liveness API](arya.ai/apex-apis/liveness-detection-api)	|		|	*	|	*	|		|
+|	[Autotag](github.com/jamerst/AutoTag)	|		|		|	*	|		|
+|	[BetaFace](betaface.com)	|		|		|	*	|		|
+|	[BoofCV](boofcv.org)	|	*	|		|		|		|
+|	[Caffe](caffe.berkeleyvision.org)	|	*	|		|		|		|
+|	[Clarifai](clarifai.com)	|		|		|	*	|		|
+|	[ControlNet](github.com/lllyasviel/ControlNet)	|		|		|		|	*	|
+|	[CUDA Toolkit](developer.nvidia.com/cuda-toolkit)	|	*	|		|		|		|
+|	[CycleGAN](junyanz.github.io/CycleGAN)	|		|		|		|	*	|
+|	[DALL·E](openai.com/dall-e)	|		|		|		|	*	|
+|	[Deci](deci.ai)	|		|		|	*	|		|
+|	[DeepFace](github.com/serengil/deepface)	|	*	|		|		|		|
+|	[DeepSeek Janus-Pro](deepseek.com)	|		|		|		|	*	|
+|	[DenseNet](github.com/liuzhuang13/DenseNet)	|		|		|		|	*	|
+|	[EfficientNet](github.com/tensorflow/tpu/tree/master/models/official/efficientnet)	|		|		|		|	*	|
+|	[encog](heatonresearch.com/encog)	|	*	|		|		|		|
+|	[Fastai](fast.ai)	|	*	|		|		|		|
+|	[Faster R-CNN](github.com/rbgirshick/py-faster-rcnn)	|		|		|		|	*	|
+|	[Google Cloud Vision API](cloud.google.com/vision)	|		|		|	*	|		|
+|	[Hugging Face Transformers](huggingface.co/transformers)	|		|	*	|	*	|	*	|
+|	[IBM Watson Visual Recognition](ibm.com/watson/visual-recognition)	|		|		|	*	|		|
+|	[Inception](github.com/tensorflow/models/tree/master/research/slim)	|		|		|		|	*	|
+|	[KerasCV](keras.io/keras_cv)	|	*	|	*	|		|		|
+|	[Labelbox](labelbox.com)	|		|		|	*	|		|
+|	[LLaVA](llava-vl.github.io)	|		|		|		|	*	|
+|	[MATLAB Computer Vision Toolbox](mathworks.com/products/computer-vision.html)	|		|		|		|		|
+|	[Midjourney](midjourney.com)	|		|		|	*	|		|
+|	[MobileNet](github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet)	|		|		|		|	*	|
+|	[MS Azure Computer Vision](azure.microsoft.com/en-us/services/cognitive-services/computer-vision)	|		|		|	*	|		|
+|	[Nanonets](nanonets.com)	|		|		|	*	|		|
+|	[NASNet](github.com/tensorflow/models/tree/master/research/slim/nets/nasnet)	|		|		|		|	*	|
+|	[Neptune](neptune.ai)	|		|		|	*	|		|
+|	[Neuroph](neuroph.sourceforge.net)	|	*	|		|		|		|
+|	[OpenCV](opencv.org)	|	*	|		|		|		|
+|	[OpenVINO](docs.openvino.ai)	|	*	|	*	|		|		|
+|	[Pix2Pix](phillipi.github.io/pix2pix)	|		|		|		|	*	|
+|	[ResNet](github.com/KaimingHe/deep-residual-networks)	|		|		|		|	*	|
+|	[RetinaNet](github.com/fizyr/keras-retinanet)	|		|		|		|	*	|
+|	[Runway ML](runwayml.com)	|		|	*	|	*	|		|
+|	[Scikit-image](scikit-image.org)	|	*	|		|		|		|
+|	[Segments](segments.ai)	|		|		|	*	|		|
+|	[Sentisight](sentisight.ai)	|		|		|	*	|		|
+|	[ShaipCloud](shaip.com)	|		|		|	*	|		|
+|	[SimpleCV](github.com/sightmachine/SimpleCV)	|	*	|		|		|		|
+|	[Stable Diffusion](stability.ai)	|		|		|		|	*	|
+|	[StyleGAN](github.com/NVlabs/stylegan)	|		|		|		|	*	|
+|	[Supervisely](supervise.ly)	|		|		|	*	|		|
+|	[SURF](opencv.org (part of OpenCV))	|	*	|		|		|		|
+|	[TensorFlow](tensorflow.org)	|	*	|		|		|		|
+|	[Theano](github.com/Theano/Theano)	|	*	|		|		|		|
+|	[tineye](tineye.com)	|		|		|	*	|		|
+|	[Torch](pytorch.org)	|	*	|		|		|		|
+|	[UNet](github.com/milesial/Pytorch-UNet)	|		|		|		|	*	|
+|	[VGG19](github.com/machrisaa/tensorflow-vgg)	|		|		|		|	*	|
+|	[Viso Suite](viso.ai)	|		|	*	|	*	|		|
+|	[YOLO](github.com/AlexeyAB/darknet)	|	*	|		|		|		|
+
+
+
+
 
 ## Complex Event Processing
 
 {title="CEP product table", width="wide"}
 |    Product    |    Message broker    |    CEP engine    |
 |---------------|:---------------:|:---------------:|
-|    [Amazon Kinesis](https://aws.amazon.com/kinesis)    |    *    |        |
-|    [Apache ActiveMQ](http://activemq.apache.org)    |    *    |        |
-|    [Apache Flink](https://flink.apache.org)    |        |    *    |
-|    [Apache Kafka](https://kafka.apache.org)    |    *    |        |
-|    [Apache NiFi](https://nifi.apache.org)    |        |        |
-|    [Apache Qpid](https://qpid.apache.org)    |    *    |        |
-|    [Apache Spark](https://spark.apache.org)    |        |        |
-|    [Apache Storm](https://storm.apache.org)    |        |    *    |
-|    [Apache Zeppelin ](https://zeppelin.apache.org/)    |        |        |
-|    [Drools Fusion](https://www.drools.org)    |        |    *    |
-|    [Eclipse Mosquitto MQTT Broker](https://mosquitto.org)    |    *    |        |
-|    [Esper](http://www.espertech.com/esper)    |        |    *    |
-|    [EVAM Streaming Analytics](http://evam.com)    |        |    *    |
-|    [Fuse Message Broker](https://www.jboss.org/products/amq.html)    |    *    |        |
-|    [IBM MQ](https://www.ibm.com/products/mq)    |    *    |        |
-|    [Informatica RulePoint](https://www.informatica.com/products/data-integration/real-time-integration/rulepoint-complex-event-processing.html)    |        |    *    |
-|    [JBoss Messaging](https://jbossmessaging.jboss.org)    |    *    |        |
-|    [Microsoft StreamInsight](https://msdn.microsoft.com/en-us/library/ee391416(v=sql.111).aspx)    |        |    *    |
-|    [MS Azure Stream Analytics](https://docs.microsoft.com/de-de/azure/stream-analytics/stream-analytics-introduction)    |        |    *    |
-|    [Open Message Queue](https://javaee.github.io/openmq)    |    *    |        |
-|    [Oracle Stream Analytics](http://www.oracle.com/technetwork/middleware/complex-event-processing/overview/index.html)    |    *    |    *    |
-|    [RabbitMQ](https://www.rabbitmq.com)    |    *    |        |
-|    [Redis](https://redis.io)    |    *    |        |
-|    [SAG Apama](http://apamacommunity.com)    |        |    *    |
-|    [SAP ESP](https://www.sap.com/products/complex-event-processing.html)    |        |    *    |
-|    [SAS ESP](https://www.sas.com/en_us/software/event-stream-processing.html)    |        |    *    |
-|    [Siddhi](http://siddhi.sourceforge.net)    |        |    *    |
-|    [TIBCO](https://www.tibco.com/products/event-driven-applications)    |    *    |    *    |
-|    [VIATRA-CEP](https://wiki.eclipse.org/VIATRA/CEP)    |        |    *    |
-|    [WebSphere Business Events](https://www-01.ibm.com/software/integration/wbe)    |    *    |    *    |
-|    [WSO2 Stream Processor](https://docs.wso2.com/display/SP400/Stream+Processor+Documentation)    |        |    *    |
-|    [XSLT Streaming](https://www.w3.org/TR/xslt-30/#streaming-concepts)    |        |        |
+|	[ActiveMQ Artemis](activemq.apache.org/artemis)	|	*	|		|
+|	[Amazon Kinesis](aws.amazon.com/kinesis)	|	*	|		|
+|	[Apache ActiveMQ](activemq.apache.org)	|	*	|		|
+|	[Apache Flink](flink.apache.org)	|		|	*	|
+|	[Apache Kafka](kafka.apache.org)	|	*	|		|
+|	[Apache NiFi](nifi.apache.org)	|		|		|
+|	[Apache Pulsar](pulsar.apache.org)	|	*	|		|
+|	[Apache Qpid](qpid.apache.org)	|	*	|		|
+|	[Apache Spark](spark.apache.org)	|		|		|
+|	[Apache Storm](storm.apache.org)	|		|	*	|
+|	[Apache Zeppelin](zeppelin.apache.org)	|		|		|
+|	[Azure Event Hubs](azure.microsoft.com/event-hubs)	|	*	|		|
+|	[Drools Fusion](drools.org)	|		|	*	|
+|	[Eclipse Mosquitto MQTT Broker](mosquitto.org)	|	*	|		|
+|	[Esper](espertech.com)	|		|	*	|
+|	[EVAM Streaming Analytics](evam.com)	|		|	*	|
+|	[Faust](faust.readthedocs.io)	|	*	|		|
+|	[IBM MQ](ibm.com/products/mq)	|	*	|		|
+|	[Informatica RulePoint](informatica.com)	|		|	*	|
+|	[JBoss Messaging](github.com/jboss/jboss-messaging)	|	*	|		|
+|	[LimeCEP](lime.software)	|		|	*	|
+|	[MS Azure Stream Analytics](azure.microsoft.com/stream-analytics)	|		|	*	|
+|	[MS StreamInsight](docs.microsoft.com/streaminsight)	|		|	*	|
+|	[NATS](nats.io)	|	*	|		|
+|	[Open Message Queue](javaee.github.io/openmq)	|	*	|		|
+|	[OpenCEP](github.com/OpenCEP)	|		|	*	|
+|	[Oracle Stream Analytics](oracle.com/middleware/technologies/stream-analytics.html)	|	*	|	*	|
+|	[osBrain](github.com/HelgeCPH/osbrain)	|	*	|		|
+|	[PySiddhi](github.com/siddhi-io/PySiddhi)	|	*	|	*	|
+|	[RabbitMQ](rabbitmq.com)	|	*	|		|
+|	[Redis](redis.io)	|	*	|		|
+|	[Redpanda](redpanda.com)	|	*	|		|
+|	[RL4CEP](github.com/IBM/rl4cep)	|		|	*	|
+|	[SAG Apama](softwareag.com/apama)	|		|	*	|
+|	[SAP ESP](sap.com)	|		|	*	|
+|	[SAS ESP](support.sas.com/event-stream-processing)	|		|	*	|
+|	[Siddhi](siddhi.io)	|		|	*	|
+|	[Streams for Apache Kafka](kafka.apache.org/documentation/streams)	|	*	|		|
+|	[TIBCO](tibco.com)	|	*	|	*	|
+|	[VAST Event Broker](vastdata.com/blog/announcing-the-vast-event-broker)	|	*	|		|
+|	[VIATRA-CEP](eclipse.dev/viatra)	|		|	*	|
+|	[WebSphere Business Events](ibm.com/docs/en/websphere-business-events)	|	*	|	*	|
+|	[WSO2 Stream Processor](github.com/wso2/product-sp)	|		|	*	|
+|	[XSLT Streaming](w3.org/TR/xslt-30)	|		|		|
+|	[ZeroMQ](zeromq.org)	|	*	|		|
+
