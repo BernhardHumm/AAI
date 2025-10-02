@@ -24,15 +24,15 @@ ML approaches are used in numerous applications in daily use. Here are a few exa
 
 *Conversational AI* has become a transformative interface across industries and daily life. It powers virtual assistants, customer support bots, tutoring systems, and productivity tools—enabling natural, human-like interaction through text or voice. Users rely on it to draft emails, answer questions, summarize documents, and even write code. 
 They are based on large language models (LLM) like GPT and Gemini. They are trained on vast amounts of texts. The rise of multimodal models now extends usage to image and audio interpretation. 
-See Fig. 2.x.
-![Fig. 2.1: LLM chatbot](images/LLM_chatbot.png)
+See Fig. 2.2.
+![Fig. 2.2: LLM chatbot](images/LLM_chatbot.png)
 
 #### Generative AI
 
 Generative AI for images and videos has revolutionized visual content creation, making high-quality media accessible to professionals and hobbyists alike. Tools like DALL·E, Midjourney, and Runway allow users to generate photorealistic or stylized visuals from simple text prompts, while video platforms like Pika and Synthesia enable dynamic storytelling without cameras or actors. 
 Like LLMs, those models are trained on vast amounts of images and videos. 
-See Fig. 2.x.
-![Fig. 2.1: Generative AI system](images/GenAI_system.png)
+See Fig. 2.3.
+![Fig. 2.3: Generative AI system](images/GenAI_system.png)
 
 
 
@@ -40,27 +40,27 @@ See Fig. 2.x.
 #### Stock Market Analysis and Prediction
 
 Consider the task of predicting the development of shares on the stock market in order to recommend sales and purchases. 
-See Fig. 2.2.
+See Fig. 2.4.
 
-![Fig. 2.2: Stock market analysis](images/Stock_Market_Analysis.png)
+![Fig. 2.4: Stock market analysis](images/Stock_Market_Analysis.png)
 
 The prediction model is continuously trained with the history of share values. It is used for predicting the development of shares based on the current share values. The predictions can then be used to create recommendations. 
 
 #### Fraud Detection
 
 Consider the task of detecting fraud in financial transactions, e.g., suspicious credit card payments. 
-See Fig. 2.3.
+See Fig. 2.5.
 
-![Fig. 2.3: Fraud detection](images/Fraud_Detection.png)
+![Fig. 2.5: Fraud detection](images/Fraud_Detection.png)
 
 The overall process is similar to spam classification. The ML application  is trained with manually classified samples and then used to automatically identify fraud. Human clerks validate whether, in fact, there is a case of fraud or not. Manual corrections of the automatic classification results are used to further train the ML application. In contrast to email spam classification, one sample does not necessarily consist of a single item but possibly of a series of transactions.  
 
 #### Recommender Systems
 
 In recommender systems, the task is to recommend suitable products to customers on the basis of their previous purchasing behavior ("Customers who bought this product were also interested in those products..."). 
-See Fig. 2.4.
+See Fig. 2.6.
 
-![Fig. 2.4: Recommender systems](images/Recommender_Systems.png)
+![Fig. 2.6: Recommender systems](images/Recommender_Systems.png)
 
 The ML recommender system is trained with the purchasing behavior of a large number of customers and associated customer groups. Then, based on a concrete order of a customer, related products are recommended.  
 
@@ -68,17 +68,17 @@ The ML recommender system is trained with the purchasing behavior of a large num
 
 #### Spam Filtering
 
-Spam filters based on machine learning are used in state-of-the-art email clients. The task is to classify incoming emails as spam or not spam. See Fig. 2.1.
+Spam filters based on machine learning are used in state-of-the-art email clients. The task is to classify incoming emails as spam or not spam. See Fig. 2.7.
 
-![Fig. 2.1: Spam filtering](images/Spam_Filtering.png)
+![Fig. 2.7: Spam filtering](images/Spam_Filtering.png)
 
 The ML spam filter is trained with manually classified samples: spam emails and non-spam emails. After the training phase, the spam filter automatically classifies emails in spam / non-spam. The user may correct ML decisions. Those corrections are used as new training samples that improve the correctness of future classifications. 
 
 ## ML Areas and Tasks
 
-Machine learning is a wide area. There are numerous groupings and names for ML subareas and tasks in literature. Fig. 2.5 shows a simple way of categorizing machine learning.
+Machine learning is a wide area. There are numerous groupings and names for ML subareas and tasks in literature. Fig. 2.8 shows a simple way of categorizing machine learning.
 
-![Fig. 2.5: ML areas and tasks](images/ML_Tasks.png)
+![Fig. 2.8: ML areas and tasks](images/ML_Tasks.png)
 
 Three areas of machine learning can be distinguished: *supervised learning, unsupervised learning*, and *reinforcement learning*. With supervised learning, one can perform the tasks *classification* and *regression*; with unsupervised learning one can perform the tasks *clustering, feature selection / extraction*, and *topic modeling*. 
 
@@ -90,9 +90,9 @@ Three areas of machine learning can be distinguished: *supervised learning, unsu
 - *Goal*: A model that maps new (unknown) inputs to correct outputs
 
 
-See Fig. 2.x for a simple overview of supervised learning. 
+See Fig. 2.9 for a simple overview of supervised learning. 
 
-![Fig. 2.5: Supervised learning](images/Supervised_learning.png)
+![Fig. 2.9: Supervised learning](images/Supervised_learning.png)
 
 Supervised learning is divided in two phases.
 In the *training phase (offline)*, training data, manually classified (labeled) by domain experts, are condensed into an ML model using mathematical approaches. The training process can be configured by hyperparameters. The ML model is an implicit representation of the information in the training samples.
@@ -125,9 +125,9 @@ Now consider the task of *regression*.
 
 
 
-See Fig. 2.x for a simple overview of unsupervised learning. 
+See Fig. 2.10 for a simple overview of unsupervised learning. 
 
-![Fig. 2.5: Unsupervised learning](images/Unsupervised_learning.png)
+![Fig. 2.10: Unsupervised learning](images/Unsupervised_learning.png)
 
 
 The training data for unsupervised learning is not labelled upfront. They are analyzed by different mathematical approaches like clustering, feature selection etc. The results are patterns / structures / representations that can be interpreted by human experts and used for further processing, e.g., pre-processing for supervised learning.
@@ -171,9 +171,9 @@ Finally, consider the task or *representation learning*.
 - *Goal*: Improving the agent's behavior
 - *Example*: A chess-playing bot attempts the goal of winning chess games. Reinforcement learning can be applied when having a chess-playing bot playing many games against itself (or against other chess playing bots or humans). While playing, the effects of decisions are used to optimize parameters for decision taking. 
 
-See Fig. 2.x for a simple overview of reinforcement learning. 
+See Fig. 2.11 for a simple overview of reinforcement learning. 
 
-![Fig. 2.5: Reinforcement learning](images/Reinforcement_learning.png)
+![Fig. 2.11: Reinforcement learning](images/Reinforcement_learning.png)
 
 Reinforcement learning assumes that a trained ML model is executed in an environment in which the result of the execution is evaluated automatically using a reward function. This reward is used as a label for re-training the ML model. So, the model performance is incrementally improved. 
 
@@ -189,9 +189,9 @@ Over the many years of AI research, many different ML approaches have been devel
 *Decision trees* can be used for supervised learning: for classification as well as for regression. 
 A decision tree is usually a tree in which internal nodes represent tests on  attributes values of a data set; Branches represent the possible outcomes of the tests; Leaf nodes represent classes in a classification setting resp. numerical values in a regression setting.
 
-See Fig. 2.6 for a simple example from the [Decision tree learning page in Wikipedia](https://en.wikipedia.org/wiki/Decision_tree_learning). 
+See Fig. 2.12 for a simple example from the [Decision tree learning page in Wikipedia](https://en.wikipedia.org/wiki/Decision_tree_learning). 
 
-![Fig. 2.6: Decision tree learning](images/Decision_Tree.png)
+![Fig. 2.12: Decision tree learning](images/Decision_Tree.png)
 
 This example decision tree shows the survival of passengers on the Titanic, depending on their sex, age and the number of spouses or siblings aboard (sibsp). The figures under the leaves show the probability of survival and the percentage of observations in the leaf.
 
@@ -208,23 +208,23 @@ And where does learning come into play? If an input of a neuron is repeatedly ca
 
 %% Electrical Stimulations are transmitted from each neuron to the neurons connected to it. This is, in simple terms, the basic mechanism of processing and transmitting data in humans and animals. Repeated stimulations cause chemical affects in the neuron resulting in different transmitting behavior. And this is, again in simple terms, the basic mechanism of learning in humans and animals.
 
-See Fig. 2.7. 
+See Fig. 2.13. 
 
-![Fig. 2.7: Neuron (Galkin, 2016)](images/Neuron.png)
+![Fig. 2.13: Neuron (Galkin, 2016)](images/Neuron.png)
 
 *Artificial neurons* simulate neurons in nature, however in a highly abstracted way.
 Artificial neurons consist of inputs (like synapses), which are multiplied by weights
 (strength of the respective signals), and then computed by a mathematical function. A simple example is the weighted sum of all inputs. This function determines the activation of the artificial neuron. Another function computes the output of the artificial neuron, sometimes dependent on a certain threshold. 
 
-See Fig. 2.8.
+See Fig. 2.14.
 
-![Fig. 2.8: Artificial Neuron (Galkin, 2016)](images/Artificial_Neuron.png)
+![Fig. 2.14: Artificial Neuron (Galkin, 2016)](images/Artificial_Neuron.png)
 
 Finally, artificial neural networks (ANN) combine artificial neurons in order to process information. They consist of an input layer, an output layer, and possibly a number of intermediate layers of neurons. 
 
-See Fig. 2.9 for a simple example.
+See Fig. 2.15 for a simple example.
 
-![Fig. 2.9: Artificial neural network (Galkin, 2016)](images/Artificial_Neural_Network.png)
+![Fig. 2.15: Artificial neural network (Galkin, 2016)](images/Artificial_Neural_Network.png)
 
 For example, an artificial neural network could be used for recognizing characters from an image (OCR: Optical Character Recognition). In a simple setting where each image depicts exactly one character, each pixel of the image could be associated with one input neuron of the neural network; Each possible character (a-z, A-Z) could be associated with an output neuron.
 
@@ -232,9 +232,9 @@ In the *training phase*, manually classified images are fed to the neural networ
 
 Then, in the *prediction phase*, the trained artificial network can be used to automatically classify new images, i.e., recognize the character on the image.
 
-Fig. 2.10 shows an [ANN playground](http://playground.tensorflow.org) with the state-of-the-art ML tool Tensorflow. You can experiment with varying numbers of layers, neurons, etc. and get a feeling on how ANN behave on various problems. 
+Fig. 2.16 shows an [ANN playground](http://playground.tensorflow.org) with the state-of-the-art ML tool Tensorflow. You can experiment with varying numbers of layers, neurons, etc. and get a feeling on how ANN behave on various problems. 
 
-![Fig. 2.10: ANN playground with Tensorflow](images/Tensorflow_playground.png)
+![Fig. 2.16: ANN playground with Tensorflow](images/Tensorflow_playground.png)
 
 
 
@@ -243,9 +243,9 @@ ANN are the most prominent ML approach today.   They can handle large amounts of
 An important disadvantage is that ANN, like support vector machines (SVN) behave as black-box systems. Users cannot explain how learning from input data was actually performed and, hence, cannot explain classifications made by the artificial neural network.
 
 The success of ANN is largely due to specialized, complex network architectures in combination with vast training data and compute resources.
-Fig. 2.x is an extract of "The neural network zoo" published by Fjodor van Veen and Stefan Leijnen on asimovinstitute.org. 
+Fig. 2.17 is an extract of "The neural network zoo" published by Fjodor van Veen and Stefan Leijnen on asimovinstitute.org. 
 
-![Fig. 2.11: ANN architectures](images/ANN_architectures.png)
+![Fig. 2.17: ANN architectures](images/ANN_architectures.png)
 
 Neural networks have input cells (yellow), hidden cells (green) and output cells (red). The simplest form are feed-forward networks which connect form input cells to output cells. We speak of deep (feed forward) networks when there are multiple hidden cells, usually fully-connected. 
 Auto Encoders are an interesting variant since they match input cells and output cells, thereby reproducing the input. They can be used for anomaly detection and other purposes. 
@@ -260,9 +260,9 @@ In this section, I will focus on simple ML approaches. Autoencoders and LLMs wil
 
 A *Bayesian network* is a directed acyclic graph (DAG) with random variables as nodes and their conditional dependencies as edges. 
 
-For example, a Bayesian network could represent the probabilistic relationships between diseases and symptoms. Given symptoms, the network can be used for diagnostic purposes, computing the probabilities of the presence of various diseases. See Fig. 2.12.
+For example, a Bayesian network could represent the probabilistic relationships between diseases and symptoms. Given symptoms, the network can be used for diagnostic purposes, computing the probabilities of the presence of various diseases. See Fig. 2.18.
 
-![Fig. 2.12: Bayesian network example (Goodman and Tenenbaum, 2016)](images/Bayesian_Network.png)
+![Fig. 2.18: Bayesian network example (Goodman and Tenenbaum, 2016)](images/Bayesian_Network.png)
 
 In the example from Goodmann and Tenenbaum (2016), the disease "cold" may lead to symptoms like "cough" and "fever", whereas a lung disease may lead to symptoms like "shortness of breath", "chest pain", and "cough". Those dependencies are modeled in the Bayesian network as edges. Additionally, the probabilities of each individual situation (random variable) as well as the conditional probabilities (e.g., probability of fever in case of a cold) are denoted. Also the relationships between causes and diseases (e.g., smoking may cause lung diseases) can be modeled.
 
@@ -283,9 +283,9 @@ Since in many application scenarios, training data is prone to errors, noise, or
 There is not *the* single best ML approach. Some approaches allow for explaining the ML results, like Bayesian networks and decision tree learning, others do not. Some approaches take into account many hidden, implicit dependencies between attributes of the data without the need of explicit modeling, like artificial neural networks and support vector machines.
 Selecting the right ML approach for a specific use case requires experience and often a great deal of experimenting and testing. 
 
-Fig. 2.13 can help making such a decision by classifying prominent ML approaches to the main ML tasks.
+Fig. 2.19 can help making such a decision by classifying prominent ML approaches to the main ML tasks.
 
-![Fig. 2.13: Overview of ML approaches](images/ML_Approaches.png)
+![Fig. 2.19: Overview of ML approaches](images/ML_Approaches.png)
 
 To get further guidance in selecting a suitable ML approach for a specific tasks, various players in the ML area have provided so-called "ML cheat sheets" which are helpful when selecting a suitable ML approach for a problem. See a selection:
 
@@ -299,29 +299,29 @@ To get further guidance in selecting a suitable ML approach for a specific tasks
 
 ### Using an ML IDE
 
-I will show a simple classification example with decision trees. I will use the free Basic Edition of [RapidMiner Studio](https://rapidminer.com/products/studio/), an integrated development environment for machine learning. In this example, a customer rating is to be performed. See Fig. 2.14  for a subset of the data set, taken from a RapidMiner tutorial.
+I will show a simple classification example with decision trees. I will use the free Basic Edition of [RapidMiner Studio](https://rapidminer.com/products/studio/), an integrated development environment for machine learning. In this example, a customer rating is to be performed. See Fig. 2.20  for a subset of the data set, taken from a RapidMiner tutorial.
 
-![Fig. 2.14: Customer sample data](images/RapidMiner_Data.png)
+![Fig. 2.20: Customer sample data](images/RapidMiner_Data.png)
 
 Customers are specified by a number of attributes, e.g., "gender", "age", "payment method" and "last transaction". Those are the *input attributes* for machine learning.
 
 The goal is to classify customers as "loyal" or "churn" in order to address them individually, e.g., via special offers. "Churn" is the *output attribute* which is to be predicted by the ML application. The value "churn" indicates the expected loss  of a customer.
 Some of the customers are already classified (e.g., rows Nos. 1-3), others are not yet classified (e.g., row No. 4).
-A decision tree shall be generated from the customers already classified in order to predict the classification of the new ones. This is done by configuring a ML process. See Fig. 2.15.
+A decision tree shall be generated from the customers already classified in order to predict the classification of the new ones. This is done by configuring a ML process. See Fig. 2.21.
 
-![Fig. 2.15: ML process](images/RapidMiner_Process.png)
+![Fig. 2.21: ML process](images/RapidMiner_Process.png)
 
 The simple ML process consists of three steps, identified by boxes that are connected. The connections represent data flow. The first process step is the retrieval of the customer data. The next step is to filter those customer records that are already classified. From those records, a decision tree is being generated and returned as a result.
 
-Fig. 2.16  shows the decision tree generated from the customer records.
+Fig. 2.22  shows the decision tree generated from the customer records.
 
-![Fig. 2.16: Decision tree](images/RapidMiner_DecisionTree.png)
+![Fig. 2.22: Decision tree](images/RapidMiner_DecisionTree.png)
 
 The decision tree generated can be inspected by humans. The tree indicates that male customers have the tendency to be loyal. For female customers of a certain age group (> 89.5), this is also true. For other age groups, loyalty depends on last transaction and payment method.
 
-Now, this decision tree may be applied to the customers not yet classified. The result is shown in Fig. 2.17.
+Now, this decision tree may be applied to the customers not yet classified. The result is shown in Fig. 2.23.
 
-![Fig. 2.17 Classification result](images/RapidMiner_Classification.png)
+![Fig. 2.23 Classification result](images/RapidMiner_Classification.png)
 
 Each customer who was not previously classified (labeled with "?") is now classified either "loyal" or "churn", together with a confidence, e.g., 0.798. 
 
@@ -360,16 +360,16 @@ The following code example shows Python code using the libraries [pandas ](https
 
 ### The ML Process and Data Flow
 
-The process for implementing a supervised ML application consists of two major phases: the training phase and the execution phase. See Fig. 2.18 for a simplified overview as [BPMN diagram](https://www.omg.org/spec/BPMN). 
+The process for implementing a supervised ML application consists of two major phases: the training phase and the execution phase. See Fig. 2.24 for a simplified overview as [BPMN diagram](https://www.omg.org/spec/BPMN). 
 
-![Fig. 2.18: The ML process simplified](images/ML_process.png)
+![Fig. 2.24: The ML process simplified](images/ML_process.png)
 
 In the training phase, an ML model is configured with some ML approach. A training data set is used to generate an ML model according to the configuration. But can we really trust this model? Is it capable of making good predictions when used in production? To find out, the model's prediction performance is evaluated, i.e., how accurately the model actually predicts. The evaluation is done on a test data set. If the model is good enough, then it can be used for predictions in productive use. However, usually the first model is not nearly good enough for productive use. Then, the ML configuration needs to be adopted, e.g., a different ML approach chosen or parameterised differently, and the training / evaluation cycle starts again - until the model is finally good enough.
 Then it can be executed in  production to make predictions on live data (execution phase).
 
-Fig. 2.19 zooms into the ML process and gives an overview of the data flow in supervised ML.
+Fig. 2.25 zooms into the ML process and gives an overview of the data flow in supervised ML.
 
-![Fig. 2.19: Data flow in supervised ML](images/ML_Data_Flow.png)
+![Fig. 2.25: Data flow in supervised ML](images/ML_Data_Flow.png)
 
 In the training phase, the raw data set may be pre-processed, e.g., by normalizing certain values. The input data set is in tabular form. Each row is a training sample. Columns are input attributes (so-called "features") and the expected output (so-called "labels"). The input data set is then split into a training data set and a test data set. 
 The training process step uses the training data set and the ML configuration in order to generate the ML model. 
@@ -388,9 +388,9 @@ Can we really trust the results of an ML application? How confident are we that 
 
 #### Confusion Matrix
 
-A *confusion matrix* is the basis for measuring the prediction performance of ML classification models. The name indicates that it allows to realize if the ML application is confusing two classes, i.e. commonly mislabeling one as another. See Fig. 2.20.
+A *confusion matrix* is the basis for measuring the prediction performance of ML classification models. The name indicates that it allows to realize if the ML application is confusing two classes, i.e. commonly mislabeling one as another. See Fig. 2.26.
 
-![Fig. 2.20: Confusion matrix](images/Confusion_Matrix.png)
+![Fig. 2.26: Confusion matrix](images/Confusion_Matrix.png)
 
 %% using https://en.wikipedia.org/wiki/F1_score#/media/File:Precisionrecall.svg
 
@@ -406,9 +406,9 @@ Consider the example of an ML application which predicts cancerous tumors of pat
 - Malignant: cancer predicted
 - Benign: no cancer predicted
 
-See Fig. 2.21 for an exemplary confusion matrix for cancer prediction. 
+See Fig. 2.27 for an exemplary confusion matrix for cancer prediction. 
 
-![Fig. 2.21: Confusion matrix: example cancer prediction](images/Confusion_Matrix_Cancer.png)
+![Fig. 2.27: Confusion matrix: example cancer prediction](images/Confusion_Matrix_Cancer.png)
 
 In this example, out of 100 predictions, 91 were correct (TP = 1, TN = 90) and 9 were incorrect (FP=1, FN = 8). Is this a good prediction performance? In the following section we compare various prediction performance measures. 
 
@@ -496,9 +496,9 @@ There are many other prediction performance measures, all with advantages and di
 #### Prediction performance measures for regression: MAE, MSE and RMSE
 
 Confusion matrices and the prediction performance measures introduced above relate to classification tasks where a prediction either matches the actual class or not. 
-In regression tasks, where numeric values are predicted, the question is how close the predicted values are to the actual values. See Fig. 2.22.
+In regression tasks, where numeric values are predicted, the question is how close the predicted values are to the actual values. See Fig. 2.28.
 
-![Fig. 2.22: Errors between regression function and data points](images/MSE.png)
+![Fig. 2.28: Errors between regression function and data points](images/MSE.png)
 
 The most commonly used prediction performance measures for regression tasks are the mean absolute error (MAE) and the rooted mean squared error (RMSE). 
 
@@ -525,11 +525,11 @@ Often, also the *mean squared error (MSE)* is used. It simply omits the square r
 
 ### k-fold Cross-Validation
 
-It is important that the training set used to train an ML model is disjoint from the test set used to evaluate the model. See the process step "split data set" in Fig. 2.19. But be aware that the way the data set is split has an effect on the training as well as on the evaluation. Imagine if in the cancer classification example, by chance, all samples of class "benign" end up in the training set and all samples of the class "malignant" end up in the test set. Then the training step will not result in a reasonable ML model and the evaluation step will not meaningfully evaluate it.
+It is important that the training set used to train an ML model is disjoint from the test set used to evaluate the model. See the process step "split data set" in Fig. 2.25. But be aware that the way the data set is split has an effect on the training as well as on the evaluation. Imagine if in the cancer classification example, by chance, all samples of class "benign" end up in the training set and all samples of the class "malignant" end up in the test set. Then the training step will not result in a reasonable ML model and the evaluation step will not meaningfully evaluate it.
 
-It is a good idea to randomly shuffle the input data set before splitting it into training and test set. But still there is some element of chance in this procedure. *k-fold cross-validation* is a method for largely removing this element of chance. See Fig. 2.23.
+It is a good idea to randomly shuffle the input data set before splitting it into training and test set. But still there is some element of chance in this procedure. *k-fold cross-validation* is a method for largely removing this element of chance. See Fig. 2.29.
 
-![Fig. 2.23: k-fold cross validation](images/Cross_Validation.png)
+![Fig. 2.29: k-fold cross validation](images/Cross_Validation.png)
 
 The general procedure is as follows.
 
@@ -545,16 +545,16 @@ The general procedure is as follows.
 
 Many ML libraries and toolkits contain easy-to-use components for k-fold cross validation. k can be set as a parameter. A typical value is k=10.
 
-Take as an example the RapidMiner process for customer rating introduced above. RapidMiner offers a validation process which performs k-fold cross-validation. This can be used to evaluate the accuracy of the decision tree for the customer rating example above. See Fig. 2.24.
+Take as an example the RapidMiner process for customer rating introduced above. RapidMiner offers a validation process which performs k-fold cross-validation. This can be used to evaluate the accuracy of the decision tree for the customer rating example above. See Fig. 2.30.
 
-![Fig. 2.24: Cross validation](images/RapidMiner_CrossValidation.png)
+![Fig. 2.30: Cross validation](images/RapidMiner_CrossValidation.png)
 
 The validation process consists of two sub-processes. The first sub-process on the left hand side represents the training phase. Input is the training data set. Output of the decision tree module is the ML model, i.e., the decision tree. 
 
-The second sub-process on the right hand side represents the evaluation phase. Input to the model application is the decision tree as well as the test data set. The result of the validation process is the confusion matrix and the average accuracy. See Fig. 2.25.
+The second sub-process on the right hand side represents the evaluation phase. Input to the model application is the decision tree as well as the test data set. The result of the validation process is the confusion matrix and the average accuracy. See Fig. 2.31.
 
 {width=75%}
-![Fig. 2.25: Accuracy](images/RapidMiner_Accuracy.png)
+![Fig. 2.31: Accuracy](images/RapidMiner_Accuracy.png)
 
 The result of cross-validation is displayed as a confusion matrix, showing the number of true positives, true negatives, false positives and false negatives. For each class ("loyal" and "churn"), the precision and recall values are displayed. Additionally, the total accuracy is shown which is 83.89%.
 
@@ -567,19 +567,19 @@ An ML model can be seen as a generalization of the training data. In supervised 
 {$$}\hat{f}{/$$} should be as close as possible to *f*. In practice, it is impossible that {$$}\hat{f} = f{/$$}. This is due to missing data, noise, etc. Those factors lead in any case to some error, which is sometimes called *irreducible error*. Take the cancer prediction example. The image data is just an extremely small subset of all possible information about a patient and the image data itself is subject to all sorts of noise due to the physics of the camera, image processing, storage, etc. 
 
 So, the goal is to find a function {$$}\hat{f}{/$$} which is close enough to *f*. 
-To illustrate this, see Figures 2.26 and 2.27. 
+To illustrate this, see Figures 2.32 and 2.33. 
 
-![Fig. 2.26: Example data for regression task](images/Regression_Example.png)
+![Fig. 2.32: Example data for regression task](images/Regression_Example.png)
 
-Fig. 2.26 shows sample data points for a simple regression task with just one input (x axis) and one output (y axis). The question is: which function {$$}\hat{f}{/$$} best fits the sample data points?
+Fig. 2.32 shows sample data points for a simple regression task with just one input (x axis) and one output (y axis). The question is: which function {$$}\hat{f}{/$$} best fits the sample data points?
 
 Let us simply look for a polynomial function that fits the data points as closely as possible. The question now is: of which degree should the polynomial be? 
  0 (constant), 1 (linear), 2 (quadratic) or any higher degree? 
-Fig. 2.27 shows three different options for {$$}\hat{f}{/$$}. 
+Fig. 2.33 shows three different options for {$$}\hat{f}{/$$}. 
 
-![Fig. 2.27: Regression polynomials (a) degree = 1 (linear), (b) degree = 2 (quadratic), (c) degree >> 3](images/Underfitting_Overfitting.png)
+![Fig. 2.33: Regression polynomials (a) degree = 1 (linear), (b) degree = 2 (quadratic), (c) degree >> 3](images/Underfitting_Overfitting.png)
 
-Fig. (a) shows a linear approximation (degree = 1),  Fig. (b) a quadratic approximation (degree = 2), and Fig (c) a polynomial with a degree much higher than 3. 
+Fig. 2.33 (a) shows a linear approximation (degree = 1), (b) a quadratic approximation (degree = 2), and (c) a polynomial with a degree much higher than 3. 
 
 Which one is best? 
 
@@ -587,7 +587,7 @@ If we simply look at the regression error with respect to the training data, e.g
 
 Without knowing the application domain we cannot really make an informed decision. However, by visually inspecting the data points there is a clear indication that the polynomial (a) (degree = 1) is too simple and the polynomial (c) (degree >> 3) is too complex. It looks like the quadratic polynomial (b) (degree = 2) best approximates the real function *f* and should be used as {$$}\hat{f}{/$$}.
 
-*Bias* is the error (e.g., measured by MAE or RMSE) between the ML model {$$}\hat{f}{/$$} and the data points in the training data set. In Fig. 2.27, (a) has the highest bias and (c) the lowest bias, since the complex polynomial (c) fits  the data points much more closely than the simple polynomial (a).
+*Bias* is the error (e.g., measured by MAE or RMSE) between the ML model {$$}\hat{f}{/$$} and the data points in the training data set. In Fig. 2.33, (a) has the highest bias and (c) the lowest bias, since the complex polynomial (c) fits  the data points much more closely than the simple polynomial (a).
 
 *Variance* indicates how much the ML model {$$}\hat{f}{/$$} changes if the training data is changed, e.g., by taking a different training set in k-fold cross validation. In the example, the twisty polynomial (c) will look very different if the training data points change, whereas the simple polynomial (a) will not change much if some other noisy data points are used for training.
 
@@ -596,9 +596,9 @@ If an ML model is too simple then bias is high and variance is low. We will get 
 
 On the other hand, if an ML model is too complex then variance is high and bias is low. We also will get bad prediction performance measures on a test set. Measuring prediction performance on the training set would reveal good results since the ML model learns noise in the data - but the prediction performance on the training set is not relevant. We call this *overfitting*. 
 
-Underfitting is as bad as overfitting. The art of machine learning is finding the *appropriate* model complexity - neither too simple nor too complex. See Fig. 2.28 (adopted from [Dataquest](https://www.dataquest.io/blog/learning-curves-machine-learning)).
+Underfitting is as bad as overfitting. The art of machine learning is finding the *appropriate* model complexity - neither too simple nor too complex. See Fig. 2.34 (adopted from [Dataquest](https://www.dataquest.io/blog/learning-curves-machine-learning)).
 
-![Fig. 2.28: Model complexity](images/Model_Complexity.png)
+![Fig. 2.34: Model complexity](images/Model_Complexity.png)
 
 The total error of an ML model (red curve) stems from errors from bias (blue curve) and variance (green curve). Both in underfitting scenarios (low model complexity, high bias, low variance) and in overfitting scenarios (high model complexity, low bias, high variance), the total error is high. However, the total error is minimized in scenarios where bias and variance are balanced. 
 
@@ -606,7 +606,7 @@ The total error of an ML model (red curve) stems from errors from bias (blue cur
 
 ## Automated Machine Learning
 
-In the simple example shown in Fig. 2.27, it is possible to guess the appropriate model complexity by visually inspecting the data points. In realistic ML scenarios with dozens, sometimes thousands of features, this is impossible. 
+In the simple example shown in Fig. 2.33, it is possible to guess the appropriate model complexity by visually inspecting the data points. In realistic ML scenarios with dozens, sometimes thousands of features, this is impossible. 
 How to optimize an ML configuration in practice if the prediction performance is not yet good enough?
 
 As said before, the ML approach can be changed (e.g., from decision tree to ANN) or the hyperparameters may be adjusted, e.g., the number of layers and neurons in an ANN or the maximum depth of a decision tree.
@@ -617,9 +617,9 @@ To make ML also accessible for people with lesser ML skills, the field of *autom
 
 AutoML regards the steps for configuring ML (pre-processing, model selection, hyperparameter tuning, etc.) as an optimization task. In  the multidimensional search space, the configuration is chosen with the best prediction performance. 
 
-See Fig. 2.29 for the AutoModel feature in RapidMiner. 
+See Fig. 2.35 for the AutoModel feature in RapidMiner. 
 
-![Fig. 2.29: AutoModel feature in RapidMiner](images/RapidMiner_AutoModel.png)
+![Fig. 2.35: AutoModel feature in RapidMiner](images/RapidMiner_AutoModel.png)
 
 Here, the customer classification example from Section 2.4 is used. 9 different ML approaches are tried out, including deep learning, decision tree, and support vector machine. For all approaches, different hyperparameters are tried out and the best prediction performances are displayed. With an accuracy of 85%, decision tree turns out to be the best approach. The decision tree approach also exhibits the best runtime performance (76 ms for training and 76 ms for scoring 1000 samples).
 
@@ -632,40 +632,40 @@ In the next section we present a method for optimizing ML configurations in a mo
 
 A general rule of thumb in machine learning is: the more training samples the better. Therefore, you will always use all training data available to train the best model.
 
-In a *learning curve analysis*, however, you deliberately omit larger parts of the training data. Why would you do this? In order to get a feeling for the progression of the ML prediction performance with more and more training data. See Fig. 2.30 for a schematic diagram of a *learning curve* for a regression task (adopted from [Dataquest](https://www.dataquest.io/blog/learning-curves-machine-learning)).
+In a *learning curve analysis*, however, you deliberately omit larger parts of the training data. Why would you do this? In order to get a feeling for the progression of the ML prediction performance with more and more training data. See Fig. 2.36 for a schematic diagram of a *learning curve* for a regression task (adopted from [Dataquest](https://www.dataquest.io/blog/learning-curves-machine-learning)).
 
-![Fig. 2.30: Learning curves: (a) test set (b) training set](images/Learning_Curves.png)
+![Fig. 2.36: Learning curves: (a) test set (b) training set](images/Learning_Curves.png)
 
 On the x axis of the learning curve, the number of training samples is charted, e.g., N=1, 10, 50, 100, 500, 1000, etc. On the y axis, the respective ML prediction performance is shown, e.g., the MSE. For a regression task, a high value is bad and a low value is good.
-As outlined above, what you are really interested in is optimizing the ML prediction performance on a test data set. This is shown in Fig. 2.30 (a). The more training data is used, the better the ML model and, consequently, the better the prediction performance. The curve is falling with an asymptotic approximation to some optimum.
+As outlined above, what you are really interested in is optimizing the ML prediction performance on a test data set. This is shown in Fig. 2.36 (a). The more training data is used, the better the ML model and, consequently, the better the prediction performance. The curve is falling with an asymptotic approximation to some optimum.
 
-Fig. 2.30 (b) shows the learning curve, however showing the prediction performance on the training data set instead of the test data set. The curve is constantly rising with an asymptotic approximation to some value. This is because the effect of overfitting is diminishing with an increasing number of training samples.
+Fig. 2.36 (b) shows the learning curve, however showing the prediction performance on the training data set instead of the test data set. The curve is constantly rising with an asymptotic approximation to some value. This is because the effect of overfitting is diminishing with an increasing number of training samples.
 Why would you look at the training set when you are actually interested in optimizing the prediction performance on the test set? This is because interpreting the progression of both curves as well as the relationship between the curves may gives you hints how to optimize the ML configuration in a meaningful way. 
 
 #### Interpreting Learning Curves
 
-Take a look at the learning curves for training and test set in Fig. 2.31 (a).
+Take a look at the learning curves for training and test set in Fig. 2.37 (a).
 
-![Fig. 2.31: Learning curve analysis](images/Learning_Curve_Analysis.png)
+![Fig. 2.37: Learning curve analysis](images/Learning_Curve_Analysis.png)
 
 Both curves have nearly converged. It is obvious that adding more training data with the same ML configuration will not have a significant effect on the prediction performance.
 If you are happy with the prediction performance achieved, i.e., the model is good enough, then you can use it in production.
 
 If, however, the error of the test set is too high, then ML configuration needs to be adapted. The high error indicates a high bias. The fact that adding more training data does not much change the prediction performance indicates a low variance. High bias and low variance together indicates that we are in an underfitting situation. Therefore, we need to takes measures for increasing the model complexity.
 
-Assume that after increasing the model complexity, we get learning curves as shown in Fig. 2.31 (b). You can make two observations: (1) the training set error is converging to a much lower (better) value than before. (2) The test set error is already lower (better) than before, but has not converged yet. This shows that increasing the model complexity has already had a positive effect and adding more training data will additionally increase the prediction performance. 
+Assume that after increasing the model complexity, we get learning curves as shown in Fig. 2.37 (b). You can make two observations: (1) the training set error is converging to a much lower (better) value than before. (2) The test set error is already lower (better) than before, but has not converged yet. This shows that increasing the model complexity has already had a positive effect and adding more training data will additionally increase the prediction performance. 
 
 #### Increasing and Decreasing Model complexity
 
-When the learning curve analysis has revealed that you are in an underfitting or overfitting situation, which measures can be taken to increase respectively decrease model complexity? You have to adjust the hyperparameters in your ML configuration. For example, you can add or remove features, have more or less layers in an ANN, have a higher or lower maximum tree size in a decision tree etc. See Fig. 2.32 for selected measures for increasing and decreasing model complexity.
+When the learning curve analysis has revealed that you are in an underfitting or overfitting situation, which measures can be taken to increase respectively decrease model complexity? You have to adjust the hyperparameters in your ML configuration. For example, you can add or remove features, have more or less layers in an ANN, have a higher or lower maximum tree size in a decision tree etc. See Fig. 2.38 for selected measures for increasing and decreasing model complexity.
 
-![Fig. 2.32: Increasing and Decreasing Model complexity](images/Modify_Model_Complexity.png)
+![Fig. 2.38: Increasing and Decreasing Model complexity](images/Modify_Model_Complexity.png)
 
 #### Learning Curve Analysis for Classification Tasks
 
-The learning curve examples above relate to regression tasks. For classification tasks, learning curve analysis is the same approach. The only difference is the prediction performance measure, e.g., accuracy or F1 score instead of MAE or RMSE. Here, high values are good and low values are bad. Therefore, both learning curves are reversed. See Fig. 2.33.
+The learning curve examples above relate to regression tasks. For classification tasks, learning curve analysis is the same approach. The only difference is the prediction performance measure, e.g., accuracy or F1 score instead of MAE or RMSE. Here, high values are good and low values are bad. Therefore, both learning curves are reversed. See Fig. 2.39.
 
-![Fig. 2.33: Learning curve analysis](images/Learning_Curve_Analysis_Classification.png)
+![Fig. 2.39: Learning curve analysis](images/Learning_Curve_Analysis_Classification.png)
 
 ## Services Maps and Product Maps
 
@@ -679,9 +679,9 @@ For each product map, such a table can be found in the appendix of this book.
 
 ### Use of Services Maps and Product Maps
 
-You may use services maps and product maps for selecting suitable products for an AI application development project. I recommend the following steps. See Fig. 2.34 for a method for selecting AI products.
+You may use services maps and product maps for selecting suitable products for an AI application development project. I recommend the following steps. See Fig. 2.40 for a method for selecting AI products.
 
-![Fig. 2.34: A method for selecting AI products](images/Selecting_AI_products.png)
+![Fig. 2.40: A method for selecting AI products](images/Selecting_AI_products.png)
 
 1. *Identify relevant services*: For a concrete project, mark the services which are relevant. For example, in an application domain where there are pre-trained models available, they may be relevant.
 2. *Identify product candidates*: Consult the product map and retrieve products that cover the relevant services. Those are potential product candidates. 
@@ -693,10 +693,10 @@ On the other hand, try to avoid vendor lock-in. Use products with open, standard
 
 ### ML Services Map
 
-Fig. 2.35 gives an overview of service categories of ML products.
+Fig. 2.41 gives an overview of service categories of ML products.
 
 {width=75%}
-![Fig. 2.35: ML services map](images/ML_SM.png)
+![Fig. 2.41: ML services map](images/ML_SM.png)
 
 *ML libraries* provide algorithms for  classification, regression, clustering, feature selection / extraction, topic modeling, etc. using different approaches, e.g.,  decision tree learning, artificial neural networks, Bayesian networks, inductive logic programming, support vector machines, hidden Markov chains, etc. They are implemented in a certain programming language, e.g., Python, Java or C/C++, and can be used in AI applications that are implemented in a compatible programming language.
 
@@ -710,9 +710,9 @@ Finally, *ML pre-trained models* can be used in ML libraries, APIs, development 
 
 ### ML Product Map
 
-Fig. 2.36  shows an overview of ML products, each assigned to the respective service category.
+Fig. 2.42  shows an overview of ML products, each assigned to the respective service category.
 
-![Fig. 2.36: ML product map](images/ML_PM.png)
+![Fig. 2.42: ML product map](images/ML_PM.png)
 
 Examples for ML libraries are 
 [TensorFlow](https://www.tensorflow.org/), 
@@ -738,9 +738,9 @@ Examples for platforms or libraries providing pre-trained ML models are HuggingF
 
 ### Methodology
 
-Integrating an ML component in an AI application requires some experience. I recommend using the following methodological steps as a guideline. See Fig. 2.37.
+Integrating an ML component in an AI application requires some experience. I recommend using the following methodological steps as a guideline. See Fig. 2.43.
 
-![Fig. 2.37: A methodology for developing ML applications](images/ML_Methodology.png)
+![Fig. 2.43: A methodology for developing ML applications](images/ML_Methodology.png)
 
 1. *Analyze use case*: As in engineering any IT application, the first step is to carefully analyze the use case, i.e., the stakeholders, the goals of the application to be implemented and the users' requirements. This includes the specifying the minimum prediction performance required. 
 2. *Identify ML tasks*: Based on the user requirements, the relevant ML tasks  should be identified, e.g., classification, regression, topic mining, etc.
@@ -755,9 +755,9 @@ Integrating an ML component in an AI application requires some experience. I rec
 
 ### Caveats: Biased ML
 
-ML applications may exhibit a lack of robustness (see e.g. Baeza-Yates, 2018 and Mueller-Birn, 2019). Firstly, training data can only reflect a subset of situations in which the ML application is used in practice. Secondly, training data is historical and does not necessarily reflect current circumstances. Additionally, there are various forms of biases influencing ML applications. See Fig. 2.38.
+ML applications may exhibit a lack of robustness (see e.g. Baeza-Yates, 2018 and Mueller-Birn, 2019). Firstly, training data can only reflect a subset of situations in which the ML application is used in practice. Secondly, training data is historical and does not necessarily reflect current circumstances. Additionally, there are various forms of biases influencing ML applications. See Fig. 2.44.
 
-![Fig. 2.38: Bias in ML applications (adopted from Baeza-Yates, 2018)](images/Bias.png)
+![Fig. 2.44: Bias in ML applications (adopted from Baeza-Yates, 2018)](images/Bias.png)
 
 In the sections above we discussed *algorithmic bias*, e.g. using too simple or too complex models leading to underfitting or overfitting. However, there are many other sources of bias in the life cycle of an ML application.
 

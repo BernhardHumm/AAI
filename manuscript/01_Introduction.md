@@ -61,15 +61,15 @@ What are abilities commonly associated with intelligent beings?
 - **Communicating**: Speaking, writing, etc.
 - **Acting**
 
-See Fig. 1.2.
+See Fig. 1.1.
 
-![Fig. 1.2: Tasks commonly associated with intelligent beings](images/AI_characteristics.png)
+![Fig. 1.1: Tasks commonly associated with intelligent beings](images/AI_characteristics.png)
 
 %% (Image: Wikimedia)
 
-The different areas of AI can be structured according to those abilities. See the circles in the "landscape of AI" (inspired by an [AI Spektrum poster](https://www.sigs-datacom.de/order/poster/Landkarte-KI-Poster-AI-2018.php)) in Fig. 1.3.
+The different areas of AI can be structured according to those abilities. See the circles in the "landscape of AI" (inspired by an [AI Spektrum poster](https://www.sigs-datacom.de/order/poster/Landkarte-KI-Poster-AI-2018.php)) in Fig. 1.2.
 
-![Fig. 1.3: The AI landscape](images/AI_landscape.png)
+![Fig. 1.2: The AI landscape](images/AI_landscape.png)
 
 - **Perceiving** covers the AI areas of *computer vision* and *sensor technology*;
 - **Communicating** covers the area of *natural language processing (NLP)*;
@@ -80,9 +80,9 @@ The different areas of AI can be structured according to those abilities. See th
 
 Please note, that various different namings and groupings of AI areas can be found in literature.
 
-Two fundamentally different approaches to AI can be distinguished (depicted as hexagons in Fig. 1.3):
+Two fundamentally different approaches to AI can be distinguished (depicted as hexagons in Fig. 1.2):
 
-- **Knowledge based AI** (sometimes called *symbolic AI*): Knowledge is represented explicitly in a human-readable way, e.g., with knowledge graphs, semantic networks, or logic programming languages (see the boxes with technologies attached to the approaches in Fig. 1.3).
+- **Knowledge based AI** (sometimes called *symbolic AI*): Knowledge is represented explicitly in a human-readable way, e.g., with knowledge graphs, semantic networks, or logic programming languages (see the boxes with technologies attached to the approaches in Fig. 1.2).
 - **Machine learning** (sometimes called *non-symbolic AI*): Knowledge is implicit in form of numbers, e.g., as weights in  artificial neural networks, support vector machines, in linear / logistic regression etc.
 
 Both approaches, knowledge-based AI and machine learning, have been around from the various beginnings of AI in the 1950s. In the first decades of AI research and practice, knowledge-based AI was most prominent and showed the most convincing results. However, in the last decades this has shifted and today, machine learning approaches are most prominent. 
@@ -147,9 +147,9 @@ Some AI projects have become milestones in AI history due to their public visibi
 
 In 1997, *IBM Deep Blue* beat the chess world champion Garry Kasparov. This was a milestone since chess is considered one of the most complex board games.
 
-See Fig. 1.4.  
+See Fig. 1.3.  
 
-![Fig. 1.4: IBM Deep Blue beats the chess champion Garry Kasparov](images/Deep_Blue.png)
+![Fig. 1.3: IBM Deep Blue beats the chess champion Garry Kasparov](images/Deep_Blue.png)
 
 %% Image: Wikimedia, Creative Commons License
 
@@ -157,9 +157,9 @@ However, when people examined the computational algorithms used  in the Deep Blu
 
 In 2011, IBM succeeded with another important AI project: *IBM Watson*. While Deep Blue targeted a most specific ability, namely playing chess, IBM Watson was able to answer natural language questions about general knowledge.  The media highlight of this project was beating the human champions at the popular US quiz show Jeopardy! This was remarkable since not only questions about history and current events, the sciences, the arts, popular culture, literature, and languages needed to be answered but also play on words as well as execution speed and strategy needed to be considered. 
 
-See Fig. 1.5.
+See Fig. 1.4.
 
-![Fig. 1.5: IBM Watson for the Jeopardy! quiz show](images/IBM_Watson.png)
+![Fig. 1.4: IBM Watson for the Jeopardy! quiz show](images/IBM_Watson.png)
 
 %% "Watson Jeopardy" by Source. Licensed under Fair use via Wikipedia - https://en.wikipedia.org/wiki/File:Watson_Jeopardy.jpg#/media/File:Watson_Jeopardy.jpg
 
@@ -170,9 +170,9 @@ In 2012, the ImageNet Large Scale Visual Recognition Challenge marked a turning 
 
 Go is a complex board game that requires intuition, creative and strategic thinking. It has long been considered a difficult challenge in AI and is considerably more difficult to solve than chess. In 2015, AlphaGo, a computer Go program developed by Google DeepMind, played a five-game Go match with the 18-time world champion [Lee Sedol](https://en.wikipedia.org/wiki/AlphaGo_versus_Lee_Sedol). The received  high media attention. AlphaGo won all but the fourth game. This was considered another breakthrough in AI. 
 
-See Fig. 1.6.
+See Fig. 1.5.
 
-![Fig. 1.6: Lee Sedol, Go match with AlphaGo](images/Lee_Sedol-AlphaGo.png)
+![Fig. 1.5: Lee Sedol, Go match with AlphaGo](images/Lee_Sedol-AlphaGo.png)
 
 %% https://commons.wikimedia.org/wiki/File:Lee_Se-Dol.jpg
 %% https://commons.wikimedia.org/wiki/File:Lee_Sedol_(B)_vs_AlphaGo_(W)_-_Game_4.jpg
