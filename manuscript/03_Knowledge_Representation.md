@@ -519,7 +519,7 @@ Backward chaining is sometimes called *goal-directed* reasoning whereas forward 
 Which approach is better? This, of course, depends on the application use case, in particular the types of queries asked  and the branching rate of rules. Some technologies provide one strategy only (e.g., Prolog provides backward chaining), others combine forward and backward chaining (e.g., [Drools Expert](https://www.drools.org)).
 
 For the Semantic Web, there are various approaches for rule-based reasoning, more or less adopted in practice. 
-[SWRL (Semantic Web Rule Language)](https://www.w3.org/Submission/SWRL) is a W3C Member Submission since 2004 but not a W2C standard and not widely adopted in practice. 
+[SWRL (Semantic Web Rule Language)](https://www.w3.org/Submission/SWRL) is a W3C Member Submission since 2004 but not a W3C standard and not widely adopted in practice. 
 [OWL](https://www.w3.org/TR/2012/REC-owl2-overview-20121211) reasoning is based on set theory. In contrast to rule-based approaches, reasoning logic is specified via set operations like restrictions, intersections, complements, and unions. 
 Some RDF triple store implementations like Apache Jena provide their own rule language like [Jena rules](https://jena.apache.org/documentation/inference). Jena rules provide forward and backward chaining. [GraphDB](http://graphdb.ontotext.com/documentation/standard/reasoning.html) provides proprietary rules with forward chaining. 
 
