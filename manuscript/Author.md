@@ -9,5 +9,5 @@ Before re-entering university as a professor, he worked in the IT industry for 1
 Contact:  
 Prof. Bernhard G. Humm, Dipl.-Inform., Ph.D. Computer Science (AUS)  
 Darmstadt University of Applied Sciences, Computer Science Department  
-Schoeffertst. 3, 64295 Darmstadt, Germany  
+Schoeffertstr. 3, 64295 Darmstadt, Germany  
 bernhard.humm@h-da.de, https://fbi.h-da.de/personen/bernhard-humm
