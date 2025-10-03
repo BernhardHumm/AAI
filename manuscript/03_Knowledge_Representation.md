@@ -429,7 +429,7 @@ Joining different entities in SPARQL is simple.
 See Fig. 3.16. for the sample query of displaying artists and their artistic movements.
 
 {width=75%}
-![Fig. 3.16: Multi-variable query](images/SPARQL_join.png)
+![Fig. 3.16: Joining entities](images/SPARQL_join.png)
 
 In this query, the query variable `?m` is used to refer to the movement of a person. Using the identical query variable `?m` in another triple enforces the query engine to use exactly the same value, thus joining both entities. The query results contains the labels of the person and the label of the movement. 
 

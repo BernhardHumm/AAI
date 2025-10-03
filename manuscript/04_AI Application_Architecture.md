@@ -159,7 +159,7 @@ Fig. 4.7 shows examples of agents, from simple to complex.
 
 Agent systems follow the perceive / reason / act cycle. See Fig. 4.8
 
-{width=50%}
+{width=30%}
 ![Fig. 4.8: Agentic cycle: perceive, reason, act](images/Agent_cycle.png)
 
 *Perceive* means the acquisition and interpretation of information from the environment (e.g., user input). *Reason* means analyzing the goal, evaluating alternatives, and deciding for actions to be taken. *Act* means executing the selected action.

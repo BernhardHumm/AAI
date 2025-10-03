@@ -215,9 +215,8 @@ The following tables list products for different AI areas in addition to the one
 |	[Wikidata](wikidata.org)	|		|		|	*	|		|		|		|		|
 |	[YAGO](yago-knowledge.org)	|		|		|		|		|		|		|	*	|
 |	[ZenML](zenml.io)	|		|		|		|		|		|	*	|		|
-|	[Zilliz / Milvus](milvus.io)	|		|		|		|		|		|	*	|		|
-|	[ZenML]()	|		|		|		|		|		|		|	*	|
-|	[Zilliz / Milvus]()	|		|		|	*	|		|		|		|		|
+|	[Zilliz / Milvus](milvus.io)	|		|		|	*	|		|		|	*	|		|
+
 
 
 

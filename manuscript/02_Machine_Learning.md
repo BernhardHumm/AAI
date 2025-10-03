@@ -366,7 +366,7 @@ The following code example shows Python code using the libraries [pandas ](https
 
 The process for implementing a supervised ML application consists of two major phases: the training phase and the execution phase. See Fig. 2.24 for a simplified overview as [BPMN diagram](https://www.omg.org/spec/BPMN). 
 
-{width=75%}
+{width=70%}
 ![Fig. 2.24: The ML process simplified](images/ML_process.png)
 
 In the training phase, an ML model is configured with some ML approach. A training data set is used to generate an ML model according to the configuration. But can we really trust this model? Is it capable of making good predictions when used in production? To find out, the model's prediction performance is evaluated, i.e., how accurately the model actually predicts. The evaluation is done on a test data set. If the model is good enough, then it can be used for predictions in productive use. However, usually the first model is not nearly good enough for productive use. Then, the ML configuration needs to be adopted, e.g., a different ML approach chosen or parameterised differently, and the training / evaluation cycle starts again - until the model is finally good enough.
