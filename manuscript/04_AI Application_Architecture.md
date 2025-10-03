@@ -100,7 +100,7 @@ Let us have a more detailed look into the individual steps of the ETL process:
 
 ## Hybrid AI
 
-In Chapter 1, I introduced the main families of AI approaches: machine learning (non-symbolic AI) and knowledge-based AI (symbolic AI). Hybrid approaches combine both. I expect hybrid AI as an important future direction of AI research and practice for solving most complex tasks.
+In Chapter 1, I introduced the main families of AI approaches: machine learning (non-symbolic AI) and knowledge-based AI (symbolic AI). Hybrid approaches combine both. I expect hybrid AI as an important future direction of AI research and practice for solving most complex tasks. See also our book (Hinkelmann et al. 2025)
 
 Before we delve into hybrid approaches, I would first like to examine the characteristics of the two main families of AI methods.
 

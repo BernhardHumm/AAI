@@ -32,6 +32,9 @@ Noah D. Goodman, Joshua B. Tenenbaum: "Probabilistic Models of Cognition".  [Onl
 (Harriehausen, 2015)
 Bettina Harriehausen-Mühlbauer: "Natural Language Processing". Lecture Script, Hochschule Darmstadt - University of Applied Sciences, Computer Science Department. Darmstadt, Germany.
 
+(Hinkelmann et al. 2025)
+Knut Hinkelmann, Thomas Hoppe, Bernhard G. Humm (Hrsg.): Hybride KI mit Machine Learning und Knowledge Graphs. Innovative Lösungen aus der Praxis. Springer Vieweg, Wiesbaden, Germany, 2025. ISBN: 978-3-658-44780-9, eBook ISBN: 978-3-658-44781-6, https://doi.org/10.1007/978-3-658-44781-6_11.
+
 (Hoppe, 2015)
 Thomas Hoppe: "Modellierung des Sprachraums von Unternehmen" (in German). In: Börteçin Ege, Bernhard Humm, Anatol Reibold (Editors): "Corporate Semantic Web – Wie semantische Anwendungen in Unternehmen Nutzen stiften" . Springer-Verlag, 2015. 
 
@@ -60,8 +63,6 @@ Stuart Russell, Peter Norvig: "Artificial Intelligence: A Modern Approach", 4th
 
 (Tensorflow, 2016)
 Tensorflow:"MNIST for Beginners" [Tutorial](https://www.tensorflow.org/versions/r1.0/get_started/mnist/beginners) (accessed 2016-05-01).
-
-
 
 (Yalçın, 2018)
 Orhan Gazi Yalçın: "Image Classification in 10 Minutes with MNIST Dataset". [Towards Data Science](https://towardsdatascience.com/image-classification-in-10-minutes-with-mnist-dataset-54c35b77a38d), Aug 19, 2018 (accessed 2020/03/24). 

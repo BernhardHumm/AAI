@@ -1,0 +1,25 @@
+Dear readers,
+
+Since the second edition of "Applied Artificial Intelligence - An Engineering Approach" in 2022, generative AI has gained enormous momentum. There is an enormous attention in public, academia and industry on large language models and generative computer vision. The third edition of my book reflects this with sections on generative AI -  background, architectures and engineering guidelines - in most chapters. 
+
+Here is what I have added:
+
+- Extended history of AI and impact on society
+- Extended machine learning foundations
+- Extended AI application architecture
+- Hybrid AI combining machine learning and knowledge graphs
+- Vectorstores for information retrieval
+- Word embeddings
+- Large language models
+- Prompt engineering
+- Retrieval-augmented generation
+- Diffusion models
+- Autoencoders for anomaly detection
+- Updated services and product maps for all AI areas
+
+Get the latest edition and have fun reading "Applied Artificial Intelligence - An Engineering Approach", Third Edition. I look forward to your comments.
+
+Best regards
+        Bernhard G. Humm
+
+October, 2025

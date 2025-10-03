@@ -1,6 +1,6 @@
 Dear readers,
 
-It it 5 years ago that I published the first edition of "Applied Artificial Intelligence - An Engineering Approach". In the meantime, AI has gained enormous attention - a new hype. The development of new AI technologies is rapid. So, it is time for the second edition. 
+It is 5 years ago that I published the first edition of "Applied Artificial Intelligence - An Engineering Approach". In the meantime, AI has gained enormous attention - a new hype. The development of new AI technologies is rapid. So, it is time for the second edition. 
 Here is what I have added:
 
 - Impacts of AI on society
