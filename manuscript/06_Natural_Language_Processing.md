@@ -123,10 +123,6 @@ See Fig. 6.7 for an example of parsing a sentence from the [spaCy web site](http
 
 spaCy parsing can be acomplished with a few lines of Phython code. First, you need to `load `a language, here `en_core_web_sm`. then, you pass a text string to the language. The result is a spaCy `Doc `which contains structured information about the text, e.g., the dependency graph of the parsed sentence which can be displayed using `displacy`.  
 
-
-
-DELETE
-
 Language processing in spaCy is organized in pipelines. Apart from pre-trained pipelines for many languages, you can also configure custom pipelines. See a [screenshot ](https://spacy.io/usage/processing-pipelines) from the spaCy web site in Fig. 6.8.
 
 ![Fig. 6.8: NLP pipelines with spaCy](images/NLP_spaCy_pipeline.png)
@@ -246,7 +242,7 @@ Multilingual word embeddings encode terms in different natural languages into th
 The process of creating word embeddings involves training a model on a large corpus of text (e.g., Wikipedia or Google News). The corpus is preprocessed by tokenizing the text into words, removing stop words and punctuation and performing other text-cleaning tasks.
 Simpler embedding models like Word2Vec, GloVe, and FastText embed a word into exactly one vector. 
 
-*Contextual embeddings* from models like BERT and GPT have pushed the boundaries further, allowing the meaning of a word to shift depending on its sentence-level context. This is important because the same word can have toatlly different meaning in different contexts (polysemy). See Fig. 6.14. with the example of the word "bank" which, depending on context, could mean a financial institution or a riverside.
+*Contextual embeddings* from models like BERT and GPT have pushed the boundaries further, allowing the meaning of a word to shift depending on its sentence-level context. This is important because the same word can have totally different meaning in different contexts (polysemy). See Fig. 6.14. with the example of the word "bank" which, depending on context, could mean a financial institution or a riverside.
 
 {width=50%}
 ![Fig. 6.14: Word Embeddings](images/Contextual_Word_Embeddings.png)
@@ -261,29 +257,32 @@ In NLP, word embeddings are the backbone of many tasks: sentiment analysis, mach
 ## Large Language Models (LLMs)
 
 
-Large Language Models (LLMs) have revolutionized natural language processing (NLP) by achieving state-of-the-art performance across a wide range of tasks — from machine translation and summarization to question answering and code generation.
+*Large Language Models (LLMs)* have revolutionized NLP by achieving state-of-the-art performance across a wide range of tasks — from machine translation and summarization to question answering and code generation.
 LLMs are a class of deep learning models designed to understand, generate, and manipulate human language.  
 LLMs are trained on massive corpora of text data, enabling them to learn statistical patterns, semantic relationships, and contextual nuances of language. Their scale — often measured in billions of parameters — allows them to generalize across domains and perform tasks with minimal fine-tuning.
 
 ### LLM Tasks
 
+{width=75%}
 ![Fig. 6.15: LLM tasks](images/LLM_tasks.png)
 
-Fig. 6.15 gives an overview of tasks that can be performed with LLMs. Generally speaking, a LLM completes some texts, i.e. answers to questions in a chat or a dialogue, or entire stories. It can be used for text reformulation or summarization, but also for spell checking and grammar correction. Also translating texts or generating texts in multiple natural languages is possible. One prominent use case is in software engineering where LLMs can be used for generating, refactoring or documenting source code. 
+Fig. 6.15 gives an overview of tasks that can be performed with LLMs. Generally speaking, a LLM completes texts, e.g. answers to questions in a chat or a dialogue, or entire stories. It can be used for text reformulation or summarization, but also for spell checking and grammar correction. Also translating texts or generating texts in multiple natural languages is possible. One prominent use case is in software engineering where LLMs can be used for generating, refactoring or documenting source code. 
 
 LLMs are neural networks and are trained on large volumes of textual data, e.g., books, encyclopedias, news articles, scientific papers, social media posts or web pages of any kind. Also source code from repositories or synthetic data generated from databases or ontologies are used for training special purposes. 
 
 
 ### Foundation: Likely word sequences
 
-In simple terms, a LLM is a mathematical function that predicts most likely word sequences. For a given sequence of words it predicts the probability of all potential following words and picks the most likely one. See Fig. 6.16 for an example.
+In simple terms, a LLM is a mathematical function that predicts most likely word sequences. For a given sequence of words it predicts the probability of all potential following words and picks the most likely one. See Fig. 6.16 for an illustrating example.
 
+{width=80%}
 ![Fig. 6.16: LLM output prediction](images/LLM_prediction_1.png)
 
-Here the sentence  "The cat likes to sleep in the [...]" is given as input. The LLM assigns probabilities to all tokens in its vocabulary (e.g., 50,000 tokens, which equals the number of output neurons of the LLM) and picks the most likely one as succeeding word, e.g., "box".
+Here, the sentence  "The cat likes to sleep in the [...]" is given as input. The LLM assigns probabilities to all tokens in its vocabulary (e.g., 50,000 tokens, which equals the number of output neurons of the LLM) and picks the most likely one as succeeding word, e.g., "box".
 
-This step can be repeated iteratively as seen in Fig. 6.17
+This step can be repeated iteratively as seen in Fig. 6.17.
 
+{width=80%}
 ![Fig. 6.17: LLM: iterative output prediction](images/LLM_prediction_2.png)
 
 In this case, after the word "box" (1st step), the punctuation mark "." may be predicted in the second step of the iteration.
@@ -294,11 +293,12 @@ In this case, after the word "box" (1st step), the punctuation mark "." may be p
 
 The architecture of state-of-the-art LLMs is most sophisticated and varies for different LLM which have been developed and trained for differnt tasks. The following Fig. 6.18 shows components commonly used in LLMs.
 
+{width=80%}
 ![Fig. 6.18: LLM architecture](images/LLM_architecture.png)
 
 The input text (usually called "prompt") into an LLM is tokenized first, i.e., split into a set of tokens (words, subwords or punctuation characters). Then, a word embedding is computed as explained in the last section. Where the initial embedding is static, encoding adds information about the position of a token in a sentence, resulting in a contextual embedding. The attention mechanism is at the heart of LLMs and adds further contextual information, namely the relationship between tokens in a text (in the example above, the tokens "the" and "cat" strongly belong together, as well as "likes" and "sleep"). This is comparable to NLP parsing (which  assigns roles of tokens in a sentence, e.g., subject, predicate, object), but in contrast to NLP parsing it is not based on static grammar rules but dynamically learned during the training process.
 Often, the attention layer is followed by a feed-forward neural network for refinement (not depicted in Fig. 6.18). 
-LLMs stack multiple layers of attention and feed-forward blocks. Each layer refines the model’s understanding incrementally. In early layers, the model might learn basic grammar or word associations (e.g., “cat” and “dog” are both animals). Deeper layers handle abstract concepts, like irony or logical reasoning.
+LLMs stack multiple layers of attention and feed-forward blocks. Each layer refines the model’s understanding incrementally. In early layers, the model might learn basic grammar or word associations (e.g., “cat” and “dog” are both animals). Deeper layers handle abstract concepts, like logical reasoning or irony.
 
 Finally, a decoder is used for generating output tokens. They are fed back into the embedding layer of the LLM and, in parallel, concatenated to the output text.
 
@@ -308,9 +308,10 @@ Finally, a decoder is used for generating output tokens. They are fed back into 
 
 LLMs are trained on massive amounts of data. The following training phases can be distinguished (see Fig. 6.19).
 
+{width=80%}
 ![Fig. 6.19: LLM training](images/LLM_training.png)
 
-1. **Self-Supervised learning**: In the first training phase, the model is exposed to vast amounts of unstructured data. Its task is to predict missing elements—like words or phrases—within that data. Through this predictive exercise, the model gradually develops an understanding of language structure and the nuances of the domain it’s trained on. This foundational stage focuses primarily on learning to anticipate and generate coherent text.
+1. **Self-Supervised learning**: In the first training phase, the model is exposed to vast amounts of unstructured data. Its task is to predict missing elements—like words or phrases—within that data. Through this predictive exercise, the model gradually develops an "understanding" of language structure and the nuances of the domain it is trained on. This foundational stage focuses primarily on learning to anticipate and generate coherent text.
 2. **Supervised learning**: Building on the groundwork laid by self-supervised learning, the second phase—supervised learning—introduces explicit instruction-following. Here, the model is trained using labeled examples to respond accurately to specific prompts. This stage is pivotal in shaping the model’s ability to interact meaningfully with users, interpret their requests, and deliver relevant, helpful responses. It transforms the model from a passive generator into an active conversational partner.
 3. **Reinforcement learning**: The final phase tunes the model’s behavior by rewarding desirable outputs and penalizing undesirable ones. Unlike previous stages, it doesn’t rely on direct answers but instead evaluates the quality of the model’s responses. Human annotators assess outputs, identifying which ones are helpful, safe, or appropriate. These judgments are used to train a reward model, which guides the language model toward producing higher-quality, user-aligned responses. This phase is especially effective in minimizing harmful or offensive content and promoting thoughtful, accurate communication.
 
@@ -354,7 +355,7 @@ Consider the following best practices for prompt engineering.
 
 ## Retrieval-Augmented Generation (RAG)
 
-One common problem of LLMs is called *hallucinations*. As explained above, LLMs do not explicitly represented knowledge (are not part of knowledge-based AI), but just generate likely word sequences. Since they are trained with enormous corpuses of texts, answers to questions in the domain of the training texts are often surprisingly good. However, since there is no explicitly represented knowledge, there is also no awareness of not knowing something. The LLM will always generate most likely word sequences, no matter whether or not it has been trained on the subject of the user question. In addition, re-training an LLM is extremely costly and is performed in larger time periods, months or years. The direct result of this is that recent events are not reflected, e.g., if you ask about your favorite football club's match last weekend, or about a recent election. In this case, the LLM will hallucinate some answer - just a likely word sequence.
+One common problem of LLMs is called *hallucinations*. As explained above, LLMs do not explicitly represented knowledge (are not part of knowledge-based AI), but just generate likely word sequences. Since they are trained with enormous corpuses of texts, answers to questions in the domain of the training texts are often surprisingly good. However, since there is no explicitly represented knowledge, there is also no awareness of *not* knowing something. The LLM will always generate most likely word sequences, no matter whether or not it has been trained on the subject of the user question. In addition, re-training an LLM is extremely costly and is performed in larger time periods, months or years. The direct result of this is that recent events are not reflected, e.g., if you ask about your favorite football club's match last weekend, or about a recent election. In this case, the LLM will hallucinate some answer - just a likely word sequence.
 
 *Retrieval-Augmented Generation (RAG)* is a commonly used technique to alleviate those problems. It is also most advantageous when an LLM-cased chatbot shall be used in the context of a closed information source, e.g., intranet company data. 
 RAG is a hybrid architecture that combines the strengths of information retrieval (IR) and generative models (LLMs) to produce more accurate, context-aware, and factually grounded outputs. 
@@ -364,7 +365,7 @@ RAG systems dynamically retrieve relevant information from external sources—su
 ![Fig. 6.20: Retrieval-Augmented Generation (RAG) architecture](images/RAG.png)
 
 See Fig. 6.20 for an overview of the RAG architecture.
-Let us consider the example of a recent election. A user of a LLM-based chatbot may ask the question "Who is the current president of Germany?" (see Step 1 in the Fig.). The LLM may have been trained long before the election and therefore cannot answer correctly. The user question is first sent to an IR knowledge base (which could, e.g., be the Google search index - Step 2). It may contain Wikipedia entries about Germany, news articles, federal websites etc. The retrieval result is a set of documents or document chunks that match the question. In a third step, the user question together with the retrieved document chunks (maybe together with additional information, e.g., the chat history) are sent as a prompt to the LLM. The LLM then generates an answer in natural language which includes the retrieved information. 
+Let us consider the example of a (recent) election. A user of a LLM-based chatbot may ask the question "Who is the current president of Germany?" (see Step 1 in the figure). The LLM may have been trained long before the election and therefore cannot answer correctly. The user question is first sent to an IR knowledge base (which could, e.g., be the Google search index - Step 2). It may contain Wikipedia entries about Germany, news articles, federal websites etc. The retrieval result is a set of documents or document chunks that match the question. In a third step, the user question together with the retrieved document chunks (maybe together with additional information, e.g., the chat history) are sent as a prompt to the LLM. The LLM then generates an answer in natural language which includes the retrieved information. 
 
 When implementing RAG in a setting with closed information source, e.g., a chatbot for intranet company data, often a *vector store* is used as technology for the retrieval component. See Fig. 6.21 for an overview. 
 
@@ -458,11 +459,8 @@ This is a wrong identification. Although Leonardo da Vinci lived during the Tudo
 
 ### NLP Web Service: OpenAI API
 
-The *OpenAI API* provides access to powerful language models like GPT-4o and GPT-3.5, enabling developers to access those LLMs as web services. It supports tasks such as 
-Text generation and summarization,  
-Question answering and reasoning , 
-Code generation and debugging, etc. 
-
+The *OpenAI API* provides access to powerful language models like GPT-4o, enabling developers to access those LLMs as web services. It supports tasks such as 
+Text generation and summarization, question answering and reasoning, code generation and debugging, etc. 
 The API is accessible via RESTful endpoints and SDKs (e.g., Python, Node.js), making it easy to integrate into web apps, mobile platforms, and enterprise systems.
 
 Key Concepts are:
@@ -503,9 +501,8 @@ print(response['choices'][0]['message']['content'])
 
 One of its key innovations is the use of Modelfiles, which bundle everything needed to run a model — weights, configuration, and even custom prompts — into a single, portable package. This makes it easy to customize and deploy models for specific tasks.
 
-Ollama supports a command-line interface (CLI) and a Python API, making it ideal for rapid prototyping, edge computing, and even air-gapped environments where internet access is restricted. It is cross-platform, open-source, and currently free to use, with optional enterprise features on the horizon.
+Ollama supports a command-line interface (CLI) and a Python API, making it ideal for rapid prototyping. It is cross-platform, open-source, and currently free to use, with optional enterprise features on the horizon.
 
-If you're curious, I can show you how to build your own Modelfile or run a custom model locally. Want to go hands-on?
 
 Consider the following simple Python example for generating text using Ollama.
 
@@ -528,7 +525,7 @@ print(response.text)
 
 ### NLP Pipelining Framework: LlamaIndex
 
-*LlamaIndex* (formerly GPT Index) is a  framework designed to connect LLMs with  custom data. Like many NLP framewoks it is based on the pipeline architectural pattern: individual NLP tasks can be configured in a pipeline and are executed sequentially. LlamaIndex is most suitable for building RAG applications. See Fig. 6.25 for an overview from llamaindex.ai.
+*LlamaIndex* is a  framework designed to connect LLMs with  custom data. Like many NLP framewoks it is based on the pipeline architectural pattern: individual NLP tasks can be configured in a pipeline and are executed sequentially. LlamaIndex is most suitable for building RAG applications. See Fig. 6.25 for an overview from llamaindex.ai.
 
 
 ![Fig. 6.25: LlamaIndex overview (from llamaindex.ai)](images/LlamaIndex.png)
@@ -599,8 +596,12 @@ X> Answer the following questions.
 
 1. Name and explain different areas of NLP.
 2. Explain the levels of language understanding.
-3. Explain the bag-of-words model, tf-idf and the n-gram model. 
-4. What is tokenization, sentence splitting, PoS tagging, and parsing?    
-5. What do language resources offer to NLP? Give examples.
-6. What do NLP libraries and pipeline frameworks offer? Give examples.
-7. What do NLP web services offer? Give examples.
+3. What is tokenization, sentence splitting, PoS tagging, and parsing?    
+4. Explain the bag-of-words model, tf-idf and the n-gram model. 
+5. Explain word embeddings
+6. Explain the architecture of LLMs. How are they trained?
+7. Give best practices for prompt engineering
+8. Explain RAG
+9. What do language resources offer to NLP? Give examples.
+10. What do NLP libraries and frameworks offer? Give examples.
+11. What do NLP web services offer? Give examples.

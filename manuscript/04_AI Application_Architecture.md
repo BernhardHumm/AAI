@@ -58,10 +58,11 @@ In a concrete AI application, each of those layers may be developed differently.
 Consider the example of a corporate AI chatbot which allows employees to ask questions about corporate data like company rules, forms, best practices, colleagues, customers, and products. See Fig. 4.2 for an application architecture based on the AI reference architecture. 
 
 
+{width=80%}
 ![Fig. 4.2: Example corporate AI chatbot](images/Corporate_AI_chatbot.png)
 
 The interaction component is a simple text-based graphical user interface (GUI) similar to ChatGPT, based on some HTML/CSS/JS framework. 
-The AI agent is implemented with LangChain and follows the RAG (Retrieval-Augmented Generation) architectural pattern (for details see Chapter NLP). Company data and documents are extracted from the corporate Intranet, databases and applications using ETL and are indexed in a vectorstore (Qdrant). An LLM like LLama is loaded via Ollama and integrated in LangChain.
+The AI agent is implemented with LangChain and follows the RAG (Retrieval-Augmented Generation) architectural pattern (for details see Chapter 6). Company data and documents are extracted from the corporate intranet, databases and applications using ETL and are indexed in a vectorstore (Qdrant). An LLM like LLama is loaded via Ollama and integrated in LangChain.
 
 
 
@@ -69,20 +70,22 @@ The AI agent is implemented with LangChain and follows the RAG (Retrieval-Augmen
 
 Consider the example of an AI trading bot, e.g., for a manufacturing company dynamically buying energy from an energy exchange. See Fig. 4.3 for an application architecture.
 
+{width=80%}
 ![Fig. 4.3: Example corporate AI chatbot](images/AI_trading_bot.png)
 
-the AI agent is based on a custom ML model which is trained offline and optimized for company purposes. The training data is extracted from historical data of the energy exchange as well as from the corporate ERP (enterprise resource planning) system. The ML models are corporate assets and are managed with lifecycle management using mlflow. This includes permanent monitoring, re-training and deployment when needed.
-The life trading bot consistently checks online manufacturing orders (in the ERP system) and prices on the energy exchange. Via APIs to the energy exchange trading system, energy is purchased dynamically. Via a GUI, trading activities are reported and can be monitored by staff. 
+The AI agent is based on a custom ML model which is trained offline and optimized for company purposes. The training data is extracted from historical data of the energy exchange as well as from the corporate ERP (enterprise resource planning) system. The ML models are corporate assets and are managed with lifecycle management using mlflow. This includes permanent monitoring, re-training and deployment when needed.
+The life trading bot consistently checks online manufacturing orders in the ERP system and prices on the energy exchange. Via APIs to the energy exchange trading system, energy is purchased dynamically. Via a GUI, trading activities are reported and can be monitored by staff. 
 
 
 ### Knowledge Browser
 
 
-Consider the example of a knowledge browser like openartbrowser for the domain of creative arts. See Fig. 4.4 for an architecture diagram.
+Consider the example of a knowledge browser like  [openartbrowser](https://openartbrowser.org). for the domain of creative arts. See Fig. 4.4 for an architecture diagram.
 
+{width=80%}
 ![Fig. 4.4: Example corporate AI chatbot](images/Knowledge_browser.png)
 
-openartbrowser is based on information on WikiData. Information about artworks, artists, artistic movements, museums etc. are extracted from Wikidata in a regular batch process. Data is filtered, quality assured and semantically enriched using custom Python code. The data is loaded into a ElasticSearch server for high-performance access by the web application implemented with a HTML/CSS/JS based framework.
+Openartbrowser is based on information on Wikidata. Information about artworks, artists, artistic movements, museums etc. are extracted from Wikidata in a regular batch process. Data is filtered, quality assured and semantically enriched using custom Python code. The data is loaded into an ElasticSearch server for high-performance access by the web application implemented with a HTML/CSS/JS based framework.
 
 The data integration aspect is, in my opinion, not treated enough in AI literature. 
 Let us have a more detailed look into the individual steps of the ETL process:
@@ -100,24 +103,25 @@ Let us have a more detailed look into the individual steps of the ETL process:
 
 ## Hybrid AI
 
-In Chapter 1, I introduced the main families of AI approaches: machine learning (non-symbolic AI) and knowledge-based AI (symbolic AI). Hybrid approaches combine both. I expect hybrid AI as an important future direction of AI research and practice for solving most complex tasks. See also our book (Hinkelmann et al. 2025)
+In Chapter 1, I introduced the main families of AI approaches: machine learning (non-symbolic AI) and knowledge-based AI (symbolic AI). Hybrid approaches combine both. I expect hybrid AI as an important future direction of AI research and practice for solving particularly complex tasks. See also our book (Hinkelmann et al. 2025)
 
 Before we delve into hybrid approaches, I would first like to examine the characteristics of the two main families of AI methods.
 
-**Machine learning (ML) methods** require data—usually large and extensive datasets—to function well. In supervised learning, this data must be annotated by human experts (labeling), for example, in predicting diseases like cancer from medical images, where the information indicates whether an image shows a tumor or not. After configuring ML methods (model selection, hyperparameter tuning), the machine generates an ML model (training phase), which condenses the characteristics of the data into a mathematical model. However, this model is typically not understandable to human experts. The ML model can then be embedded into AI applications, such as predicting the presence of a tumor in new medical images.
+**Machine learning (ML) methods** require data -- usually large and extensive datasets -- to function well. In supervised learning, this data must be annotated by human experts (labeling), for example, in predicting diseases like cancer from medical images, where the information indicates whether an image shows a tumor or not. After configuring ML methods (model selection, hyperparameter tuning), the machine generates an ML model (training phase), which condenses the characteristics of the data into a mathematical model. However, this model is typically not understandable to human experts. The ML model can then be embedded into AI applications, such as predicting the presence of a tumor in new medical images.
 
-**Knowledge-based AI methods** are fundamentally different. They do not require training data. Instead, human experts model relationships within a domain—such as medicine—using a formalism like an ontology language (knowledge engineering). This formalized knowledge can be inspected and quality-assured by humans—unlike the ML model. But just like the ML model, it can be embedded into AI applications, for example, to support doctors in diagnosing diseases.
+**Knowledge-based AI methods** are fundamentally different. They do not require training data. Instead, human experts model relationships within a domain, such as medicine, using a formalism like an ontology language (knowledge engineering). This formalized knowledge can be inspected and quality-assured by humans -- unlike the ML model. But just like the ML model, it can be embedded into AI applications, for example, to support doctors in diagnosing diseases.
 
 When comparing the advantages and disadvantages of ML and knowledge-based AI, they are complementary (see Fig. 4.5).
 
 
+{width=80%}
 ![Fig. 4.5: Comparison of ML and knowledge-based AI](images/Comparison_ML_KBAI.png)
 
 A disadvantage of knowledge-based AI is that knowledge engineering can be a time-consuming and costly process. It is also only applicable in domains where knowledge can be explicitly specified. For image processing, for example, this is not feasible. Furthermore, knowledge-based methods are not robust against noisy data, which is common with sensors.
 
 This is precisely where ML excels. ML models can be trained without explicit knowledge and are robust against noise and scalable to extremely large datasets, as demonstrated by LLMs.
 
-However, one of the key weaknesses of ML methods is that they are inherently error-prone—you can only estimate the probability of error using metrics. Most ML methods are not inherently explainable, and biases are difficult to detect. Additionally, annotating large datasets can be expensive, and large amounts of data are usually required for good results.
+However, one of the key weaknesses of ML methods is that they are inherently error-prone: you can only estimate the probability of error using metrics. Most ML methods are not inherently explainable, and biases are difficult to detect. Additionally, annotating large datasets can be expensive, and large amounts of data are usually required for good results.
 
 These are exactly the strengths of knowledge-based AI: it is inherently explainable and can be quality-assured by experts. Moreover, it can be applied in domains where only limited data is available.
 
@@ -131,12 +135,10 @@ We distinguish four types of hybrid AI usage:
 
 3. **Inherently hybrid AI methods**: AI methods that combine ML with symbolic representations, e.g., Bayesian networks, graph neural networks, or conceptual clustering.
 
-4. **Combined use of ML and knowledge-based AI**: Equal, integrated use of both approaches within an application, e.g., in autonomous driving—knowledge-based AI for formalizing traffic regulations and ML for traffic recognition.
+4. **Combined use of ML and knowledge-based AI**: Equal, integrated use of both approaches within an application, e.g., in autonomous driving: knowledge-based AI for formalizing traffic regulations and ML for traffic recognition.
 
 
 The AI reference architecture include ML-based AI applications, knowledge-based AI applications and hybrid AI applications. 
-
-
 
 
 
@@ -157,9 +159,10 @@ Fig. 4.7 shows examples of agents, from simple to complex.
 
 Agent systems follow the perceive / reason / act cycle. See Fig. 4.8
 
+{width=50%}
 ![Fig. 4.8: Agentic cycle: perceive, reason, act](images/Agent_cycle.png)
 
-*Perceive* means the acquisition and interpretation of information from the environment (e.g., user input). *Reason* means analyzing the goal, evaluating alternatives, and deciding for actions to be taken. *Act* means evaluating the selected action.
+*Perceive* means the acquisition and interpretation of information from the environment (e.g., user input). *Reason* means analyzing the goal, evaluating alternatives, and deciding for actions to be taken. *Act* means executing the selected action.
 
 
 
@@ -181,7 +184,7 @@ Sensors and actuator components may be plugged in. Sensors regularly update  inf
 ### LLM-Based Agent Frameworks
 
 While knowledge-based agent frameworks gain little attention at the moment, modern LLM-based agent frameworks are booming. They allow developing flexible agents configured by natural language system prompts. 
-To get an impression about using an LLM-based agent, I introduce GitHub Copilot in the next section. Afterwards I show how such AI applications are developed using an LLM-based agent framework, here LangChain. 
+To get an impression about using an LLM-based agent, I introduce GitHub Copilot below. Afterwards I show how such AI applications are developed using an LLM-based agent framework, here LangChain. 
 
 
 
@@ -191,18 +194,19 @@ Have you ever used an agentic coding framework like GitHub Copilot? This is not 
 
 ![Fig. 4.10: GitHub Copilot](images/GitHub_Copilot.png)
 
-The agent system analyzes the code of a project allows writing natural requests to be performed, e.g."Create a new service fro runner. Allow for searching by ID. Run the tests to validate everything works." The respective code including tests is generated and the tests are executed successfully. The programmer can inspect the code and decide on keeping or undoing the changes. 
+The agent system analyzes the code of a project allows writing natural requests to be performed, e.g. "Create a new service for runner. Allow for searching by ID. Run the tests to validate everything works." The respective code including tests is generated and the tests are executed successfully. The programmer can inspect the code and decide on keeping or undoing the changes. 
 
 
 #### Example: LangChain Agent Framework
 
-LangChain provides the concepts of agents and tools. Agents implement the control logic and invoke tools. Tool implement the actions to be taken. See Fig. 4.11
+LangChain provides the concepts of *agents* and *tools*. Agents implement the control logic and invoke tools. Tools implement the actions to be taken. See Fig. 4.11
 
+{width=75%}
 ![Fig. 4.11: LangChain agent framework example](images/LangChain_agent.png)
 
 The user of an AI agent system sends a request in natural language, e.g., via a chatbot. The agent object is configured with an LLM and a set of tools. It interprets the user request and selects tools to be invoked. This step is called *reasoning*. The first step could be performing a web search with content from the user request using TavilySearch. More tools could be connected that implement specific behaviour. The agent is passing respective parameters. Via the Model Context Protocol (MCP), APIs can also be accessed dynamically where the agent performs a mapping between the user request and the service offered by a web service. 
 
-The code examples from this section are taken from the LangChain agent tutorial https://python.langchain.com/docs/tutorials/agents . The following code snippet shows how an agent is created.
+The code examples from this section are taken from the [LangChain agent tutorial](https://python.langchain.com/docs/tutorials/agents). The following code snippet shows how an agent is created.
 
     # Import relevant functionality
     from langchain.chat_models import init_chat_model
@@ -266,22 +270,22 @@ Assume that the user question is "What's the weather in SF?" This string is pass
     This is quite typical weather for San Francisco, with the characteristic fog that the city is known for. Would you like to know anything else about the weather or San Francisco in general?
 
 
-This example shows out-of-the-box tools like TravisSearch. You can also build custom tools, e.g., accessing local databases or web services. This can easily be done by using the @tool decorator for Python functions. Via natural language descriptions you can customize the behavior of the agent and its tools. 
+This example shows out-of-the-box tools like TravisSearch. You can also build custom tools, e.g., accessing local databases or web services. This can easily be done by using the `@tool` decorator for Python functions. Via natural language descriptions you can customize the behavior of the agent and its tools.
 
-When agents use other agents as tools, we speak of multi-agent systems. Framework like LangChain allow building complex networks of interacting agents.
+When agents use other agents as tools, we speak of *multi-agent systems*. Framework like LangChain allow building complex networks of interacting agents.
 
 
 ### Comparison of Knowledge-based and LLM-based Agent Frameworks
 
 LLM-based agent frameworks are a hype topic today. But do they really perform reasoning?
-LLMs generate text by predicting the most probable next token given a context. This is statistical pattern matching, not symbolic logic. They don’t have a formal model of logic or truth.
+LLMs generate text by predicting the most probable next token given a context. This is statistical pattern matching, not symbolic logic. They do not have a formal model of logic or truth.
 Insofar it is debated in the AI community whether you can really call this reasoning.
 However, since they have been trained with millions of examples of reasoning, argumentation, and problem-solving they behave extremely well and they seem to reason. One could say they simulate reasoning. 
 The great advantage of LLM-based agents are their flexibility, fuzzy reasoning and natural language configuration.
 However, they suffer from the disadvantages of all ML-based AI approaches: they are error-prone and are not explainable. 
 Additionally, LLM reasoning is slow, taking seconds instead of milliseconds for reasoning steps. 
 This is where the traditional knowledge-based agent systems have their strengths. They act deterministically and the reasoning can be traced. Also, they tend to be faster than LLM-based agents. 
-So, again, the sweet spot is the combination of both approaches, hybrid agent systems. I expect them to become more popular in the future. 
+So, again, the sweet spot is the combination of both approaches: hybrid agent systems. I expect them to become more popular in the future. 
 
 
 
@@ -291,10 +295,11 @@ So, again, the sweet spot is the combination of both approaches, hybrid agent sy
 
 Agentic AI systems differ from traditional software in that they exhibit autonomy, goal-directed behavior, and the ability to interact with tools, data, and other agents. Furthermore, the high degree of flexibility makes testing and quality assurance difficult.  Engineering such systems requires a blend of software architecture, prompt design, and reasoning orchestration, as well as quality management. The following methodology outlines a practical, iterative approach:
 
-**1. Define the Agent’s Role and Scope**
+**1. Define the Agent's Role and Scope**
 
-Start by specifying the agent’s purpose:
-- What task(s) should it perform?
+Start by specifying the agent's purpose:
+
+- What tasks should it perform?
 - What tools, data sources, or APIs will it need?
 - What constraints or ethical boundaries must it respect?
 
@@ -309,36 +314,37 @@ Use modular design to allow for future extensibility.
 **3. Implement Agent Application**
 
 Agents rely on external tools to act meaningfully. Define:
+
 - RESTful APIs, databases, search engines, or file systems
 - Tool schemas and input/output formats
 - Error handling and fallback strategies
 
 Tools should be composable and testable in isolation.
-
 Implement the agent logic. 
 When using a knowledge-based approach, design the rule base in a modular manner. Large rule bases can be difficult to test.
-When using a LLM-based approach, Craft prompts that guide the agent’s behavior. 
-Use few-shot examples, role instructions, and tool-calling syntax
+When using a LLM-based approach, Craft prompts that guide the agent's behavior. 
+Use few-shot examples, role instructions, and tool-calling syntax.
 Test for robustness across edge cases and ambiguous inputs
 Prompt engineering is iterative and central to agent reliability.
 
 **4. Evaluate and Improve Incrementally**
-Thoroughly evaluate the agent applications using pre-defined scenarios. Similar to unit testing, re-evalute those scenarios when making changes to the agent's logic.
-Include Human-in-the-loop feedback
+
+Thoroughly evaluate agent applications using pre-defined scenarios. Similar to unit testing, re-evalute those scenarios when making changes to the agent's logic.
+Include Human-in-the-loop feedback.
 Embed mechanisms for Performance monitoring (accuracy, latency, tool usage).
 Evaluation should be domain-specific and aligned with user expectations.
 Continuously improve the agent system incrementally. 
 
 **5. Deploy and Monitor**
+
 Package the agent for deployment:
+
 - Choose between cloud, edge, or hybrid hosting
 - Secure tool access and user data
-- Monitor for drift, misuse, or unexpected behavior
+- Monitor for drift, misuse, or unexpected behavior.
 
 Use observability tools to track agent decisions and outcomes.
-
 This methodology emphasizes modularity, transparency, and iterative refinement, aligning agentic AI development with engineering best practices. By treating agents as composable systems rather than monolithic models, developers can build robust, explainable, and adaptive AI applications.
-
 
 
 

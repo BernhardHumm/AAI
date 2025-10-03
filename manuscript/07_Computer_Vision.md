@@ -72,7 +72,7 @@ Image processing is the area of post-processing digital images, particularly pho
 ![Fig. 7.5: Image restoration](images/Image_Restoration.png)
 
 
-### Image Generation
+### Image and Video Generation
 
 Generative AI for images and videos has revolutionized creative industries, enabling users to produce visuals and dynamic content from text prompts.Prominent tools are DALL·E, Runway ML, and Midjourney. 
 In recent years, the popularity of these tools has surged, driven by their accessibility and the growing demand for rapid, high-quality content creation across social media, advertising, and entertainment.
@@ -160,8 +160,8 @@ As computer vision is a wide field, there are many groups of tasks that may or m
 
 ### Convolutional Neural Networks (CNN)
 
-*Convolutional Neural Networks (CNN)* are one of the key technologies for CV. They are a neural network (NN) approach with multiple layers (deep NN) for processing images. 
-We demonstrate CNNs by means of an example: OCR of images of numbers using TensorFlow.
+*Convolutional Neural Networks (CNN)* are one of the key technologies for CV. They are an artificial neural network (ANN) approach with multiple layers (deep ANN) for processing images. 
+We demonstrate CNNs by means of a simple example: OCR of images of numbers using TensorFlow.
 [TensorFlow](https://www.tensorflow.org/) is an open source Python library for ML. It was developed by members of Google's Machine Intelligence research organization. 
 The simple OCR example is taken from the [online tutorial](https://towardsdatascience.com/image-classification-in-10-minutes-with-mnist-dataset-54c35b77a38d) (Yalçın, 2018). 
 The task is to recognize digits from images where each image contains exactly one digit.
@@ -293,7 +293,7 @@ Using a ML library like TensorFlow requires a considerably deeper understanding 
 
 ### Transfer Learning
 
-Training a deep NN from scratch is possible for small projects. However, most applications require the training of very large neural networks and this requires huge amounts of data and computational resources. Both are expensive.
+Training a deep ANN from scratch is possible for small projects. However, most applications require the training of very large neural networks and this requires huge amounts of data and computational resources. Both are expensive.
 
 This is where *transfer learning* comes into play. In transfer learning, the pre-trained weights of an already trained model (e.g., trained on millions of images belonging to thousands of classes, on several high power GPUs for several days) are used for predicting new classes. The advantages are obvious: 
 
@@ -372,13 +372,13 @@ The model can now be evaluated and used for predicting classes in new images.
 
 ### Diffusion Models
 
-For generating images, various approaches are used. The approach currently used in most state-of-the-art CV generative AI systems like Stable Diffusion and DALL-E are diffusion models. 
+For generating images, various approaches are used. The approach currently used in most state-of-the-art CV generative AI systems like Stable Diffusion and DALL-E are *diffusion models*. 
 Diffusion models are most complex.  I will describe various concepts separately.
 
 
 #### Autoencoders (AE)
 
-An *autoencoder (AE)* is a type of NN used to learn efficient representations of data, typically for the purpose of dimensionality reduction, feature extraction, or generative modeling. AEs are trained in an unsupervised manner: the goal is to reconstruct the input as accurately as possible.
+An *autoencoder (AE)* is a type of ANN used to learn efficient representations of data, typically for the purpose of dimensionality reduction, feature extraction, or generative modeling. AEs are trained in an unsupervised manner: the goal is to reconstruct the input as accurately as possible.
 
 AEs consist of two main components:
 
@@ -388,9 +388,10 @@ AEs consist of two main components:
 
 See Fig. 7.20 for an overview of the autoencoder architecture. 
 
+{width=60%}
 ![Fig. 7.20: Autoencoder architecture](images/Autoencoder.png)
 
-The input of an AE may be any data vector, in this example representing an image representing the digit 8. The encoder and decoder are multi-layer NNs that are symmetric, with decreasing layer sizes. In the simplest case, those are fully-connected (dense) feed-forward networks. For image AEs, also CNNs may be used. The hidden layer in the center of the AE is called latent space. It is a compressed representation of the input. The output of the network is the reconstructed image.
+The input of an AE may be any data vector, in this example representing an image representing the digit 8. The encoder and decoder are multi-layer NNs that are symmetric, with decreasing layer sizes. In the simplest case, those are fully-connected (dense) feed-forward networks. For image AEs, also CNNs may be used. The hidden layer in the center of the AE is called *latent space*. It is a compressed representation of the input. The output of the network is the reconstructed image.
 
 An AE is trained to best possibly reconstruct the input, i.e., to minimize the reconstruction error.
 
@@ -431,11 +432,12 @@ Then, for reverse diffusion (denoising), a neural network (so-called *UNet archi
 
 Fig. 7.22 shows how such a pretrained diffusion model can be used for inferencing. 
 
+{width=75%}
 ![Fig. 7.22: Diffusion model](images/Diffusion_model.png)
 
 Input to the image generation is a textual prompt, e.g., "cat". This text is first tokenized and embedded like in LLMs (see last chapter).
 Then, an initial latent representation is generated, representing pure noise. 
-Denoising is the heart of the diffusion model where generation takes place. Using the pre-trained UNet NN, the initial latent representation is stepwise (50-100 steps) transformed into a denoised, full latent representation. Like in LLMs, an attention mechanism is used in all steps to align generation with the semantics from the text prompt.
+Denoising is the heart of the diffusion model where generation takes place. Using the pre-trained UNet, the initial latent representation is stepwise (50-100 steps) transformed into a denoised, full latent representation. Like in LLMs, an attention mechanism is used in all steps to align generation with the semantics from the text prompt.
 
 Finally, the trained decoder is applied to transform latent representation into a full-resolution image.
 

@@ -182,6 +182,9 @@ In late 2022, OpenAI’s ChatGPT captured global attention as the first large-sc
 
 
 In 2023, AI-generated art and music surged into mainstream culture, transforming creative industries and public perception of AI. Tools like *DALL·E 2*, *Midjourney*, and *Stable Diffusion* enabled users to generate stunning visuals from text prompts, while platforms such as *AIVA* and *Soundraw* composed original music with minimal human input. Artists, designers, and hobbyists embraced these models for rapid prototyping and inspiration, while debates around authorship, copyright, and artistic authenticity intensified. Social media was flooded with AI-generated portraits, album covers, and surreal compositions, blurring the line between human and machine creativity. The boom democratized access to high-quality content creation and sparked new genres of digital expression. AI art exhibitions, music collaborations, and viral remix culture became global phenomena. This moment marked a shift from AI as a tool of analysis to AI as a co-creator, redefining the boundaries of imagination.
+See Fig. 1.6. for a screenshot from DALL-E 3.
+
+![Fig. 1.6: DALL-E screenshot](images/DALL-E_screenshot.png)
 
 In 2025, OpenAI introduced *GPT-4o*, a groundbreaking multimodal model capable of processing text, images, and audio in real time. This leap enabled the creation of real-time agentic systems that could hold spoken conversations, interpret visual input, and act autonomously across digital environments. GPT-4o’s responsiveness and contextual depth redefined human–AI interaction, making agents feel more intuitive, adaptive, and lifelike. Developers rapidly integrated GPT-4o into virtual assistants, customer service bots, and educational tutors. Its release marked a shift from static chatbots to dynamic, multimodal agents capable of reasoning and reacting in real time. GPT-4o became the foundation for next-generation AI applications across industries.
 

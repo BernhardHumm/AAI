@@ -7,6 +7,7 @@ Here is what I have added:
 - Extended history of AI and impact on society
 - Extended machine learning foundations
 - Extended AI application architecture
+- LLM-based agents
 - Hybrid AI combining machine learning and knowledge graphs
 - Vectorstores for information retrieval
 - Word embeddings

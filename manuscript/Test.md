@@ -29,7 +29,7 @@ Auto-numbering figure captions does not work yet.
 {width=75%}
 ![Figure](images/Simple_Agent.png)
 
-[Link](http://sourceforge.net/projects/jadex/).
+[Link](https://openartbrowser.org)
 
 
 Footnote[^fn-id]. Leave an empty line!

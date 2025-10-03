@@ -135,14 +135,16 @@ In production, live data is fed to the autoencoder. Then, the reconstruction is 
 
 In the simplest case for simple tabular data, encoder and decoder are fully connected layers with (symmetrically) decreasing and increasing layer sizes. As a rule of thumb, use 3-5 layers for encoder/decoder and have 10%-30% of the input dimension as bottleneck size.
 Example: For input size of 100:
+
 - Encoder: 100 → 64 → 32 → 16
 - Decoder: 16 → 32 → 64 → 100
 
-However, you can also implement more sophisticated encoder/decoder architectures. If the data in the sliding windows shows a certain pattern over time, then 1D convolutional neural networks (CNN) can be used. I introduced 2D CNN for computer vision (2-dimensional images) in Chapter 7. Here we have one time dimension - so, a 1D CNN is appropriate.
+However, you can also implement more sophisticated encoder/decoder architectures. If the data in the sliding windows shows a certain pattern over time, then 1D convolutional neural networks (CNN) can be used. I introduced 2D CNN for computer vision (2-dimensional images) in Chapter 7. Here we have one time dimension -- so, a 1D CNN is appropriate.
 
 
 
 Practical Tips:
+
 - *Start small*: Begin with a shallow architecture and increase complexity only if reconstruction error is too high.
 - *Monitor reconstruction error*: This is your anomaly score—tune the architecture to minimize it for normal data.
 - *Use validation data*: Always test on unseen normal and anomalous samples to avoid overfitting.
@@ -180,6 +182,7 @@ X> Answer the following questions.
 5. Explain the difference between data access in a DBMS versus a CEP engine?
 6. Explain filter, pattern matching, value progression analysis and time progression analysis.
 7. How can CEP be used for semantic enrichment?
-8. Name prominent CEP products
+8. How can Autoencoders be used for anomaly detection?
+9. Name prominent CEP products
 
 

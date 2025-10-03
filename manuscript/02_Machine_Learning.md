@@ -22,16 +22,18 @@ ML approaches are used in numerous applications in daily use. Here are a few exa
 
 #### Conversational AI
 
-*Conversational AI* has become a transformative interface across industries and daily life. It powers virtual assistants, customer support bots, tutoring systems, and productivity tools—enabling natural, human-like interaction through text or voice. Users rely on it to draft emails, answer questions, summarize documents, and even write code. 
+*Conversational AI* has become a transformative interface across industries and daily life. It powers virtual assistants, customer support bots, tutoring systems, and productivity tools -- enabling natural, human-like interaction through text or voice. Users rely on it to draft emails, answer questions, summarize documents, and even write code. 
 They are based on large language models (LLM) like GPT and Gemini. They are trained on vast amounts of texts. The rise of multimodal models now extends usage to image and audio interpretation. 
 See Fig. 2.2.
+
 ![Fig. 2.2: LLM chatbot](images/LLM_chatbot.png)
 
 #### Generative AI
 
-Generative AI for images and videos has revolutionized visual content creation, making high-quality media accessible to professionals and hobbyists alike. Tools like DALL·E, Midjourney, and Runway allow users to generate photorealistic or stylized visuals from simple text prompts, while video platforms like Pika and Synthesia enable dynamic storytelling without cameras or actors. 
+Generative AI for images and videos has revolutionized visual content creation, making high-quality media accessible to professionals and hobbyists alike. Tools like DALL-E, Midjourney, and Runway allow users to generate photorealistic or stylized visuals from simple text prompts, while video platforms like Pika and Synthesia enable dynamic storytelling without cameras or actors. 
 Like LLMs, those models are trained on vast amounts of images and videos. 
 See Fig. 2.3.
+
 ![Fig. 2.3: Generative AI system](images/GenAI_system.png)
 
 
@@ -92,6 +94,7 @@ Three areas of machine learning can be distinguished: *supervised learning, unsu
 
 See Fig. 2.9 for a simple overview of supervised learning. 
 
+{width=80%}
 ![Fig. 2.9: Supervised learning](images/Supervised_learning.png)
 
 Supervised learning is divided in two phases.
@@ -127,12 +130,11 @@ Now consider the task of *regression*.
 
 See Fig. 2.10 for a simple overview of unsupervised learning. 
 
+{width=80%}
 ![Fig. 2.10: Unsupervised learning](images/Unsupervised_learning.png)
 
 
 The training data for unsupervised learning is not labelled upfront. They are analyzed by different mathematical approaches like clustering, feature selection etc. The results are patterns / structures / representations that can be interpreted by human experts and used for further processing, e.g., pre-processing for supervised learning.
-
-
 
 
 Consider the task of *clustering*. 
@@ -173,6 +175,7 @@ Finally, consider the task or *representation learning*.
 
 See Fig. 2.11 for a simple overview of reinforcement learning. 
 
+{width=60%}
 ![Fig. 2.11: Reinforcement learning](images/Reinforcement_learning.png)
 
 Reinforcement learning assumes that a trained ML model is executed in an environment in which the result of the execution is evaluated automatically using a reward function. This reward is used as a label for re-training the ML model. So, the model performance is incrementally improved. 
@@ -245,10 +248,11 @@ An important disadvantage is that ANN, like support vector machines (SVN) behave
 The success of ANN is largely due to specialized, complex network architectures in combination with vast training data and compute resources.
 Fig. 2.17 is an extract of "The neural network zoo" published by Fjodor van Veen and Stefan Leijnen on asimovinstitute.org. 
 
+{width=80%}
 ![Fig. 2.17: ANN architectures](images/ANN_architectures.png)
 
 Neural networks have input cells (yellow), hidden cells (green) and output cells (red). The simplest form are feed-forward networks which connect form input cells to output cells. We speak of deep (feed forward) networks when there are multiple hidden cells, usually fully-connected. 
-Auto Encoders are an interesting variant since they match input cells and output cells, thereby reproducing the input. They can be used for anomaly detection and other purposes. 
+Autoencoders are an interesting variant since they match input cells and output cells, thereby reproducing the input. They can be used for anomaly detection and other purposes. 
 Recurrent neural networks are an extension in that they introduce loops within the neural network. 
 Convolutional neural networks (CNN), particularly used for computer vision, add special-purpose-layers like convolutions and pool for feature extraction tasks. Their invention was a major breakthrough in modern AI. Large language models (LLM) and diffusion models have even more sophisticated architectures and are capable of performing more complex tasks.
 
@@ -362,6 +366,7 @@ The following code example shows Python code using the libraries [pandas ](https
 
 The process for implementing a supervised ML application consists of two major phases: the training phase and the execution phase. See Fig. 2.24 for a simplified overview as [BPMN diagram](https://www.omg.org/spec/BPMN). 
 
+{width=75%}
 ![Fig. 2.24: The ML process simplified](images/ML_process.png)
 
 In the training phase, an ML model is configured with some ML approach. A training data set is used to generate an ML model according to the configuration. But can we really trust this model? Is it capable of making good predictions when used in production? To find out, the model's prediction performance is evaluated, i.e., how accurately the model actually predicts. The evaluation is done on a test data set. If the model is good enough, then it can be used for predictions in productive use. However, usually the first model is not nearly good enough for productive use. Then, the ML configuration needs to be adopted, e.g., a different ML approach chosen or parameterised differently, and the training / evaluation cycle starts again - until the model is finally good enough.
@@ -390,6 +395,7 @@ Can we really trust the results of an ML application? How confident are we that 
 
 A *confusion matrix* is the basis for measuring the prediction performance of ML classification models. The name indicates that it allows to realize if the ML application is confusing two classes, i.e. commonly mislabeling one as another. See Fig. 2.26.
 
+{width=75%}
 ![Fig. 2.26: Confusion matrix](images/Confusion_Matrix.png)
 
 %% using https://en.wikipedia.org/wiki/F1_score#/media/File:Precisionrecall.svg
@@ -408,6 +414,7 @@ Consider the example of an ML application which predicts cancerous tumors of pat
 
 See Fig. 2.27 for an exemplary confusion matrix for cancer prediction. 
 
+{width=75%}
 ![Fig. 2.27: Confusion matrix: example cancer prediction](images/Confusion_Matrix_Cancer.png)
 
 In this example, out of 100 predictions, 91 were correct (TP = 1, TN = 90) and 9 were incorrect (FP=1, FN = 8). Is this a good prediction performance? In the following section we compare various prediction performance measures. 
@@ -529,6 +536,7 @@ It is important that the training set used to train an ML model is disjoint from
 
 It is a good idea to randomly shuffle the input data set before splitting it into training and test set. But still there is some element of chance in this procedure. *k-fold cross-validation* is a method for largely removing this element of chance. See Fig. 2.29.
 
+{width=75%}
 ![Fig. 2.29: k-fold cross validation](images/Cross_Validation.png)
 
 The general procedure is as follows.
@@ -598,6 +606,7 @@ On the other hand, if an ML model is too complex then variance is high and bias 
 
 Underfitting is as bad as overfitting. The art of machine learning is finding the *appropriate* model complexity - neither too simple nor too complex. See Fig. 2.34 (adopted from [Dataquest](https://www.dataquest.io/blog/learning-curves-machine-learning)).
 
+{width=75%}
 ![Fig. 2.34: Model complexity](images/Model_Complexity.png)
 
 The total error of an ML model (red curve) stems from errors from bias (blue curve) and variance (green curve). Both in underfitting scenarios (low model complexity, high bias, low variance) and in overfitting scenarios (high model complexity, low bias, high variance), the total error is high. However, the total error is minimized in scenarios where bias and variance are balanced. 
@@ -811,7 +820,3 @@ X> Assignments
    You can use any ML tool you like, e.g., RapidMiner. If you want to program your solution in Python you may follow a [tutorial](https://www.kaggle.com/sashr07/kaggle-titanic-tutorial). Submit your solution to Kaggle and compare yourself with other committers.
 
 2. Participate in the Kaggle regression competition [Housing Prices Competition for Kaggle Learn Users](https://www.kaggle.com/c/home-data-for-ml-course/overview) and proceed as in the first assignment. If you like to program your solution in Python, you may follow the [tutorial](https://www.kaggle.com/dansbecker/basic-data-exploration). 
-   
-   ```
-   
-   ```
