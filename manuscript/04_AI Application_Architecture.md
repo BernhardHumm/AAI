@@ -55,10 +55,10 @@ In a concrete AI application, each of those layers may be developed differently.
 
 ### Corporate AI Chatbot
 
-Consider the example of a corporate AI chatbot which allows employees to ask questions about corporate data like company rules, forms, best practices, colleagues, customers, and products. See Fig. 4.X for an application architecture based on the AI reference architecture. 
+Consider the example of a corporate AI chatbot which allows employees to ask questions about corporate data like company rules, forms, best practices, colleagues, customers, and products. See Fig. 4.2 for an application architecture based on the AI reference architecture. 
 
 
-![Fig. 4.1: Example corporate AI chatbot](images/Corporate_AI_chatbot.png)
+![Fig. 4.2: Example corporate AI chatbot](images/Corporate_AI_chatbot.png)
 
 The interaction component is a simple text-based graphical user interface (GUI) similar to ChatGPT, based on some HTML/CSS/JS framework. 
 The AI agent is implemented with LangChain and follows the RAG (Retrieval-Augmented Generation) architectural pattern (for details see Chapter NLP). Company data and documents are extracted from the corporate Intranet, databases and applications using ETL and are indexed in a vectorstore (Qdrant). An LLM like LLama is loaded via Ollama and integrated in LangChain.
@@ -67,9 +67,9 @@ The AI agent is implemented with LangChain and follows the RAG (Retrieval-Augmen
 
 ### AI Trading Bot
 
-Consider the example of an AI trading bot, e.g., for a manufacturing company dynamically buying energy from an energy exchange. See Fig. 4.x for an application architecture.
+Consider the example of an AI trading bot, e.g., for a manufacturing company dynamically buying energy from an energy exchange. See Fig. 4.3 for an application architecture.
 
-![Fig. 4.1: Example corporate AI chatbot](images/AI_trading_bot.png)
+![Fig. 4.3: Example corporate AI chatbot](images/AI_trading_bot.png)
 
 the AI agent is based on a custom ML model which is trained offline and optimized for company purposes. The training data is extracted from historical data of the energy exchange as well as from the corporate ERP (enterprise resource planning) system. The ML models are corporate assets and are managed with lifecycle management using mlflow. This includes permanent monitoring, re-training and deployment when needed.
 The life trading bot consistently checks online manufacturing orders (in the ERP system) and prices on the energy exchange. Via APIs to the energy exchange trading system, energy is purchased dynamically. Via a GUI, trading activities are reported and can be monitored by staff. 
@@ -78,9 +78,9 @@ The life trading bot consistently checks online manufacturing orders (in the ERP
 ### Knowledge Browser
 
 
-Consider the example of a knowledge browser like openartbrowser for the domain of creative arts. See Fig. 4.x for an architecture diagram.
+Consider the example of a knowledge browser like openartbrowser for the domain of creative arts. See Fig. 4.4 for an architecture diagram.
 
-![Fig. 4.1: Example corporate AI chatbot](images/Knowledge_browser.png)
+![Fig. 4.4: Example corporate AI chatbot](images/Knowledge_browser.png)
 
 openartbrowser is based on information on WikiData. Information about artworks, artists, artistic movements, museums etc. are extracted from Wikidata in a regular batch process. Data is filtered, quality assured and semantically enriched using custom Python code. The data is loaded into a ElasticSearch server for high-performance access by the web application implemented with a HTML/CSS/JS based framework.
 
@@ -108,10 +108,10 @@ Before we delve into hybrid approaches, I would first like to examine the charac
 
 **Knowledge-based AI methods** are fundamentally different. They do not require training data. Instead, human experts model relationships within a domain—such as medicine—using a formalism like an ontology language (knowledge engineering). This formalized knowledge can be inspected and quality-assured by humans—unlike the ML model. But just like the ML model, it can be embedded into AI applications, for example, to support doctors in diagnosing diseases.
 
-When comparing the advantages and disadvantages of ML and knowledge-based AI, they are complementary (see Fig. 4.x).
+When comparing the advantages and disadvantages of ML and knowledge-based AI, they are complementary (see Fig. 4.5).
 
 
-![Fig. 4.1: Comparison of ML and knowledge-based AI](images/Comparison_ML_KBAI.png)
+![Fig. 4.5: Comparison of ML and knowledge-based AI](images/Comparison_ML_KBAI.png)
 
 A disadvantage of knowledge-based AI is that knowledge engineering can be a time-consuming and costly process. It is also only applicable in domains where knowledge can be explicitly specified. For image processing, for example, this is not feasible. Furthermore, knowledge-based methods are not robust against noisy data, which is common with sensors.
 
@@ -144,20 +144,20 @@ The AI reference architecture include ML-based AI applications, knowledge-based 
 
 In many AI publications, e.g., (Russell and Norvig, 2021), *agents* are described as a metaphor for the central component of an AI application which exhibits intelligent behavior.
 
-Fig. 4.3 by Russell and Norvig (1995) illustrates the concept of an agent.
+Fig. 4.6 by Russell and Norvig (1995) illustrates the concept of an agent.
 
-![Fig. 4.3: The concept of an agent (Russell and Norvig, 1995, Fig. 2.1)](images/Agent.png)
+![Fig. 4.6: The concept of an agent (Russell and Norvig, 1995, Fig. 2.1)](images/Agent.png)
 
 An agent interacts with an environment and via sensors it perceives the environment. 
 The agent logic then reasons over its perceptions and its internal expert knowledge and plans respective actions. Via actuators  it executes those actions. The executed actions may, in turn, have an effect on the environment which is perceived, again, by the agent.
 
-Fig. 4.4 shows examples of agents, from simple to complex.
+Fig. 4.7 shows examples of agents, from simple to complex.
 
-![Fig. 4.4: Examples of agents](images/Examples_of_Agents.png)
+![Fig. 4.7: Examples of agents](images/Examples_of_Agents.png)
 
-Agent systems follow the perceive / reason / act cycle. See Fig. 4.x
+Agent systems follow the perceive / reason / act cycle. See Fig. 4.8
 
-![Fig. 4.4: Agentic cycle: perceive, reason, act](images/Agent_cycle.png)
+![Fig. 4.8: Agentic cycle: perceive, reason, act](images/Agent_cycle.png)
 
 *Perceive* means the acquisition and interpretation of information from the environment (e.g., user input). *Reason* means analyzing the goal, evaluating alternatives, and deciding for actions to be taken. *Act* means evaluating the selected action.
 
@@ -168,10 +168,10 @@ Agent systems follow the perceive / reason / act cycle. See Fig. 4.x
 *Agent frameworks* provide a base architecture and offer services for developing the agent logic of an AI application. 
 A number of traditional knowledge-based agent frameworks implement a plug-in architecture where framework components and custom components can be integrated. Some frameworks specify domain-specific languages (DSL) for the agent logic. Usually, APIs for integrating code in different programming languages are provided. 
 
-See, e.g., the architecture of [Cougaar](http://www.cougaar.world) in Fig. 4.5.
+See, e.g., the architecture of [Cougaar](http://www.cougaar.world) in Fig. 4.9.
 
 
-![Fig. 4.5: An agent framework example: Cougaar (More et al., 2004)](images/Agent_Framework.png)
+![Fig. 4.9: An agent framework example: Cougaar (More et al., 2004)](images/Agent_Framework.png)
 
 In Cougaar, coordinator components like a Cost/Benefit Plugin provide the agent logic. The *blackboard* component is a shared repository for storing information on current problems, suggestions for solving the problems as well as (partial) solutions. 
 Sensors and actuator components may be plugged in. Sensors regularly update  information on the blackboard.
@@ -187,18 +187,18 @@ To get an impression about using an LLM-based agent, I introduce GitHub Copilot 
 
 #### Application example: GitHub Copilot
 
-Have you ever used an agentic coding framework like GitHub Copilot? This is not only a great way to use AI for improving programmer's productivity but it is also a perfect example of an agent application. See Fig. for a screenshot from https://github.com/features/copilot .
+Have you ever used an agentic coding framework like GitHub Copilot? This is not only a great way to use AI for improving programmer's productivity but it is also a perfect example of an agent application. See Fig. 4.10 for a screenshot from https://github.com/features/copilot .
 
-![Fig. 4.4: GitHub Copilot](images/GitHub_Copilot.png)
+![Fig. 4.10: GitHub Copilot](images/GitHub_Copilot.png)
 
 The agent system analyzes the code of a project allows writing natural requests to be performed, e.g."Create a new service fro runner. Allow for searching by ID. Run the tests to validate everything works." The respective code including tests is generated and the tests are executed successfully. The programmer can inspect the code and decide on keeping or undoing the changes. 
 
 
 #### Example: LangChain Agent Framework
 
-LangChain provides the concepts of agents and tools. Agents implement the control logic and invoke tools. Tool implement the actions to be taken. See Fig. 4.x
+LangChain provides the concepts of agents and tools. Agents implement the control logic and invoke tools. Tool implement the actions to be taken. See Fig. 4.11
 
-![Fig. 4.4: LangChain agent framework example](images/LangChain_agent.png)
+![Fig. 4.11: LangChain agent framework example](images/LangChain_agent.png)
 
 The user of an AI agent system sends a request in natural language, e.g., via a chatbot. The agent object is configured with an LLM and a set of tools. It interprets the user request and selects tools to be invoked. This step is called *reasoning*. The first step could be performing a web search with content from the user request using TavilySearch. More tools could be connected that implement specific behaviour. The agent is passing respective parameters. Via the Model Context Protocol (MCP), APIs can also be accessed dynamically where the agent performs a mapping between the user request and the service offered by a web service. 
 

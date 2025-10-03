@@ -47,10 +47,10 @@ Finally, an existing search engine can be included in an application as a *retri
 
 ## Information Retrieval Product Map
 
-Fig. 5.2 shows the information retrieval product map. 
+Fig. 5.3 shows the information retrieval product map. 
 
 {width=75%}
-![Fig. 5.2: Information retrieval product map](images/IR_PM.png)
+![Fig. 5.3: Information retrieval product map](images/IR_PM.png)
 
 [Apache Lucene](https://lucene.apache.org/) is the most prominent full-text search engine but also provides similarity search. Prominent vectorstores are Qdrant, Pinecone, FAISS and Milvus.
 
@@ -90,13 +90,13 @@ A *semantic autosuggest* feature is a good example of how information retrieval 
 The concept of *autosuggest* (a.k.a. *autocomplete*) is well-known from web search engines like Google. While the user is typing a search string, terms are suggested in a drop-down menu from which the user can choose.
 
 Semantic autosuggest extends this feature by utilizing semantic information, e.g.,  term categories. 
-See Fig. 5.3 for an example in the [openArtBrowser](https://openartbrowser.org) (Humm, 2020).
+See Fig. 5.4 for an example in the [openArtBrowser](https://openartbrowser.org) (Humm, 2020).
 
 {width=50%}
-![Fig. 5.3: Application example: Semantic autosuggest](images/Semantic_AutoSuggest.png)
+![Fig. 5.4: Application example: Semantic autosuggest](images/Semantic_AutoSuggest.png)
 
 OpenArtBrowser is a web app for educating in visual art, fascinating users for paintings, drawings and sculptures. It provides a search feature with semantic autosuggest. 
-In the example shown in Fig. 5.3, the user is typing the letters “vi…”. Various artworks, artists, materials, genres and motifs are displayed which contain the letters “vi” (case-insensitive), grouped according to their semantic category. The matching letters “vi” are highlighted (in green). A sophisticated heuristic ranking selects a limited number (here 10) of suggestions from a potentially very large number of matches, e.g., the artist Vincent van Gogh, the motif Virgin Mary, and the artwork View of a Roman House. 
+In the example shown in Fig. 5.4, the user is typing the letters “vi…”. Various artworks, artists, materials, genres and motifs are displayed which contain the letters “vi” (case-insensitive), grouped according to their semantic category. The matching letters “vi” are highlighted (in green). A sophisticated heuristic ranking selects a limited number (here 10) of suggestions from a potentially very large number of matches, e.g., the artist Vincent van Gogh, the motif Virgin Mary, and the artwork View of a Roman House. 
  
 By selecting one of the suggested terms, the user also selects a semantic category (artist, artwork, motif, genre, etc.). The search will then be refined accordingly using the search term and the semantic category. 
 

@@ -56,9 +56,9 @@ Consider the following example sentence:
 
     My dog also likes eating sausage. 
 
-Following the primitive tokenization approach, the last word identified would be `sausage.`. However, in fact, the last word is `sausage` and the period `'.'` is a separate token. So, the correct tokenization result is as follows (Fig. 6.5).
+Following the primitive tokenization approach, the last word identified would be `sausage.`. However, in fact, the last word is `sausage` and the period `'.'` is a separate token. So, the correct tokenization result is as follows (Fig. 6.3).
 
-![Fig. 6.5: Tokenization example](images/Tokenization.png)
+![Fig. 6.3: Tokenization example](images/Tokenization.png)
 
 ### Sentence splitting
 
@@ -72,19 +72,19 @@ Obviously, the point in `0.2` is part of a floating point number and does not te
 
 *Stemming* means reducing a word to its root word. E.g., `eat` is the root word of `eating`. *Part of speech (PoS)* is the grammatical category of a word. E.g., `eating` is the gerund or the present participle of the verb `to eat`. *PoS Tagging* is the step of identifying the PoS of a word. 
 
-Fig. 6.6 shows the PoS tagging result of the sentence `My dog also likes eating sausage.` 
+Fig. 6.4 shows the PoS tagging result of the sentence `My dog also likes eating sausage.` 
 
-![Fig. 6.6: PoS tagging example](images/POS_Tagging.png)
+![Fig. 6.4: PoS tagging example](images/POS_Tagging.png)
 
 In this figure, the [Penn Treebank tag set](http://www.clips.ua.ac.be/pages/mbsp-tags) is used. E.g., Verb, gerund or present participle is marked as `VBG`. The Penn Treebank tag set is a de-facto standard used by many PoS tagging tools.  
 
 
 ### Parsing
 
-*Parsing* is the step of analyzing the grammar of a sentence. The result is the sentence structure, usually denoted as a tree. Fig. 6.7 shows the parsing result for the sentence `My dog also likes eating sausage.`
+*Parsing* is the step of analyzing the grammar of a sentence. The result is the sentence structure, usually denoted as a tree. Fig. 6.5 shows the parsing result for the sentence `My dog also likes eating sausage.`
 
 {width=75%}
-![Fig. 6.7: Parsing](images/Parsing.png)
+![Fig. 6.5: Parsing](images/Parsing.png)
 
 Again, the Penn Treebank tag set is used. E.g., `NP` stands for noun phrase and `VP` for verb phrase. 
 
@@ -100,9 +100,9 @@ If you technically parse natural language sentences you may be surprised of how 
 
     I saw the man on the hill with a telescope.
 
-Fig. 6.8, adopted from [AllThingsLinguistic](http://allthingslinguistic.com/post/52411342274/how-many-meanings-can-you-get-for-the-sentence-i), shows five different, valid interpretations of this sentence.
+Fig. 6.6, adopted from [AllThingsLinguistic](http://allthingslinguistic.com/post/52411342274/how-many-meanings-can-you-get-for-the-sentence-i), shows five different, valid interpretations of this sentence.
 
-![Fig. 6.8: Parsing ambiguity](images/Parsing_Ambiguity.png)
+![Fig. 6.6: Parsing ambiguity](images/Parsing_Ambiguity.png)
 
 X> As an exercise, you may construct a parse tree for each interpretation of the sentence.
 
@@ -116,10 +116,10 @@ Features include tokenization, POS tagging, dependency parsing, lemmatization, s
 
 spaCy provides a variety of linguistic annotations to give insights into a text's grammatical structure. This includes the word types, like the parts of speech, and how the words are related to each other. 
 
-See Fig. 6.13 for an example of parsing a sentence from the [spaCy web site](https://spacy.io/usage/visualizers)
+See Fig. 6.7 for an example of parsing a sentence from the [spaCy web site](https://spacy.io/usage/visualizers)
 
 
-![Fig. 6.13: spaCy sentence parsing](images/NLP_spaCy_dependency.png)
+![Fig. 6.7: spaCy sentence parsing](images/NLP_spaCy_dependency.png)
 
 spaCy parsing can be acomplished with a few lines of Phython code. First, you need to `load `a language, here `en_core_web_sm`. then, you pass a text string to the language. The result is a spaCy `Doc `which contains structured information about the text, e.g., the dependency graph of the parsed sentence which can be displayed using `displacy`.  
 
@@ -127,9 +127,9 @@ spaCy parsing can be acomplished with a few lines of Phython code. First, you ne
 
 DELETE
 
-Language processing in spaCy is organized in pipelines. Apart from pre-trained pipelines for many languages, you can also configure custom pipelines. See a [screenshot ](https://spacy.io/usage/processing-pipelines) from the spaCy web site in Fig. 6.14.
+Language processing in spaCy is organized in pipelines. Apart from pre-trained pipelines for many languages, you can also configure custom pipelines. See a [screenshot ](https://spacy.io/usage/processing-pipelines) from the spaCy web site in Fig. 6.8.
 
-![Fig. 6.14: NLP pipelines with spaCy](images/NLP_spaCy_pipeline.png)
+![Fig. 6.8: NLP pipelines with spaCy](images/NLP_spaCy_pipeline.png)
 
 The input to a language pipeline is a text string, the output is a spaCy `Doc`. A pipeline can be configured using NLP building blocks like tokenizer, tagger, parser, named entity recognition, lemmatizer etc.  
 
@@ -153,10 +153,10 @@ The word `John` appears once in the text, the word `likes` twice etc.
 
 ### Machine Learning with Bags of Words
 
-In the simplest form, vectors resulting of bags of words can be used in supervised ML approaches as described in Chapter 2. Consider the ML task of classification with texts t1, ... tn and classes A, B, C. Then the data set for ML training consists of each distinct word in all texts as features (attributes as classification input) and the classes as labels (classification output). See Fig. 6.3 with the example text above as t1.
+In the simplest form, vectors resulting of bags of words can be used in supervised ML approaches as described in Chapter 2. Consider the ML task of classification with texts t1, ... tn and classes A, B, C. Then the data set for ML training consists of each distinct word in all texts as features (attributes as classification input) and the classes as labels (classification output). See Fig. 6.9 with the example text above as t1.
 
 {width=75%}
-![Fig. 6.3: ML classification data from bags of words](images/Bag-of-word-ML.png)
+![Fig. 6.9: ML classification data from bags of words](images/Bag-of-word-ML.png)
 
 Now, any ML approach suitable for classification can be used, e.g. Artificial Neural Networks, Decision Trees, Support Vector Machines, k-nearest Neighbor etc. 
 
@@ -182,10 +182,10 @@ The ML classification performance can be improved by using the tf-idf values ins
 
 The simple BoW model as explained above treats each individual word independently. The word order gets ignored completely. The *n-gram model* is a simple improvement which takes combinations of up to n successive words into  account. N is usually relatively small, e.g., 2 or 3. 
 
-See Fig. 6.4. with an extension of the example in Fig. 6.3 to a 2-gram model.
+See Fig. 6.10. with an extension of the example in Fig. 6.9 to a 2-gram model.
 
 {width=75%}
-![Fig. 6.4: ML classification with 2-gram model](images/n-gram-model.png)
+![Fig. 6.10: ML classification with 2-gram model](images/n-gram-model.png)
 
 n-gram models can be combined with tf-idf by simply computing the tf-idf values for the n-grams.
 
@@ -202,20 +202,20 @@ Obviously, the number of features (attributes) in the BoW model can get extremel
 Word embeddings are dense, continuous vector representations of words that capture semantic relationships based on context and usage. Unlike one-hot encoding, which treats each word as an isolated symbol, word embeddings place words in a high-dimensional space.
 Words with similar meanings are positioned close to each other, and the distance and direction between vectors encode the degree of similarity.
 
-See Fig. 6.x for an example.
+See Fig. 6.11 for an example.
 
 {width=50%}
-![Fig. 6.x: Word embeddings](images/Word_Embeddings.png)
+![Fig. 6.11: Word embeddings](images/Word_Embeddings.png)
 
 The example is highly simplified for illustration purposes. Actual word embeddings typically have hundreds of dimensions to capture more intricate relationships and nuances in meaning. However, in a diagram only 2 or 3 dimensions can be visualized. The dimensions have no explicit semantic meaning and have no names. Instead, they are mathematical dimensions like in PCA (Principal Component Analysis). In the example, terms that are closer together like colour/paint are closer in the multidimensional space whereas others like battery/charger are more distant.
 Embeddings do not only contain nouns, but also verbs, adverbs, proper nouns, acronyms etc. 
 
 Though dimensions are not named, the implicitly do encode linguistic nuance   - gender, tense, syntactic role, and more. One useful result is that you can use mathematical functions on word embeddings. 
 For example, in a well-trained embedding space, the vector for *king* minus *man* plus *woman* yields a result astonishingly close to *queen*. 
-See Fig. 6.X 
+See Fig. 6.12 
 
 {width=50%}
-![Fig. 6.x: Mathematical operations on word embeddings](images/Word_Embeddings_math.png)
+![Fig. 6.12: Mathematical operations on word embeddings](images/Word_Embeddings_math.png)
 
 The following Python code example using the gensim library  demonstrates this. 
 
@@ -238,18 +238,18 @@ print(result)  # Should return something close to 'queen'
 ~~~~~~~~
 
 
-Multilingual word embeddings encode terms in different natural languages into the same vector space. See Fig. 6.x for an illustration. Multilingual embeddings are most useful for machine translation tasks.
+Multilingual word embeddings encode terms in different natural languages into the same vector space. See Fig. 6.13 for an illustration. Multilingual embeddings are most useful for machine translation tasks.
 
 {width=50%}
-![Fig. 6.x: Word Embeddings](images/Multilingual_Word_Embeddings.png)
+![Fig. 6.13: Word Embeddings](images/Multilingual_Word_Embeddings.png)
 
 The process of creating word embeddings involves training a model on a large corpus of text (e.g., Wikipedia or Google News). The corpus is preprocessed by tokenizing the text into words, removing stop words and punctuation and performing other text-cleaning tasks.
 Simpler embedding models like Word2Vec, GloVe, and FastText embed a word into exactly one vector. 
 
-*Contextual embeddings* from models like BERT and GPT have pushed the boundaries further, allowing the meaning of a word to shift depending on its sentence-level context. This is important because the same word can have toatlly different meaning in different contexts (polysemy). See Fig. 6.x. with the example of the word "bank" which, depending on context, could mean a financial institution or a riverside.
+*Contextual embeddings* from models like BERT and GPT have pushed the boundaries further, allowing the meaning of a word to shift depending on its sentence-level context. This is important because the same word can have toatlly different meaning in different contexts (polysemy). See Fig. 6.14. with the example of the word "bank" which, depending on context, could mean a financial institution or a riverside.
 
 {width=50%}
-![Fig. 6.x: Word Embeddings](images/Contextual_Word_Embeddings.png)
+![Fig. 6.14: Word Embeddings](images/Contextual_Word_Embeddings.png)
 
 A sliding context window is applied to the text, and for each target word, the surrounding words within the window are considered as context words. The word embedding model is trained to predict a target word based on its context words or vice versa.
 
@@ -267,24 +267,24 @@ LLMs are trained on massive corpora of text data, enabling them to learn statist
 
 ### LLM Tasks
 
-![Fig. 6.x: LLM tasks](images/LLM_tasks.png)
+![Fig. 6.15: LLM tasks](images/LLM_tasks.png)
 
-Fig. 6 gives an overview of tasks that can be performed with LLMs. Generally speaking, a LLM completes some texts, i.e. answers to questions in a chat or a dialogue, or entire stories. It can be used for text reformulation or summarization, but also for spell checking and grammar correction. Also translating texts or generating texts in multiple natural languages is possible. One prominent use case is in software engineering where LLMs can be used for generating, refactoring or documenting source code. 
+Fig. 6.15 gives an overview of tasks that can be performed with LLMs. Generally speaking, a LLM completes some texts, i.e. answers to questions in a chat or a dialogue, or entire stories. It can be used for text reformulation or summarization, but also for spell checking and grammar correction. Also translating texts or generating texts in multiple natural languages is possible. One prominent use case is in software engineering where LLMs can be used for generating, refactoring or documenting source code. 
 
 LLMs are neural networks and are trained on large volumes of textual data, e.g., books, encyclopedias, news articles, scientific papers, social media posts or web pages of any kind. Also source code from repositories or synthetic data generated from databases or ontologies are used for training special purposes. 
 
 
 ### Foundation: Likely word sequences
 
-In simple terms, a LLM is a mathematical function that predicts most likely word sequences. For a given sequence of words it predicts the probability of all potential following words and picks the most likely one. See Fig. 6.x for an example.
+In simple terms, a LLM is a mathematical function that predicts most likely word sequences. For a given sequence of words it predicts the probability of all potential following words and picks the most likely one. See Fig. 6.16 for an example.
 
-![Fig. 6.x: LLM output prediction](images/LLM_prediction_1.png)
+![Fig. 6.16: LLM output prediction](images/LLM_prediction_1.png)
 
 Here the sentence  "The cat likes to sleep in the [...]" is given as input. The LLM assigns probabilities to all tokens in its vocabulary (e.g., 50,000 tokens, which equals the number of output neurons of the LLM) and picks the most likely one as succeeding word, e.g., "box".
 
-This step can be repeated iteratively as seen in Fig. 6.x
+This step can be repeated iteratively as seen in Fig. 6.17
 
-![Fig. 6.x: LLM: iterative output prediction](images/LLM_prediction_2.png)
+![Fig. 6.17: LLM: iterative output prediction](images/LLM_prediction_2.png)
 
 In this case, after the word "box" (1st step), the punctuation mark "." may be predicted in the second step of the iteration.
 
@@ -292,12 +292,12 @@ In this case, after the word "box" (1st step), the punctuation mark "." may be p
 
 ### LLM Architecture
 
-The architecture of state-of-the-art LLMs is most sophisticated and varies for different LLM which have been developed and trained for differnt tasks. The following Fig. 6.x shows components commonly used in LLMs.
+The architecture of state-of-the-art LLMs is most sophisticated and varies for different LLM which have been developed and trained for differnt tasks. The following Fig. 6.18 shows components commonly used in LLMs.
 
-![Fig. 6.x: LLM architecture](images/LLM_architecture.png)
+![Fig. 6.18: LLM architecture](images/LLM_architecture.png)
 
 The input text (usually called "prompt") into an LLM is tokenized first, i.e., split into a set of tokens (words, subwords or punctuation characters). Then, a word embedding is computed as explained in the last section. Where the initial embedding is static, encoding adds information about the position of a token in a sentence, resulting in a contextual embedding. The attention mechanism is at the heart of LLMs and adds further contextual information, namely the relationship between tokens in a text (in the example above, the tokens "the" and "cat" strongly belong together, as well as "likes" and "sleep"). This is comparable to NLP parsing (which  assigns roles of tokens in a sentence, e.g., subject, predicate, object), but in contrast to NLP parsing it is not based on static grammar rules but dynamically learned during the training process.
-Often, the attention layer is followed by a feed-forward neural network for refinement (not depicted in Fig. 6.x). 
+Often, the attention layer is followed by a feed-forward neural network for refinement (not depicted in Fig. 6.18). 
 LLMs stack multiple layers of attention and feed-forward blocks. Each layer refines the model’s understanding incrementally. In early layers, the model might learn basic grammar or word associations (e.g., “cat” and “dog” are both animals). Deeper layers handle abstract concepts, like irony or logical reasoning.
 
 Finally, a decoder is used for generating output tokens. They are fed back into the embedding layer of the LLM and, in parallel, concatenated to the output text.
@@ -306,9 +306,9 @@ Finally, a decoder is used for generating output tokens. They are fed back into 
 
 ### Training Process
 
-LLMs are trained on massive amounts of data. The following training phases can be distinguished (see Fig. 6.x).
+LLMs are trained on massive amounts of data. The following training phases can be distinguished (see Fig. 6.19).
 
-![Fig. 6.x: LLM training](images/LLM_training.png)
+![Fig. 6.19: LLM training](images/LLM_training.png)
 
 1. **Self-Supervised learning**: In the first training phase, the model is exposed to vast amounts of unstructured data. Its task is to predict missing elements—like words or phrases—within that data. Through this predictive exercise, the model gradually develops an understanding of language structure and the nuances of the domain it’s trained on. This foundational stage focuses primarily on learning to anticipate and generate coherent text.
 2. **Supervised learning**: Building on the groundwork laid by self-supervised learning, the second phase—supervised learning—introduces explicit instruction-following. Here, the model is trained using labeled examples to respond accurately to specific prompts. This stage is pivotal in shaping the model’s ability to interact meaningfully with users, interpret their requests, and deliver relevant, helpful responses. It transforms the model from a passive generator into an active conversational partner.
@@ -361,20 +361,20 @@ RAG is a hybrid architecture that combines the strengths of information retrieva
 RAG systems dynamically retrieve relevant information from external sources—such as document databases, knowledge bases, or the web—and use that information to guide or enrich the generation process. All current LLM-based chatbots like ChatGPT or Gemini use RAG.
 
 
-![Fig. 6.x: Retrieval-Augmented Generation (RAG) architecture](images/RAG.png)
+![Fig. 6.20: Retrieval-Augmented Generation (RAG) architecture](images/RAG.png)
 
-See Fig. 6.x for an overview of the RAG architecture.
+See Fig. 6.20 for an overview of the RAG architecture.
 Let us consider the example of a recent election. A user of a LLM-based chatbot may ask the question "Who is the current president of Germany?" (see Step 1 in the Fig.). The LLM may have been trained long before the election and therefore cannot answer correctly. The user question is first sent to an IR knowledge base (which could, e.g., be the Google search index - Step 2). It may contain Wikipedia entries about Germany, news articles, federal websites etc. The retrieval result is a set of documents or document chunks that match the question. In a third step, the user question together with the retrieved document chunks (maybe together with additional information, e.g., the chat history) are sent as a prompt to the LLM. The LLM then generates an answer in natural language which includes the retrieved information. 
 
-When implementing RAG in a setting with closed information source, e.g., a chatbot for intranet company data, often a *vector store* is used as technology for the retrieval component. See Fig. 6.x for an overview. 
+When implementing RAG in a setting with closed information source, e.g., a chatbot for intranet company data, often a *vector store* is used as technology for the retrieval component. See Fig. 6.21 for an overview. 
 
 
-![Fig. 6.x: RAG with vector store](images/Vector_store.png)
+![Fig. 6.21: RAG with vector store](images/Vector_store.png)
 
 In an offline batch process, the data sources (e.g., PDF files, websites etc.) need to be indexed. In a first step, large documents are split into smaller chunks, e.g, with 1,000 tokens each. In a second step, all chunks of all documents are converted into a vector representation, using a word embedding. The document chunks together with metadata are stored in the vector store, indexed by their vector representations.
 This offline indexing batch needs to be performed on a regular basis, e.g., daily.
 
-In the online RAG-based chatbot application, the same embedding model is used to generate a vector representation of a new user question. The vector store allows a similarity search, returning the k most similar document chunks compared to the user query. The retrieved chunks can now be used for RAG, as explained in Fig 6.Y
+In the online RAG-based chatbot application, the same embedding model is used to generate a vector representation of a new user question. The vector store allows a similarity search, returning the k most similar document chunks compared to the user query. The retrieved chunks can now be used for RAG, as explained in Fig 6.20.
 
 
 
@@ -382,10 +382,10 @@ In the online RAG-based chatbot application, the same embedding model is used to
 
 ### NLP Services Map
 
-Fig. 6.9 shows the NLP services map.
+Fig. 6.22 shows the NLP services map.
 
 {width=75%}
-![Fig. 6.9: NLP services map](images/NLP_Services_Map.png)
+![Fig. 6.22: NLP services map](images/NLP_Services_Map.png)
 
 When developing an AI application with NLP facilities, you very rarely build basic NLP features from scratch. *NLP libraries* with powerful and well-established implementations for BoW model, tf-idf, n-gram, tokenization, sentence splitting, PoS tagging, parsing etc. exist and can  be integrated into your application. Additionally, *language resources* like dictionaries may be used. 
 
@@ -396,10 +396,10 @@ Including an NLP web service is, of course, the easiest and least effort solutio
 
 ### NLP Product Map
 
-Fig. 6.10 shows the NLP product map.
+Fig. 6.23 shows the NLP product map.
 
 {width=75%}
-![Fig. 6.10: NLP product map](images/NLP_Product_Map.png)
+![Fig. 6.23: NLP product map](images/NLP_Product_Map.png)
 
 spacCy and NLTK are the predominant NLP libraries, both in Phython. They do not only offer NLP features like sentence splitting, tokenizing, parsing etc., but the also provide easy-to-use pipelines for stacking NLP features. 
 General-purpose ML libraries like 
@@ -429,10 +429,10 @@ More NLP products and details can be found in the appendix.
 
 There are numerous NLP services for completely different NLP tasks. As an example, I pick *Named Entity Recognition (NER)*. NER is a subtask of information extraction, locating and classifying elements in a text as persons, organizations, locations, etc.
 
-[Dandelion API](https://dandelion.eu) is a web service for semantic texts analytics, including NER. See a screenshot of an example in Fig. 6.15. 
+[Dandelion API](https://dandelion.eu) is a web service for semantic texts analytics, including NER. See a screenshot of an example in Fig. 6.24. 
 
 {width=65%}
-![Fig. 6.15: NER example](images/NER.png)
+![Fig. 6.24: NER example](images/NER.png)
 
 In this example, the following text is analyzed:
 
@@ -528,10 +528,10 @@ print(response.text)
 
 ### NLP Pipelining Framework: LlamaIndex
 
-*LlamaIndex* (formerly GPT Index) is a  framework designed to connect LLMs with  custom data. Like many NLP framewoks it is based on the pipeline architectural pattern: individual NLP tasks can be configured in a pipeline and are executed sequentially. LlamaIndex is most suitable for building RAG applications. See Fig. 6.X for an overview from llamaindex.ai.
+*LlamaIndex* (formerly GPT Index) is a  framework designed to connect LLMs with  custom data. Like many NLP framewoks it is based on the pipeline architectural pattern: individual NLP tasks can be configured in a pipeline and are executed sequentially. LlamaIndex is most suitable for building RAG applications. See Fig. 6.25 for an overview from llamaindex.ai.
 
 
-![Fig. 6.X: LlamaIndex overview (from llamaindex.ai)](images/LlamaIndex.png)
+![Fig. 6.25: LlamaIndex overview (from llamaindex.ai)](images/LlamaIndex.png)
 
 
 LlamaIndex provides connectors for various document types like PDF, HTML etc. Documents can be pre-processed using NLP tools including parsing, extracting information and indexing in a vector store. Then, all kinds of LLM-based text generation can be performed, including workflow agents. Finally, results can be published over various channels, e.g. chat responses, files, but also APIs. 
@@ -572,9 +572,9 @@ Word embeddings and LLMs are all ML-based NLP resources. They work extremely wel
 Traditionally, knowledge-based resources have long been used in NLP and they can still be useful today. Human-curated NLP knowledge graphs are especially useful in domains requiring precision, interpretability, or controlled vocabulary. The most prominent example for a knowledge-based NLP resource is WordNet.
 [WordNet](https://wordnet.princeton.edu) is a state-of-the-art lexical database for the English language. It lists over 150,000 English words: nouns, verbs, adjectives and adverbs. For each word, different meanings ("senses") are distinguished. For example, 7 different noun senses and one verb sense of the word "dog" are listed, including the animal as well as minced meat (as in "hot dog"). 
 
-Fig. 6.11 shows a screenshot of the [WordNet online search](http://wordnetweb.princeton.edu/perl/webwn?s=dog).
+Fig. 6.26 shows a screenshot of the [WordNet online search](http://wordnetweb.princeton.edu/perl/webwn?s=dog).
 
-![Fig. 6.11: WordNet example: Senses of the word "dog"](images/WordNet_Senses.png)
+![Fig. 6.26: WordNet example: Senses of the word "dog"](images/WordNet_Senses.png)
 
 For each word sense,  a description and different relationships are specified.
 
@@ -582,9 +582,9 @@ For each word sense,  a description and different relationships are specified.
 - Hypernyms (broader terms), e.g., "mammal" and "animal"
 - Hyponyms (narrower terms), e.g., "Puppy", "Hunting dog", "Poodle", etc.
 
-See Fig. 6.12.
+See Fig. 6.27.
 
-![Fig. 6.12: WordNet example: Relations of the word "dog"](images/WordNet_Relations.png)
+![Fig. 6.27: WordNet example: Relations of the word "dog"](images/WordNet_Relations.png)
 
 WordNet is open source under a BSD license. 
 It can be used in AI applications in various forms. 
