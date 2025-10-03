@@ -350,7 +350,7 @@ The label of the painting is "Mona Lisa", the artist is Leonardo da Vinci (Q762)
 
 ![Fig. 3.12: Protégé](images/Protege-Art_Ontology.png)
 
-## Querying knowledge graphs
+## Querying Knowledge Graphs
 
 [SPARQL](http://www.w3.org/TR/sparql11-query/) is the query language for RDF and is also standardized by the W3C. 
 
@@ -405,7 +405,7 @@ Executed on the Art knowledge graph, this query will result in 690 artists, incl
 
 When you are interested in multi-value query results, then multiple result variables may be specified in the `SELECT` clause of a SPARQL query. 
 
-The following query, e.g., lists artist with their corresponding place of birth.
+The following sample query lists artist with their corresponding place of birth.
 
     SELECT  ?l ?b
     WHERE { 
@@ -421,6 +421,17 @@ The query result is a set of pairs `?l`, `?b`. See Fig. 3.15.
 
 If all used variables shall be returned then `SELECT *` 
 may be used as in SQL. 
+
+
+### Joining
+
+Joining different entities in SPARQL is simple. 
+See Fig. 3.16. for the sample query of displaying artists and their artistic movements.
+
+{width=75%}
+![Fig. 3.16: Multi-variable query](images/SPARQL_join.png)
+
+In this query, the query variable `?m` is used to refer to the movement of a person. Using the identical query variable `?m` in another triple enforces the query engine to use exactly the same value, thus joining both entities. The query results contains the labels of the person and the label of the movement. 
 
 ### Distinct Query Results
 
@@ -547,21 +558,21 @@ Those rules can easily been expressed using  SPARQL INSERT statements.
 
 SPARQL INSERT statements allow providing RDF triples after the `INSERT` keyword, containing SPARQL variables that are matched according to the conditions specified in the `WHERE` part. The `WHERE` part can contain everything that can be specified in SPARQL queries. In the example above, it is assumed that the Art knowledge graph contains type information, e.g., `:painting` ( `wd:Q3305213`) , `:drawing` ( `wd:Q93184`)  or `:sculpture` (`wd:Q860861`)  for artworks, as well as `:artist` information for each artwork.  The `WHERE` conditions are straight forward.
 
-When experimenting with SPARQL INSERT statements in the Fuseki web app,  make sure that the SPARQL endpoint is set to `update`. See Fig. 3.16.
+When experimenting with SPARQL INSERT statements in the Fuseki web app,  make sure that the SPARQL endpoint is set to `update`. See Fig. 3.17.
 
-![Fig. 3.16: SPARQL INSERT statement](images/SPARQL_UPDATE.png)
+![Fig. 3.17: SPARQL INSERT statement](images/SPARQL_UPDATE.png)
 
 After  execution of the update operation, a success message is returned.
 
-After executing the 3 `INSERT` statements specified above, the query for artists who are both, painters and sculptors can be easily and intuitively be specified and executed as shown in Fig. 3.17. 
+After executing the 3 `INSERT` statements specified above, the query for artists who are both, painters and sculptors can be easily and intuitively be specified and executed as shown in Fig. 3.18. 
 
-![Fig. 3.17: Querying inferred facts: painters and sculptors](images/SPARQL_Query_painter_sculptor.png)
+![Fig. 3.18: Querying inferred facts: painters and sculptors](images/SPARQL_Query_painter_sculptor.png)
 
 In this SPARQL query, both RDF abbreviation notations are used: using a semicolon for chaining several predicates for the same subject and using a comma for chaining several objects for the same predicate. 
 
-When you wish to inspect the RDF triples generated, you may use a SPARQL `CONSTRUCT` query instead of an `INSERT` statement. See Fig. 3.18.
+When you wish to inspect the RDF triples generated, you may use a SPARQL `CONSTRUCT` query instead of an `INSERT` statement. See Fig. 3.19.
 
-![Fig. 3.18: Querying inferred facts: painters and sculptors](images/SPARQL_CONSTRUCT.png)
+![Fig. 3.19: Querying inferred facts: painters and sculptors](images/SPARQL_CONSTRUCT.png)
 
 Please note that the SPARQL endpoint is set to query, as for other SPARQL queries.
 
@@ -569,9 +580,9 @@ Please note that the SPARQL endpoint is set to query, as for other SPARQL querie
 
 ### Knowledge Representation Services Map
 
-Fig. 3.19 shows the services map for knowledge representation.
+Fig. 3.20 shows the services map for knowledge representation.
 
-![Fig. 3.19: Knowledge representation services map](images/Knowledge_Representation_SM.png)
+![Fig. 3.20: Knowledge representation services map](images/Knowledge_Representation_SM.png)
 
 - A *knowledge base* allows the storage and retrieval of knowledge graphs, i.e. knowledge structures of all kinds. It is usually the core of an AI application.
 - *Query engine* and *reasoning engine (a.k.a. reasoner)* usually come with a knowledge base product. But since they can often be plugged in and replaced, I have added them as separate services.
@@ -583,9 +594,9 @@ Fig. 3.19 shows the services map for knowledge representation.
 
 ### Knowledge Representation Product Map
 
-Fig. 3.20 shows the knowledge representation product map.
+Fig. 3.21 shows the knowledge representation product map.
 
-![Fig. 3.20: Knowledge representation product map](images/Knowledge_Representation_PM.png)
+![Fig. 3.21: Knowledge representation product map](images/Knowledge_Representation_PM.png)
 
 Virtuoso, GraphDB, rdf4J, Apache Jena are bundles that include knowledge base, reasoning / query engines and  Java APIs. Pellet, FaCT++, and HermiT are reasoning engines that may be plugged into other products. Protégé and Topbraid Composer are knowledge editors; Topbraid Suite, PoolParty and Semafora are integrated environments that include knowledge editors and runtime-components. Examples for knowledge resources are WikiData, DBpedia, YAGO, CYC and GND.  
 
