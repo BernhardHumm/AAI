@@ -226,26 +226,26 @@ The following tables list products for different AI areas in addition to the one
 {title="Information retrieval product table", width="wide"}
 |	Product	|	Retrieval engine	|	Crawler	|	Retrieval server	|	Retrieval web service	|
 |---------------|:---------------:|:---------------:|:---------------:|:---------------:|
-|	[Annoy](https://https://github.com/spotify/annoy)	|	*	|		|		|		|
-|	[Apache Lucene](https://https://lucene.apache.org/)	|	*	|		|		|		|
-|	[Apache Lucene.net](https://https://lucenenet.apache.org/)	|	*	|		|		|		|
-|	[Apache Nutch](https://https://nutch.apache.org/)	|		|	*	|		|		|
-|	[Apache PyLucene](https://https://lucene.apache.org/pylucene/)	|	*	|		|		|		|
-|	[Apache Solr](https://https://solr.apache.org/)	|	*	|		|	*	|		|
-|	[Bing](https://https://www.bing.com/)	|		|		|		|	*	|
-|	[Elastic Search](https://https://www.elastic.co/elasticsearch)	|	*	|		|	*	|		|
-|	[FAISS (Facebook AI)](https://https://faiss.ai/)	|	*	|		|		|		|
-|	[Google Search](https://https://search.google.com/)	|		|		|		|	*	|
-|	[MeiliSearch](https://https://www.meilisearch.com/)	|	*	|		|		|		|
-|	[Milvus](https://https://milvus.io/)	|	*	|		|		|		|
-|	[Pinecone](https://https://www.pinecone.io/)	|	*	|		|		|		|
-|	[Qdrant](https://https://qdrant.tech/)	|	*	|		|		|		|
-|	[Sphinx Search](https://https://sphinxsearch.com/)	|	*	|		|		|		|
-|	[Vespa](https://https://vespa.ai/)	|	*	|		|		|		|
-|	[Weaviate](https://https://weaviate.io/)	|	*	|		|		|		|
-|	[Whoosh](https://https://whoosh.readthedocs.io/)	|	*	|		|		|		|
-|	[Yahoo Search](https://https://search.yahoo.com/)	|		|		|		|	*	|
-|	[Yandex Search](https://https://yandex.com/)	|		|		|		|	*	|
+|	[Annoy](https://github.com/spotify/annoy)	|	*	|		|		|		|
+|	[Apache Lucene](https://lucene.apache.org/)	|	*	|		|		|		|
+|	[Apache Lucene.net](https://lucenenet.apache.org/)	|	*	|		|		|		|
+|	[Apache Nutch](https://nutch.apache.org/)	|		|	*	|		|		|
+|	[Apache PyLucene](https://lucene.apache.org/pylucene/)	|	*	|		|		|		|
+|	[Apache Solr](https://solr.apache.org/)	|	*	|		|	*	|		|
+|	[Bing](https://www.bing.com/)	|		|		|		|	*	|
+|	[Elastic Search](https://www.elastic.co/elasticsearch)	|	*	|		|	*	|		|
+|	[FAISS (Facebook AI)](https://faiss.ai/)	|	*	|		|		|		|
+|	[Google Search](https://search.google.com/)	|		|		|		|	*	|
+|	[MeiliSearch](https://www.meilisearch.com/)	|	*	|		|		|		|
+|	[Milvus](https://milvus.io/)	|	*	|		|		|		|
+|	[Pinecone](https://www.pinecone.io/)	|	*	|		|		|		|
+|	[Qdrant](https://qdrant.tech/)	|	*	|		|		|		|
+|	[Sphinx Search](https://sphinxsearch.com/)	|	*	|		|		|		|
+|	[Vespa](https://vespa.ai/)	|	*	|		|		|		|
+|	[Weaviate](https://weaviate.io/)	|	*	|		|		|		|
+|	[Whoosh](https://whoosh.readthedocs.io/)	|	*	|		|		|		|
+|	[Yahoo Search](https://search.yahoo.com/)	|		|		|		|	*	|
+|	[Yandex Search](https://yandex.com/)	|		|		|		|	*	|
 
 
 
