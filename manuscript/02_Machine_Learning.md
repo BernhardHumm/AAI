@@ -799,7 +799,7 @@ X> Answer the following questions.
 6. Explain the following ML approaches: decision tree learning, Artificial Neural Networks, Bayes networks. Name other approaches.
 7. Explain various ANN architectures.
 8. Explain the process for supervised ML. How to use training data and test data?
-9. Explain the measures accuracy, precision, recall, F1 score, MAE, RSME and MSE
+9. Explain the measures accuracy, precision, recall, F1 score, MAE, RSME and MSE. For which ML
 10. Explain k-fold cross-validation
 11. What is bias and variance?
 12. Explain overfitting and underfitting
